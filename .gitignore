@@ -10,7 +10,9 @@ __pycache__/
 
 # Local runtime artifacts
 scrape.log
+scrape-*.log
 *.tmp
+decks.json
 
 # Claude Code workspace state (preview server config, plans, worktrees)
 .claude/

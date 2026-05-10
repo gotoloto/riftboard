@@ -437,6 +437,8 @@ def main(archetype_url: str) -> None:
     print(f"[1/4] collected {len(deck_links)} unique deck URLs")
 
     print(f"[2/4] scraping {len(deck_links)} decks")
+    interim_slug = slug_from_url(archetype_url) or slugify(archetype)
+    interim_path = f"decks-{interim_slug}.json"
     decks: list[dict] = []
     for i, durl in enumerate(deck_links, 1):
         try:
@@ -456,7 +458,7 @@ def main(archetype_url: str) -> None:
         if i % 10 == 0:
             print(f"      {i}/{len(deck_links)} ({len(decks)} parsed)")
             save_json(
-                "decks.json",
+                interim_path,
                 {
                     "archetype": archetype,
                     "url": archetype_url,
