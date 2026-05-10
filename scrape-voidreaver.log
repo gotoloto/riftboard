@@ -1,0 +1,41 @@
+/Users/travisschmauss/Desktop/vibe coding/riftbound/scrape.py:463: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "scraped_at": datetime.utcnow().isoformat() + "Z",
+/Users/travisschmauss/Desktop/vibe coding/riftbound/scrape.py:503: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "scraped_at": datetime.utcnow().isoformat() + "Z",
+[1/4] listing pages — fetching https://riftdecks.com/riftbound-decks?omni=Voidreaver
+      archetype='Voidreaver' total=156 pages=8
+      page 2/8
+      page 3/8
+      page 4/8
+      page 5/8
+      page 6/8
+      page 7/8
+      page 8/8
+[1/4] collected 139 unique deck URLs
+[2/4] scraping 139 decks
+      10/139 (10 parsed)
+      20/139 (20 parsed)
+      30/139 (30 parsed)
+      40/139 (40 parsed)
+      50/139 (50 parsed)
+      60/139 (60 parsed)
+      70/139 (70 parsed)
+      80/139 (80 parsed)
+      90/139 (90 parsed)
+      100/139 (100 parsed)
+      110/139 (110 parsed)
+      120/139 (120 parsed)
+      130/139 (130 parsed)
+[2/4] parsed 139 decks
+[3/4] fetching unique-card metadata (type/domains/cost)
+      card 25/156
+      card 50/156
+      card 75/156
+      card 100/156
+      card 125/156
+      card 150/156
+[3/4] enriched 156 cards
+[4/4] aggregating cards-voidreaver.json + data-voidreaver.js
+      146 unique cards over 139 decks
+      slug: voidreaver
+done.

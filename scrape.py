@@ -15,7 +15,7 @@ import re
 import sys
 import time
 from datetime import datetime
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs
 
 from bs4 import BeautifulSoup
 from curl_cffi import requests
@@ -120,12 +120,18 @@ def parse_listing(html: str):
             max_page = max(max_page, int(m.group(1)))
     archetype, total = "", None
     if soup.title and soup.title.string:
+        title = soup.title.string.strip()
         m = re.match(
-            r"Riftbound (?:\w+ )?(.+?) decks - (\d+) available", soup.title.string
+            r"Riftbound (?:\w+ )?(.+?) decks - (\d+) available", title
         )
         if m:
             archetype = m.group(1).strip()
             total = int(m.group(2))
+        else:
+            # Generic search-result title like "Riftbound Top Decks (156 published)"
+            m = re.search(r"\((\d+)\s+published\)", title)
+            if m:
+                total = int(m.group(1))
     return deck_links, max_page, archetype, total, deck_meta
 
 
@@ -281,7 +287,18 @@ def slug_from_url(url: str) -> str:
     m = re.search(r"/legends/[^/]+/([^/?#]+)", url)
     if m:
         return m.group(1)
+    qs = parse_qs(urlparse(url).query)
+    if "omni" in qs and qs["omni"]:
+        return slugify(qs["omni"][0])
     return ""
+
+
+def archetype_from_url(url: str) -> str | None:
+    """Fallback archetype name when the page title doesn't include one."""
+    qs = parse_qs(urlparse(url).query)
+    if "omni" in qs and qs["omni"]:
+        return qs["omni"][0]
+    return None
 
 
 def slugify(s: str) -> str:
@@ -397,6 +414,8 @@ def main(archetype_url: str) -> None:
     print(f"[1/4] listing pages — fetching {archetype_url}")
     html = fetch(archetype_url)
     deck_links, max_page, archetype, total, deck_meta = parse_listing(html)
+    if not archetype:
+        archetype = archetype_from_url(archetype_url) or "Unnamed"
     print(f"      archetype={archetype!r} total={total} pages={max_page}")
 
     sep = "&" if "?" in archetype_url else "?"
