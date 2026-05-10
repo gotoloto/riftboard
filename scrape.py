@@ -294,10 +294,14 @@ def slug_from_url(url: str) -> str:
 
 
 def archetype_from_url(url: str) -> str | None:
-    """Fallback archetype name when the page title doesn't include one."""
+    """Fallback archetype name when the page title doesn't include one.
+
+    Title-cases the omni value so a URL like `?omni=azir%2C+emperor` becomes
+    `Azir, Emperor` in the dropdown."""
     qs = parse_qs(urlparse(url).query)
     if "omni" in qs and qs["omni"]:
-        return qs["omni"][0]
+        raw = qs["omni"][0]
+        return ", ".join(p.strip().title() for p in raw.split(","))
     return None
 
 
