@@ -7,6 +7,13 @@ window.__CHAMPIONS__ = [
     "deck_count": 1292
   },
   {
+    "slug": "green-father",
+    "name": "Green Father",
+    "url": "https://riftdecks.com/riftbound-decks?omni=green+father",
+    "scraped_at": "2026-05-10T07:27:01.573518Z",
+    "deck_count": 61
+  },
+  {
     "slug": "lillia-bashful-bloom",
     "name": "Lillia, Bashful Bloom",
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
