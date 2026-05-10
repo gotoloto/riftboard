@@ -354,6 +354,20 @@ def rebuild_champions_index(directory: str = ".") -> list[dict]:
     return entries
 
 
+def apply_legend_archetype_label(raw: dict, aggregated: dict) -> None:
+    """If a clear legend card exists (>=50% of decks), use its name as the
+    archetype label on both the raw and aggregated views, in place. Idempotent
+    — safe to call from main() or from a backfill script."""
+    legends = sorted(
+        (c for c in aggregated["cards"] if (c.get("type") or "").lower() == "legend"),
+        key=lambda c: c["decks_including"],
+        reverse=True,
+    )
+    if legends and legends[0]["decks_including"] >= max(1, len(raw["decks"]) // 2):
+        raw["archetype"] = legends[0]["name"]
+        aggregated["archetype"] = legends[0]["name"]
+
+
 def aggregate(data: dict) -> dict:
     decks = data["decks"]
     n = len(decks)
@@ -525,22 +539,12 @@ def main(archetype_url: str) -> None:
     decks_path = f"decks-{slug}.json"
     data_path = f"data-{slug}.js"
     cards_path = f"cards-{slug}.json"
-    save_json(decks_path, raw)
 
     print(f"[4/4] aggregating {cards_path} + {data_path}")
     aggregated = aggregate(raw)
-    # Prefer the actual legend card's name as the archetype label — that's
-    # what people recognise (e.g. "Khazix, Voidreaver" instead of the omni
-    # search term). Fall back to whatever was already set if there's no clear
-    # legend-card consensus.
-    legends = sorted(
-        (c for c in aggregated["cards"] if (c.get("type") or "").lower() == "legend"),
-        key=lambda c: c["decks_including"],
-        reverse=True,
-    )
-    if legends and legends[0]["decks_including"] >= max(1, len(raw["decks"]) // 2):
-        raw["archetype"] = legends[0]["name"]
-        aggregated["archetype"] = legends[0]["name"]
+    # Prefer the actual legend card's name as the archetype label.
+    apply_legend_archetype_label(raw, aggregated)
+    save_json(decks_path, raw)
     save_json(cards_path, aggregated)
     save_data_js(data_path, build_dashboard_payload(raw))
     rebuild_champions_index()
