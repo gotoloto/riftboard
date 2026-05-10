@@ -234,9 +234,38 @@ td a:hover { text-decoration: underline; }
   list-style: none;
   cursor: pointer;
   padding: 10px 14px;
-  display: flex; align-items: baseline; gap: 12px;
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap;
   border-bottom: 1px solid transparent;
 }
+.median-mode-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.median-mode-toggle .mode-btn {
+  padding: 4px 10px;
+  font-size: 12px;
+  border: none;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  border-right: 1px solid var(--border);
+}
+.median-mode-toggle .mode-btn:last-child { border-right: none; }
+.median-mode-toggle .mode-btn.active {
+  background: var(--accent);
+  color: white;
+}
+#median-meta {
+  padding: 8px 14px 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+#median-meta a { color: var(--accent); text-decoration: none; }
+#median-meta a:hover { text-decoration: underline; }
+#median-meta strong { color: var(--fg); font-weight: 600; }
 .median-deck details[open] summary { border-bottom-color: var(--border); }
 .median-deck summary::-webkit-details-marker { display: none; }
 .median-deck summary::before {

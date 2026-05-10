@@ -62,8 +62,13 @@
     <details id="median-details" open>
       <summary>
         <span class="median-title">Median deck list</span>
+        <div class="median-mode-toggle" role="tablist" aria-label="Median deck mode">
+          <button type="button" class="mode-btn active" data-mode="composite" role="tab" aria-selected="true">Composite</button>
+          <button type="button" class="mode-btn" data-mode="representative" role="tab">Representative deck</button>
+        </div>
         <span id="median-context" class="muted"></span>
       </summary>
+      <div id="median-meta" class="muted"></div>
       <div id="median-content"></div>
     </details>
   </section>

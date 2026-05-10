@@ -33,6 +33,7 @@ const state = {
   includeUnranked: true,
   minDate: null, // "YYYY-MM-DD" or null
   board: "main", // "main" or "side"
+  medianMode: "composite", // "composite" or "representative"
 };
 
 const tbody = document.querySelector("#cards-table tbody");
@@ -51,6 +52,8 @@ const deckCountInfoEl = document.getElementById("deck-count-info");
 const presetsEl = document.querySelector(".perf-filter .presets");
 const medianContentEl = document.getElementById("median-content");
 const medianContextEl = document.getElementById("median-context");
+const medianMetaEl = document.getElementById("median-meta");
+const medianModeToggleEl = document.querySelector(".median-mode-toggle");
 const championSelectEl = document.getElementById("champion-select");
 const minDateEl = document.getElementById("min-date");
 const clearDateEl = document.getElementById("clear-date");
@@ -244,9 +247,10 @@ function pickByMedian(cards, target) {
   return { picks, filled };
 }
 
-function buildMedianDeckSections() {
+const MAINDECK_TARGET = 40;
+
+function buildCompositeSections() {
   if (state.board === "side") {
-    // Median sideboard: use median sideboard size from filtered decks.
     const filteredDecks = state.rawDecks
       .filter(deckPasses)
       .filter((d) => (d.s || []).length > 0);
@@ -265,42 +269,93 @@ function buildMedianDeckSections() {
       },
     ];
   }
-  const filteredMain = state.rawDecks
-    .filter(deckPasses)
-    .filter((d) => (d.c || []).length > 0);
-  const dyn = computeDynamicTargets(filteredMain);
-  const targets = { ...STATIC_TARGETS, ...dyn };
 
   const grouped = Object.fromEntries(SLOT_ORDER.map((k) => [k, []]));
   for (const c of state.cards) grouped[slotFor(c)].push(c);
 
   const sections = [];
-  for (const key of SLOT_ORDER) {
-    const target = targets[key] ?? 0;
-    if (key === "other" && grouped.other.length === 0) continue;
+
+  // Legend, battlefield, rune — fixed targets per game rules.
+  for (const key of ["legend", "battlefield", "rune"]) {
+    const target = STATIC_TARGETS[key];
     const { picks, filled } = pickByMedian(grouped[key], target);
     sections.push({ key, label: SLOT_LABELS[key], target, filled, picks });
+  }
+
+  // Maindeck (units + spells + gear + other): pool, total-fill 40, then
+  // sub-categorise the picks. Guarantees the maindeck sums to 40.
+  const pool = [
+    ...grouped.unit,
+    ...grouped.spell,
+    ...grouped.gear,
+    ...grouped.other,
+  ];
+  const { picks: mdPicks, filled: mdFilled } = pickByMedian(
+    pool,
+    MAINDECK_TARGET
+  );
+  const subGroups = { unit: [], spell: [], gear: [], other: [] };
+  for (const p of mdPicks) subGroups[slotFor(p)].push(p);
+  for (const sub of ["unit", "spell", "gear", "other"]) {
+    if (subGroups[sub].length === 0 && sub === "other") continue;
+    const filled = subGroups[sub].reduce((s, p) => s + p.picked_copies, 0);
+    sections.push({
+      key: sub,
+      label: SLOT_LABELS[sub],
+      target: MAINDECK_TARGET,
+      filled,
+      picks: subGroups[sub],
+      subOfMaindeck: true,
+    });
+  }
+  // Track maindeck under-fill (rare: if pool too thin to hit 40)
+  if (mdFilled < MAINDECK_TARGET) {
+    sections.push({
+      key: "_warning",
+      label: `Maindeck pool exhausted (${mdFilled}/${MAINDECK_TARGET})`,
+      target: 0,
+      filled: 0,
+      picks: [],
+    });
   }
   return sections;
 }
 
-function renderMedianDeck() {
-  const sections = buildMedianDeckSections();
-  const totalTarget = sections.reduce((s, x) => s + x.target, 0);
-  const totalFilled = sections.reduce((s, x) => s + x.filled, 0);
+function renderCompositeDeck() {
+  medianMetaEl.innerHTML = "";
+  const sections = buildCompositeSections();
   const boardLabel = state.board === "side" ? "sideboard" : "mainboard";
-  medianContextEl.textContent = `· ${boardLabel} · ${totalFilled}/${totalTarget} cards (median copies of top-included cards)`;
+  if (state.board === "side") {
+    const sec = sections[0];
+    medianContextEl.textContent = `· ${boardLabel} · ${sec.filled}/${sec.target} cards (median copies of top-included cards)`;
+  } else {
+    const fixed =
+      (sections.find((s) => s.key === "legend")?.filled || 0) +
+      (sections.find((s) => s.key === "battlefield")?.filled || 0) +
+      (sections.find((s) => s.key === "rune")?.filled || 0);
+    const md = sections
+      .filter((s) => s.subOfMaindeck)
+      .reduce((sum, s) => sum + s.filled, 0);
+    medianContextEl.textContent = `· ${boardLabel} · ${
+      fixed + md
+    } cards (1 + 3 + 12 + ${md}/40 maindeck)`;
+  }
 
   medianContentEl.innerHTML = sections
     .map((sec) => {
-      if (sec.target === 0)
+      if (sec.key === "_warning") {
+        return `<div class="median-section"><h3 class="muted">${escapeHtml(
+          sec.label
+        )}</h3></div>`;
+      }
+      if (sec.target === 0 && !sec.subOfMaindeck)
         return `<div class="median-section"><h3>${escapeHtml(
           sec.label
         )} <span class="target">(0)</span></h3><ul><li class="muted">No decks in this slice</li></ul></div>`;
-      const short = sec.filled < sec.target;
-      const targetStr = `<span class="target${
-        short ? " short" : ""
-      }">(${sec.filled}/${sec.target})</span>`;
+      const short = !sec.subOfMaindeck && sec.filled < sec.target;
+      const targetStr = sec.subOfMaindeck
+        ? `<span class="target">(${sec.filled} of 40)</span>`
+        : `<span class="target${short ? " short" : ""}">(${sec.filled}/${sec.target})</span>`;
       const items = sec.picks.length
         ? sec.picks
             .map((p) => {
@@ -320,6 +375,142 @@ function renderMedianDeck() {
       )} ${targetStr}</h3><ul>${items}</ul></div>`;
     })
     .join("");
+}
+
+function findRepresentativeDeck() {
+  const decks = state.rawDecks
+    .filter(deckPasses)
+    .filter((d) => ((state.board === "side" ? d.s : d.c) || []).length > 0);
+  if (!decks.length) return null;
+
+  const medSplit = computeDynamicTargets(decks); // {unit, spell, gear} from mainboards
+
+  let best = null;
+  let bestDist = Infinity;
+  for (const d of decks) {
+    const tally = { unit: 0, spell: 0, gear: 0 };
+    for (const [slug, qty] of d.c || []) {
+      const t = (state.cardsMeta[slug]?.type || "").toLowerCase();
+      if (t in tally) tally[t] += qty;
+    }
+    const dist = Math.hypot(
+      tally.unit - medSplit.unit,
+      tally.spell - medSplit.spell,
+      tally.gear - medSplit.gear
+    );
+    const fp = d.fp == null ? Infinity : d.fp;
+    const bestFp = best == null || best.fp == null ? Infinity : best.fp;
+    if (dist < bestDist || (dist === bestDist && fp < bestFp)) {
+      bestDist = dist;
+      best = d;
+    }
+  }
+  return best;
+}
+
+function deckTitle(deck) {
+  // The scraped title is the page <title>: "<name> by <player> | riftDecks.com".
+  // Strip the site suffix.
+  const t = (deck.t || "").replace(/\s*\|\s*riftDecks\.com$/i, "").trim();
+  return t || "Representative deck";
+}
+
+function renderRepresentativeDeck() {
+  const deck = findRepresentativeDeck();
+  const boardLabel = state.board === "side" ? "sideboard" : "mainboard";
+  if (!deck) {
+    medianMetaEl.innerHTML = "";
+    medianContextEl.textContent = `· ${boardLabel} · no matching decks`;
+    medianContentEl.innerHTML = `<div class="median-section"><p class="muted">No decks match the current filters.</p></div>`;
+    return;
+  }
+
+  const cardList = state.board === "side" ? deck.s || [] : deck.c || [];
+  const total = cardList.reduce((s, [, q]) => s + q, 0);
+
+  // Build sections by slot, using actual quantities from this deck.
+  const sectionsBySlot = {
+    legend: [],
+    battlefield: [],
+    rune: [],
+    unit: [],
+    spell: [],
+    gear: [],
+    other: [],
+  };
+  for (const [slug, qty] of cardList) {
+    const meta = state.cardsMeta[slug] || {};
+    const card = state.cards.find((c) => c.slug === slug) || {};
+    const slot = slotFor({ type: meta.type });
+    sectionsBySlot[slot].push({
+      slug,
+      name: meta.name || slug,
+      url: meta.url,
+      type: meta.type,
+      qty,
+      inclusion_pct: card.inclusion_pct ?? 0,
+    });
+  }
+  // Sort within each slot by qty desc, then name.
+  for (const arr of Object.values(sectionsBySlot)) {
+    arr.sort(
+      (a, b) =>
+        b.qty - a.qty || (a.name || "").localeCompare(b.name || "")
+    );
+  }
+
+  // Header line: deck title, finisher info, date, source link.
+  const finishStr =
+    deck.rk != null && deck.pl != null
+      ? `${deck.rk} of ${deck.pl}${
+          deck.fp != null ? ` (${deck.fp.toFixed(1)}%)` : ""
+        }`
+      : "—";
+  const dateStr = deck.dt || "—";
+  medianMetaEl.innerHTML = `<strong>${escapeHtml(
+    deckTitle(deck)
+  )}</strong> · ${finishStr} · ${dateStr} · <a href="${
+    deck.u
+  }" target="_blank" rel="noopener">view on riftdecks ↗</a>`;
+
+  medianContextEl.textContent = `· ${boardLabel} · ${total} cards (closest real deck to median split)`;
+
+  // Layout: legend / battlefield / rune / units / spells / gear / other / sideboard
+  const order =
+    state.board === "side"
+      ? ["unit", "spell", "gear", "other", "battlefield", "rune", "legend"]
+      : ["legend", "battlefield", "rune", "unit", "spell", "gear", "other"];
+
+  medianContentEl.innerHTML = order
+    .filter((k) => sectionsBySlot[k].length > 0)
+    .map((k) => {
+      const arr = sectionsBySlot[k];
+      const subtotal = arr.reduce((s, c) => s + c.qty, 0);
+      const items = arr
+        .map((c) => {
+          const link = c.url
+            ? `<a href="${c.url}" target="_blank" rel="noopener">${escapeHtml(
+                c.name
+              )}</a>`
+            : escapeHtml(c.name);
+          return `<li><span class="qty">${c.qty}×</span><span class="name">${link}</span><span class="pct">${c.inclusion_pct.toFixed(
+            1
+          )}%</span></li>`;
+        })
+        .join("");
+      return `<div class="median-section"><h3>${escapeHtml(
+        SLOT_LABELS[k]
+      )} <span class="target">(${subtotal})</span></h3><ul>${items}</ul></div>`;
+    })
+    .join("");
+}
+
+function renderMedianDeck() {
+  if (state.medianMode === "representative") {
+    renderRepresentativeDeck();
+  } else {
+    renderCompositeDeck();
+  }
 }
 
 function deckPasses(deck) {
@@ -504,6 +695,24 @@ function attachDateFilterHandlers() {
   });
 }
 
+function attachMedianModeToggle() {
+  for (const btn of medianModeToggleEl.querySelectorAll(".mode-btn")) {
+    btn.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation(); // don't toggle the <details> open state
+      const mode = btn.dataset.mode;
+      if (state.medianMode === mode) return;
+      state.medianMode = mode;
+      for (const b of medianModeToggleEl.querySelectorAll(".mode-btn")) {
+        const active = b.dataset.mode === mode;
+        b.classList.toggle("active", active);
+        b.setAttribute("aria-selected", active ? "true" : "false");
+      }
+      renderMedianDeck();
+    });
+  }
+}
+
 function attachBoardToggle() {
   for (const btn of document.querySelectorAll(".board-btn")) {
     btn.addEventListener("click", () => {
@@ -590,6 +799,7 @@ function loadChampionData() {
     attachPerfFilterHandlers();
     attachDateFilterHandlers();
     attachBoardToggle();
+    attachMedianModeToggle();
     dashboardInitialised = true;
   }
   setMaxFinishPct(100, { skipRender: true });
