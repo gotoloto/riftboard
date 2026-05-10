@@ -1,0 +1,16 @@
+# Python virtualenv + caches
+.venv/
+__pycache__/
+*.pyc
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+
+# Local runtime artifacts
+scrape.log
+*.tmp
+
+# Claude Code workspace state (preview server config, plans, worktrees)
+.claude/

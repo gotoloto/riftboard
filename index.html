@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound archetype card frequency</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1 id="archetype-title">Loading…</h1>
+      <select id="champion-select" aria-label="Switch champion"></select>
+    </div>
+    <p id="meta" class="muted"></p>
+  </header>
+
+  <section class="controls">
+    <div class="board-toggle" role="tablist" aria-label="Mainboard or sideboard">
+      <button type="button" class="board-btn active" data-board="main" role="tab" aria-selected="true">Mainboard</button>
+      <button type="button" class="board-btn" data-board="side" role="tab">Sideboard</button>
+    </div>
+    <input id="search" type="search" placeholder="Filter cards by name…" autocomplete="off" />
+    <label class="toggle">
+      <input id="hide-zero" type="checkbox" />
+      Hide cards in fewer than
+      <input id="min-decks" type="number" min="1" value="1" />
+      decks
+    </label>
+    <span id="row-count" class="muted"></span>
+  </section>
+
+  <section class="perf-filter" aria-label="Filter by tournament finish">
+    <span class="label">Tournament finish:</span>
+    <div class="presets">
+      <button type="button" class="preset" data-pct="100">All</button>
+      <button type="button" class="preset" data-pct="50">Top 50%</button>
+      <button type="button" class="preset" data-pct="25">Top 25%</button>
+      <button type="button" class="preset" data-pct="10">Top 10%</button>
+    </div>
+    <span class="custom">
+      Custom: top
+      <input type="number" id="pct-input" min="1" max="100" value="100" />%
+    </span>
+    <label class="toggle">
+      <input id="include-unranked" type="checkbox" checked />
+      include unranked
+    </label>
+    <span id="deck-count-info" class="muted"></span>
+  </section>
+
+  <section class="type-filters" id="type-filters" aria-label="Filter by type"></section>
+
+  <section class="median-deck">
+    <details id="median-details" open>
+      <summary>
+        <span class="median-title">Median deck list</span>
+        <span id="median-context" class="muted"></span>
+      </summary>
+      <div id="median-content"></div>
+    </details>
+  </section>
+
+  <main>
+    <table id="cards-table">
+      <thead>
+        <tr>
+          <th data-sort="name">Card</th>
+          <th data-sort="type">Type</th>
+          <th data-sort="domains">Domains</th>
+          <th data-sort="cost" class="num">Cost</th>
+          <th data-sort="decks_including" class="num">Decks</th>
+          <th data-sort="inclusion_pct" class="num">Inclusion</th>
+          <th data-sort="avg_copies_when_included" class="num">Avg copies</th>
+          <th data-sort="copies_pct.1" class="num" title="Of decks running this card, % running 1 copy">1×</th>
+          <th data-sort="copies_pct.2" class="num" title="Of decks running this card, % running 2 copies">2×</th>
+          <th data-sort="copies_pct.3+" class="num" title="Of decks running this card, % running 3+ copies">3+×</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p id="empty-state" hidden>No cards match.</p>
+  </main>
+
+  <script src="champions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
