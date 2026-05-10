@@ -74,23 +74,25 @@
   </section>
 
   <main>
-    <table id="cards-table">
-      <thead>
-        <tr>
-          <th data-sort="name">Card</th>
-          <th data-sort="type">Type</th>
-          <th data-sort="domains">Domains</th>
-          <th data-sort="cost" class="num">Cost</th>
-          <th data-sort="decks_including" class="num">Decks</th>
-          <th data-sort="inclusion_pct" class="num">Inclusion</th>
-          <th data-sort="avg_copies_when_included" class="num">Avg copies</th>
-          <th data-sort="copies_pct.1" class="num" title="Of decks running this card, % running 1 copy">1×</th>
-          <th data-sort="copies_pct.2" class="num" title="Of decks running this card, % running 2 copies">2×</th>
-          <th data-sort="copies_pct.3+" class="num" title="Of decks running this card, % running 3+ copies">3+×</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <div class="table-scroll">
+      <table id="cards-table">
+        <thead>
+          <tr>
+            <th data-sort="name">Card</th>
+            <th data-sort="type">Type</th>
+            <th data-sort="domains">Domains</th>
+            <th data-sort="cost" class="num">Cost</th>
+            <th data-sort="decks_including" class="num">Decks</th>
+            <th data-sort="inclusion_pct" class="num">Inclusion</th>
+            <th data-sort="avg_copies_when_included" class="num">Avg copies</th>
+            <th data-sort="copies_pct.1" class="num" title="Of decks running this card, % running 1 copy">1×</th>
+            <th data-sort="copies_pct.2" class="num" title="Of decks running this card, % running 2 copies">2×</th>
+            <th data-sort="copies_pct.3+" class="num" title="Of decks running this card, % running 3+ copies">3+×</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
     <p id="empty-state" hidden>No cards match.</p>
   </main>
 
