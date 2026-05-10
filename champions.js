@@ -17,8 +17,8 @@ window.__CHAMPIONS__ = [
     "slug": "voidreaver",
     "name": "Khazix, Voidreaver",
     "url": "https://riftdecks.com/riftbound-decks?omni=Voidreaver",
-    "scraped_at": "2026-05-10T06:03:28.385056Z",
-    "deck_count": 139
+    "scraped_at": "2026-05-10T17:20:22.681296Z",
+    "deck_count": 152
   },
   {
     "slug": "lillia-bashful-bloom",
