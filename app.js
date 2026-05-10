@@ -255,11 +255,11 @@ const SLOT_LABELS = {
 };
 const SLOT_ORDER = [
   "legend",
-  "battlefield",
-  "rune",
   "unit",
   "spell",
   "gear",
+  "battlefield",
+  "rune",
   "other",
 ];
 
@@ -330,13 +330,6 @@ function buildCompositeSections() {
 
   const sections = [];
 
-  // Legend, battlefield, rune — fixed targets per game rules.
-  for (const key of ["legend", "battlefield", "rune"]) {
-    const target = STATIC_TARGETS[key];
-    const { picks, filled } = pickByMedian(grouped[key], target);
-    sections.push({ key, label: SLOT_LABELS[key], target, filled, picks });
-  }
-
   // Maindeck (units + spells + gear + other): pool, total-fill 40, then
   // sub-categorise the picks. Guarantees the maindeck sums to 40.
   const pool = [
@@ -351,6 +344,14 @@ function buildCompositeSections() {
   );
   const subGroups = { unit: [], spell: [], gear: [], other: [] };
   for (const p of mdPicks) subGroups[slotFor(p)].push(p);
+
+  // Render order: Legend → Units → Spells → Gear → Battlefields → Runes
+  // (matches tournament deck-list convention: maindeck first, fixed slots last).
+  {
+    const target = STATIC_TARGETS.legend;
+    const { picks, filled } = pickByMedian(grouped.legend, target);
+    sections.push({ key: "legend", label: SLOT_LABELS.legend, target, filled, picks });
+  }
   for (const sub of ["unit", "spell", "gear", "other"]) {
     if (subGroups[sub].length === 0 && sub === "other") continue;
     const filled = subGroups[sub].reduce((s, p) => s + p.picked_copies, 0);
@@ -362,6 +363,11 @@ function buildCompositeSections() {
       picks: subGroups[sub],
       subOfMaindeck: true,
     });
+  }
+  for (const key of ["battlefield", "rune"]) {
+    const target = STATIC_TARGETS[key];
+    const { picks, filled } = pickByMedian(grouped[key], target);
+    sections.push({ key, label: SLOT_LABELS[key], target, filled, picks });
   }
   // Track maindeck under-fill (rare: if pool too thin to hit 40)
   if (mdFilled < MAINDECK_TARGET) {
@@ -415,7 +421,7 @@ function renderCompositeDeck() {
         ? sec.picks
             .map((p) => {
               const link = p.url
-                ? `<a href="${p.url}" target="_blank" rel="noopener">${escapeHtml(
+                ? `<a href="${p.url}" data-slug="${escapeHtml(p.slug)}" target="_blank" rel="noopener">${escapeHtml(
                     p.name
                   )}</a>`
                 : escapeHtml(p.name);
@@ -530,11 +536,11 @@ function renderRepresentativeDeck() {
 
   medianContextEl.textContent = `· ${boardLabel} · ${total} cards (closest real deck to median split)`;
 
-  // Layout: legend / battlefield / rune / units / spells / gear / other / sideboard
+  // Layout: matches Composite — Legend → Units → Spells → Gear → Battlefields → Runes
   const order =
     state.board === "side"
       ? ["unit", "spell", "gear", "other", "battlefield", "rune", "legend"]
-      : ["legend", "battlefield", "rune", "unit", "spell", "gear", "other"];
+      : ["legend", "unit", "spell", "gear", "battlefield", "rune", "other"];
 
   medianContentEl.innerHTML = order
     .filter((k) => sectionsBySlot[k].length > 0)
@@ -544,7 +550,7 @@ function renderRepresentativeDeck() {
       const items = arr
         .map((c) => {
           const link = c.url
-            ? `<a href="${c.url}" target="_blank" rel="noopener">${escapeHtml(
+            ? `<a href="${c.url}" data-slug="${escapeHtml(c.slug)}" target="_blank" rel="noopener">${escapeHtml(
                 c.name
               )}</a>`
             : escapeHtml(c.name);
@@ -738,14 +744,19 @@ function positionThumb(ev) {
   cardThumbEl.style.top = y + "px";
 }
 
+function findCardLinkSlug(target) {
+  // Look for an explicit data-slug on the link itself first (median panels),
+  // then fall back to the row's data-slug (cards table).
+  const a = target.closest("a[data-slug], #cards-table tbody td:first-child a");
+  if (!a) return null;
+  return a.dataset.slug || a.closest("tr[data-slug]")?.dataset.slug || null;
+}
+
 function attachHoverThumb() {
   if (!cardThumbEl) return;
-  tbody.addEventListener("mouseover", (ev) => {
-    const a = ev.target.closest("td:first-child a");
-    if (!a) return;
-    const tr = a.closest("tr[data-slug]");
-    const slug = tr?.dataset.slug;
-    const img = state.cardsMeta[slug]?.img;
+  document.body.addEventListener("mouseover", (ev) => {
+    const slug = findCardLinkSlug(ev.target);
+    const img = slug && state.cardsMeta[slug]?.img;
     if (!img) return;
     clearTimeout(thumbTimer);
     thumbTimer = window.setTimeout(() => {
@@ -754,11 +765,11 @@ function attachHoverThumb() {
       positionThumb(ev);
     }, 200);
   });
-  tbody.addEventListener("mousemove", (ev) => {
+  document.body.addEventListener("mousemove", (ev) => {
     if (!cardThumbEl.hidden) positionThumb(ev);
   });
-  tbody.addEventListener("mouseout", (ev) => {
-    if (!ev.target.closest("td:first-child a")) return;
+  document.body.addEventListener("mouseout", (ev) => {
+    if (!findCardLinkSlug(ev.target)) return;
     clearTimeout(thumbTimer);
     cardThumbEl.hidden = true;
   });
