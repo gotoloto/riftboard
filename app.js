@@ -718,6 +718,52 @@ function attachExpandHandler() {
   });
 }
 
+const cardThumbEl = document.getElementById("card-thumb");
+let thumbTimer = 0;
+const THUMB_W = 260;
+
+function positionThumb(ev) {
+  const pad = 16;
+  const ratio = cardThumbEl.naturalWidth
+    ? cardThumbEl.naturalHeight / cardThumbEl.naturalWidth
+    : 1.4; // tall card aspect as a default before the image loads
+  const h = THUMB_W * ratio;
+  let x = ev.clientX + pad;
+  let y = ev.clientY + pad;
+  if (x + THUMB_W > window.innerWidth) x = ev.clientX - THUMB_W - pad;
+  // Clamp to viewport so we never render off-screen on narrow windows.
+  x = Math.max(pad, Math.min(x, window.innerWidth - THUMB_W - pad));
+  y = Math.max(pad, Math.min(y, window.innerHeight - h - pad));
+  cardThumbEl.style.left = x + "px";
+  cardThumbEl.style.top = y + "px";
+}
+
+function attachHoverThumb() {
+  if (!cardThumbEl) return;
+  tbody.addEventListener("mouseover", (ev) => {
+    const a = ev.target.closest("td:first-child a");
+    if (!a) return;
+    const tr = a.closest("tr[data-slug]");
+    const slug = tr?.dataset.slug;
+    const img = state.cardsMeta[slug]?.img;
+    if (!img) return;
+    clearTimeout(thumbTimer);
+    thumbTimer = window.setTimeout(() => {
+      if (cardThumbEl.src !== img) cardThumbEl.src = img;
+      cardThumbEl.hidden = false;
+      positionThumb(ev);
+    }, 200);
+  });
+  tbody.addEventListener("mousemove", (ev) => {
+    if (!cardThumbEl.hidden) positionThumb(ev);
+  });
+  tbody.addEventListener("mouseout", (ev) => {
+    if (!ev.target.closest("td:first-child a")) return;
+    clearTimeout(thumbTimer);
+    cardThumbEl.hidden = true;
+  });
+}
+
 function attachSortHandlers() {
   for (const th of thead.querySelectorAll("th[data-sort]")) {
     if (!th.querySelector(".arrow")) {
@@ -869,6 +915,7 @@ function loadChampionData() {
     attachBoardToggle();
     attachMedianModeToggle();
     attachExpandHandler();
+    attachHoverThumb();
     dashboardInitialised = true;
   }
   // Reset any previously-expanded rows when switching champion.

@@ -203,6 +203,20 @@ th {
 th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
 td.dim { color: var(--muted); }
 
+#card-thumb {
+  position: fixed;
+  z-index: 1000;
+  width: 260px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  background: var(--row);
+}
+@media (hover: none), (pointer: coarse) {
+  #card-thumb { display: none !important; }
+}
+
 td.clickable {
   cursor: pointer;
   user-select: none;

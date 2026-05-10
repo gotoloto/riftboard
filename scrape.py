@@ -196,6 +196,8 @@ def parse_deck(html: str, url: str):
 
 
 def parse_card_detail(html: str):
+    """Returns (fields, image_url). image_url is the first /img/cards/.../_full.png
+    on the page, made absolute. Either may be None / empty."""
     soup = BeautifulSoup(html, "html.parser")
     fields: dict[str, list[str]] = {}
     for div in soup.find_all("div", class_="mb-2"):
@@ -208,7 +210,13 @@ def parse_card_detail(html: str):
         if not val:
             continue
         fields.setdefault(key, []).append(val)
-    return fields
+    image_url = None
+    for img in soup.find_all("img", src=True):
+        src = img["src"]
+        if "/img/cards/" in src and "_full.png" in src:
+            image_url = urljoin(BASE, src.replace("//", "/"))
+            break
+    return fields, image_url
 
 
 def save_json(path: str, data) -> None:
@@ -259,6 +267,7 @@ def build_dashboard_payload(raw: dict) -> dict:
             "domains": m.get("domains", []),
             "cost": m.get("cost"),
             "url": m.get("url"),
+            "img": m.get("image_url"),
         }
     return {
         "archetype": raw["archetype"],
@@ -488,7 +497,7 @@ def main(archetype_url: str) -> None:
     for i, (slug, info) in enumerate(unique.items(), 1):
         try:
             page_html = fetch(info["url"])
-            fields = parse_card_detail(page_html)
+            fields, image_url = parse_card_detail(page_html)
             info["domains"] = fields.get("domains", [])
             cost_vals = fields.get("cost", [])
             info["cost"] = cost_vals[0] if cost_vals else None
@@ -496,6 +505,7 @@ def main(archetype_url: str) -> None:
             if type_vals:
                 info["type"] = type_vals[0]
             info["rarity"] = fields.get("rarity", [None])[0]
+            info["image_url"] = image_url
         except Exception as exc:
             print(f"      ! card {slug} failed: {exc}")
         if i % 25 == 0:
