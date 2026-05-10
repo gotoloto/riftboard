@@ -10,8 +10,8 @@ window.__CHAMPIONS__ = [
     "slug": "green-father",
     "name": "Ivern, Green Father",
     "url": "https://riftdecks.com/riftbound-decks?omni=green+father",
-    "scraped_at": "2026-05-10T07:27:01.573518Z",
-    "deck_count": 61
+    "scraped_at": "2026-05-10T16:53:37.962955Z",
+    "deck_count": 62
   },
   {
     "slug": "voidreaver",
