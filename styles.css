@@ -122,6 +122,28 @@ h1 { margin: 0; font-size: 22px; }
   border: 1px solid var(--border); border-radius: 4px;
   background: var(--bg); color: var(--fg);
 }
+.perf-filter input[type="date"] {
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--fg);
+  color-scheme: light dark;
+}
+.perf-filter .separator { color: var(--muted); }
+.perf-filter .clear-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+.perf-filter .clear-btn:hover { color: var(--fg); }
+.perf-filter .clear-btn[hidden] { display: none; }
 
 .type-filters {
   display: flex; flex-wrap: wrap; gap: 6px;

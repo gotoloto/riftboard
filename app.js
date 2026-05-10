@@ -31,6 +31,7 @@ const state = {
   enabledTypes: null,
   maxFinishPct: 100,
   includeUnranked: true,
+  minDate: null, // "YYYY-MM-DD" or null
   board: "main", // "main" or "side"
 };
 
@@ -51,6 +52,9 @@ const presetsEl = document.querySelector(".perf-filter .presets");
 const medianContentEl = document.getElementById("median-content");
 const medianContextEl = document.getElementById("median-context");
 const championSelectEl = document.getElementById("champion-select");
+const minDateEl = document.getElementById("min-date");
+const clearDateEl = document.getElementById("clear-date");
+const dateRangeHintEl = document.getElementById("date-range-hint");
 const LAST_CHAMPION_KEY = "riftbound:last-champion";
 
 function compareValues(a, b, key, dir) {
@@ -319,6 +323,7 @@ function renderMedianDeck() {
 }
 
 function deckPasses(deck) {
+  if (state.minDate && deck.dt && deck.dt < state.minDate) return false;
   if (deck.fp == null) return state.includeUnranked;
   return deck.fp <= state.maxFinishPct;
 }
@@ -485,6 +490,20 @@ function setMaxFinishPct(value, opts = {}) {
   if (!opts.skipRender) recomputeAndRender();
 }
 
+function attachDateFilterHandlers() {
+  minDateEl.addEventListener("input", () => {
+    state.minDate = minDateEl.value || null;
+    clearDateEl.hidden = !state.minDate;
+    recomputeAndRender();
+  });
+  clearDateEl.addEventListener("click", () => {
+    minDateEl.value = "";
+    state.minDate = null;
+    clearDateEl.hidden = true;
+    recomputeAndRender();
+  });
+}
+
 function attachBoardToggle() {
   for (const btn of document.querySelectorAll(".board-btn")) {
     btn.addEventListener("click", () => {
@@ -537,7 +556,25 @@ function loadChampionData() {
   hideZeroEl.checked = false;
   state.includeUnranked = true;
   includeUnrankedEl.checked = true;
+  state.minDate = null;
+  minDateEl.value = "";
+  clearDateEl.hidden = true;
   state.board = "main";
+
+  // Set the date input bounds and hint based on this champion's data.
+  const dates = state.rawDecks
+    .map((d) => d.dt)
+    .filter(Boolean)
+    .sort();
+  if (dates.length) {
+    minDateEl.min = dates[0];
+    minDateEl.max = dates[dates.length - 1];
+    dateRangeHintEl.textContent = `(${dates[0]} → ${dates[dates.length - 1]})`;
+  } else {
+    minDateEl.min = "";
+    minDateEl.max = "";
+    dateRangeHintEl.textContent = "";
+  }
   for (const b of document.querySelectorAll(".board-btn")) {
     b.classList.toggle("active", b.dataset.board === "main");
     b.setAttribute(
@@ -551,6 +588,7 @@ function loadChampionData() {
   if (!dashboardInitialised) {
     attachSortHandlers();
     attachPerfFilterHandlers();
+    attachDateFilterHandlers();
     attachBoardToggle();
     dashboardInitialised = true;
   }

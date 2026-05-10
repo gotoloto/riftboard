@@ -45,6 +45,7 @@ def fetch(url: str, retries: int = 3) -> str:
 RANK_TOP_RE = re.compile(r"Top\s*(\d+)", re.I)
 RANK_ORDINAL_RE = re.compile(r"^(\d+)(?:st|nd|rd|th)$", re.I)
 PLAYERS_RE = re.compile(r"(\d+)\s*Players", re.I)
+DATE_RE = re.compile(r"\b(\d{4}-\d{2}-\d{2})\b")
 
 
 def _parse_rank(text: str):
@@ -92,10 +93,13 @@ def parse_listing(html: str):
                 # tournaments (likely a bucket label for a cut that didn't
                 # happen). Clamp impossible rank/players ratios at 100%.
                 finish_pct = round(min(rank / players, 1.0) * 100, 1)
+            d_match = DATE_RE.search(row_text)
+            date_str = d_match.group(1) if d_match else None
             deck_meta[full] = {
                 "rank": rank,
                 "players": players,
                 "finish_pct": finish_pct,
+                "date": date_str,
             }
 
     # also find any deck links that weren't in the main tables (fallback)
@@ -105,7 +109,8 @@ def parse_listing(html: str):
             seen.add(full)
             deck_links.append(full)
             deck_meta.setdefault(
-                full, {"rank": None, "players": None, "finish_pct": None}
+                full,
+                {"rank": None, "players": None, "finish_pct": None, "date": None},
             )
 
     max_page = 1
@@ -235,6 +240,7 @@ def build_dashboard_payload(raw: dict) -> dict:
                 "rk": d.get("rank"),
                 "pl": d.get("players"),
                 "fp": d.get("finish_pct"),
+                "dt": d.get("date"),
                 "c": [[slug, qty] for slug, qty in mainboard.items()],
                 "s": [[slug, qty] for slug, qty in sideboard.items()],
             }
@@ -422,6 +428,7 @@ def main(archetype_url: str) -> None:
                 d["rank"] = meta.get("rank")
                 d["players"] = meta.get("players")
                 d["finish_pct"] = meta.get("finish_pct")
+                d["date"] = meta.get("date")
                 decks.append(d)
             else:
                 print(f"      ! no decklist parsed: {durl}")
