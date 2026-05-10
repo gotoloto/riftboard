@@ -519,6 +519,18 @@ def main(archetype_url: str) -> None:
 
     print(f"[4/4] aggregating {cards_path} + {data_path}")
     aggregated = aggregate(raw)
+    # Prefer the actual legend card's name as the archetype label — that's
+    # what people recognise (e.g. "Khazix, Voidreaver" instead of the omni
+    # search term). Fall back to whatever was already set if there's no clear
+    # legend-card consensus.
+    legends = sorted(
+        (c for c in aggregated["cards"] if (c.get("type") or "").lower() == "legend"),
+        key=lambda c: c["decks_including"],
+        reverse=True,
+    )
+    if legends and legends[0]["decks_including"] >= max(1, len(raw["decks"]) // 2):
+        raw["archetype"] = legends[0]["name"]
+        aggregated["archetype"] = legends[0]["name"]
     save_json(cards_path, aggregated)
     save_data_js(data_path, build_dashboard_payload(raw))
     rebuild_champions_index()
