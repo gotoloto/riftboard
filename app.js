@@ -34,6 +34,7 @@ const state = {
   minDate: null, // "YYYY-MM-DD" or null
   board: "main", // "main" or "side"
   medianMode: "composite", // "composite" or "representative"
+  expandedSlugs: new Set(), // card slugs whose deck-list is expanded
 };
 
 const tbody = document.querySelector("#cards-table tbody");
@@ -106,13 +107,16 @@ function renderRow(card) {
   const inclusion = card.inclusion_pct.toFixed(1);
   const cp = card.copies_pct;
   const fmt = (v) => `${(v ?? 0).toFixed(1)}%`;
-  return `
-    <tr>
+  const expanded = state.expandedSlugs.has(card.slug);
+  const chevron = expanded ? "▾" : "▸";
+  const rowClass = expanded ? ' class="expanded"' : "";
+  let html = `
+    <tr${rowClass} data-slug="${escapeHtml(card.slug)}">
       <td>${link}</td>
       <td>${card.type ? `<span class="tag">${card.type}</span>` : ""}</td>
       <td>${domains || ""}</td>
       <td class="num">${cost}</td>
-      <td class="num">${card.decks_including} / ${state.filteredDeckCount}</td>
+      <td class="num clickable" data-action="toggle-decks" title="Click to list decks running this card"><span class="chev">${chevron}</span> ${card.decks_including} / ${state.filteredDeckCount}</td>
       <td class="num">${inclusion}%${pctBar(card.inclusion_pct)}</td>
       <td class="num">${card.avg_copies_when_included.toFixed(2)}</td>
       <td class="num">${fmt(cp["1"])}</td>
@@ -120,6 +124,57 @@ function renderRow(card) {
       <td class="num">${fmt(cp["3+"])}</td>
     </tr>
   `;
+  if (expanded) {
+    html += `<tr class="deck-list-row"><td colspan="10">${renderDeckList(card.slug)}</td></tr>`;
+  }
+  return html;
+}
+
+function renderDeckList(slug) {
+  const boardKey = state.board === "side" ? "s" : "c";
+  const matches = [];
+  for (const d of state.rawDecks) {
+    if (!deckPasses(d)) continue;
+    const cardList = d[boardKey] || [];
+    const entry = cardList.find(([s]) => s === slug);
+    if (!entry) continue;
+    matches.push({ deck: d, qty: entry[1] });
+  }
+  // Best finish first, then date desc as a tie-break.
+  matches.sort((a, b) => {
+    const fa = a.deck.fp == null ? Infinity : a.deck.fp;
+    const fb = b.deck.fp == null ? Infinity : b.deck.fp;
+    if (fa !== fb) return fa - fb;
+    return (b.deck.dt || "").localeCompare(a.deck.dt || "");
+  });
+
+  if (!matches.length) {
+    return `<p class="muted">No matching decks for the current filters.</p>`;
+  }
+
+  const items = matches
+    .map(({ deck, qty }) => {
+      const finish =
+        deck.rk != null && deck.pl != null
+          ? `<span class="rank">${deck.rk}/${deck.pl}${
+              deck.fp != null ? ` (${deck.fp.toFixed(1)}%)` : ""
+            }</span>`
+          : `<span class="rank muted">unranked</span>`;
+      const date = deck.dt || "—";
+      return `<li>
+        <span class="qty">${qty}×</span>
+        ${finish}
+        <a href="${deck.u}" target="_blank" rel="noopener">${escapeHtml(
+        deckTitle(deck)
+      )} ↗</a>
+        <span class="date muted">${date}</span>
+      </li>`;
+    })
+    .join("");
+
+  return `<div class="deck-list-wrap"><p class="deck-list-summary muted">${matches.length} ${
+    state.board === "side" ? "sideboards" : "decks"
+  } running this card · ${state.board === "side" ? "in sideboard" : "in mainboard"}, sorted by best finish</p><ul class="deck-list">${items}</ul></div>`;
 }
 
 function median(sortedAsc) {
@@ -650,6 +705,19 @@ function buildTypeFilters() {
   typeFiltersEl.appendChild(all);
 }
 
+function attachExpandHandler() {
+  tbody.addEventListener("click", (ev) => {
+    const cell = ev.target.closest("[data-action='toggle-decks']");
+    if (!cell) return;
+    const tr = cell.closest("tr");
+    const slug = tr?.dataset.slug;
+    if (!slug) return;
+    if (state.expandedSlugs.has(slug)) state.expandedSlugs.delete(slug);
+    else state.expandedSlugs.add(slug);
+    render();
+  });
+}
+
 function attachSortHandlers() {
   for (const th of thead.querySelectorAll("th[data-sort]")) {
     if (!th.querySelector(".arrow")) {
@@ -800,8 +868,11 @@ function loadChampionData() {
     attachDateFilterHandlers();
     attachBoardToggle();
     attachMedianModeToggle();
+    attachExpandHandler();
     dashboardInitialised = true;
   }
+  // Reset any previously-expanded rows when switching champion.
+  state.expandedSlugs.clear();
   setMaxFinishPct(100, { skipRender: true });
   renderMedianDeck();
   render();

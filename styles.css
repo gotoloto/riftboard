@@ -188,6 +188,64 @@ th {
 }
 th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
 td.dim { color: var(--muted); }
+
+td.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+td.clickable:hover { background: rgba(96, 165, 250, 0.12); }
+td.clickable .chev {
+  display: inline-block;
+  width: 10px;
+  color: var(--muted);
+  margin-right: 2px;
+  font-size: 10px;
+}
+tr.expanded td.clickable .chev { color: var(--accent); }
+tr.expanded { background: rgba(96, 165, 250, 0.05) !important; }
+
+tr.deck-list-row td {
+  background: var(--row-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px 14px;
+}
+.deck-list-summary { margin: 0 0 6px; font-size: 12px; }
+.deck-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 4px 18px;
+}
+.deck-list li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 12px;
+  padding: 2px 0;
+  border-bottom: 1px dotted var(--border);
+  list-style: none;
+}
+.deck-list li::marker { content: ""; }
+.deck-list li:last-child { border-bottom: none; }
+.deck-list .qty {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  min-width: 24px;
+  text-align: right;
+}
+.deck-list .rank {
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--muted);
+  min-width: 80px;
+}
+.deck-list a { color: var(--accent); text-decoration: none; flex: 1; }
+.deck-list a:hover { text-decoration: underline; }
+.deck-list .date {
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
 th .arrow { display: inline-block; margin-left: 4px; opacity: 0.5; font-size: 11px; }
 th.sort-active .arrow { opacity: 1; color: var(--accent); }
 tbody tr:nth-child(odd) { background: var(--row); }
