@@ -1,10 +1,17 @@
 window.__CHAMPIONS__ = [
   {
-    "slug": "azir-emperor",
+    "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
-    "url": "https://riftdecks.com/riftbound-decks?omni=azir%2C+emperor",
-    "scraped_at": "2026-05-10T17:43:07.044105Z",
-    "deck_count": 1292
+    "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
+    "scraped_at": "2026-05-11T15:27:48.004485Z",
+    "deck_count": 237
+  },
+  {
+    "slug": "fiora-grand-duelist",
+    "name": "Fiora, Grand Duelist",
+    "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
+    "scraped_at": "2026-05-11T15:22:46.215300Z",
+    "deck_count": 326
   },
   {
     "slug": "green-father",
