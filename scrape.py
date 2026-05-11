@@ -268,6 +268,7 @@ def build_dashboard_payload(raw: dict) -> dict:
             "cost": m.get("cost"),
             "url": m.get("url"),
             "img": m.get("image_url"),
+            "rarity": m.get("rarity"),
         }
     return {
         "archetype": raw["archetype"],

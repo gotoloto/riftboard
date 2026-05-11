@@ -203,6 +203,20 @@ th {
 th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
 td.dim { color: var(--muted); }
 
+.rarity {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 11px;
+  line-height: 1;
+  vertical-align: 1px;
+  font-variant-emoji: text;
+}
+.rarity-common   { color: #9ca3af; } /* gray */
+.rarity-uncommon { color: #38bdf8; } /* light blue */
+.rarity-rare     { color: #ec4899; } /* pink */
+.rarity-epic     { color: #f97316; } /* orange */
+.rarity-showcase { color: #facc15; } /* yellow */
+
 #card-thumb {
   position: fixed;
   z-index: 1000;

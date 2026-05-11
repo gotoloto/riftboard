@@ -10,6 +10,21 @@ const NUM_COLS = new Set([
   "copies_pct.3+",
 ]);
 
+const RARITY = {
+  common:   { ch: "●", cls: "common" },
+  uncommon: { ch: "▲", cls: "uncommon" },
+  rare:     { ch: "◆", cls: "rare" },
+  epic:     { ch: "⬟", cls: "epic" },
+  showcase: { ch: "⬢", cls: "showcase" },
+};
+
+function rarityHtml(slug) {
+  const r = state.cardsMeta[slug]?.rarity;
+  const g = r && RARITY[String(r).toLowerCase()];
+  if (!g) return "";
+  return ` <span class="rarity rarity-${g.cls}" title="${escapeHtml(r)}" aria-hidden="true">${g.ch}</span>`;
+}
+
 function getField(obj, path) {
   if (!path.includes(".")) return obj[path];
   const [head, ...rest] = path.split(".");
@@ -102,8 +117,8 @@ function renderRow(card) {
   const link = card.url
     ? `<a href="${card.url}" target="_blank" rel="noopener">${escapeHtml(
         card.name
-      )}</a>`
-    : escapeHtml(card.name);
+      )}</a>${rarityHtml(card.slug)}`
+    : `${escapeHtml(card.name)}${rarityHtml(card.slug)}`;
   const cost = card.cost == null || card.cost === "" ? "—" : card.cost;
   const inclusion = card.inclusion_pct.toFixed(1);
   const cp = card.copies_pct;
@@ -426,7 +441,7 @@ function renderCompositeDeck() {
                     p.name
                   )}</a>`
                 : escapeHtml(p.name);
-              return `<li><span class="qty">${p.picked_copies}×</span><span class="name">${link}</span><span class="pct">${p.inclusion_pct.toFixed(
+              return `<li><span class="qty">${p.picked_copies}×</span><span class="name">${link}</span>${rarityHtml(p.slug)}<span class="pct">${p.inclusion_pct.toFixed(
                 1
               )}%</span></li>`;
             })
@@ -555,7 +570,7 @@ function renderRepresentativeDeck() {
                 c.name
               )}</a>`
             : escapeHtml(c.name);
-          return `<li><span class="qty">${c.qty}×</span><span class="name">${link}</span><span class="pct">${c.inclusion_pct.toFixed(
+          return `<li><span class="qty">${c.qty}×</span><span class="name">${link}</span>${rarityHtml(c.slug)}<span class="pct">${c.inclusion_pct.toFixed(
             1
           )}%</span></li>`;
         })
