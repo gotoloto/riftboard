@@ -21,6 +21,13 @@ window.__CHAMPIONS__ = [
     "deck_count": 152
   },
   {
+    "slug": "leblanc-deceiver",
+    "name": "Leblanc, Deceiver",
+    "url": "https://riftdecks.com/legends/constructed/leblanc-deceiver",
+    "scraped_at": "2026-05-11T15:00:03.297909Z",
+    "deck_count": 454
+  },
+  {
     "slug": "lillia-bashful-bloom",
     "name": "Lillia, Bashful Bloom",
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
