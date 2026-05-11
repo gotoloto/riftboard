@@ -55,6 +55,7 @@ const medianContentEl = document.getElementById("median-content");
 const medianContextEl = document.getElementById("median-context");
 const medianMetaEl = document.getElementById("median-meta");
 const medianModeToggleEl = document.querySelector(".median-mode-toggle");
+const copyBtnEl = document.getElementById("copy-decklist");
 const championSelectEl = document.getElementById("champion-select");
 const minDateEl = document.getElementById("min-date");
 const clearDateEl = document.getElementById("clear-date");
@@ -820,6 +821,74 @@ function attachDateFilterHandlers() {
   });
 }
 
+function formatPlaintextDeck() {
+  const lines = [];
+  for (const li of medianContentEl.querySelectorAll(".median-section li")) {
+    const qtyText = li.querySelector(".qty")?.textContent ?? "";
+    const nameText = li.querySelector(".name")?.textContent ?? "";
+    const qty = parseInt(qtyText, 10);
+    if (!Number.isFinite(qty) || qty < 1) continue;
+    const name = nameText.trim().replace(/,\s*/g, " - ");
+    if (!name) continue;
+    lines.push(`${qty} ${name}`);
+  }
+  return lines.join("\n");
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.top = "-1000px";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try {
+    ok = document.execCommand("copy");
+  } catch {
+    ok = false;
+  }
+  ta.remove();
+  return ok;
+}
+
+function flashCopyButton(msg) {
+  if (!copyBtnEl) return;
+  copyBtnEl.textContent = msg;
+  copyBtnEl.classList.add("copied");
+  window.clearTimeout(flashCopyButton._t);
+  flashCopyButton._t = window.setTimeout(() => {
+    copyBtnEl.textContent = "Copy plaintext";
+    copyBtnEl.classList.remove("copied");
+  }, 1500);
+}
+
+async function copyDecklist() {
+  const text = formatPlaintextDeck();
+  if (!text) {
+    flashCopyButton("Nothing to copy");
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(text);
+    flashCopyButton("Copied!");
+  } catch {
+    if (fallbackCopy(text)) flashCopyButton("Copied!");
+    else flashCopyButton("Copy failed");
+  }
+}
+
+function attachCopyButton() {
+  if (!copyBtnEl) return;
+  copyBtnEl.addEventListener("click", (ev) => {
+    // Don't toggle the <details> open state.
+    ev.preventDefault();
+    ev.stopPropagation();
+    copyDecklist();
+  });
+}
+
 function attachMedianModeToggle() {
   for (const btn of medianModeToggleEl.querySelectorAll(".mode-btn")) {
     btn.addEventListener("click", (ev) => {
@@ -925,6 +994,7 @@ function loadChampionData() {
     attachDateFilterHandlers();
     attachBoardToggle();
     attachMedianModeToggle();
+    attachCopyButton();
     attachExpandHandler();
     attachHoverThumb();
     dashboardInitialised = true;

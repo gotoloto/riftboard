@@ -344,6 +344,22 @@ td a:hover { text-decoration: underline; }
   background: var(--accent);
   color: white;
 }
+.copy-btn {
+  padding: 4px 10px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.copy-btn:hover { background: var(--row-alt); }
+.copy-btn.copied {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: white;
+}
 #median-meta {
   padding: 8px 14px 0;
   font-size: 12px;
