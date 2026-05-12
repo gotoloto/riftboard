@@ -14,6 +14,13 @@ window.__CHAMPIONS__ = [
     "deck_count": 326
   },
   {
+    "slug": "irelia-blade-dancer",
+    "name": "Irelia, Blade Dancer",
+    "url": "https://riftdecks.com/legends/constructed/irelia-blade-dancer?metagame_id=3",
+    "scraped_at": "2026-05-12T14:06:39.336617Z",
+    "deck_count": 375
+  },
+  {
     "slug": "green-father",
     "name": "Ivern, Green Father",
     "url": "https://riftdecks.com/riftbound-decks?omni=green+father",
@@ -40,5 +47,19 @@ window.__CHAMPIONS__ = [
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
     "scraped_at": "2026-05-10T17:10:33.960215Z",
     "deck_count": 283
+  },
+  {
+    "slug": "vex-gloomist",
+    "name": "Vex, Gloomist",
+    "url": "https://riftdecks.com/legends/constructed/vex-gloomist?metagame_id=3",
+    "scraped_at": "2026-05-12T14:17:35.050717Z",
+    "deck_count": 267
+  },
+  {
+    "slug": "viktor-herald-of-the-arcane",
+    "name": "Viktor, Herald of the Arcane",
+    "url": "https://riftdecks.com/legends/constructed/viktor-herald-of-the-arcane?metagame_id=3",
+    "scraped_at": "2026-05-12T14:11:43.770107Z",
+    "deck_count": 199
   }
 ];
