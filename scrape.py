@@ -303,6 +303,17 @@ def slug_from_url(url: str) -> str:
     return ""
 
 
+def ensure_metagame_param(url: str) -> str:
+    """Idempotently append metagame_id=3 to a riftdecks URL so the listing
+    stays scoped to the current release period."""
+    parsed = urlparse(url)
+    qs = parse_qs(parsed.query)
+    if qs.get("metagame_id") == ["3"]:
+        return url
+    sep = "&" if parsed.query else "?"
+    return f"{url}{sep}metagame_id=3"
+
+
 def archetype_from_url(url: str) -> str | None:
     """Fallback archetype name when the page title doesn't include one.
 
@@ -554,6 +565,130 @@ def main(archetype_url: str) -> None:
     print("done.")
 
 
+def update_archetype(slug: str) -> dict:
+    """Incremental update for a cached champion. Re-walks the listing pages
+    (to pick up new tournament entries and refresh rank/players/date on
+    existing ones) and fetches only the deck pages whose URL isn't already
+    cached. Card metadata is fetched only for unseen slugs."""
+    decks_path = f"decks-{slug}.json"
+    raw = json.load(open(decks_path, encoding="utf-8"))
+    archetype_url = ensure_metagame_param(raw["url"])
+    raw["url"] = archetype_url
+
+    print(f"  listing {archetype_url}")
+    html = fetch(archetype_url)
+    deck_links, max_page, _, _, deck_meta = parse_listing(html)
+    sep = "&" if "?" in archetype_url else "?"
+    for p in range(2, max_page + 1):
+        try:
+            page_html = fetch(f"{archetype_url}{sep}page={p}")
+        except Exception as exc:
+            print(f"    ! page {p}: {exc}")
+            continue
+        more, _, _, _, more_meta = parse_listing(page_html)
+        for u in more:
+            if u not in deck_meta and u in more_meta:
+                deck_meta[u] = more_meta[u]
+            if u not in deck_links:
+                deck_links.append(u)
+        time.sleep(0.4)
+    print(f"  listed {len(deck_links)} decks across {max_page} pages")
+
+    cached_by_url = {d["url"]: d for d in raw["decks"]}
+    new_urls = [u for u in deck_links if u not in cached_by_url]
+    print(f"  cached={len(cached_by_url)}, new={len(new_urls)}")
+
+    refreshed = 0
+    for u, m in deck_meta.items():
+        d = cached_by_url.get(u)
+        if not d or not m:
+            continue
+        before = (d.get("rank"), d.get("players"), d.get("finish_pct"), d.get("date"))
+        after = (m.get("rank"), m.get("players"), m.get("finish_pct"), m.get("date"))
+        if before != after:
+            d["rank"], d["players"], d["finish_pct"], d["date"] = after
+            refreshed += 1
+
+    new_decks = []
+    for i, durl in enumerate(new_urls, 1):
+        try:
+            page_html = fetch(durl)
+            d = parse_deck(page_html, durl)
+        except Exception as exc:
+            print(f"    ! new deck {i}: {exc}")
+            continue
+        if not d:
+            continue
+        m = deck_meta.get(durl, {})
+        d["rank"] = m.get("rank")
+        d["players"] = m.get("players")
+        d["finish_pct"] = m.get("finish_pct")
+        d["date"] = m.get("date")
+        new_decks.append(d)
+        if i % 10 == 0:
+            print(f"    new deck {i}/{len(new_urls)}")
+        time.sleep(0.3)
+    raw["decks"].extend(new_decks)
+    raw["deck_count"] = len(raw["decks"])
+
+    cards_meta = raw["cards_meta"]
+    new_slugs = []
+    for d in new_decks:
+        for c in d["cards"]:
+            if c["slug"] in cards_meta:
+                continue
+            cards_meta[c["slug"]] = {
+                "name": c["name"],
+                "url": c["url"],
+                "type": c["type"],
+            }
+            new_slugs.append(c["slug"])
+    for slug2 in new_slugs:
+        info = cards_meta[slug2]
+        try:
+            fields, image_url = parse_card_detail(fetch(info["url"]))
+        except Exception as exc:
+            print(f"    ! card {slug2}: {exc}")
+            continue
+        info["domains"] = fields.get("domains", [])
+        cost_vals = fields.get("cost", [])
+        info["cost"] = cost_vals[0] if cost_vals else None
+        type_vals = fields.get("types", [])
+        if type_vals:
+            info["type"] = type_vals[0]
+        info["rarity"] = fields.get("rarity", [None])[0]
+        info["image_url"] = image_url
+        time.sleep(0.25)
+
+    raw["scraped_at"] = datetime.utcnow().isoformat() + "Z"
+    aggregated = aggregate(raw)
+    apply_legend_archetype_label(raw, aggregated)
+    save_json(decks_path, raw)
+    save_json(f"cards-{slug}.json", aggregated)
+    save_data_js(f"data-{slug}.js", build_dashboard_payload(raw))
+    return {
+        "new_decks": len(new_decks),
+        "refreshed_meta": refreshed,
+        "new_cards": len(new_slugs),
+        "total_decks": raw["deck_count"],
+    }
+
+
 if __name__ == "__main__":
-    url = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_URL
-    main(url)
+    args = sys.argv[1:]
+    if args and args[0] == "--update":
+        slugs = args[1:] or [
+            os.path.basename(p)[len("decks-") : -len(".json")]
+            for p in sorted(glob.glob("decks-*.json"))
+        ]
+        for s in slugs:
+            print(f"=== {s} ===")
+            try:
+                stats = update_archetype(s)
+                print(f"  {stats}")
+            except FileNotFoundError:
+                print(f"  ! decks-{s}.json not found; skip")
+        rebuild_champions_index()
+    else:
+        url = args[0] if args else DEFAULT_URL
+        main(url)
