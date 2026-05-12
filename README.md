@@ -8,14 +8,14 @@ they include it.
 ## Files
 
 - `scrape.py` — fetches the archetype's deck list, every deck, and per-card
-  metadata. Writes per-champion files keyed by URL slug.
+  metadata. Writes per-champion files into `legends/<slug>/`.
 - `index.html`, `app.js`, `styles.css` — the dashboard.
 - `champions.js` — index of every cached champion. The dashboard loads this
   first to populate the champion dropdown.
-- `data-<slug>.js` — full per-champion payload the dashboard reads when a
-  champion is selected (`window.__DATA__ = …;`).
-- `decks-<slug>.json` — raw scrape (every deck, every card row).
-- `cards-<slug>.json` — aggregated stats (machine-readable copy).
+- `legends/<slug>/data.js` — full per-champion payload the dashboard reads
+  when a champion is selected (`window.__DATA__ = …;`).
+- `legends/<slug>/decks.json` — raw scrape (every deck, every card row).
+- `legends/<slug>/cards.json` — aggregated stats (machine-readable copy).
 
 ## Setup
 

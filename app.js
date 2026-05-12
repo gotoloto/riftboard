@@ -1028,7 +1028,7 @@ function injectChampionScript(slug) {
     if (old) old.remove();
     const s = document.createElement("script");
     s.id = "champion-data-script";
-    s.src = `data-${slug}.js`;
+    s.src = `legends/${slug}/data.js`;
     s.onload = () => resolve();
     s.onerror = () =>
       reject(new Error(`failed to load data-${slug}.js`));

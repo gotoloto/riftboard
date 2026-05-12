@@ -332,14 +332,15 @@ def slugify(s: str) -> str:
     return s.strip("-") or "champion"
 
 
+def legend_dir(slug: str) -> str:
+    return os.path.join("legends", slug)
+
+
 def rebuild_champions_index(directory: str = ".") -> list[dict]:
-    """Scan data-*.js in `directory` and rewrite champions.js."""
+    """Scan legends/<slug>/data.js and rewrite champions.js."""
     entries = []
-    for fn in sorted(glob.glob(os.path.join(directory, "data-*.js"))):
-        m = re.match(r"data-(.+)\.js$", os.path.basename(fn))
-        if not m:
-            continue
-        slug = m.group(1)
+    for fn in sorted(glob.glob(os.path.join(directory, "legends", "*", "data.js"))):
+        slug = os.path.basename(os.path.dirname(fn))
         try:
             with open(fn, "r", encoding="utf-8") as f:
                 txt = f.read()
@@ -477,7 +478,9 @@ def main(archetype_url: str) -> None:
 
     print(f"[2/4] scraping {len(deck_links)} decks")
     interim_slug = slug_from_url(archetype_url) or slugify(archetype)
-    interim_path = f"decks-{interim_slug}.json"
+    interim_dir = legend_dir(interim_slug)
+    os.makedirs(interim_dir, exist_ok=True)
+    interim_path = os.path.join(interim_dir, "decks.json")
     decks: list[dict] = []
     for i, durl in enumerate(deck_links, 1):
         try:
@@ -548,9 +551,11 @@ def main(archetype_url: str) -> None:
         "cards_meta": unique,
     }
     slug = slug_from_url(archetype_url) or slugify(archetype)
-    decks_path = f"decks-{slug}.json"
-    data_path = f"data-{slug}.js"
-    cards_path = f"cards-{slug}.json"
+    d = legend_dir(slug)
+    os.makedirs(d, exist_ok=True)
+    decks_path = os.path.join(d, "decks.json")
+    data_path = os.path.join(d, "data.js")
+    cards_path = os.path.join(d, "cards.json")
 
     print(f"[4/4] aggregating {cards_path} + {data_path}")
     aggregated = aggregate(raw)
@@ -570,7 +575,8 @@ def update_archetype(slug: str) -> dict:
     (to pick up new tournament entries and refresh rank/players/date on
     existing ones) and fetches only the deck pages whose URL isn't already
     cached. Card metadata is fetched only for unseen slugs."""
-    decks_path = f"decks-{slug}.json"
+    d = legend_dir(slug)
+    decks_path = os.path.join(d, "decks.json")
     raw = json.load(open(decks_path, encoding="utf-8"))
     archetype_url = ensure_metagame_param(raw["url"])
     raw["url"] = archetype_url
@@ -664,8 +670,8 @@ def update_archetype(slug: str) -> dict:
     aggregated = aggregate(raw)
     apply_legend_archetype_label(raw, aggregated)
     save_json(decks_path, raw)
-    save_json(f"cards-{slug}.json", aggregated)
-    save_data_js(f"data-{slug}.js", build_dashboard_payload(raw))
+    save_json(os.path.join(d, "cards.json"), aggregated)
+    save_data_js(os.path.join(d, "data.js"), build_dashboard_payload(raw))
     return {
         "new_decks": len(new_decks),
         "refreshed_meta": refreshed,
@@ -678,8 +684,8 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     if args and args[0] == "--update":
         slugs = args[1:] or [
-            os.path.basename(p)[len("decks-") : -len(".json")]
-            for p in sorted(glob.glob("decks-*.json"))
+            os.path.basename(os.path.dirname(p))
+            for p in sorted(glob.glob("legends/*/decks.json"))
         ]
         for s in slugs:
             print(f"=== {s} ===")
@@ -687,7 +693,7 @@ if __name__ == "__main__":
                 stats = update_archetype(s)
                 print(f"  {stats}")
             except FileNotFoundError:
-                print(f"  ! decks-{s}.json not found; skip")
+                print(f"  ! legends/{s}/decks.json not found; skip")
         rebuild_champions_index()
     else:
         url = args[0] if args else DEFAULT_URL

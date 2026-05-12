@@ -12,7 +12,7 @@ __pycache__/
 scrape.log
 scrape-*.log
 *.tmp
-decks.json
+/decks.json  # only the root-level stray (legends/<slug>/decks.json must NOT be ignored)
 
 # Claude Code workspace state (preview server config, plans, worktrees)
 .claude/
