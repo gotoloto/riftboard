@@ -33,6 +33,12 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+function setFromImg(img) {
+  if (!img) return null;
+  const m = String(img).match(/\/img\/cards\/[^/]+\/+([A-Z][A-Z0-9]+)\//);
+  return m ? m[1] : null;
+}
+
 function rarityHtml(rarity) {
   const g = rarity && RARITY[String(rarity).toLowerCase()];
   if (!g) return "";
@@ -117,6 +123,7 @@ function aggregateLegend(data, percentile) {
       rarity: meta.rarity,
       url: meta.url,
       img: meta.img,
+      set: setFromImg(meta.img),
       decks_including: e.qtys.length,
       inclusion_pct: n ? (e.qtys.length / n) * 100 : 0,
       median_copies: Math.round(med),
@@ -254,7 +261,7 @@ function renderRow(row) {
   const wOverridden = state.wantedOverride[row.slug] != null;
   const oOverridden = (state.ownedOverride[row.slug] || 0) > 0;
   return `
-    <tr data-slug="${escapeHtml(row.slug)}">
+    <tr data-slug="${escapeHtml(row.slug)}" data-set="${escapeHtml(row.set || "?")}">
       <td>${link}${typeTag}</td>
       <td>${domains}</td>
       <td class="used-in">${usedIn}</td>
@@ -320,10 +327,7 @@ function render() {
   renderPicker(filteredCounts);
   emptyEl.hidden = rows.length > 0;
   tbody.innerHTML = rows.map(renderRow).join("");
-
-  const totalNeeded = rows.reduce((s, r) => s + r.needed, 0);
-  const distinctNeeded = rows.filter((r) => r.needed > 0).length;
-  summaryEl.textContent = `${rows.length} cards · ${totalNeeded} copies needed across ${distinctNeeded} cards`;
+  refreshSummary();
 }
 
 async function recompute() {
@@ -364,11 +368,21 @@ function refreshSummary() {
   const rows = [...tbody.querySelectorAll("tr")];
   let totalNeeded = 0;
   let distinct = 0;
+  const setCounts = new Map();
   for (const tr of rows) {
     const need = parseInt(tr.querySelector(".needed")?.textContent || "0", 10);
-    if (need > 0) { totalNeeded += need; distinct += 1; }
+    if (need <= 0) continue;
+    totalNeeded += need;
+    distinct += 1;
+    const s = tr.dataset.set || "?";
+    setCounts.set(s, (setCounts.get(s) || 0) + need);
   }
-  summaryEl.textContent = `${rows.length} cards · ${totalNeeded} copies needed across ${distinct} cards`;
+  const setBreakdown = [...setCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([s, c]) => `${s} ${c}`)
+    .join(" · ");
+  const tail = setBreakdown ? ` · ${setBreakdown}` : "";
+  summaryEl.textContent = `${rows.length} cards · ${totalNeeded} copies needed across ${distinct} cards${tail}`;
 }
 
 function attachHandlers() {
