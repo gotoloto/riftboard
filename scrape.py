@@ -817,6 +817,98 @@ def build_staples(top_per_rarity: int = 40) -> dict:
     }
 
 
+CATALOG_PATH = "cards-catalog.json"
+PRINTING_RE = re.compile(
+    r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/[a-z][a-z0-9]+-(\d+)([a-z]*)-(\d+)_full\.png"
+)
+
+
+def fetch_card_catalog(slugs=None) -> dict:
+    """Walk /cards for every card slug, fetch each detail page, and record
+    the *canonical* printing (lowest numeric collector # that's in-range and
+    has no alt-art letter suffix). Overnumbered-only cards are dropped."""
+    if slugs is None:
+        html = fetch("https://riftdecks.com/cards")
+        soup = BeautifulSoup(html, "html.parser")
+        slugs = sorted(
+            {
+                a["href"].rsplit("/", 1)[-1]
+                for a in soup.find_all("a", href=re.compile(r"/cards/details-"))
+            }
+        )
+        print(f"  {len(slugs)} slugs on /cards")
+    out: dict = {}
+    skipped = 0
+    for i, slug in enumerate(slugs, 1):
+        url = urljoin(BASE, f"/cards/{slug}")
+        try:
+            page_html = fetch(url)
+        except Exception as exc:
+            print(f"  ! {slug}: {exc}")
+            continue
+        fields, _ = parse_card_detail(page_html)
+        soup = BeautifulSoup(page_html, "html.parser")
+        printings = []
+        for img in soup.find_all("img", src=True):
+            m = PRINTING_RE.match(img["src"])
+            if m:
+                printings.append(
+                    {
+                        "set": m.group(1),
+                        "num": int(m.group(2)),
+                        "suffix": m.group(3),
+                        "setmax": int(m.group(4)),
+                        "src": img["src"],
+                    }
+                )
+        # Canonical: no letter suffix AND num within the set's standard range.
+        canon = sorted(
+            (p for p in printings if not p["suffix"] and p["num"] <= p["setmax"]),
+            key=lambda p: p["num"],
+        )
+        if not canon:
+            skipped += 1
+            continue  # Overnumbered-only / alt-art-only — drop per user spec.
+        c = canon[0]
+        out[slug] = {
+            "slug": slug,
+            "name": (fields.get("name") or [slug])[0],
+            "type": (fields.get("types") or [""])[0].lower(),
+            "domains": fields.get("domains", []),
+            "cost": (fields.get("cost") or [None])[0],
+            "rarity": (fields.get("rarity") or [""])[0].lower(),
+            "set": c["set"],
+            "set_num": c["num"],
+            "set_max": c["setmax"],
+            "image_url": urljoin(BASE, c["src"].replace("//", "/")),
+            "url": url,
+        }
+        if i % 25 == 0:
+            print(f"    {i}/{len(slugs)} (kept {len(out)}, skipped {skipped})")
+        time.sleep(0.2)
+    print(f"  catalog: {len(out)} canonical, {skipped} skipped (no in-range printing)")
+    return out
+
+
+def save_catalog_json(catalog: dict, path: str = CATALOG_PATH) -> None:
+    save_json(
+        path,
+        {
+            "scraped_at": datetime.utcnow().isoformat() + "Z",
+            "card_count": len(catalog),
+            "cards": catalog,
+        },
+    )
+
+
+def load_catalog() -> dict:
+    try:
+        with open(CATALOG_PATH, encoding="utf-8") as f:
+            return json.load(f).get("cards", {}) or {}
+    except FileNotFoundError:
+        return {}
+
+
 def build_collection_template(path: str = "collection-template.xlsx") -> dict:
     """Walk every cached legend's cards_meta, dedupe across legends by slug,
     and emit an Excel template the user can fill in to record what they own.
@@ -828,47 +920,63 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
     except ImportError:
         raise SystemExit("openpyxl is required: pip install openpyxl")
 
-    seen: dict = {}
-    for decks_path in sorted(glob.glob("legends/*/decks.json")):
-        try:
-            raw = json.load(open(decks_path, encoding="utf-8"))
-        except Exception:
-            continue
-        for slug, m in raw.get("cards_meta", {}).items():
-            if slug in seen:
+    catalog = load_catalog()
+    if catalog:
+        rows = sorted(
+            (
+                {
+                    "slug": slug,
+                    "name": m.get("name", slug),
+                    "set": m.get("set", ""),
+                    "set_num_raw": str(m.get("set_num") or ""),
+                    "set_num_int": m.get("set_num") or 10**9,
+                    "domains": ", ".join(m.get("domains") or []),
+                    "rarity": (m.get("rarity") or "").lower(),
+                    "type": (m.get("type") or "").lower(),
+                }
+                for slug, m in catalog.items()
+            ),
+            key=lambda r: (
+                r["set"] or "￿",
+                r["set_num_int"],
+                r["name"].lower(),
+            ),
+        )
+    else:
+        # Fallback: per-legend cards_meta (older, less accurate — has only the
+        # printings we happened to scrape; may include overnumbered-only cards
+        # and a/b suffixes). Run `scrape.py --catalog` to populate the catalog.
+        seen: dict = {}
+        for decks_path in sorted(glob.glob("legends/*/decks.json")):
+            try:
+                raw = json.load(open(decks_path, encoding="utf-8"))
+            except Exception:
                 continue
-            img = m.get("image_url") or ""
-            # `/img/cards/riftbound/UNL/unl-230-219_full.png`
-            # → set "UNL", collector number "230" (or "082a" for variants)
-            m_url = re.search(
-                r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/[a-z][a-z0-9]+-(\d+[a-z]?)-",
-                img,
-            )
-            setcode = m_url.group(1) if m_url else ""
-            num_raw = m_url.group(2) if m_url else ""
-            seen[slug] = {
-                "slug": slug,
-                "name": m.get("name", slug),
-                "set": setcode,
-                "set_num_raw": num_raw,
-                "set_num_int": int(re.match(r"(\d+)", num_raw).group(1))
-                if num_raw
-                else 10**9,  # sort empties last
-                "set_num_suffix": re.sub(r"^\d+", "", num_raw),
-                "domains": ", ".join(m.get("domains", []) or []),
-                "rarity": (m.get("rarity") or "").lower(),
-                "type": (m.get("type") or "").lower(),
-            }
-
-    rows = sorted(
-        seen.values(),
-        key=lambda r: (
-            r["set"] or "￿",
-            r["set_num_int"],
-            r["set_num_suffix"],
-            r["name"].lower(),
-        ),
-    )
+            for slug, m in raw.get("cards_meta", {}).items():
+                if slug in seen:
+                    continue
+                img = m.get("image_url") or ""
+                m_url = PRINTING_RE.match(img.replace("https://riftdecks.com", ""))
+                if not m_url:
+                    m_url = PRINTING_RE.match(img)
+                seen[slug] = {
+                    "slug": slug,
+                    "name": m.get("name", slug),
+                    "set": m_url.group(1) if m_url else "",
+                    "set_num_raw": m_url.group(2) if m_url else "",  # numeric only
+                    "set_num_int": int(m_url.group(2)) if m_url else 10**9,
+                    "domains": ", ".join(m.get("domains", []) or []),
+                    "rarity": (m.get("rarity") or "").lower(),
+                    "type": (m.get("type") or "").lower(),
+                }
+        rows = sorted(
+            seen.values(),
+            key=lambda r: (
+                r["set"] or "￿",
+                r["set_num_int"],
+                r["name"].lower(),
+            ),
+        )
 
     wb = Workbook()
     ws = wb.active
@@ -948,6 +1056,10 @@ if __name__ == "__main__":
         save_staples_js(payload)
         n = sum(len(v) for v in payload["rarities"].values())
         print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
+    elif args and args[0] == "--catalog":
+        catalog = fetch_card_catalog()
+        save_catalog_json(catalog)
+        print(f"{CATALOG_PATH} written: {len(catalog)} cards")
     elif args and args[0] == "--collection":
         info = build_collection_template()
         print(f"{info['path']} written: {info['rows']} unique cards")
