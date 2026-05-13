@@ -757,11 +757,14 @@ def build_staples(top_per_rarity: int = 40) -> dict:
                     "name": c.get("name", slug),
                     "type": t,
                     "rarity": rarity,
+                    "domains": c.get("domains") or [],
                     "url": c.get("url"),
                     "total_decks_including": 0,
                     "_per_legend": {},
                 },
             )
+            if not entry["domains"] and c.get("domains"):
+                entry["domains"] = c["domains"]
             if not entry["rarity"] and rarity:
                 entry["rarity"] = rarity
             entry["total_decks_including"] += c.get("decks_including", 0)

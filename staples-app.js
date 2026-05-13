@@ -30,6 +30,9 @@ function renderRow(card, index) {
   const type = card.type
     ? `<span class="tag" style="text-transform:capitalize">${escapeHtml(card.type)}</span>`
     : "";
+  const domains = (card.domains || [])
+    .map((d) => `<span class="tag" style="text-transform:capitalize">${escapeHtml(d)}</span>`)
+    .join(" ");
   const legends = card.legends_above_50pct || [];
   const chipClass = legends.length === 1 ? "legend-chip solo" : "legend-chip";
   const legendChips = legends.length
@@ -49,6 +52,7 @@ function renderRow(card, index) {
       <td class="rank">${index + 1}</td>
       <td class="name">${nameLink} ${rarityGlyph(card.rarity)}</td>
       <td class="type">${type}</td>
+      <td class="domains">${domains}</td>
       <td class="total">${card.total_decks_including.toLocaleString()}</td>
       <td class="legends">${legendChips}</td>
     </tr>
@@ -67,6 +71,7 @@ function renderSection(rarity, cards) {
               <th>#</th>
               <th>Card</th>
               <th>Type</th>
+              <th>Domains</th>
               <th class="total">Total decks</th>
               <th>Legends where >50% inclusion</th>
             </tr>
