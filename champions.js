@@ -77,11 +77,25 @@ window.__CHAMPIONS__ = [
     "deck_count": 68
   },
   {
+    "slug": "jax-grandmaster-at-arms",
+    "name": "Jax, Grandmaster at Arms",
+    "url": "https://riftdecks.com/legends/constructed/jax-grandmaster-at-arms?metagame_id=3",
+    "scraped_at": "2026-05-13T00:37:48.198033Z",
+    "deck_count": 33
+  },
+  {
     "slug": "jhin-virtuoso",
     "name": "Jhin, Virtuoso",
     "url": "https://riftdecks.com/legends/constructed/jhin-virtuoso?metagame_id=3",
     "scraped_at": "2026-05-12T15:21:53.350666Z",
     "deck_count": 74
+  },
+  {
+    "slug": "jinx-loose-cannon",
+    "name": "Jinx, Loose Cannon",
+    "url": "https://riftdecks.com/legends/constructed/jinx-loose-cannon?metagame_id=3",
+    "scraped_at": "2026-05-13T01:01:34.397147Z",
+    "deck_count": 18
   },
   {
     "slug": "kaisa-daughter-of-the-void",
@@ -105,11 +119,46 @@ window.__CHAMPIONS__ = [
     "deck_count": 537
   },
   {
+    "slug": "lee-sin-blind-monk",
+    "name": "Lee Sin, Blind Monk",
+    "url": "https://riftdecks.com/legends/constructed/lee-sin-blind-monk?metagame_id=3",
+    "scraped_at": "2026-05-13T01:03:10.681398Z",
+    "deck_count": 13
+  },
+  {
+    "slug": "leona-radiant-dawn",
+    "name": "Leona, Radiant Dawn",
+    "url": "https://riftdecks.com/legends/constructed/leona-radiant-dawn?metagame_id=3",
+    "scraped_at": "2026-05-13T01:05:48.406046Z",
+    "deck_count": 59
+  },
+  {
     "slug": "lillia-bashful-bloom",
     "name": "Lillia, Bashful Bloom",
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
     "scraped_at": "2026-05-12T14:36:42.484808Z",
     "deck_count": 303
+  },
+  {
+    "slug": "lucian-purifier",
+    "name": "Lucian, Purifier",
+    "url": "https://riftdecks.com/legends/constructed/lucian-purifier?metagame_id=3",
+    "scraped_at": "2026-05-13T01:08:04.341044Z",
+    "deck_count": 45
+  },
+  {
+    "slug": "lux-lady-of-luminosity",
+    "name": "Lux, Lady of Luminosity",
+    "url": "https://riftdecks.com/legends/constructed/lux-lady-of-luminosity?metagame_id=3",
+    "scraped_at": "2026-05-13T01:10:29.337912Z",
+    "deck_count": 36
+  },
+  {
+    "slug": "master-yi-wuju-bladesman",
+    "name": "Master Yi, Wuju Bladesman",
+    "url": "https://riftdecks.com/legends/constructed/master-yi-wuju-bladesman?metagame_id=3",
+    "scraped_at": "2026-05-13T01:18:09.905423Z",
+    "deck_count": 364
   },
   {
     "slug": "master-yi-wuju-master",
@@ -126,11 +175,39 @@ window.__CHAMPIONS__ = [
     "deck_count": 210
   },
   {
+    "slug": "ornn-fire-below-the-mountain",
+    "name": "Ornn, Fire Below the Mountain",
+    "url": "https://riftdecks.com/legends/constructed/ornn-fire-below-the-mountain?metagame_id=3",
+    "scraped_at": "2026-05-13T01:21:52.994935Z",
+    "deck_count": 123
+  },
+  {
+    "slug": "poppy-keeper-of-the-hammer",
+    "name": "Poppy, Keeper of the Hammer",
+    "url": "https://riftdecks.com/legends/constructed/poppy-keeper-of-the-hammer?metagame_id=3",
+    "scraped_at": "2026-05-13T01:24:16.534571Z",
+    "deck_count": 52
+  },
+  {
     "slug": "pyke-bloodharbor-ripper",
     "name": "Pyke, Bloodharbor Ripper",
     "url": "https://riftdecks.com/legends/constructed/pyke-bloodharbor-ripper?metagame_id=3",
     "scraped_at": "2026-05-12T15:11:25.511739Z",
     "deck_count": 133
+  },
+  {
+    "slug": "reksai-void-burrower",
+    "name": "Reksai, Void Burrower",
+    "url": "https://riftdecks.com/legends/constructed/reksai-void-burrower?metagame_id=3",
+    "scraped_at": "2026-05-13T01:26:49.116881Z",
+    "deck_count": 51
+  },
+  {
+    "slug": "renata-glasc-chem-baroness",
+    "name": "Renata Glasc, Chem-Baroness",
+    "url": "https://riftdecks.com/legends/constructed/renata-glasc-chem-baroness?metagame_id=3",
+    "scraped_at": "2026-05-13T01:28:10.526929Z",
+    "deck_count": 12
   },
   {
     "slug": "rengar-pridestalker",
@@ -140,11 +217,32 @@ window.__CHAMPIONS__ = [
     "deck_count": 156
   },
   {
+    "slug": "rumble-mechanized-menace",
+    "name": "Rumble, Mechanized Menace",
+    "url": "https://riftdecks.com/legends/constructed/rumble-mechanized-menace?metagame_id=3",
+    "scraped_at": "2026-05-13T01:29:37.681548Z",
+    "deck_count": 12
+  },
+  {
     "slug": "sett-the-boss",
     "name": "Sett, The Boss",
     "url": "https://riftdecks.com/legends/constructed/sett-the-boss?metagame_id=3",
     "scraped_at": "2026-05-12T15:18:45.318220Z",
     "deck_count": 146
+  },
+  {
+    "slug": "sivir-battle-mistress",
+    "name": "Sivir, Battle Mistress",
+    "url": "https://riftdecks.com/legends/constructed/sivir-battle-mistress?metagame_id=3",
+    "scraped_at": "2026-05-13T01:33:30.425819Z",
+    "deck_count": 145
+  },
+  {
+    "slug": "teemo-swift-scout",
+    "name": "Teemo, Swift Scout",
+    "url": "https://riftdecks.com/legends/constructed/teemo-swift-scout?metagame_id=3",
+    "scraped_at": "2026-05-13T01:36:03.463995Z",
+    "deck_count": 39
   },
   {
     "slug": "vex-gloomist",
@@ -154,10 +252,31 @@ window.__CHAMPIONS__ = [
     "deck_count": 267
   },
   {
+    "slug": "vi-piltover-enforcer",
+    "name": "Vi, Piltover Enforcer",
+    "url": "https://riftdecks.com/legends/constructed/vi-piltover-enforcer?metagame_id=3",
+    "scraped_at": "2026-05-13T01:38:42.587126Z",
+    "deck_count": 61
+  },
+  {
     "slug": "viktor-herald-of-the-arcane",
     "name": "Viktor, Herald of the Arcane",
     "url": "https://riftdecks.com/legends/constructed/viktor-herald-of-the-arcane?metagame_id=3",
     "scraped_at": "2026-05-12T14:37:55.565898Z",
     "deck_count": 199
+  },
+  {
+    "slug": "volibear-relentless-storm",
+    "name": "Volibear, Relentless Storm",
+    "url": "https://riftdecks.com/legends/constructed/volibear-relentless-storm?metagame_id=3",
+    "scraped_at": "2026-05-13T01:40:23.501715Z",
+    "deck_count": 40
+  },
+  {
+    "slug": "yasuo-unforgiven",
+    "name": "Yasuo, Unforgiven",
+    "url": "https://riftdecks.com/legends/constructed/yasuo-unforgiven?metagame_id=3",
+    "scraped_at": "2026-05-13T01:43:07.407256Z",
+    "deck_count": 28
   }
 ];

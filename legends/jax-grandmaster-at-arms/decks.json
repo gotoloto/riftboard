@@ -1,8 +1,8 @@
 {
   "archetype": "Jax, Grandmaster at Arms",
   "url": "https://riftdecks.com/legends/constructed/jax-grandmaster-at-arms?metagame_id=3",
-  "scraped_at": "2026-05-12T15:40:44.958406Z",
-  "deck_count": 30,
+  "scraped_at": "2026-05-13T00:37:48.198033Z",
+  "deck_count": 33,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-wu-qi-da-shi-142212",
@@ -7423,7 +7423,1750 @@
       "players": 18,
       "finish_pct": 88.9,
       "date": "2026-04-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-wu-qi-da-shi-111007",
+      "title": "武器大师 by 草莓甜心派 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jax, Grandmaster at Arms",
+          "slug": "details-jax-grandmaster-at-arms",
+          "url": "https://riftdecks.com/cards/details-jax-grandmaster-at-arms",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jax, Unmatched",
+          "slug": "details-jax-unmatched",
+          "url": "https://riftdecks.com/cards/details-jax-unmatched",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sea Monkey",
+          "slug": "details-sea-monkey",
+          "url": "https://riftdecks.com/cards/details-sea-monkey",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Warmog's Armor",
+          "slug": "details-warmogs-armor",
+          "url": "https://riftdecks.com/cards/details-warmogs-armor",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Counter Strike",
+          "slug": "details-counter-strike",
+          "url": "https://riftdecks.com/cards/details-counter-strike",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Meditation",
+          "slug": "details-meditation",
+          "url": "https://riftdecks.com/cards/details-meditation",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Trinity Force",
+          "slug": "details-trinity-force",
+          "url": "https://riftdecks.com/cards/details-trinity-force",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 28,
+      "finish_pct": 57.1,
+      "date": "2026-04-04"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-jia-ke-si-111004",
+      "title": "贾克斯 by 场外冠军 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jax, Grandmaster at Arms",
+          "slug": "details-jax-grandmaster-at-arms",
+          "url": "https://riftdecks.com/cards/details-jax-grandmaster-at-arms",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jax, Unmatched",
+          "slug": "details-jax-unmatched",
+          "url": "https://riftdecks.com/cards/details-jax-unmatched",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Dragonsoul Sage",
+          "slug": "details-dragonsoul-sage",
+          "url": "https://riftdecks.com/cards/details-dragonsoul-sage",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kinkou Initiate",
+          "slug": "details-kinkou-initiate",
+          "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nidalee, Cat Form",
+          "slug": "details-nidalee-cat-form",
+          "url": "https://riftdecks.com/cards/details-nidalee-cat-form",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Trophy Hunter",
+          "slug": "details-rengar-trophy-hunter",
+          "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ruin Runner",
+          "slug": "details-ruin-runner",
+          "url": "https://riftdecks.com/cards/details-ruin-runner",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Warmog's Armor",
+          "slug": "details-warmogs-armor",
+          "url": "https://riftdecks.com/cards/details-warmogs-armor",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Counter Strike",
+          "slug": "details-counter-strike",
+          "url": "https://riftdecks.com/cards/details-counter-strike",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Desert's Call",
+          "slug": "details-deserts-call",
+          "url": "https://riftdecks.com/cards/details-deserts-call",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ruin Runner",
+          "slug": "details-ruin-runner",
+          "url": "https://riftdecks.com/cards/details-ruin-runner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 28,
+      "finish_pct": 57.1,
+      "date": "2026-04-04"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-xin-110258",
+      "title": "新 by 枣泥麻 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jax, Grandmaster at Arms",
+          "slug": "details-jax-grandmaster-at-arms",
+          "url": "https://riftdecks.com/cards/details-jax-grandmaster-at-arms",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jax, Unmatched",
+          "slug": "details-jax-unmatched",
+          "url": "https://riftdecks.com/cards/details-jax-unmatched",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stellacorn Herder",
+          "slug": "details-stellacorn-herder",
+          "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Trophy Hunter",
+          "slug": "details-rengar-trophy-hunter",
+          "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boneshiver",
+          "slug": "details-boneshiver",
+          "url": "https://riftdecks.com/cards/details-boneshiver",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Counter Strike",
+          "slug": "details-counter-strike",
+          "url": "https://riftdecks.com/cards/details-counter-strike",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Adaptatron",
+          "slug": "details-adaptatron",
+          "url": "https://riftdecks.com/cards/details-adaptatron",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ruin Runner",
+          "slug": "details-ruin-runner",
+          "url": "https://riftdecks.com/cards/details-ruin-runner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 12,
+      "finish_pct": 66.7,
+      "date": "2026-04-02"
     }
   ],
-  "cards_meta": {}
+  "cards_meta": {
+    "details-jax-grandmaster-at-arms": {
+      "name": "Jax, Grandmaster at Arms",
+      "url": "https://riftdecks.com/cards/details-jax-grandmaster-at-arms",
+      "type": "legend",
+      "domains": [
+        "calm",
+        "body"
+      ],
+      "cost": "-",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-245-221_full.png"
+    },
+    "details-jax-unmatched": {
+      "name": "Jax, Unmatched",
+      "url": "https://riftdecks.com/cards/details-jax-unmatched",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "5C",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-054a-221_full.png"
+    },
+    "details-dragonsoul-sage": {
+      "name": "Dragonsoul Sage",
+      "url": "https://riftdecks.com/cards/details-dragonsoul-sage",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-093-219_full.png"
+    },
+    "details-lonely-poro": {
+      "name": "Lonely Poro",
+      "url": "https://riftdecks.com/cards/details-lonely-poro",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-036-221_full.png"
+    },
+    "details-scuttle-crab": {
+      "name": "Scuttle Crab",
+      "url": "https://riftdecks.com/cards/details-scuttle-crab",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-053-219_full.png"
+    },
+    "details-kinkou-initiate": {
+      "name": "Kinkou Initiate",
+      "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-097-219_full.png"
+    },
+    "details-lucian-merciless": {
+      "name": "Lucian, Merciless",
+      "url": "https://riftdecks.com/cards/details-lucian-merciless",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-113a-221_full.png"
+    },
+    "details-nidalee-cat-form": {
+      "name": "Nidalee, Cat Form",
+      "url": "https://riftdecks.com/cards/details-nidalee-cat-form",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-114-219_full.png"
+    },
+    "details-irelia-fervent": {
+      "name": "Irelia, Fervent",
+      "url": "https://riftdecks.com/cards/details-irelia-fervent",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "5",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-225-221_full.png"
+    },
+    "details-rengar-trophy-hunter": {
+      "name": "Rengar, Trophy Hunter",
+      "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "5C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-120-219_full.png"
+    },
+    "details-ruin-runner": {
+      "name": "Ruin Runner",
+      "url": "https://riftdecks.com/cards/details-ruin-runner",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "6",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-105-221_full.png"
+    },
+    "details-warmogs-armor": {
+      "name": "Warmog's Armor",
+      "url": "https://riftdecks.com/cards/details-warmogs-armor",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "1",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-108-221_full.png"
+    },
+    "details-brutalizer": {
+      "name": "Brutalizer",
+      "url": "https://riftdecks.com/cards/details-brutalizer",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-042-221_full.png"
+    },
+    "details-guardian-angel": {
+      "name": "Guardian Angel",
+      "url": "https://riftdecks.com/cards/details-guardian-angel",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-051-221_full.png"
+    },
+    "details-defy": {
+      "name": "Defy",
+      "url": "https://riftdecks.com/cards/details-defy",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-045-298_full.png"
+    },
+    "details-punch-first": {
+      "name": "Punch First",
+      "url": "https://riftdecks.com/cards/details-punch-first",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "1CC",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-097-221_full.png"
+    },
+    "details-challenge": {
+      "name": "Challenge",
+      "url": "https://riftdecks.com/cards/details-challenge",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-128-298_full.png"
+    },
+    "details-counter-strike": {
+      "name": "Counter Strike",
+      "url": "https://riftdecks.com/cards/details-counter-strike",
+      "type": "spell",
+      "domains": [
+        "calm",
+        "body"
+      ],
+      "cost": "2C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-194-221_full.png"
+    },
+    "details-deserts-call": {
+      "name": "Desert's Call",
+      "url": "https://riftdecks.com/cards/details-deserts-call",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-031-221_full.png"
+    },
+    "details-discipline": {
+      "name": "Discipline",
+      "url": "https://riftdecks.com/cards/details-discipline",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-058-298_full.png"
+    },
+    "details-not-so-fast": {
+      "name": "Not So Fast",
+      "url": "https://riftdecks.com/cards/details-not-so-fast",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-045-221_full.png"
+    },
+    "details-back-off": {
+      "name": "Back Off",
+      "url": "https://riftdecks.com/cards/details-back-off",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-042-219_full.png"
+    },
+    "details-monastery-of-hirana": {
+      "name": "Monastery of Hirana",
+      "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-282-298_full.png"
+    },
+    "details-ornns-forge": {
+      "name": "Ornn's Forge",
+      "url": "https://riftdecks.com/cards/details-ornns-forge",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-213-221_full.png"
+    },
+    "details-sunken-temple": {
+      "name": "Sunken Temple",
+      "url": "https://riftdecks.com/cards/details-sunken-temple",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-218-221_full.png"
+    },
+    "details-body-rune": {
+      "name": "Body Rune",
+      "url": "https://riftdecks.com/cards/details-body-rune",
+      "type": "rune",
+      "domains": [
+        "body"
+      ],
+      "cost": "-",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-126-298_full.png"
+    },
+    "details-calm-rune": {
+      "name": "Calm Rune",
+      "url": "https://riftdecks.com/cards/details-calm-rune",
+      "type": "rune",
+      "domains": [
+        "calm"
+      ],
+      "cost": "-",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-042-298_full.png"
+    },
+    "details-unyielding-spirit": {
+      "name": "Unyielding Spirit",
+      "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "1C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-145-298_full.png"
+    },
+    "details-akshan-mischievous": {
+      "name": "Akshan, Mischievous",
+      "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "4",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-109-221_full.png"
+    },
+    "details-aphelios-exalted": {
+      "name": "Aphelios, Exalted",
+      "url": "https://riftdecks.com/cards/details-aphelios-exalted",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4C",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-224-221_full.png"
+    },
+    "details-tianna-crownguard": {
+      "name": "Tianna Crownguard",
+      "url": "https://riftdecks.com/cards/details-tianna-crownguard",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "7CC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-060-221_full.png"
+    },
+    "details-vilemaw": {
+      "name": "Vilemaw",
+      "url": "https://riftdecks.com/cards/details-vilemaw",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "8CC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-060-219_full.png"
+    },
+    "details-boneshiver": {
+      "name": "Boneshiver",
+      "url": "https://riftdecks.com/cards/details-boneshiver",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-118-221_full.png"
+    },
+    "details-repulse": {
+      "name": "Repulse",
+      "url": "https://riftdecks.com/cards/details-repulse",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "1C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-106-219_full.png"
+    },
+    "details-mobilize": {
+      "name": "Mobilize",
+      "url": "https://riftdecks.com/cards/details-mobilize",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-134-298_full.png"
+    },
+    "details-find-your-center": {
+      "name": "Find Your Center",
+      "url": "https://riftdecks.com/cards/details-find-your-center",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-047-298_full.png"
+    },
+    "details-aspirants-climb": {
+      "name": "Aspirant's Climb",
+      "url": "https://riftdecks.com/cards/details-aspirants-climb",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-276-298_full.png"
+    },
+    "details-the-papertree": {
+      "name": "The Papertree",
+      "url": "https://riftdecks.com/cards/details-the-papertree",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-219-221_full.png"
+    },
+    "details-allay-eager-admirer": {
+      "name": "Allay, Eager Admirer",
+      "url": "https://riftdecks.com/cards/details-allay-eager-admirer",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-041-219_full.png"
+    },
+    "details-svellsongur": {
+      "name": "Svellsongur",
+      "url": "https://riftdecks.com/cards/details-svellsongur",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-059-221_full.png"
+    },
+    "details-wind-wall": {
+      "name": "Wind Wall",
+      "url": "https://riftdecks.com/cards/details-wind-wall",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-064-298_full.png"
+    },
+    "details-first-mate": {
+      "name": "First Mate",
+      "url": "https://riftdecks.com/cards/details-first-mate",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-132-298_full.png"
+    },
+    "details-sabotage": {
+      "name": "Sabotage",
+      "url": "https://riftdecks.com/cards/details-sabotage",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "1C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-156-298_full.png"
+    },
+    "details-stellacorn-herder": {
+      "name": "Stellacorn Herder",
+      "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-048-221_full.png"
+    },
+    "details-dorans-blade": {
+      "name": "Doran's Blade",
+      "url": "https://riftdecks.com/cards/details-dorans-blade",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-095-221_full.png"
+    },
+    "details-amateur-recital": {
+      "name": "Amateur Recital",
+      "url": "https://riftdecks.com/cards/details-amateur-recital",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-207-219_full.png"
+    },
+    "details-star-spring": {
+      "name": "Star Spring",
+      "url": "https://riftdecks.com/cards/details-star-spring",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-215-219_full.png"
+    },
+    "details-disposal-order": {
+      "name": "Disposal Order",
+      "url": "https://riftdecks.com/cards/details-disposal-order",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-103-219_full.png"
+    },
+    "details-disarming-rake": {
+      "name": "Disarming Rake",
+      "url": "https://riftdecks.com/cards/details-disarming-rake",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-032-221_full.png"
+    },
+    "details-nami-headstrong": {
+      "name": "Nami, Headstrong",
+      "url": "https://riftdecks.com/cards/details-nami-headstrong",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-052-219_full.png"
+    },
+    "details-miss-fortune-captain": {
+      "name": "Miss Fortune, Captain",
+      "url": "https://riftdecks.com/cards/details-miss-fortune-captain",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "5C",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-162a-298_full.png"
+    },
+    "details-zhonyas-hourglass": {
+      "name": "Zhonya's Hourglass",
+      "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-077-298_full.png"
+    },
+    "details-janna-savior": {
+      "name": "Janna, Savior",
+      "url": "https://riftdecks.com/cards/details-janna-savior",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-053-221_full.png"
+    },
+    "details-abandoned-hall": {
+      "name": "Abandoned Hall",
+      "url": "https://riftdecks.com/cards/details-abandoned-hall",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-205-219_full.png"
+    },
+    "details-trinity-force": {
+      "name": "Trinity Force",
+      "url": "https://riftdecks.com/cards/details-trinity-force",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "4",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-115-221_full.png"
+    },
+    "details-flurry-of-feathers": {
+      "name": "Flurry of Feathers",
+      "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-044-219_full.png"
+    },
+    "details-tricksy-tentacles": {
+      "name": "Tricksy Tentacles",
+      "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-054-219_full.png"
+    },
+    "details-tasty-faefolk": {
+      "name": "Tasty Faefolk",
+      "url": "https://riftdecks.com/cards/details-tasty-faefolk",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "7",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-075-298_full.png"
+    },
+    "details-elder-dragon": {
+      "name": "Elder Dragon",
+      "url": "https://riftdecks.com/cards/details-elder-dragon",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "12CCCC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-118-219_full.png"
+    },
+    "details-confront": {
+      "name": "Confront",
+      "url": "https://riftdecks.com/cards/details-confront",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-129-298_full.png"
+    },
+    "details-fiora-peerless": {
+      "name": "Fiora, Peerless",
+      "url": "https://riftdecks.com/cards/details-fiora-peerless",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3C",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-110a-221_full.png"
+    },
+    "details-en-garde": {
+      "name": "En Garde",
+      "url": "https://riftdecks.com/cards/details-en-garde",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-046-298_full.png"
+    },
+    "details-rockfall-path": {
+      "name": "Rockfall Path",
+      "url": "https://riftdecks.com/cards/details-rockfall-path",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-216-221_full.png"
+    },
+    "details-targons-peak": {
+      "name": "Targon's Peak",
+      "url": "https://riftdecks.com/cards/details-targons-peak",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-289-298_full.png"
+    },
+    "details-clockwork-keeper": {
+      "name": "Clockwork Keeper",
+      "url": "https://riftdecks.com/cards/details-clockwork-keeper",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-044-298_full.png"
+    },
+    "details-sona-harmonious": {
+      "name": "Sona, Harmonious",
+      "url": "https://riftdecks.com/cards/details-sona-harmonious",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-073-298_full.png"
+    },
+    "details-seal-of-focus": {
+      "name": "Seal of Focus",
+      "url": "https://riftdecks.com/cards/details-seal-of-focus",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "0C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-081-298_full.png"
+    },
+    "details-charm": {
+      "name": "Charm",
+      "url": "https://riftdecks.com/cards/details-charm",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-043-298_full.png"
+    },
+    "details-emperors-divide": {
+      "name": "Emperor's Divide",
+      "url": "https://riftdecks.com/cards/details-emperors-divide",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-043-221_full.png"
+    },
+    "details-navori-scout": {
+      "name": "Navori Scout",
+      "url": "https://riftdecks.com/cards/details-navori-scout",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-037-221_full.png"
+    },
+    "details-guardian-of-the-passage": {
+      "name": "Guardian of the Passage",
+      "url": "https://riftdecks.com/cards/details-guardian-of-the-passage",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "6",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-035-221_full.png"
+    },
+    "details-dorans-shield": {
+      "name": "Doran's Shield",
+      "url": "https://riftdecks.com/cards/details-dorans-shield",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-033-221_full.png"
+    },
+    "details-poro-snax": {
+      "name": "Poro Snax",
+      "url": "https://riftdecks.com/cards/details-poro-snax",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-046-221_full.png"
+    },
+    "details-feral-strength": {
+      "name": "Feral Strength",
+      "url": "https://riftdecks.com/cards/details-feral-strength",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-034-221_full.png"
+    },
+    "details-thwonk": {
+      "name": "Thwonk!",
+      "url": "https://riftdecks.com/cards/details-thwonk",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-040-221_full.png"
+    },
+    "details-forge-of-the-fluft": {
+      "name": "Forge of the Fluft",
+      "url": "https://riftdecks.com/cards/details-forge-of-the-fluft",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-208-221_full.png"
+    },
+    "details-minefield": {
+      "name": "Minefield",
+      "url": "https://riftdecks.com/cards/details-minefield",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-212-221_full.png"
+    },
+    "details-jax-unrelenting": {
+      "name": "Jax, Unrelenting",
+      "url": "https://riftdecks.com/cards/details-jax-unrelenting",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "4C",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-119a-221_full.png"
+    },
+    "details-whiteflame-protector": {
+      "name": "Whiteflame Protector",
+      "url": "https://riftdecks.com/cards/details-whiteflame-protector",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "8CC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-082-298_full.png"
+    },
+    "details-mageseeker-warden": {
+      "name": "Mageseeker Warden",
+      "url": "https://riftdecks.com/cards/details-mageseeker-warden",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "6C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-070-298_full.png"
+    },
+    "details-icevale-archer": {
+      "name": "Icevale Archer",
+      "url": "https://riftdecks.com/cards/details-icevale-archer",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-065-219_full.png"
+    },
+    "details-windswept-hillock": {
+      "name": "Windswept Hillock",
+      "url": "https://riftdecks.com/cards/details-windswept-hillock",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-297-298_full.png"
+    },
+    "details-adaptatron": {
+      "name": "Adaptatron",
+      "url": "https://riftdecks.com/cards/details-adaptatron",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-056-298_full.png"
+    },
+    "details-cannon-barrage": {
+      "name": "Cannon Barrage",
+      "url": "https://riftdecks.com/cards/details-cannon-barrage",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-127-298_full.png"
+    },
+    "details-dazzling-aurora": {
+      "name": "Dazzling Aurora",
+      "url": "https://riftdecks.com/cards/details-dazzling-aurora",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "9CC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-160-298_full.png"
+    },
+    "details-flurry-of-blades": {
+      "name": "Flurry of Blades",
+      "url": "https://riftdecks.com/cards/details-flurry-of-blades",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-133-298_full.png"
+    },
+    "details-catalyst-of-aeons": {
+      "name": "Catalyst of Aeons",
+      "url": "https://riftdecks.com/cards/details-catalyst-of-aeons",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-138-298_full.png"
+    },
+    "details-zaun-warrens": {
+      "name": "Zaun Warrens",
+      "url": "https://riftdecks.com/cards/details-zaun-warrens",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-298-298_full.png"
+    },
+    "details-sea-monkey": {
+      "name": "Sea Monkey",
+      "url": "https://riftdecks.com/cards/details-sea-monkey",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-098-221_full.png"
+    },
+    "details-meditation": {
+      "name": "Meditation",
+      "url": "https://riftdecks.com/cards/details-meditation",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-048-298_full.png"
+    }
+  }
 }

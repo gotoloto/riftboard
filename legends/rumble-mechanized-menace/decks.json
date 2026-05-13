@@ -1,0 +1,3399 @@
+{
+  "archetype": "Rumble, Mechanized Menace",
+  "url": "https://riftdecks.com/legends/constructed/rumble-mechanized-menace?metagame_id=3",
+  "scraped_at": "2026-05-13T01:29:37.681548Z",
+  "deck_count": 12,
+  "decks": [
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-xin-ban-ben-lan-bo-141992",
+      "title": "新版本兰博 by SJTU.Chаrles | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lecturing Yordle",
+          "slug": "details-lecturing-yordle",
+          "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Cloth Armor",
+          "slug": "details-cloth-armor",
+          "url": "https://riftdecks.com/cards/details-cloth-armor",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Minotaur Reckoner",
+          "slug": "details-minotaur-reckoner",
+          "url": "https://riftdecks.com/cards/details-minotaur-reckoner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 57,
+      "players": 128,
+      "finish_pct": 44.5,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-lan-bao-da-wang-139807",
+      "title": "兰宝大王 by 染野秋叶 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lecturing Yordle",
+          "slug": "details-lecturing-yordle",
+          "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Cloth Armor",
+          "slug": "details-cloth-armor",
+          "url": "https://riftdecks.com/cards/details-cloth-armor",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Minotaur Reckoner",
+          "slug": "details-minotaur-reckoner",
+          "url": "https://riftdecks.com/cards/details-minotaur-reckoner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 64,
+      "players": 60,
+      "finish_pct": 100.0,
+      "date": "2026-05-09"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ji-qi-ren-137573",
+      "title": "机器人 by 零一 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Inferna",
+          "slug": "details-inferna",
+          "url": "https://riftdecks.com/cards/details-inferna",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Upstage Comedy",
+          "slug": "details-upstage-comedy",
+          "url": "https://riftdecks.com/cards/details-upstage-comedy",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Square Up",
+          "slug": "details-square-up",
+          "url": "https://riftdecks.com/cards/details-square-up",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sky Splitter",
+          "slug": "details-sky-splitter",
+          "url": "https://riftdecks.com/cards/details-sky-splitter",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sun Disc",
+          "slug": "details-sun-disc",
+          "url": "https://riftdecks.com/cards/details-sun-disc",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 71,
+      "players": 89,
+      "finish_pct": 79.8,
+      "date": "2026-05-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-lan-bo-131876",
+      "title": "兰博 by Lin | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Eager Drakehound",
+          "slug": "details-eager-drakehound",
+          "url": "https://riftdecks.com/cards/details-eager-drakehound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sentinel Adept",
+          "slug": "details-sentinel-adept",
+          "url": "https://riftdecks.com/cards/details-sentinel-adept",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Void Drone",
+          "slug": "details-void-drone",
+          "url": "https://riftdecks.com/cards/details-void-drone",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Armed Assailant",
+          "slug": "details-armed-assailant",
+          "url": "https://riftdecks.com/cards/details-armed-assailant",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Detonate",
+          "slug": "details-detonate",
+          "url": "https://riftdecks.com/cards/details-detonate",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Angle Shot",
+          "slug": "details-angle-shot",
+          "url": "https://riftdecks.com/cards/details-angle-shot",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bushwhack",
+          "slug": "details-bushwhack",
+          "url": "https://riftdecks.com/cards/details-bushwhack",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Piercing Light",
+          "slug": "details-piercing-light",
+          "url": "https://riftdecks.com/cards/details-piercing-light",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sudden Storm",
+          "slug": "details-sudden-storm",
+          "url": "https://riftdecks.com/cards/details-sudden-storm",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Dais",
+          "slug": "details-emperors-dais",
+          "url": "https://riftdecks.com/cards/details-emperors-dais",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Forge of the Fluft",
+          "slug": "details-forge-of-the-fluft",
+          "url": "https://riftdecks.com/cards/details-forge-of-the-fluft",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 73,
+      "players": 116,
+      "finish_pct": 62.9,
+      "date": "2026-05-03"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hong-wen-125046",
+      "title": "红温 by 红温 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        }
+      ],
+      "rank": 61,
+      "players": 83,
+      "finish_pct": 73.5,
+      "date": "2026-04-25"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-lan-bo-124550",
+      "title": "兰博 by 白泽-浦枫 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Downstage Dramatics",
+          "slug": "details-downstage-dramatics",
+          "url": "https://riftdecks.com/cards/details-downstage-dramatics",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Upstage Comedy",
+          "slug": "details-upstage-comedy",
+          "url": "https://riftdecks.com/cards/details-upstage-comedy",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Dusk Rose Lab",
+          "slug": "details-dusk-rose-lab",
+          "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 22,
+      "finish_pct": 100.0,
+      "date": "2026-04-25"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-xin-ban-ben-lan-bo-120874",
+      "title": "新版本兰博 by SJTU.Chаrles | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Long Sword",
+          "slug": "details-long-sword",
+          "url": "https://riftdecks.com/cards/details-long-sword",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Conservatory",
+          "slug": "details-ravenbloom-conservatory",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-conservatory",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dunebreaker",
+          "slug": "details-dunebreaker",
+          "url": "https://riftdecks.com/cards/details-dunebreaker",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 15,
+      "players": 75,
+      "finish_pct": 20.0,
+      "date": "2026-04-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-da-da-de-ji-jia-116985",
+      "title": "大大的机甲 by MTT.奶爸 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Eager Apprentice",
+          "slug": "details-eager-apprentice",
+          "url": "https://riftdecks.com/cards/details-eager-apprentice",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Experimental Hexplate",
+          "slug": "details-experimental-hexplate",
+          "url": "https://riftdecks.com/cards/details-experimental-hexplate",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Smoke Screen",
+          "slug": "details-smoke-screen",
+          "url": "https://riftdecks.com/cards/details-smoke-screen",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sudden Storm",
+          "slug": "details-sudden-storm",
+          "url": "https://riftdecks.com/cards/details-sudden-storm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cloth Armor",
+          "slug": "details-cloth-armor",
+          "url": "https://riftdecks.com/cards/details-cloth-armor",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Skyfall of Areion",
+          "slug": "details-skyfall-of-areion",
+          "url": "https://riftdecks.com/cards/details-skyfall-of-areion",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Minotaur Reckoner",
+          "slug": "details-minotaur-reckoner",
+          "url": "https://riftdecks.com/cards/details-minotaur-reckoner",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 63,
+      "players": 86,
+      "finish_pct": 73.3,
+      "date": "2026-04-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-3-1-112053",
+      "title": "3.1 by 拾慌 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Inferna",
+          "slug": "details-inferna",
+          "url": "https://riftdecks.com/cards/details-inferna",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Upstage Comedy",
+          "slug": "details-upstage-comedy",
+          "url": "https://riftdecks.com/cards/details-upstage-comedy",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Square Up",
+          "slug": "details-square-up",
+          "url": "https://riftdecks.com/cards/details-square-up",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sky Splitter",
+          "slug": "details-sky-splitter",
+          "url": "https://riftdecks.com/cards/details-sky-splitter",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sun Disc",
+          "slug": "details-sun-disc",
+          "url": "https://riftdecks.com/cards/details-sun-disc",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 39,
+      "finish_pct": 82.1,
+      "date": "2026-04-11"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-3-1-111587",
+      "title": "3.1 by 拾慌 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hextech Ray",
+          "slug": "details-hextech-ray",
+          "url": "https://riftdecks.com/cards/details-hextech-ray",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 64,
+      "players": 36,
+      "finish_pct": 100.0,
+      "date": "2026-04-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hong-wen-xiao-zi-111011",
+      "title": "红温小子 by Shаmаn  | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lecturing Yordle",
+          "slug": "details-lecturing-yordle",
+          "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Cloth Armor",
+          "slug": "details-cloth-armor",
+          "url": "https://riftdecks.com/cards/details-cloth-armor",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Minotaur Reckoner",
+          "slug": "details-minotaur-reckoner",
+          "url": "https://riftdecks.com/cards/details-minotaur-reckoner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 28,
+      "finish_pct": 100.0,
+      "date": "2026-04-04"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-lan-bo-110951",
+      "title": "兰博 by 顺地 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Downstage Dramatics",
+          "slug": "details-downstage-dramatics",
+          "url": "https://riftdecks.com/cards/details-downstage-dramatics",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Upstage Comedy",
+          "slug": "details-upstage-comedy",
+          "url": "https://riftdecks.com/cards/details-upstage-comedy",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Dusk Rose Lab",
+          "slug": "details-dusk-rose-lab",
+          "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 22,
+      "players": 64,
+      "finish_pct": 34.4,
+      "date": "2026-04-04"
+    }
+  ],
+  "cards_meta": {
+    "details-rumble-mechanized-menace": {
+      "name": "Rumble, Mechanized Menace",
+      "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+      "type": "legend",
+      "domains": [
+        "fury",
+        "mind"
+      ],
+      "cost": "-",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-240-221_full.png"
+    },
+    "details-rumble-scrapper": {
+      "name": "Rumble, Scrapper",
+      "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "5C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-089-221_full.png"
+    },
+    "details-forecaster": {
+      "name": "Forecaster",
+      "url": "https://riftdecks.com/cards/details-forecaster",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-065-221_full.png"
+    },
+    "details-gem-jammer": {
+      "name": "Gem Jammer",
+      "url": "https://riftdecks.com/cards/details-gem-jammer",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-007-221_full.png"
+    },
+    "details-plundering-poro": {
+      "name": "Plundering Poro",
+      "url": "https://riftdecks.com/cards/details-plundering-poro",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-069-221_full.png"
+    },
+    "details-chakram-dancer": {
+      "name": "Chakram Dancer",
+      "url": "https://riftdecks.com/cards/details-chakram-dancer",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-071-219_full.png"
+    },
+    "details-lecturing-yordle": {
+      "name": "Lecturing Yordle",
+      "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-087-298_full.png"
+    },
+    "details-brynhir-thundersong": {
+      "name": "Brynhir Thundersong",
+      "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "6",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-026-298_full.png"
+    },
+    "details-ferrous-forerunner": {
+      "name": "Ferrous Forerunner",
+      "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "6C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-021-221_full.png"
+    },
+    "details-breakneck-mech": {
+      "name": "Breakneck Mech",
+      "url": "https://riftdecks.com/cards/details-breakneck-mech",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "8CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-071-221_full.png"
+    },
+    "details-cloth-armor": {
+      "name": "Cloth Armor",
+      "url": "https://riftdecks.com/cards/details-cloth-armor",
+      "type": "gear",
+      "domains": [
+        "mind"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-064-221_full.png"
+    },
+    "details-danger-zone": {
+      "name": "Danger Zone",
+      "url": "https://riftdecks.com/cards/details-danger-zone",
+      "type": "spell",
+      "domains": [
+        "fury",
+        "mind"
+      ],
+      "cost": "1C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-182-221_full.png"
+    },
+    "details-retreat": {
+      "name": "Retreat",
+      "url": "https://riftdecks.com/cards/details-retreat",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "1",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-104-298_full.png"
+    },
+    "details-wages-of-pain": {
+      "name": "Wages of Pain",
+      "url": "https://riftdecks.com/cards/details-wages-of-pain",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-070-221_full.png"
+    },
+    "details-production-surge": {
+      "name": "Production Surge",
+      "url": "https://riftdecks.com/cards/details-production-surge",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "4C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-076-221_full.png"
+    },
+    "details-rocket-barrage": {
+      "name": "Rocket Barrage",
+      "url": "https://riftdecks.com/cards/details-rocket-barrage",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "4C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-077-221_full.png"
+    },
+    "details-sprite-burst": {
+      "name": "Sprite Burst",
+      "url": "https://riftdecks.com/cards/details-sprite-burst",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "5",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-069-219_full.png"
+    },
+    "details-time-warp": {
+      "name": "Time Warp",
+      "url": "https://riftdecks.com/cards/details-time-warp",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "10CCCC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-122-298_full.png"
+    },
+    "details-forgotten-monument": {
+      "name": "Forgotten Monument",
+      "url": "https://riftdecks.com/cards/details-forgotten-monument",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-209-221_full.png"
+    },
+    "details-the-papertree": {
+      "name": "The Papertree",
+      "url": "https://riftdecks.com/cards/details-the-papertree",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-219-221_full.png"
+    },
+    "details-vilemaws-lair": {
+      "name": "Vilemaw's Lair",
+      "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-295-298_full.png"
+    },
+    "details-fury-rune": {
+      "name": "Fury Rune",
+      "url": "https://riftdecks.com/cards/details-fury-rune",
+      "type": "rune",
+      "domains": [
+        "fury"
+      ],
+      "cost": "-",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-007a-298_full.png"
+    },
+    "details-mind-rune": {
+      "name": "Mind Rune",
+      "url": "https://riftdecks.com/cards/details-mind-rune",
+      "type": "rune",
+      "domains": [
+        "mind"
+      ],
+      "cost": "-",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-089a-298_full.png"
+    },
+    "details-against-the-odds": {
+      "name": "Against the Odds",
+      "url": "https://riftdecks.com/cards/details-against-the-odds",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-001-221_full.png"
+    },
+    "details-turn-to-dust": {
+      "name": "Turn to Dust",
+      "url": "https://riftdecks.com/cards/details-turn-to-dust",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-070-219_full.png"
+    },
+    "details-void-seeker": {
+      "name": "Void Seeker",
+      "url": "https://riftdecks.com/cards/details-void-seeker",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-024-298_full.png"
+    },
+    "details-minotaur-reckoner": {
+      "name": "Minotaur Reckoner",
+      "url": "https://riftdecks.com/cards/details-minotaur-reckoner",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "5",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-014-221_full.png"
+    },
+    "details-rumble-hotheaded": {
+      "name": "Rumble, Hotheaded",
+      "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "4",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-026-221_full.png"
+    },
+    "details-inferna": {
+      "name": "Inferna",
+      "url": "https://riftdecks.com/cards/details-inferna",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-002-219_full.png"
+    },
+    "details-bubble-bot": {
+      "name": "Bubble Bot",
+      "url": "https://riftdecks.com/cards/details-bubble-bot",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-062-221_full.png"
+    },
+    "details-kaisa-survivor": {
+      "name": "Kai'Sa, Survivor",
+      "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "4",
+      "rarity": "showcase",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-039a-298_full.png"
+    },
+    "details-thousand-tailed-watcher": {
+      "name": "Thousand-Tailed Watcher",
+      "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "7C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-116-298_full.png"
+    },
+    "details-falling-star": {
+      "name": "Falling Star",
+      "url": "https://riftdecks.com/cards/details-falling-star",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2CC",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-029-298_full.png"
+    },
+    "details-upstage-comedy": {
+      "name": "Upstage Comedy",
+      "url": "https://riftdecks.com/cards/details-upstage-comedy",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-009-219_full.png"
+    },
+    "details-consult-the-past": {
+      "name": "Consult the Past",
+      "url": "https://riftdecks.com/cards/details-consult-the-past",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "4",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-083-298_full.png"
+    },
+    "details-square-up": {
+      "name": "Square Up",
+      "url": "https://riftdecks.com/cards/details-square-up",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-017-219_full.png"
+    },
+    "details-sky-splitter": {
+      "name": "Sky Splitter",
+      "url": "https://riftdecks.com/cards/details-sky-splitter",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "8C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-014-298_full.png"
+    },
+    "details-minefield": {
+      "name": "Minefield",
+      "url": "https://riftdecks.com/cards/details-minefield",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-212-221_full.png"
+    },
+    "details-trifarian-war-camp": {
+      "name": "Trifarian War Camp",
+      "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-294-298_full.png"
+    },
+    "details-zaun-warrens": {
+      "name": "Zaun Warrens",
+      "url": "https://riftdecks.com/cards/details-zaun-warrens",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-298-298_full.png"
+    },
+    "details-sun-disc": {
+      "name": "Sun Disc",
+      "url": "https://riftdecks.com/cards/details-sun-disc",
+      "type": "gear",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-021-298_full.png"
+    },
+    "details-eager-drakehound": {
+      "name": "Eager Drakehound",
+      "url": "https://riftdecks.com/cards/details-eager-drakehound",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-006-221_full.png"
+    },
+    "details-sentinel-adept": {
+      "name": "Sentinel Adept",
+      "url": "https://riftdecks.com/cards/details-sentinel-adept",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-008-221_full.png"
+    },
+    "details-void-drone": {
+      "name": "Void Drone",
+      "url": "https://riftdecks.com/cards/details-void-drone",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-010-221_full.png"
+    },
+    "details-armed-assailant": {
+      "name": "Armed Assailant",
+      "url": "https://riftdecks.com/cards/details-armed-assailant",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "6C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-002-221_full.png"
+    },
+    "details-blood-rush": {
+      "name": "Blood Rush",
+      "url": "https://riftdecks.com/cards/details-blood-rush",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-003-221_full.png"
+    },
+    "details-detonate": {
+      "name": "Detonate",
+      "url": "https://riftdecks.com/cards/details-detonate",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "1C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-005-221_full.png"
+    },
+    "details-angle-shot": {
+      "name": "Angle Shot",
+      "url": "https://riftdecks.com/cards/details-angle-shot",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-011-221_full.png"
+    },
+    "details-bushwhack": {
+      "name": "Bushwhack",
+      "url": "https://riftdecks.com/cards/details-bushwhack",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-004-221_full.png"
+    },
+    "details-piercing-light": {
+      "name": "Piercing Light",
+      "url": "https://riftdecks.com/cards/details-piercing-light",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-023-221_full.png"
+    },
+    "details-sudden-storm": {
+      "name": "Sudden Storm",
+      "url": "https://riftdecks.com/cards/details-sudden-storm",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-017-221_full.png"
+    },
+    "details-emperors-dais": {
+      "name": "Emperor's Dais",
+      "url": "https://riftdecks.com/cards/details-emperors-dais",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-207-221_full.png"
+    },
+    "details-forge-of-the-fluft": {
+      "name": "Forge of the Fluft",
+      "url": "https://riftdecks.com/cards/details-forge-of-the-fluft",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-208-221_full.png"
+    },
+    "details-card-sharp": {
+      "name": "Card Sharp",
+      "url": "https://riftdecks.com/cards/details-card-sharp",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-081-221_full.png"
+    },
+    "details-sprite-fountain": {
+      "name": "Sprite Fountain",
+      "url": "https://riftdecks.com/cards/details-sprite-fountain",
+      "type": "gear",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2C",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-078-219_full.png"
+    },
+    "details-bellows-breath": {
+      "name": "Bellows Breath",
+      "url": "https://riftdecks.com/cards/details-bellows-breath",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "1C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-080-221_full.png"
+    },
+    "details-downstage-dramatics": {
+      "name": "Downstage Dramatics",
+      "url": "https://riftdecks.com/cards/details-downstage-dramatics",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-061-219_full.png"
+    },
+    "details-singularity": {
+      "name": "Singularity",
+      "url": "https://riftdecks.com/cards/details-singularity",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "6CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-105-298_full.png"
+    },
+    "details-dusk-rose-lab": {
+      "name": "Dusk Rose Lab",
+      "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-209-219_full.png"
+    },
+    "details-thermo-beam": {
+      "name": "Thermo Beam",
+      "url": "https://riftdecks.com/cards/details-thermo-beam",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "5CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-022-298_full.png"
+    },
+    "details-long-sword": {
+      "name": "Long Sword",
+      "url": "https://riftdecks.com/cards/details-long-sword",
+      "type": "gear",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-022-221_full.png"
+    },
+    "details-cleave": {
+      "name": "Cleave",
+      "url": "https://riftdecks.com/cards/details-cleave",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-004-298_full.png"
+    },
+    "details-grove-of-the-god-willow": {
+      "name": "Grove of the God-Willow",
+      "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-280-298_full.png"
+    },
+    "details-ravenbloom-conservatory": {
+      "name": "Ravenbloom Conservatory",
+      "url": "https://riftdecks.com/cards/details-ravenbloom-conservatory",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-215-221_full.png"
+    },
+    "details-stupefy": {
+      "name": "Stupefy",
+      "url": "https://riftdecks.com/cards/details-stupefy",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-095-298_full.png"
+    },
+    "details-frigid-touch": {
+      "name": "Frigid Touch",
+      "url": "https://riftdecks.com/cards/details-frigid-touch",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-066-221_full.png"
+    },
+    "details-dunebreaker": {
+      "name": "Dunebreaker",
+      "url": "https://riftdecks.com/cards/details-dunebreaker",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "7C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-027-221_full.png"
+    },
+    "details-eager-apprentice": {
+      "name": "Eager Apprentice",
+      "url": "https://riftdecks.com/cards/details-eager-apprentice",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-084-298_full.png"
+    },
+    "details-noxus-hopeful": {
+      "name": "Noxus Hopeful",
+      "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "4",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-012-298_full.png"
+    },
+    "details-experimental-hexplate": {
+      "name": "Experimental Hexplate",
+      "url": "https://riftdecks.com/cards/details-experimental-hexplate",
+      "type": "gear",
+      "domains": [
+        "mind"
+      ],
+      "cost": "1",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-073-221_full.png"
+    },
+    "details-smoke-screen": {
+      "name": "Smoke Screen",
+      "url": "https://riftdecks.com/cards/details-smoke-screen",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-093-298_full.png"
+    },
+    "details-skyfall-of-areion": {
+      "name": "Skyfall of Areion",
+      "url": "https://riftdecks.com/cards/details-skyfall-of-areion",
+      "type": "gear",
+      "domains": [
+        "fury"
+      ],
+      "cost": "3",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-030-221_full.png"
+    },
+    "details-hextech-ray": {
+      "name": "Hextech Ray",
+      "url": "https://riftdecks.com/cards/details-hextech-ray",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "1C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-009-298_full.png"
+    }
+  }
+}
