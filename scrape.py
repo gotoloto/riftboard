@@ -791,10 +791,10 @@ def build_staples(top_per_rarity: int = 40) -> dict:
                 "decks_including": pl["decks_including"],
             }
             for ls, pl in entry["_per_legend"].items()
-            if (pl["inclusion_pct"] or 0) > 10
+            if (pl["inclusion_pct"] or 0) > 50
         ]
         legends_above.sort(key=lambda x: -x["inclusion_pct"])
-        entry["legends_above_10pct"] = legends_above
+        entry["legends_above_50pct"] = legends_above
         del entry["_per_legend"]
 
     by_rarity = {"common": [], "uncommon": [], "rare": []}

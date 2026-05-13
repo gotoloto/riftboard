@@ -30,7 +30,7 @@ function renderRow(card, index) {
   const type = card.type
     ? `<span class="tag" style="text-transform:capitalize">${escapeHtml(card.type)}</span>`
     : "";
-  const legends = card.legends_above_10pct || [];
+  const legends = card.legends_above_50pct || [];
   const chipClass = legends.length === 1 ? "legend-chip solo" : "legend-chip";
   const legendChips = legends.length
     ? legends
@@ -43,7 +43,7 @@ function renderRow(card, index) {
             )}<span class="pct">${l.inclusion_pct.toFixed(1)}%</span></a>`
         )
         .join("")
-    : `<span class="muted">no legend &gt; 10%</span>`;
+    : `<span class="muted">no legend &gt; 50%</span>`;
   return `
     <tr>
       <td class="rank">${index + 1}</td>
@@ -68,7 +68,7 @@ function renderSection(rarity, cards) {
               <th>Card</th>
               <th>Type</th>
               <th class="total">Total decks</th>
-              <th>Legends where >10% inclusion</th>
+              <th>Legends where >50% inclusion</th>
             </tr>
           </thead>
           <tbody>
