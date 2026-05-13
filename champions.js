@@ -17,8 +17,8 @@ window.__CHAMPIONS__ = [
     "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
     "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-    "scraped_at": "2026-05-12T14:33:34.584841Z",
-    "deck_count": 247
+    "scraped_at": "2026-05-13T02:13:02.915913Z",
+    "deck_count": 251
   },
   {
     "slug": "darius-hand-of-noxus",
@@ -31,8 +31,8 @@ window.__CHAMPIONS__ = [
     "slug": "diana-scorn-of-the-moon",
     "name": "Diana, Scorn of the Moon",
     "url": "https://riftdecks.com/legends/constructed/diana-scorn-of-the-moon?metagame_id=3",
-    "scraped_at": "2026-05-12T14:50:18.432783Z",
-    "deck_count": 319
+    "scraped_at": "2026-05-13T02:13:36.290695Z",
+    "deck_count": 335
   },
   {
     "slug": "draven-glorious-executioner",
@@ -45,15 +45,15 @@ window.__CHAMPIONS__ = [
     "slug": "ezreal-prodigal-explorer",
     "name": "Ezreal, Prodigal Explorer",
     "url": "https://riftdecks.com/legends/constructed/ezreal-prodigal-explorer?metagame_id=3",
-    "scraped_at": "2026-05-12T15:38:59.970750Z",
-    "deck_count": 110
+    "scraped_at": "2026-05-13T02:13:44.663973Z",
+    "deck_count": 112
   },
   {
     "slug": "fiora-grand-duelist",
     "name": "Fiora, Grand Duelist",
     "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
-    "scraped_at": "2026-05-12T14:34:09.214900Z",
-    "deck_count": 346
+    "scraped_at": "2026-05-13T02:14:10.104618Z",
+    "deck_count": 353
   },
   {
     "slug": "garen-might-of-demacia",
@@ -66,15 +66,15 @@ window.__CHAMPIONS__ = [
     "slug": "irelia-blade-dancer",
     "name": "Irelia, Blade Dancer",
     "url": "https://riftdecks.com/legends/constructed/irelia-blade-dancer?metagame_id=3",
-    "scraped_at": "2026-05-12T14:34:30.869110Z",
-    "deck_count": 375
+    "scraped_at": "2026-05-13T02:14:58.084741Z",
+    "deck_count": 408
   },
   {
     "slug": "ivern-green-father",
     "name": "Ivern, Green Father",
     "url": "https://riftdecks.com/legends/constructed/ivern-green-father?metagame_id=3",
-    "scraped_at": "2026-05-12T14:34:34.874879Z",
-    "deck_count": 68
+    "scraped_at": "2026-05-13T02:15:04.990625Z",
+    "deck_count": 70
   },
   {
     "slug": "jax-grandmaster-at-arms",
@@ -101,22 +101,22 @@ window.__CHAMPIONS__ = [
     "slug": "kaisa-daughter-of-the-void",
     "name": "Kai'sa, Daughter of the Void",
     "url": "https://riftdecks.com/legends/constructed/kaisa-daughter-of-the-void?metagame_id=3",
-    "scraped_at": "2026-05-12T14:56:18.577127Z",
-    "deck_count": 278
+    "scraped_at": "2026-05-13T02:15:22.767545Z",
+    "deck_count": 282
   },
   {
     "slug": "khazix-voidreaver",
     "name": "Khazix, Voidreaver",
     "url": "https://riftdecks.com/legends/constructed/khazix-voidreaver?metagame_id=3",
-    "scraped_at": "2026-05-12T14:34:43.445753Z",
-    "deck_count": 168
+    "scraped_at": "2026-05-13T02:15:32.434156Z",
+    "deck_count": 169
   },
   {
     "slug": "leblanc-deceiver",
     "name": "Leblanc, Deceiver",
     "url": "https://riftdecks.com/legends/constructed/leblanc-deceiver?metagame_id=3",
-    "scraped_at": "2026-05-12T14:36:09.723243Z",
-    "deck_count": 537
+    "scraped_at": "2026-05-13T02:16:10.228204Z",
+    "deck_count": 546
   },
   {
     "slug": "lee-sin-blind-monk",
@@ -136,8 +136,8 @@ window.__CHAMPIONS__ = [
     "slug": "lillia-bashful-bloom",
     "name": "Lillia, Bashful Bloom",
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
-    "scraped_at": "2026-05-12T14:36:42.484808Z",
-    "deck_count": 303
+    "scraped_at": "2026-05-13T02:16:34.289627Z",
+    "deck_count": 309
   },
   {
     "slug": "lucian-purifier",
@@ -157,22 +157,22 @@ window.__CHAMPIONS__ = [
     "slug": "master-yi-wuju-bladesman",
     "name": "Master Yi, Wuju Bladesman",
     "url": "https://riftdecks.com/legends/constructed/master-yi-wuju-bladesman?metagame_id=3",
-    "scraped_at": "2026-05-13T01:18:09.905423Z",
+    "scraped_at": "2026-05-13T02:16:55.421671Z",
     "deck_count": 364
   },
   {
     "slug": "master-yi-wuju-master",
     "name": "Master Yi, Wuju Master",
     "url": "https://riftdecks.com/legends/constructed/master-yi-wuju-master?metagame_id=3",
-    "scraped_at": "2026-05-12T15:03:01.724366Z",
-    "deck_count": 227
+    "scraped_at": "2026-05-13T02:17:10.184075Z",
+    "deck_count": 230
   },
   {
     "slug": "miss-fortune-bounty-hunter",
     "name": "Miss Fortune, Bounty Hunter",
     "url": "https://riftdecks.com/legends/constructed/miss-fortune-bounty-hunter?metagame_id=3",
-    "scraped_at": "2026-05-12T15:07:16.854141Z",
-    "deck_count": 210
+    "scraped_at": "2026-05-13T02:17:26.219430Z",
+    "deck_count": 215
   },
   {
     "slug": "ornn-fire-below-the-mountain",
@@ -213,8 +213,8 @@ window.__CHAMPIONS__ = [
     "slug": "rengar-pridestalker",
     "name": "Rengar, Pridestalker",
     "url": "https://riftdecks.com/legends/constructed/rengar-pridestalker?metagame_id=3",
-    "scraped_at": "2026-05-12T15:15:28.238666Z",
-    "deck_count": 156
+    "scraped_at": "2026-05-13T02:17:36.738213Z",
+    "deck_count": 159
   },
   {
     "slug": "rumble-mechanized-menace",
@@ -248,8 +248,8 @@ window.__CHAMPIONS__ = [
     "slug": "vex-gloomist",
     "name": "Vex, Gloomist",
     "url": "https://riftdecks.com/legends/constructed/vex-gloomist?metagame_id=3",
-    "scraped_at": "2026-05-12T14:37:43.840815Z",
-    "deck_count": 267
+    "scraped_at": "2026-05-13T02:18:08.859650Z",
+    "deck_count": 285
   },
   {
     "slug": "vi-piltover-enforcer",
@@ -262,8 +262,8 @@ window.__CHAMPIONS__ = [
     "slug": "viktor-herald-of-the-arcane",
     "name": "Viktor, Herald of the Arcane",
     "url": "https://riftdecks.com/legends/constructed/viktor-herald-of-the-arcane?metagame_id=3",
-    "scraped_at": "2026-05-12T14:37:55.565898Z",
-    "deck_count": 199
+    "scraped_at": "2026-05-13T02:18:30.058606Z",
+    "deck_count": 208
   },
   {
     "slug": "volibear-relentless-storm",

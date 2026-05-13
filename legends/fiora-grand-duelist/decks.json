@@ -1,8 +1,8 @@
 {
   "archetype": "Fiora, Grand Duelist",
   "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
-  "scraped_at": "2026-05-12T14:34:09.214900Z",
-  "deck_count": 346,
+  "scraped_at": "2026-05-13T02:14:10.104618Z",
+  "deck_count": 353,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-xiao-xiao-jian-ji-142208",
@@ -85919,6 +85919,1732 @@
       "players": 19,
       "finish_pct": 15.8,
       "date": "2026-04-12"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-jian-141512",
+      "title": "剑 by 无声铃鹿 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Soraka, Wanderer",
+          "slug": "details-soraka-wanderer",
+          "url": "https://riftdecks.com/cards/details-soraka-wanderer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Soraka, Wanderer",
+          "slug": "details-soraka-wanderer",
+          "url": "https://riftdecks.com/cards/details-soraka-wanderer",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 32,
+      "finish_pct": 100.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ji-bo-141496",
+      "title": "姬博 by 谁让我是一只哈 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sea Monkey",
+          "slug": "details-sea-monkey",
+          "url": "https://riftdecks.com/cards/details-sea-monkey",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Call to Glory",
+          "slug": "details-call-to-glory",
+          "url": "https://riftdecks.com/cards/details-call-to-glory",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ruin Runner",
+          "slug": "details-ruin-runner",
+          "url": "https://riftdecks.com/cards/details-ruin-runner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 32,
+      "finish_pct": 50.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-fiora-grand-duelist-138921",
+      "title": "Fiora, Grand Duelist by RODRICK | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Harnessed Dragon",
+          "slug": "details-harnessed-dragon",
+          "url": "https://riftdecks.com/cards/details-harnessed-dragon",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Warmog's Armor",
+          "slug": "details-warmogs-armor",
+          "url": "https://riftdecks.com/cards/details-warmogs-armor",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Call to Glory",
+          "slug": "details-call-to-glory",
+          "url": "https://riftdecks.com/cards/details-call-to-glory",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cannon Barrage",
+          "slug": "details-cannon-barrage",
+          "url": "https://riftdecks.com/cards/details-cannon-barrage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 26,
+      "finish_pct": 30.8,
+      "date": "2026-05-09"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-en-shi-diao-yu-wang-117354",
+      "title": "恩师钓鱼王 by 淘金巢.Ai.极触感.服务区.空待 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sea Monkey",
+          "slug": "details-sea-monkey",
+          "url": "https://riftdecks.com/cards/details-sea-monkey",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kinkou Initiate",
+          "slug": "details-kinkou-initiate",
+          "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nidalee, Cat Form",
+          "slug": "details-nidalee-cat-form",
+          "url": "https://riftdecks.com/cards/details-nidalee-cat-form",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baited Hook",
+          "slug": "details-baited-hook",
+          "url": "https://riftdecks.com/cards/details-baited-hook",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Call to Glory",
+          "slug": "details-call-to-glory",
+          "url": "https://riftdecks.com/cards/details-call-to-glory",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 84,
+      "players": 128,
+      "finish_pct": 65.6,
+      "date": "2026-04-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ji-guang-jian-ji-117356",
+      "title": "极光剑姬 by TCC_车娘 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Irresistible Faefolk",
+          "slug": "details-irresistible-faefolk",
+          "url": "https://riftdecks.com/cards/details-irresistible-faefolk",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian Gloryseeker",
+          "slug": "details-trifarian-gloryseeker",
+          "url": "https://riftdecks.com/cards/details-trifarian-gloryseeker",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kinkou Initiate",
+          "slug": "details-kinkou-initiate",
+          "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grim Resolve",
+          "slug": "details-grim-resolve",
+          "url": "https://riftdecks.com/cards/details-grim-resolve",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disposal Order",
+          "slug": "details-disposal-order",
+          "url": "https://riftdecks.com/cards/details-disposal-order",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 86,
+      "players": 128,
+      "finish_pct": 67.2,
+      "date": "2026-04-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hua-shen-wei-long-117358",
+      "title": "化身为龙 by 卡茶.SW.太子 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Harnessed Dragon",
+          "slug": "details-harnessed-dragon",
+          "url": "https://riftdecks.com/cards/details-harnessed-dragon",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rift Herald",
+          "slug": "details-rift-herald",
+          "url": "https://riftdecks.com/cards/details-rift-herald",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Elder Dragon",
+          "slug": "details-elder-dragon",
+          "url": "https://riftdecks.com/cards/details-elder-dragon",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Divining Shells",
+          "slug": "details-divining-shells",
+          "url": "https://riftdecks.com/cards/details-divining-shells",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Forge of the Future",
+          "slug": "details-forge-of-the-future",
+          "url": "https://riftdecks.com/cards/details-forge-of-the-future",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Shepherd's Heirloom",
+          "slug": "details-shepherds-heirloom",
+          "url": "https://riftdecks.com/cards/details-shepherds-heirloom",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Dazzling Aurora",
+          "slug": "details-dazzling-aurora",
+          "url": "https://riftdecks.com/cards/details-dazzling-aurora",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Confront",
+          "slug": "details-confront",
+          "url": "https://riftdecks.com/cards/details-confront",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Mobilize",
+          "slug": "details-mobilize",
+          "url": "https://riftdecks.com/cards/details-mobilize",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rally the Troops",
+          "slug": "details-rally-the-troops",
+          "url": "https://riftdecks.com/cards/details-rally-the-troops",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Catalyst of Aeons",
+          "slug": "details-catalyst-of-aeons",
+          "url": "https://riftdecks.com/cards/details-catalyst-of-aeons",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Divine Judgment",
+          "slug": "details-divine-judgment",
+          "url": "https://riftdecks.com/cards/details-divine-judgment",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Monument",
+          "slug": "details-forgotten-monument",
+          "url": "https://riftdecks.com/cards/details-forgotten-monument",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sigil of the Storm",
+          "slug": "details-sigil-of-the-storm",
+          "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Blades",
+          "slug": "details-flurry-of-blades",
+          "url": "https://riftdecks.com/cards/details-flurry-of-blades",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 88,
+      "players": 128,
+      "finish_pct": 68.8,
+      "date": "2026-04-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-diao-yu-jian-119286",
+      "title": "钓鱼剑 by dng | riftDecks.com",
+      "cards": [
+        {
+          "name": "Fiora, Grand Duelist",
+          "slug": "details-fiora-grand-duelist",
+          "url": "https://riftdecks.com/cards/details-fiora-grand-duelist",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Worthy",
+          "slug": "details-fiora-worthy",
+          "url": "https://riftdecks.com/cards/details-fiora-worthy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kinkou Initiate",
+          "slug": "details-kinkou-initiate",
+          "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fiora, Victorious",
+          "slug": "details-fiora-victorious",
+          "url": "https://riftdecks.com/cards/details-fiora-victorious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sett, Brawler",
+          "slug": "details-sett-brawler",
+          "url": "https://riftdecks.com/cards/details-sett-brawler",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Blade",
+          "slug": "details-dorans-blade",
+          "url": "https://riftdecks.com/cards/details-dorans-blade",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Riposte",
+          "slug": "details-riposte",
+          "url": "https://riftdecks.com/cards/details-riposte",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Dais",
+          "slug": "details-emperors-dais",
+          "url": "https://riftdecks.com/cards/details-emperors-dais",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Stare Down",
+          "slug": "details-stare-down",
+          "url": "https://riftdecks.com/cards/details-stare-down",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Divine Judgment",
+          "slug": "details-divine-judgment",
+          "url": "https://riftdecks.com/cards/details-divine-judgment",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 17,
+      "players": 128,
+      "finish_pct": 13.3,
+      "date": "2026-04-19"
     }
   ],
   "cards_meta": {

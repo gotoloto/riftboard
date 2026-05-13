@@ -1,8 +1,8 @@
 {
   "archetype": "Ivern, Green Father",
   "url": "https://riftdecks.com/legends/constructed/ivern-green-father?metagame_id=3",
-  "scraped_at": "2026-05-12T14:34:34.874879Z",
-  "deck_count": 68,
+  "scraped_at": "2026-05-13T02:15:04.990625Z",
+  "deck_count": 70,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-zui-ai-chun-se-142034",
@@ -15931,6 +15931,482 @@
       "players": 14,
       "finish_pct": 28.6,
       "date": "2026-04-01"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-111-141498",
+      "title": "111 by XYZ.新城 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nami, Headstrong",
+          "slug": "details-nami-headstrong",
+          "url": "https://riftdecks.com/cards/details-nami-headstrong",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sona, Harmonious",
+          "slug": "details-sona-harmonious",
+          "url": "https://riftdecks.com/cards/details-sona-harmonious",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 32,
+      "finish_pct": 100.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-lu-die-141482",
+      "title": "绿爹 by 𝙶𝙻𝚇-归来 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Daring Poro",
+          "slug": "details-daring-poro",
+          "url": "https://riftdecks.com/cards/details-daring-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Crimson Pigeons",
+          "slug": "details-crimson-pigeons",
+          "url": "https://riftdecks.com/cards/details-crimson-pigeons",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Poro Herder",
+          "slug": "details-poro-herder",
+          "url": "https://riftdecks.com/cards/details-poro-herder",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Call to Glory",
+          "slug": "details-call-to-glory",
+          "url": "https://riftdecks.com/cards/details-call-to-glory",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Allay, Eager Admirer",
+          "slug": "details-allay-eager-admirer",
+          "url": "https://riftdecks.com/cards/details-allay-eager-admirer",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 2,
+      "players": 32,
+      "finish_pct": 6.2,
+      "date": "2026-05-10"
     }
   ],
   "cards_meta": {
@@ -17321,6 +17797,28 @@
       "cost": "-",
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-294-298_full.png"
+    },
+    "details-nami-headstrong": {
+      "name": "Nami, Headstrong",
+      "url": "https://riftdecks.com/cards/details-nami-headstrong",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "3",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-052-219_full.png"
+    },
+    "details-sona-harmonious": {
+      "name": "Sona, Harmonious",
+      "url": "https://riftdecks.com/cards/details-sona-harmonious",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-073-298_full.png"
     }
   }
 }

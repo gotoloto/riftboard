@@ -336,6 +336,53 @@ def legend_dir(slug: str) -> str:
     return os.path.join("legends", slug)
 
 
+LEGENDS_INDEX_URL = "https://riftdecks.com/legends"
+LEGEND_COUNT_RE = re.compile(r"(\d+)\s*Decks?\b", re.I)
+LEGEND_SLUG_RE = re.compile(r"/legends/constructed/([a-z0-9-]+)")
+
+
+def fetch_legends_index() -> dict:
+    """Return {slug: current_deck_count} from the /legends index page.
+
+    Used as a cheap freshness probe: rather than walking 17 listing pages per
+    archetype to detect new tournament entries, we fetch one page and compare
+    counts to what's cached."""
+    html = fetch(LEGENDS_INDEX_URL)
+    soup = BeautifulSoup(html, "html.parser")
+    out: dict = {}
+    for a in soup.find_all("a", href=LEGEND_SLUG_RE):
+        m = LEGEND_SLUG_RE.search(a["href"])
+        if not m:
+            continue
+        slug = m.group(1)
+        if slug in out:
+            continue
+        container = a.find_parent(["div", "tr", "article", "li", "section"])
+        if not container:
+            continue
+        cm = LEGEND_COUNT_RE.search(container.get_text(" ", strip=True))
+        if cm:
+            out[slug] = int(cm.group(1))
+    return out
+
+
+def cached_deck_count(slug: str):
+    """Return cached deck_count for `slug`, or None if not cached."""
+    path = os.path.join(legend_dir(slug), "decks.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f).get("deck_count")
+    except FileNotFoundError:
+        return None
+
+
+def list_cached_slugs() -> list:
+    return sorted(
+        os.path.basename(os.path.dirname(p))
+        for p in glob.glob("legends/*/decks.json")
+    )
+
+
 def rebuild_champions_index(directory: str = ".") -> list[dict]:
     """Scan legends/<slug>/data.js and rewrite champions.js."""
     entries = []
@@ -551,11 +598,11 @@ def main(archetype_url: str) -> None:
         "cards_meta": unique,
     }
     slug = slug_from_url(archetype_url) or slugify(archetype)
-    d = legend_dir(slug)
-    os.makedirs(d, exist_ok=True)
-    decks_path = os.path.join(d, "decks.json")
-    data_path = os.path.join(d, "data.js")
-    cards_path = os.path.join(d, "cards.json")
+    out_dir = legend_dir(slug)
+    os.makedirs(out_dir, exist_ok=True)
+    decks_path = os.path.join(out_dir, "decks.json")
+    data_path = os.path.join(out_dir, "data.js")
+    cards_path = os.path.join(out_dir, "cards.json")
 
     print(f"[4/4] aggregating {cards_path} + {data_path}")
     aggregated = aggregate(raw)
@@ -575,8 +622,8 @@ def update_archetype(slug: str) -> dict:
     (to pick up new tournament entries and refresh rank/players/date on
     existing ones) and fetches only the deck pages whose URL isn't already
     cached. Card metadata is fetched only for unseen slugs."""
-    d = legend_dir(slug)
-    decks_path = os.path.join(d, "decks.json")
+    out_dir = legend_dir(slug)
+    decks_path = os.path.join(out_dir, "decks.json")
     raw = json.load(open(decks_path, encoding="utf-8"))
     archetype_url = ensure_metagame_param(raw["url"])
     raw["url"] = archetype_url
@@ -670,8 +717,8 @@ def update_archetype(slug: str) -> dict:
     aggregated = aggregate(raw)
     apply_legend_archetype_label(raw, aggregated)
     save_json(decks_path, raw)
-    save_json(os.path.join(d, "cards.json"), aggregated)
-    save_data_js(os.path.join(d, "data.js"), build_dashboard_payload(raw))
+    save_json(os.path.join(out_dir, "cards.json"), aggregated)
+    save_data_js(os.path.join(out_dir, "data.js"), build_dashboard_payload(raw))
     return {
         "new_decks": len(new_decks),
         "refreshed_meta": refreshed,
@@ -682,11 +729,47 @@ def update_archetype(slug: str) -> dict:
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    if args and args[0] == "--update":
-        slugs = args[1:] or [
-            os.path.basename(os.path.dirname(p))
-            for p in sorted(glob.glob("legends/*/decks.json"))
-        ]
+    if args and args[0] == "--check":
+        print(f"Pinging {LEGENDS_INDEX_URL}…")
+        index = fetch_legends_index()
+        cached = list_cached_slugs()
+        seen = set()
+        for s in cached:
+            seen.add(s)
+            local = cached_deck_count(s)
+            current = index.get(s)
+            if current is None:
+                print(f"  ? {s}: cached={local}, not on /legends")
+            elif current == local:
+                print(f"  = {s}: {local}")
+            else:
+                delta = current - (local or 0)
+                sign = "+" if delta >= 0 else ""
+                print(f"  → {s}: {local} → {current}  ({sign}{delta})")
+        new = sorted((s, c) for s, c in index.items() if s not in seen)
+        for s, c in new:
+            print(f"  + {s}: {c} (not cached — run `scrape.py {LEGENDS_INDEX_URL[:-len('/legends')]}/legends/constructed/{s}?metagame_id=3` to add)")
+    elif args and args[0] == "--update":
+        explicit_slugs = args[1:]
+        if explicit_slugs:
+            slugs = explicit_slugs
+        else:
+            print(f"Checking {LEGENDS_INDEX_URL} for changes…")
+            index = fetch_legends_index()
+            slugs = []
+            for s in list_cached_slugs():
+                local = cached_deck_count(s)
+                current = index.get(s)
+                if current is None:
+                    print(f"  ? {s}: not on /legends (skip)")
+                    continue
+                if current == local:
+                    print(f"  = {s}: {local} (unchanged, skip)")
+                    continue
+                delta = current - (local or 0)
+                sign = "+" if delta >= 0 else ""
+                print(f"  → {s}: {local} → {current} ({sign}{delta}) (update)")
+                slugs.append(s)
         for s in slugs:
             print(f"=== {s} ===")
             try:

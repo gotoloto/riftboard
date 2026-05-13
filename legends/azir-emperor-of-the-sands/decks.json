@@ -1,8 +1,8 @@
 {
   "archetype": "Azir, Emperor of the Sands",
   "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-  "scraped_at": "2026-05-12T14:33:34.584841Z",
-  "deck_count": 247,
+  "scraped_at": "2026-05-13T02:13:02.915913Z",
+  "deck_count": 251,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-sandman-142051",
@@ -59280,6 +59280,974 @@
       "rank": 32,
       "players": 34,
       "finish_pct": 94.1,
+      "date": "2026-04-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-azir-emperor-of-the-sands-138978",
+      "title": "Azir, Emperor of the Sands by Long Le | riftDecks.com",
+      "cards": [
+        {
+          "name": "Azir, Emperor of the Sands",
+          "slug": "details-azir-emperor-of-the-sands",
+          "url": "https://riftdecks.com/cards/details-azir-emperor-of-the-sands",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Azir, Sovereign",
+          "slug": "details-azir-sovereign",
+          "url": "https://riftdecks.com/cards/details-azir-sovereign",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Shield",
+          "slug": "details-dorans-shield",
+          "url": "https://riftdecks.com/cards/details-dorans-shield",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Eye of the Herald",
+          "slug": "details-eye-of-the-herald",
+          "url": "https://riftdecks.com/cards/details-eye-of-the-herald",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Soul Sword",
+          "slug": "details-soul-sword",
+          "url": "https://riftdecks.com/cards/details-soul-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arise!",
+          "slug": "details-arise",
+          "url": "https://riftdecks.com/cards/details-arise",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 15,
+      "finish_pct": 53.3,
+      "date": "2026-05-09"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-azir-emperor-of-the-sands-138975",
+      "title": "Azir, Emperor of the Sands by Eric Liu | riftDecks.com",
+      "cards": [
+        {
+          "name": "Azir, Emperor of the Sands",
+          "slug": "details-azir-emperor-of-the-sands",
+          "url": "https://riftdecks.com/cards/details-azir-emperor-of-the-sands",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Azir, Sovereign",
+          "slug": "details-azir-sovereign",
+          "url": "https://riftdecks.com/cards/details-azir-sovereign",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Shield",
+          "slug": "details-dorans-shield",
+          "url": "https://riftdecks.com/cards/details-dorans-shield",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Eye of the Herald",
+          "slug": "details-eye-of-the-herald",
+          "url": "https://riftdecks.com/cards/details-eye-of-the-herald",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sacred Shears",
+          "slug": "details-sacred-shears",
+          "url": "https://riftdecks.com/cards/details-sacred-shears",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Desert's Call",
+          "slug": "details-deserts-call",
+          "url": "https://riftdecks.com/cards/details-deserts-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guards!",
+          "slug": "details-guards",
+          "url": "https://riftdecks.com/cards/details-guards",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arise!",
+          "slug": "details-arise",
+          "url": "https://riftdecks.com/cards/details-arise",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hall of Legends",
+          "slug": "details-hall-of-legends",
+          "url": "https://riftdecks.com/cards/details-hall-of-legends",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Wind Wall",
+          "slug": "details-wind-wall",
+          "url": "https://riftdecks.com/cards/details-wind-wall",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 1,
+      "players": 15,
+      "finish_pct": 6.7,
+      "date": "2026-05-09"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hao-yun-sha-huang-113010",
+      "title": "好运沙黄 by 墨染.芜湖高哉 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Azir, Emperor of the Sands",
+          "slug": "details-azir-emperor-of-the-sands",
+          "url": "https://riftdecks.com/cards/details-azir-emperor-of-the-sands",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Azir, Ascendant",
+          "slug": "details-azir-ascendant",
+          "url": "https://riftdecks.com/cards/details-azir-ascendant",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Janna, Savior",
+          "slug": "details-janna-savior",
+          "url": "https://riftdecks.com/cards/details-janna-savior",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Renata Glasc, Industrialist",
+          "slug": "details-renata-glasc-industrialist",
+          "url": "https://riftdecks.com/cards/details-renata-glasc-industrialist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Shield",
+          "slug": "details-dorans-shield",
+          "url": "https://riftdecks.com/cards/details-dorans-shield",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Eye of the Herald",
+          "slug": "details-eye-of-the-herald",
+          "url": "https://riftdecks.com/cards/details-eye-of-the-herald",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Forgotten Signpost",
+          "slug": "details-forgotten-signpost",
+          "url": "https://riftdecks.com/cards/details-forgotten-signpost",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Desert's Call",
+          "slug": "details-deserts-call",
+          "url": "https://riftdecks.com/cards/details-deserts-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guards!",
+          "slug": "details-guards",
+          "url": "https://riftdecks.com/cards/details-guards",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arise!",
+          "slug": "details-arise",
+          "url": "https://riftdecks.com/cards/details-arise",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hall of Legends",
+          "slug": "details-hall-of-legends",
+          "url": "https://riftdecks.com/cards/details-hall-of-legends",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thwonk!",
+          "slug": "details-thwonk",
+          "url": "https://riftdecks.com/cards/details-thwonk",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Last Stand",
+          "slug": "details-last-stand",
+          "url": "https://riftdecks.com/cards/details-last-stand",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Wind Wall",
+          "slug": "details-wind-wall",
+          "url": "https://riftdecks.com/cards/details-wind-wall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 7,
+      "players": 65,
+      "finish_pct": 10.8,
+      "date": "2026-04-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-jian-ji-113015",
+      "title": "剑姬 by 燕五 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Azir, Emperor of the Sands",
+          "slug": "details-azir-emperor-of-the-sands",
+          "url": "https://riftdecks.com/cards/details-azir-emperor-of-the-sands",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Azir, Sovereign",
+          "slug": "details-azir-sovereign",
+          "url": "https://riftdecks.com/cards/details-azir-sovereign",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Doran's Shield",
+          "slug": "details-dorans-shield",
+          "url": "https://riftdecks.com/cards/details-dorans-shield",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Eye of the Herald",
+          "slug": "details-eye-of-the-herald",
+          "url": "https://riftdecks.com/cards/details-eye-of-the-herald",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Soul Sword",
+          "slug": "details-soul-sword",
+          "url": "https://riftdecks.com/cards/details-soul-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arise!",
+          "slug": "details-arise",
+          "url": "https://riftdecks.com/cards/details-arise",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ornn's Forge",
+          "slug": "details-ornns-forge",
+          "url": "https://riftdecks.com/cards/details-ornns-forge",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 12,
+      "players": 65,
+      "finish_pct": 18.5,
       "date": "2026-04-18"
     }
   ],

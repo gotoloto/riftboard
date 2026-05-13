@@ -1,8 +1,8 @@
 {
   "archetype": "Rengar, Pridestalker",
   "url": "https://riftdecks.com/legends/constructed/rengar-pridestalker?metagame_id=3",
-  "scraped_at": "2026-05-12T15:15:28.238666Z",
-  "deck_count": 156,
+  "scraped_at": "2026-05-13T02:17:36.738213Z",
+  "deck_count": 159,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-shi-zi-gou-142216",
@@ -36467,6 +36467,708 @@
       "players": 64,
       "finish_pct": 28.1,
       "date": "2026-04-04"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-gou-zi-141510",
+      "title": "狗子 by SC | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rengar, Pridestalker",
+          "slug": "details-rengar-pridestalker",
+          "url": "https://riftdecks.com/cards/details-rengar-pridestalker",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Pouncing",
+          "slug": "details-rengar-pouncing",
+          "url": "https://riftdecks.com/cards/details-rengar-pouncing",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pouty Poro",
+          "slug": "details-pouty-poro",
+          "url": "https://riftdecks.com/cards/details-pouty-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Veteran Poro",
+          "slug": "details-veteran-poro",
+          "url": "https://riftdecks.com/cards/details-veteran-poro",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Carnivorous Snapvine",
+          "slug": "details-carnivorous-snapvine",
+          "url": "https://riftdecks.com/cards/details-carnivorous-snapvine",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Trophy Hunter",
+          "slug": "details-rengar-trophy-hunter",
+          "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Warwick, Hunter",
+          "slug": "details-warwick-hunter",
+          "url": "https://riftdecks.com/cards/details-warwick-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Deadbloom Predator",
+          "slug": "details-deadbloom-predator",
+          "url": "https://riftdecks.com/cards/details-deadbloom-predator",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Strength",
+          "slug": "details-seal-of-strength",
+          "url": "https://riftdecks.com/cards/details-seal-of-strength",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boneshiver",
+          "slug": "details-boneshiver",
+          "url": "https://riftdecks.com/cards/details-boneshiver",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Trinity Force",
+          "slug": "details-trinity-force",
+          "url": "https://riftdecks.com/cards/details-trinity-force",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bushwhack",
+          "slug": "details-bushwhack",
+          "url": "https://riftdecks.com/cards/details-bushwhack",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cannon Barrage",
+          "slug": "details-cannon-barrage",
+          "url": "https://riftdecks.com/cards/details-cannon-barrage",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Confront",
+          "slug": "details-confront",
+          "url": "https://riftdecks.com/cards/details-confront",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Mobilize",
+          "slug": "details-mobilize",
+          "url": "https://riftdecks.com/cards/details-mobilize",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Thrill of the Hunt",
+          "slug": "details-thrill-of-the-hunt",
+          "url": "https://riftdecks.com/cards/details-thrill-of-the-hunt",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Void Seeker",
+          "slug": "details-void-seeker",
+          "url": "https://riftdecks.com/cards/details-void-seeker",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Catalyst of Aeons",
+          "slug": "details-catalyst-of-aeons",
+          "url": "https://riftdecks.com/cards/details-catalyst-of-aeons",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 32,
+      "players": 32,
+      "finish_pct": 100.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-shi-zi-gou-141493",
+      "title": "狮子狗 by 不吃鱼 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rengar, Pridestalker",
+          "slug": "details-rengar-pridestalker",
+          "url": "https://riftdecks.com/cards/details-rengar-pridestalker",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Trophy Hunter",
+          "slug": "details-rengar-trophy-hunter",
+          "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Dragonsoul Sage",
+          "slug": "details-dragonsoul-sage",
+          "url": "https://riftdecks.com/cards/details-dragonsoul-sage",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irresistible Faefolk",
+          "slug": "details-irresistible-faefolk",
+          "url": "https://riftdecks.com/cards/details-irresistible-faefolk",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Herald of Scales",
+          "slug": "details-herald-of-scales",
+          "url": "https://riftdecks.com/cards/details-herald-of-scales",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blazing Scorcher",
+          "slug": "details-blazing-scorcher",
+          "url": "https://riftdecks.com/cards/details-blazing-scorcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Dune Drake",
+          "slug": "details-dune-drake",
+          "url": "https://riftdecks.com/cards/details-dune-drake",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gentle Gemdragon",
+          "slug": "details-gentle-gemdragon",
+          "url": "https://riftdecks.com/cards/details-gentle-gemdragon",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Magma Wurm",
+          "slug": "details-magma-wurm",
+          "url": "https://riftdecks.com/cards/details-magma-wurm",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kadregrin the Infernal",
+          "slug": "details-kadregrin-the-infernal",
+          "url": "https://riftdecks.com/cards/details-kadregrin-the-infernal",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Here to Help",
+          "slug": "details-here-to-help",
+          "url": "https://riftdecks.com/cards/details-here-to-help",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Thrill of the Hunt",
+          "slug": "details-thrill-of-the-hunt",
+          "url": "https://riftdecks.com/cards/details-thrill-of-the-hunt",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sky Splitter",
+          "slug": "details-sky-splitter",
+          "url": "https://riftdecks.com/cards/details-sky-splitter",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sigil of the Storm",
+          "slug": "details-sigil-of-the-storm",
+          "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Repulse",
+          "slug": "details-repulse",
+          "url": "https://riftdecks.com/cards/details-repulse",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Stare Down",
+          "slug": "details-stare-down",
+          "url": "https://riftdecks.com/cards/details-stare-down",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Akshan, Mischievous",
+          "slug": "details-akshan-mischievous",
+          "url": "https://riftdecks.com/cards/details-akshan-mischievous",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Elder Dragon",
+          "slug": "details-elder-dragon",
+          "url": "https://riftdecks.com/cards/details-elder-dragon",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 32,
+      "finish_pct": 50.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hong-cheng-jin-ke-si-141485",
+      "title": "红橙金克丝 by 天狼 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rengar, Pridestalker",
+          "slug": "details-rengar-pridestalker",
+          "url": "https://riftdecks.com/cards/details-rengar-pridestalker",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Pouncing",
+          "slug": "details-rengar-pouncing",
+          "url": "https://riftdecks.com/cards/details-rengar-pouncing",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Determined Sentry",
+          "slug": "details-determined-sentry",
+          "url": "https://riftdecks.com/cards/details-determined-sentry",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Inferna",
+          "slug": "details-inferna",
+          "url": "https://riftdecks.com/cards/details-inferna",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irresistible Faefolk",
+          "slug": "details-irresistible-faefolk",
+          "url": "https://riftdecks.com/cards/details-irresistible-faefolk",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pit Rookie",
+          "slug": "details-pit-rookie",
+          "url": "https://riftdecks.com/cards/details-pit-rookie",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kinkou Initiate",
+          "slug": "details-kinkou-initiate",
+          "url": "https://riftdecks.com/cards/details-kinkou-initiate",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nidalee, Cat Form",
+          "slug": "details-nidalee-cat-form",
+          "url": "https://riftdecks.com/cards/details-nidalee-cat-form",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Dockside Butcher",
+          "slug": "details-pyke-dockside-butcher",
+          "url": "https://riftdecks.com/cards/details-pyke-dockside-butcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Confront",
+          "slug": "details-confront",
+          "url": "https://riftdecks.com/cards/details-confront",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Thrill of the Hunt",
+          "slug": "details-thrill-of-the-hunt",
+          "url": "https://riftdecks.com/cards/details-thrill-of-the-hunt",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Right of Conquest",
+          "slug": "details-right-of-conquest",
+          "url": "https://riftdecks.com/cards/details-right-of-conquest",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Determined Sentry",
+          "slug": "details-determined-sentry",
+          "url": "https://riftdecks.com/cards/details-determined-sentry",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Lotus Trap",
+          "slug": "details-lotus-trap",
+          "url": "https://riftdecks.com/cards/details-lotus-trap",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 32,
+      "finish_pct": 25.0,
+      "date": "2026-05-10"
     }
   ],
   "cards_meta": {
