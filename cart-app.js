@@ -457,6 +457,25 @@ function attachHandlers() {
     render();
   });
 
+  const csvInput = document.getElementById("import-csv-input");
+  csvInput.addEventListener("change", async (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    try {
+      const text = await file.text();
+      const result = importOwnedFromCsv(text);
+      alert(
+        `Imported ${result.applied} owned counts from ${result.rows} rows` +
+        (result.unmatched ? ` (${result.unmatched} unmatched names skipped)` : "") +
+        ".",
+      );
+    } catch (err) {
+      alert("CSV import failed: " + (err && err.message ? err.message : err));
+    } finally {
+      csvInput.value = "";
+    }
+  });
+
   const copyBtn = document.getElementById("copy-cart-btn");
   copyBtn.addEventListener("click", async () => {
     const text = formatPlaintext();
@@ -498,6 +517,87 @@ function formatPlaintext() {
     lines.push(`${needed} ${name}`);
   }
   return lines.join("\n");
+}
+
+/**
+ * Parse a CSV string into an array of row arrays. RFC-4180-ish: handles
+ * quoted fields, doubled-quote escapes, embedded commas/newlines. Plenty
+ * for the template Excel exports.
+ */
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+  let i = 0;
+  // Strip BOM
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+  while (i < text.length) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i += 2; continue; }
+        inQuotes = false; i++; continue;
+      }
+      field += c; i++; continue;
+    }
+    if (c === '"') { inQuotes = true; i++; continue; }
+    if (c === ",") { row.push(field); field = ""; i++; continue; }
+    if (c === "\r") { i++; continue; }
+    if (c === "\n") {
+      row.push(field); rows.push(row); row = []; field = ""; i++; continue;
+    }
+    field += c; i++;
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function importOwnedFromCsv(text) {
+  const rows = parseCsv(text);
+  if (rows.length < 2) throw new Error("CSV looks empty");
+  const header = rows[0].map((h) => String(h).trim().toLowerCase());
+  const slugCol = header.indexOf("slug");
+  const nameCol = header.findIndex((h) => h === "card" || h === "name");
+  const qtyCol = header.findIndex((h) =>
+    /qty.*own|qty.?owned|owned/i.test(h)
+  );
+  if (qtyCol < 0) throw new Error("No 'Qty Owned' column found");
+  if (slugCol < 0 && nameCol < 0)
+    throw new Error("Need either a 'Slug' or 'Card' column");
+
+  // Build a name → slug fallback index using cached legend data.
+  const nameToSlug = new Map();
+  for (const data of dataCache.values()) {
+    for (const [slug, m] of Object.entries(data.cards_meta || {})) {
+      const n = (m.name || "").toLowerCase().trim();
+      if (n && !nameToSlug.has(n)) nameToSlug.set(n, slug);
+    }
+  }
+
+  let applied = 0;
+  let unmatched = 0;
+  let dataRows = 0;
+  for (let r = 1; r < rows.length; r++) {
+    const cells = rows[r];
+    if (!cells || cells.every((c) => !String(c).trim())) continue;
+    dataRows++;
+    const qtyRaw = String(cells[qtyCol] ?? "").trim();
+    if (!qtyRaw) continue;
+    const qty = parseInt(qtyRaw, 10);
+    if (!Number.isFinite(qty) || qty <= 0) continue;
+    let slug = slugCol >= 0 ? String(cells[slugCol] || "").trim() : "";
+    if (!slug && nameCol >= 0) {
+      const n = String(cells[nameCol] || "").toLowerCase().trim();
+      slug = nameToSlug.get(n) || "";
+    }
+    if (!slug) { unmatched++; continue; }
+    state.ownedOverride[slug] = qty;
+    applied++;
+  }
+  writeJSON(LS.owned, state.ownedOverride);
+  render();
+  return { rows: dataRows, applied, unmatched };
 }
 
 // Hover thumbnail

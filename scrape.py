@@ -817,6 +817,85 @@ def build_staples(top_per_rarity: int = 40) -> dict:
     }
 
 
+def build_collection_template(path: str = "collection-template.xlsx") -> dict:
+    """Walk every cached legend's cards_meta, dedupe across legends by slug,
+    and emit an Excel template the user can fill in to record what they own.
+    The cart page can read this file back to auto-populate the Owned column."""
+    try:
+        from openpyxl import Workbook
+        from openpyxl.styles import Font, PatternFill, Alignment
+        from openpyxl.utils import get_column_letter
+    except ImportError:
+        raise SystemExit("openpyxl is required: pip install openpyxl")
+
+    seen: dict = {}
+    for decks_path in sorted(glob.glob("legends/*/decks.json")):
+        try:
+            raw = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
+        for slug, m in raw.get("cards_meta", {}).items():
+            if slug in seen:
+                continue
+            img = m.get("image_url") or ""
+            mset = re.search(r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/", img)
+            seen[slug] = {
+                "slug": slug,
+                "name": m.get("name", slug),
+                "set": mset.group(1) if mset else "",
+                "domains": ", ".join(m.get("domains", []) or []),
+                "rarity": (m.get("rarity") or "").lower(),
+                "type": (m.get("type") or "").lower(),
+            }
+
+    rows = sorted(
+        seen.values(),
+        key=lambda r: (r["set"], r["type"], r["name"].lower()),
+    )
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Collection"
+
+    headers = ["Slug", "Card", "Set", "Domains", "Rarity", "Type", "Qty Owned"]
+    header_font = Font(bold=True, color="FFFFFF")
+    header_fill = PatternFill("solid", fgColor="2563EB")
+    ws.append(headers)
+    for col_idx, _ in enumerate(headers, 1):
+        cell = ws.cell(row=1, column=col_idx)
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = Alignment(vertical="center")
+    ws.row_dimensions[1].height = 22
+
+    for r in rows:
+        ws.append([
+            r["slug"],
+            r["name"],
+            r["set"],
+            r["domains"],
+            r["rarity"],
+            r["type"],
+            "",  # Qty Owned — user fills this in
+        ])
+
+    last_row = ws.max_row
+    last_col = len(headers)
+    ws.auto_filter.ref = f"A1:{get_column_letter(last_col)}{last_row}"
+    ws.freeze_panes = "B2"
+
+    widths = {"A": 36, "B": 32, "C": 8, "D": 18, "E": 12, "F": 12, "G": 12}
+    for col, w in widths.items():
+        ws.column_dimensions[col].width = w
+    # Right-align Qty Owned
+    qty_col = get_column_letter(len(headers))
+    for row in range(2, last_row + 1):
+        ws[f"{qty_col}{row}"].alignment = Alignment(horizontal="right")
+
+    wb.save(path)
+    return {"path": path, "rows": last_row - 1}
+
+
 def save_staples_js(payload: dict, path: str = "staples.js") -> None:
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
@@ -833,6 +912,9 @@ if __name__ == "__main__":
         save_staples_js(payload)
         n = sum(len(v) for v in payload["rarities"].values())
         print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
+    elif args and args[0] == "--collection":
+        info = build_collection_template()
+        print(f"{info['path']} written: {info['rows']} unique cards")
     elif args and args[0] == "--check":
         print(f"Pinging {LEGENDS_INDEX_URL}…")
         index = fetch_legends_index()
@@ -883,8 +965,10 @@ if __name__ == "__main__":
                 print(f"  ! legends/{s}/decks.json not found; skip")
         rebuild_champions_index()
         save_staples_js(build_staples())
-        print("staples.js refreshed")
+        build_collection_template()
+        print("staples.js + collection-template.xlsx refreshed")
     else:
         url = args[0] if args else DEFAULT_URL
         main(url)
         save_staples_js(build_staples())
+        build_collection_template()
