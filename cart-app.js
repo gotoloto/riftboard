@@ -438,8 +438,7 @@ function formatPlaintext() {
     const needed = parseInt(tr.querySelector(".needed").textContent, 10) || 0;
     if (needed <= 0) continue;
     const nameEl = tr.querySelector("td:first-child a, td:first-child span");
-    let name = (nameEl?.textContent || "").trim();
-    name = name.replace(/,\s*/g, " - ");
+    const name = tcgplayerName((nameEl?.textContent || "").trim());
     if (!name) continue;
     lines.push(`${needed} ${name}`);
   }

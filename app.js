@@ -846,7 +846,7 @@ function formatPlaintextDeck() {
     const nameText = li.querySelector(".name")?.textContent ?? "";
     const qty = parseInt(qtyText, 10);
     if (!Number.isFinite(qty) || qty < 1) continue;
-    const name = nameText.trim().replace(/,\s*/g, " - ");
+    const name = tcgplayerName(nameText.trim());
     if (!name) continue;
     lines.push(`${qty} ${name}`);
   }
