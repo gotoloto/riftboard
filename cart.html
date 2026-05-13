@@ -15,13 +15,27 @@
     </div>
     <p id="meta" class="muted"></p>
     <p class="muted note">
-      Top 25% finishers per deck · top 60 card-copies per deck · runes, legends,
-      and battlefields excluded. <strong>Wanted</strong> defaults to the sum
-      across selected decks; edit any cell to override. <strong>Needed</strong>
-      = max(0, Wanted − Owned). Copy the bottom button output into TCGplayer's
-      mass-entry box (commas in names become " − " automatically).
+      For each selected legend: filter to its top-X% finishers, then greedily
+      pick the most-included cards (using their median copies) until the
+      running total reaches Y — excluding runes from the main pool. Each
+      legend also adds 1 of its legend card and 1 of each of its top 6
+      battlefields. <strong>Wanted</strong> defaults to the sum across
+      selected decks; edit any cell to override. <strong>Needed</strong> =
+      max(0, Wanted − Owned). Copy output is TCGplayer mass-entry format
+      (commas in card names become " − ").
     </p>
   </header>
+
+  <section class="cart-config">
+    <label class="config-label">Top finishers
+      <input id="percentile-input" type="number" min="1" max="100" step="1" value="25">
+      <span class="suffix">%</span>
+    </label>
+    <label class="config-label">Top copies / deck
+      <input id="qty-input" type="number" min="1" max="500" step="1" value="60">
+    </label>
+    <span class="config-note muted">Each legend also contributes 1 of its legend card and 1 of each of its top 6 battlefields.</span>
+  </section>
 
   <section class="legend-picker">
     <div class="picker-header">
@@ -66,7 +80,7 @@
   </section>
 
   <img id="card-thumb" alt="" hidden />
-  <script src="cart.js"></script>
+  <script src="champions.js"></script>
   <script src="cart-app.js"></script>
 </body>
 </html>

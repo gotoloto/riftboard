@@ -13,6 +13,8 @@ const LS = {
   legends: "cart:legends",
   owned: "cart:owned",
   wanted: "cart:wanted",
+  percentile: "cart:percentile",
+  qty: "cart:qty",
 };
 
 const RARITY = {
@@ -41,52 +43,133 @@ function readJSON(key, fallback) {
   try {
     const v = localStorage.getItem(key);
     return v == null ? fallback : JSON.parse(v);
-  } catch (_) {
-    return fallback;
-  }
+  } catch (_) { return fallback; }
 }
 function writeJSON(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch (_) {}
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
 }
 
-const data = window.__CART_DATA__;
-const legendBySlug = new Map(data ? data.legends.map((L) => [L.slug, L]) : []);
+const champions = window.__CHAMPIONS__ || [];
+const championBySlug = new Map(champions.map((c) => [c.slug, c]));
 
 const state = {
   selectedLegends: new Set(readJSON(LS.legends, DEFAULT_LEGENDS)),
   ownedOverride: readJSON(LS.owned, {}),
   wantedOverride: readJSON(LS.wanted, {}),
+  percentile: readJSON(LS.percentile, 25),
+  qtyTarget: readJSON(LS.qty, 60),
 };
-
-// Drop selections referring to legends not in data (e.g. one was removed).
 for (const s of [...state.selectedLegends]) {
-  if (!legendBySlug.has(s)) state.selectedLegends.delete(s);
+  if (!championBySlug.has(s)) state.selectedLegends.delete(s);
 }
 
-function persistSelections() {
-  writeJSON(LS.legends, [...state.selectedLegends]);
+const dataCache = new Map(); // slug -> __DATA__ payload
+function loadLegendData(slug) {
+  if (dataCache.has(slug)) return Promise.resolve(dataCache.get(slug));
+  return new Promise((resolve) => {
+    const prev = window.__DATA__;
+    window.__DATA__ = null;
+    const s = document.createElement("script");
+    s.src = `legends/${slug}/data.js`;
+    s.onload = () => {
+      const d = window.__DATA__;
+      window.__DATA__ = prev;
+      if (d) dataCache.set(slug, d);
+      resolve(d || null);
+    };
+    s.onerror = () => {
+      window.__DATA__ = prev;
+      resolve(null);
+    };
+    document.body.appendChild(s);
+  });
 }
-function persistOwned() {
-  writeJSON(LS.owned, state.ownedOverride);
+async function ensureDataLoaded(slugs) {
+  await Promise.all(slugs.map(loadLegendData));
 }
-function persistWanted() {
-  writeJSON(LS.wanted, state.wantedOverride);
+
+function aggregateLegend(data, percentile) {
+  const decks = (data.decks || []).filter(
+    (d) => d.fp != null && d.fp <= percentile
+  );
+  const n = decks.length;
+  const perCard = new Map();
+  for (const d of decks) {
+    for (const [slug, qty] of d.c || []) {
+      let e = perCard.get(slug);
+      if (!e) { e = { qtys: [] }; perCard.set(slug, e); }
+      e.qtys.push(qty);
+    }
+  }
+  const out = [];
+  for (const [slug, e] of perCard) {
+    const meta = (data.cards_meta || {})[slug] || {};
+    e.qtys.sort((a, b) => a - b);
+    const mid = (e.qtys.length / 2) | 0;
+    const med = e.qtys.length % 2
+      ? e.qtys[mid]
+      : (e.qtys[mid - 1] + e.qtys[mid]) / 2;
+    out.push({
+      slug,
+      name: meta.name || slug,
+      type: (meta.type || "").toLowerCase(),
+      domains: meta.domains || [],
+      rarity: meta.rarity,
+      url: meta.url,
+      img: meta.img,
+      decks_including: e.qtys.length,
+      inclusion_pct: n ? (e.qtys.length / n) * 100 : 0,
+      median_copies: Math.round(med),
+    });
+  }
+  out.sort((a, b) =>
+    b.decks_including - a.decks_including ||
+    b.median_copies - a.median_copies ||
+    a.name.localeCompare(b.name)
+  );
+  return { filteredDeckCount: n, allCards: out };
+}
+
+function legendShoppingList(allCards, qtyTarget) {
+  const excluded = new Set(["rune", "legend", "battlefield"]);
+  const main = [];
+  let total = 0;
+  for (const c of allCards) {
+    if (excluded.has(c.type)) continue;
+    const qty = Math.max(1, c.median_copies);
+    main.push({ ...c, qty });
+    total += qty;
+    if (total >= qtyTarget) break;
+  }
+  const legend = allCards.find((c) => c.type === "legend");
+  const battlefields = allCards
+    .filter((c) => c.type === "battlefield")
+    .slice(0, 6)
+    .map((c) => ({ ...c, qty: 1 }));
+  return [
+    ...(legend ? [{ ...legend, qty: 1 }] : []),
+    ...battlefields,
+    ...main,
+  ];
 }
 
 function buildRows() {
   const merged = new Map();
+  const filteredCounts = new Map();
   for (const slug of state.selectedLegends) {
-    const L = legendBySlug.get(slug);
-    if (!L) continue;
-    for (const c of L.top_cards) {
+    const data = dataCache.get(slug);
+    const champ = championBySlug.get(slug);
+    if (!data || !champ) continue;
+    const { filteredDeckCount, allCards } = aggregateLegend(data, state.percentile);
+    filteredCounts.set(slug, filteredDeckCount);
+    const list = legendShoppingList(allCards, state.qtyTarget);
+    for (const c of list) {
       let m = merged.get(c.slug);
       if (!m) {
         m = { ...c, perLegend: [], defaultWanted: 0 };
         merged.set(c.slug, m);
       }
-      m.perLegend.push({ slug: L.slug, name: L.name, qty: c.qty });
+      m.perLegend.push({ slug, name: champ.name, qty: c.qty });
       m.defaultWanted += c.qty;
     }
   }
@@ -103,7 +186,7 @@ function buildRows() {
     (a, b) =>
       b.needed - a.needed || b.wanted - a.wanted || a.name.localeCompare(b.name)
   );
-  return rows;
+  return { rows, filteredCounts };
 }
 
 function renderRow(row) {
@@ -116,6 +199,9 @@ function renderRow(row) {
         `<span class="tag domain-${escapeHtml(String(d).toLowerCase())}" style="text-transform:capitalize">${escapeHtml(d)}</span>`
     )
     .join(" ");
+  const typeTag = row.type
+    ? ` <span class="tag" style="text-transform:capitalize">${escapeHtml(row.type)}</span>`
+    : "";
   const usedIn = row.perLegend
     .map(
       (l) =>
@@ -128,7 +214,7 @@ function renderRow(row) {
   const oOverridden = (state.ownedOverride[row.slug] || 0) > 0;
   return `
     <tr data-slug="${escapeHtml(row.slug)}">
-      <td>${link}</td>
+      <td>${link}${typeTag}</td>
       <td>${domains}</td>
       <td class="used-in">${usedIn}</td>
       <td class="num"><input class="qty-input wanted${wOverridden ? " overridden" : ""}" type="number" min="0" step="1" value="${row.wanted}" data-default="${row.defaultWanted}" /></td>
@@ -144,39 +230,64 @@ const summaryEl = document.getElementById("cart-summary");
 const pickerCountEl = document.getElementById("picker-count");
 const pillsEl = document.getElementById("legend-pills");
 const metaEl = document.getElementById("meta");
+const percentileInputEl = document.getElementById("percentile-input");
+const qtyInputEl = document.getElementById("qty-input");
 
-function render() {
-  if (!data) {
-    metaEl.textContent = "cart.js missing. Run `python3 scrape.py --cart`.";
-    return;
-  }
-  const ts = data.scraped_at ? new Date(data.scraped_at).toLocaleString() : "";
-  metaEl.innerHTML = `${data.legends.length} legends cached · generated ${ts}`;
-
-  // Render legend pills
-  pillsEl.innerHTML = data.legends
-    .map((L) => {
-      const on = state.selectedLegends.has(L.slug);
-      return `<button type="button" class="legend-pill${on ? " on" : ""}" data-slug="${escapeHtml(L.slug)}" title="Top-25% sample: ${L.filtered_deck_count} of ${L.deck_count} decks">${escapeHtml(L.name)} <span class="deck-count">${L.filtered_deck_count}</span></button>`;
+function renderPicker(filteredCounts) {
+  pillsEl.innerHTML = champions
+    .map((c) => {
+      const on = state.selectedLegends.has(c.slug);
+      const filt = filteredCounts.get(c.slug);
+      const loaded = dataCache.has(c.slug);
+      const countText = on
+        ? loaded && filt != null
+          ? `${filt}`
+          : "…"
+        : `${c.deck_count}`;
+      return `<button type="button" class="legend-pill${on ? " on" : ""}" data-slug="${escapeHtml(c.slug)}" title="${escapeHtml(c.name)} — total ${c.deck_count} decks${filt != null ? `; ${filt} match the filter` : ""}">${escapeHtml(c.name)} <span class="deck-count">${countText}</span></button>`;
     })
     .join("");
+  pickerCountEl.textContent = `${state.selectedLegends.size} selected`;
+}
 
-  // Build rows
-  const rows = buildRows();
+function render() {
+  metaEl.innerHTML = `${champions.length} legends cached`;
+  percentileInputEl.value = state.percentile;
+  qtyInputEl.value = state.qtyTarget;
+
   if (state.selectedLegends.size === 0) {
+    renderPicker(new Map());
     tbody.innerHTML = "";
     emptyEl.hidden = false;
+    emptyEl.textContent = "Pick at least one legend above to build your cart.";
     summaryEl.textContent = "";
-    pickerCountEl.textContent = "0 selected";
     return;
   }
+
+  // If selected legends haven't been loaded yet, show a loading state.
+  const missing = [...state.selectedLegends].filter((s) => !dataCache.has(s));
+  if (missing.length) {
+    renderPicker(new Map());
+    tbody.innerHTML = "";
+    emptyEl.hidden = false;
+    emptyEl.textContent = `Loading data for ${missing.length} legend${missing.length === 1 ? "" : "s"}…`;
+    summaryEl.textContent = "";
+    return;
+  }
+
+  const { rows, filteredCounts } = buildRows();
+  renderPicker(filteredCounts);
   emptyEl.hidden = rows.length > 0;
   tbody.innerHTML = rows.map(renderRow).join("");
 
   const totalNeeded = rows.reduce((s, r) => s + r.needed, 0);
   const distinctNeeded = rows.filter((r) => r.needed > 0).length;
-  pickerCountEl.textContent = `${state.selectedLegends.size} selected`;
   summaryEl.textContent = `${rows.length} cards · ${totalNeeded} copies needed across ${distinctNeeded} cards`;
+}
+
+async function recompute() {
+  await ensureDataLoaded([...state.selectedLegends]);
+  render();
 }
 
 function recomputeRow(tr) {
@@ -198,12 +309,12 @@ function recomputeRow(tr) {
   wantedEl.classList.toggle("overridden", wOverridden);
   if (wOverridden) state.wantedOverride[slug] = wanted;
   else delete state.wantedOverride[slug];
-  persistWanted();
+  writeJSON(LS.wanted, state.wantedOverride);
 
   ownedEl.classList.toggle("overridden", owned > 0);
   if (owned > 0) state.ownedOverride[slug] = owned;
   else delete state.ownedOverride[slug];
-  persistOwned();
+  writeJSON(LS.owned, state.ownedOverride);
 
   refreshSummary();
 }
@@ -214,38 +325,54 @@ function refreshSummary() {
   let distinct = 0;
   for (const tr of rows) {
     const need = parseInt(tr.querySelector(".needed")?.textContent || "0", 10);
-    if (need > 0) {
-      totalNeeded += need;
-      distinct += 1;
-    }
+    if (need > 0) { totalNeeded += need; distinct += 1; }
   }
   summaryEl.textContent = `${rows.length} cards · ${totalNeeded} copies needed across ${distinct} cards`;
 }
 
 function attachHandlers() {
-  pillsEl.addEventListener("click", (ev) => {
+  pillsEl.addEventListener("click", async (ev) => {
     const btn = ev.target.closest(".legend-pill");
     if (!btn) return;
     const slug = btn.dataset.slug;
     if (state.selectedLegends.has(slug)) state.selectedLegends.delete(slug);
     else state.selectedLegends.add(slug);
-    persistSelections();
-    render();
+    writeJSON(LS.legends, [...state.selectedLegends]);
+    await recompute();
   });
 
-  document.getElementById("defaults-btn").addEventListener("click", () => {
-    state.selectedLegends = new Set(DEFAULT_LEGENDS.filter((s) => legendBySlug.has(s)));
-    persistSelections();
-    render();
+  document.getElementById("defaults-btn").addEventListener("click", async () => {
+    state.selectedLegends = new Set(
+      DEFAULT_LEGENDS.filter((s) => championBySlug.has(s))
+    );
+    writeJSON(LS.legends, [...state.selectedLegends]);
+    await recompute();
   });
-  document.getElementById("all-btn").addEventListener("click", () => {
-    state.selectedLegends = new Set(data.legends.map((L) => L.slug));
-    persistSelections();
-    render();
+  document.getElementById("all-btn").addEventListener("click", async () => {
+    state.selectedLegends = new Set(champions.map((c) => c.slug));
+    writeJSON(LS.legends, [...state.selectedLegends]);
+    await recompute();
   });
   document.getElementById("none-btn").addEventListener("click", () => {
     state.selectedLegends.clear();
-    persistSelections();
+    writeJSON(LS.legends, [...state.selectedLegends]);
+    render();
+  });
+
+  percentileInputEl.addEventListener("input", () => {
+    let v = parseInt(percentileInputEl.value, 10);
+    if (!Number.isFinite(v) || v < 1) v = 1;
+    if (v > 100) v = 100;
+    state.percentile = v;
+    writeJSON(LS.percentile, v);
+    render();
+  });
+  qtyInputEl.addEventListener("input", () => {
+    let v = parseInt(qtyInputEl.value, 10);
+    if (!Number.isFinite(v) || v < 1) v = 1;
+    if (v > 500) v = 500;
+    state.qtyTarget = v;
+    writeJSON(LS.qty, v);
     render();
   });
 
@@ -270,8 +397,8 @@ function attachHandlers() {
   document.getElementById("reset-overrides-btn").addEventListener("click", () => {
     state.ownedOverride = {};
     state.wantedOverride = {};
-    persistOwned();
-    persistWanted();
+    writeJSON(LS.owned, state.ownedOverride);
+    writeJSON(LS.wanted, state.wantedOverride);
     render();
   });
 
@@ -287,19 +414,14 @@ function attachHandlers() {
         copyBtn.classList.remove("copied");
       }, 1500);
     };
-    if (!text) {
-      flash("Nothing to copy", false);
-      return;
-    }
+    if (!text) { flash("Nothing to copy", false); return; }
     try {
       await navigator.clipboard.writeText(text);
       flash("Copied!");
     } catch {
-      // Fallback
       const ta = document.createElement("textarea");
       ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.top = "-1000px";
+      ta.style.position = "fixed"; ta.style.top = "-1000px";
       document.body.appendChild(ta);
       ta.select();
       let ok = false;
@@ -366,3 +488,4 @@ function attachHoverThumb() {
 attachHandlers();
 attachHoverThumb();
 render();
+recompute();
