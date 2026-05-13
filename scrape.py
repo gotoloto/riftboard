@@ -838,11 +838,23 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
             if slug in seen:
                 continue
             img = m.get("image_url") or ""
-            mset = re.search(r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/", img)
+            # `/img/cards/riftbound/UNL/unl-230-219_full.png`
+            # → set "UNL", collector number "230" (or "082a" for variants)
+            m_url = re.search(
+                r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/[a-z][a-z0-9]+-(\d+[a-z]?)-",
+                img,
+            )
+            setcode = m_url.group(1) if m_url else ""
+            num_raw = m_url.group(2) if m_url else ""
             seen[slug] = {
                 "slug": slug,
                 "name": m.get("name", slug),
-                "set": mset.group(1) if mset else "",
+                "set": setcode,
+                "set_num_raw": num_raw,
+                "set_num_int": int(re.match(r"(\d+)", num_raw).group(1))
+                if num_raw
+                else 10**9,  # sort empties last
+                "set_num_suffix": re.sub(r"^\d+", "", num_raw),
                 "domains": ", ".join(m.get("domains", []) or []),
                 "rarity": (m.get("rarity") or "").lower(),
                 "type": (m.get("type") or "").lower(),
@@ -850,14 +862,28 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
 
     rows = sorted(
         seen.values(),
-        key=lambda r: (r["set"], r["type"], r["name"].lower()),
+        key=lambda r: (
+            r["set"] or "￿",
+            r["set_num_int"],
+            r["set_num_suffix"],
+            r["name"].lower(),
+        ),
     )
 
     wb = Workbook()
     ws = wb.active
     ws.title = "Collection"
 
-    headers = ["Slug", "Card", "Set", "Domains", "Rarity", "Type", "Qty Owned"]
+    headers = [
+        "Slug",
+        "Card",
+        "Set",
+        "Set #",
+        "Domains",
+        "Rarity",
+        "Type",
+        "Qty Owned",
+    ]
     header_font = Font(bold=True, color="FFFFFF")
     header_fill = PatternFill("solid", fgColor="2563EB")
     ws.append(headers)
@@ -873,6 +899,7 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
             r["slug"],
             r["name"],
             r["set"],
+            r["set_num_raw"],
             r["domains"],
             r["rarity"],
             r["type"],
@@ -884,7 +911,16 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
     ws.auto_filter.ref = f"A1:{get_column_letter(last_col)}{last_row}"
     ws.freeze_panes = "B2"
 
-    widths = {"A": 36, "B": 32, "C": 8, "D": 18, "E": 12, "F": 12, "G": 12}
+    widths = {
+        "A": 36,  # Slug
+        "B": 32,  # Card
+        "C": 8,   # Set
+        "D": 8,   # Set #
+        "E": 18,  # Domains
+        "F": 12,  # Rarity
+        "G": 12,  # Type
+        "H": 12,  # Qty Owned
+    }
     for col, w in widths.items():
         ws.column_dimensions[col].width = w
     # Right-align Qty Owned

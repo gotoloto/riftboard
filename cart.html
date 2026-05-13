@@ -21,9 +21,7 @@
       legend card and 1 of each of its top 6 battlefields.
       <strong>Wanted</strong> defaults to the sum across selected decks;
       edit any cell to override. <strong>Needed</strong> = max(0,
-      Wanted&nbsp;−&nbsp;Owned). To pre-fill Owned at scale, download the
-      template, fill in the <em>Qty Owned</em> column in Excel, save the
-      file as CSV (File → Save As → CSV), and import it.
+      Wanted&nbsp;−&nbsp;Owned).
     </p>
   </header>
 
@@ -55,11 +53,6 @@
     <div class="cart-toolbar">
       <span id="cart-summary" class="muted"></span>
       <div class="toolbar-actions">
-        <a class="btn" href="collection-template.xlsx" download title="Download an Excel template prefilled with every card we've cached">Download template</a>
-        <label class="btn" title="Import a filled-in collection CSV (Excel: File → Save As → CSV)">
-          Import CSV
-          <input type="file" id="import-csv-input" accept=".csv,text/csv" hidden />
-        </label>
         <button type="button" id="cap-3-btn" class="btn" title="Set Wanted to min(current, 3) on every row">Cap Wanted ≤ 3</button>
         <button type="button" id="reset-overrides-btn" class="btn">Reset overrides</button>
         <button type="button" id="copy-cart-btn" class="copy-btn">Copy needed cards</button>
