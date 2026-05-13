@@ -1,0 +1,90 @@
+.back-link {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back-link:hover { text-decoration: underline; }
+
+.note { max-width: 720px; }
+
+main#rarities {
+  display: grid;
+  gap: 24px;
+}
+
+.rarity-section { margin-top: 8px; }
+.rarity-section h2 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.rarity-section h2 .rarity {
+  font-size: 14px;
+  margin-left: 0;
+}
+
+table.staples {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.staples th, table.staples td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+table.staples th {
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+table.staples tbody tr:nth-child(odd) { background: var(--row); }
+table.staples tbody tr:nth-child(even) { background: var(--row-alt); }
+table.staples td.rank {
+  width: 32px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+table.staples td.name {
+  white-space: nowrap;
+}
+table.staples td.name a {
+  color: var(--accent);
+  text-decoration: none;
+}
+table.staples td.name a:hover { text-decoration: underline; }
+table.staples td.type { white-space: nowrap; }
+table.staples td.total {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+table.staples td.legends {
+  font-size: 12px;
+  line-height: 1.55;
+}
+.legend-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 1px 4px 1px 0;
+  border-radius: 999px;
+  background: var(--row);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.legend-chip:hover { background: var(--row-alt); }
+.legend-chip .pct {
+  color: var(--muted);
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.legend-chip.solo {
+  background: rgba(96, 165, 250, 0.12);
+  border-color: var(--accent);
+}

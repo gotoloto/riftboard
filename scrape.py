@@ -727,9 +727,110 @@ def update_archetype(slug: str) -> dict:
     }
 
 
+def build_staples(top_per_rarity: int = 40) -> dict:
+    """Aggregate top cards by total decks_including across every cached
+    legend, bucketed by rarity, excluding runes and battlefields. For each
+    card we record which legends play it in >10% of their decks."""
+    legend_info: dict = {}
+    image_index: dict = {}
+    agg: dict = {}
+
+    for cards_path in sorted(glob.glob("legends/*/cards.json")):
+        legend_slug = os.path.basename(os.path.dirname(cards_path))
+        data = json.load(open(cards_path, encoding="utf-8"))
+        legend_info[legend_slug] = {
+            "name": data.get("archetype", legend_slug),
+            "deck_count": data.get("deck_count", 0),
+        }
+        for c in data.get("cards", []):
+            slug = c.get("slug")
+            if not slug:
+                continue
+            t = (c.get("type") or "").lower()
+            if t in ("rune", "battlefield"):
+                continue
+            rarity = (c.get("rarity") or "").lower()
+            entry = agg.setdefault(
+                slug,
+                {
+                    "slug": slug,
+                    "name": c.get("name", slug),
+                    "type": t,
+                    "rarity": rarity,
+                    "url": c.get("url"),
+                    "total_decks_including": 0,
+                    "_per_legend": {},
+                },
+            )
+            if not entry["rarity"] and rarity:
+                entry["rarity"] = rarity
+            entry["total_decks_including"] += c.get("decks_including", 0)
+            entry["_per_legend"][legend_slug] = {
+                "decks_including": c.get("decks_including", 0),
+                "inclusion_pct": c.get("inclusion_pct", 0),
+            }
+
+    # Pull image_url from each legend's decks.json cards_meta.
+    for decks_path in glob.glob("legends/*/decks.json"):
+        try:
+            d = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
+        for slug, m in d.get("cards_meta", {}).items():
+            if slug not in image_index and m.get("image_url"):
+                image_index[slug] = m["image_url"]
+
+    for entry in agg.values():
+        if entry["slug"] in image_index:
+            entry["img"] = image_index[entry["slug"]]
+        legends_above = [
+            {
+                "slug": ls,
+                "name": legend_info.get(ls, {}).get("name", ls),
+                "inclusion_pct": round(pl["inclusion_pct"] or 0, 1),
+                "decks_including": pl["decks_including"],
+            }
+            for ls, pl in entry["_per_legend"].items()
+            if (pl["inclusion_pct"] or 0) > 10
+        ]
+        legends_above.sort(key=lambda x: -x["inclusion_pct"])
+        entry["legends_above_10pct"] = legends_above
+        del entry["_per_legend"]
+
+    by_rarity = {"common": [], "uncommon": [], "rare": []}
+    for entry in agg.values():
+        if entry["rarity"] in by_rarity:
+            by_rarity[entry["rarity"]].append(entry)
+    for r, lst in by_rarity.items():
+        lst.sort(key=lambda x: (-x["total_decks_including"], x["name"]))
+        by_rarity[r] = lst[:top_per_rarity]
+
+    return {
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "total_decks": sum(L["deck_count"] for L in legend_info.values()),
+        "total_legends": len(legend_info),
+        "top_per_rarity": top_per_rarity,
+        "rarities": by_rarity,
+    }
+
+
+def save_staples_js(payload: dict, path: str = "staples.js") -> None:
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__STAPLES__ = ")
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, path)
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
-    if args and args[0] == "--check":
+    if args and args[0] == "--staples":
+        payload = build_staples()
+        save_staples_js(payload)
+        n = sum(len(v) for v in payload["rarities"].values())
+        print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
+    elif args and args[0] == "--check":
         print(f"Pinging {LEGENDS_INDEX_URL}…")
         index = fetch_legends_index()
         cached = list_cached_slugs()
@@ -778,6 +879,9 @@ if __name__ == "__main__":
             except FileNotFoundError:
                 print(f"  ! legends/{s}/decks.json not found; skip")
         rebuild_champions_index()
+        save_staples_js(build_staples())
+        print("staples.js refreshed")
     else:
         url = args[0] if args else DEFAULT_URL
         main(url)
+        save_staples_js(build_staples())
