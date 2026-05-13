@@ -31,7 +31,10 @@ function renderRow(card, index) {
     ? `<span class="tag" style="text-transform:capitalize">${escapeHtml(card.type)}</span>`
     : "";
   const domains = (card.domains || [])
-    .map((d) => `<span class="tag" style="text-transform:capitalize">${escapeHtml(d)}</span>`)
+    .map(
+      (d) =>
+        `<span class="tag domain-${escapeHtml(String(d).toLowerCase())}" style="text-transform:capitalize">${escapeHtml(d)}</span>`
+    )
     .join(" ");
   const legends = card.legends_above_50pct || [];
   const chipClass = legends.length === 1 ? "legend-chip solo" : "legend-chip";

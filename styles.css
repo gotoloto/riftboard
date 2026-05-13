@@ -307,6 +307,15 @@ td a:hover { text-decoration: underline; }
   text-transform: capitalize;
 }
 
+/* Domain colours sampled from riftdecks rune icons. */
+.tag.domain-body      { color: #ec8f2f; border-color: rgba(236,143,47,0.5); background: rgba(236,143,47,0.14); }
+.tag.domain-calm      { color: #72a666; border-color: rgba(114,166,102,0.5); background: rgba(114,166,102,0.14); }
+.tag.domain-chaos     { color: #b189d6; border-color: rgba(136,102,169,0.55); background: rgba(136,102,169,0.16); }
+.tag.domain-fury      { color: #e43f47; border-color: rgba(228,63,71,0.5); background: rgba(228,63,71,0.14); }
+.tag.domain-mind      { color: #3f8cb8; border-color: rgba(63,140,184,0.5); background: rgba(63,140,184,0.14); }
+.tag.domain-order     { color: #d9bf28; border-color: rgba(217,191,40,0.55); background: rgba(217,191,40,0.16); }
+.tag.domain-colorless { color: #94a3b8; border-color: rgba(160,160,160,0.5); background: rgba(216,216,216,0.14); }
+
 .bar {
   display: inline-block;
   width: 60px;

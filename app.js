@@ -112,7 +112,10 @@ function escapeHtml(s) {
 
 function renderRow(card) {
   const domains = (card.domains || [])
-    .map((d) => `<span class="tag">${d}</span>`)
+    .map(
+      (d) =>
+        `<span class="tag domain-${escapeHtml(String(d).toLowerCase())}">${escapeHtml(d)}</span>`
+    )
     .join("");
   const link = card.url
     ? `<a href="${card.url}" target="_blank" rel="noopener">${escapeHtml(
