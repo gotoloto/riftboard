@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound build cart — TCGplayer shopping list</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1>Build cart</h1>
+      <a class="back-link" href="./">← Main dashboard</a>
+    </div>
+    <p id="meta" class="muted"></p>
+    <p class="muted note">
+      Top 25% finishers per deck · top 60 card-copies per deck · runes, legends,
+      and battlefields excluded. <strong>Wanted</strong> defaults to the sum
+      across selected decks; edit any cell to override. <strong>Needed</strong>
+      = max(0, Wanted − Owned). Copy the bottom button output into TCGplayer's
+      mass-entry box (commas in names become " − " automatically).
+    </p>
+  </header>
+
+  <section class="legend-picker">
+    <div class="picker-header">
+      <h2>Build which legends?</h2>
+      <div class="picker-actions">
+        <button type="button" id="defaults-btn" class="btn">Default 6</button>
+        <button type="button" id="all-btn" class="btn">All</button>
+        <button type="button" id="none-btn" class="btn">None</button>
+        <span id="picker-count" class="muted"></span>
+      </div>
+    </div>
+    <div id="legend-pills" class="legend-pills"></div>
+  </section>
+
+  <section class="cart-section">
+    <div class="cart-toolbar">
+      <span id="cart-summary" class="muted"></span>
+      <div class="toolbar-actions">
+        <button type="button" id="cap-3-btn" class="btn" title="Set Wanted to min(current, 3) on every row">Cap Wanted ≤ 3</button>
+        <button type="button" id="reset-overrides-btn" class="btn">Reset overrides</button>
+        <button type="button" id="copy-cart-btn" class="copy-btn">Copy needed cards</button>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table id="cart-table" class="staples">
+        <thead>
+          <tr>
+            <th>Card</th>
+            <th>Domains</th>
+            <th>Used in</th>
+            <th class="num">Wanted</th>
+            <th class="num">Owned</th>
+            <th class="num">Needed</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="empty-state" class="muted" hidden>
+      Pick at least one legend above to build your cart.
+    </p>
+  </section>
+
+  <img id="card-thumb" alt="" hidden />
+  <script src="cart.js"></script>
+  <script src="cart-app.js"></script>
+</body>
+</html>

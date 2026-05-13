@@ -826,6 +826,111 @@ def save_staples_js(payload: dict, path: str = "staples.js") -> None:
     os.replace(tmp, path)
 
 
+def build_cart_data(
+    percentile: float = 25.0,
+    target_qty: int = 60,
+    excluded_types=("rune", "legend", "battlefield"),
+) -> dict:
+    """For each cached legend: filter to top-percentile finishers, build a
+    greedy "top N copies" shopping list (excluding the given types), where N
+    is the cumulative qty (each card's median copies). Lilting Lullaby with a
+    median of 2 contributes 2 toward the target."""
+    excl = {t.lower() for t in excluded_types}
+    out_legends = []
+    for decks_path in sorted(glob.glob("legends/*/decks.json")):
+        legend_slug = os.path.basename(os.path.dirname(decks_path))
+        try:
+            raw = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
+        decks = [
+            d
+            for d in raw.get("decks", [])
+            if d.get("finish_pct") is not None and d["finish_pct"] <= percentile
+        ]
+        if not decks:
+            continue
+        cards_meta = raw.get("cards_meta", {})
+        per_card: dict = {}
+        for d in decks:
+            for c in d.get("cards", []):
+                if c.get("board") != "main":
+                    continue
+                slug = c["slug"]
+                e = per_card.setdefault(
+                    slug,
+                    {"qtys": [], "name": c.get("name"), "type": c.get("type")},
+                )
+                e["qtys"].append(c.get("qty", 0))
+        n = len(decks)
+        candidates = []
+        for slug, e in per_card.items():
+            meta = cards_meta.get(slug, {})
+            t = (meta.get("type") or e.get("type") or "").lower()
+            if t in excl:
+                continue
+            qtys = sorted(e["qtys"])
+            mid = len(qtys) // 2
+            med = qtys[mid] if len(qtys) % 2 else (qtys[mid - 1] + qtys[mid]) / 2
+            di = len(qtys)
+            candidates.append(
+                {
+                    "slug": slug,
+                    "name": meta.get("name", e.get("name", slug)),
+                    "type": t,
+                    "domains": meta.get("domains", []),
+                    "rarity": meta.get("rarity"),
+                    "url": meta.get("url"),
+                    "img": meta.get("image_url"),
+                    "decks_including": di,
+                    "inclusion_pct": round(di / n * 100, 1),
+                    "median_copies": int(round(med)),
+                }
+            )
+        candidates.sort(
+            key=lambda c: (
+                -c["decks_including"],
+                -c["median_copies"],
+                c["name"],
+            )
+        )
+        picked = []
+        total = 0
+        for c in candidates:
+            qty = max(1, c["median_copies"])
+            picked.append({**c, "qty": qty})
+            total += qty
+            if total >= target_qty:
+                break
+        out_legends.append(
+            {
+                "slug": legend_slug,
+                "name": raw.get("archetype", legend_slug),
+                "deck_count": raw.get("deck_count", 0),
+                "filtered_deck_count": n,
+                "total_qty": total,
+                "top_cards": picked,
+            }
+        )
+    out_legends.sort(key=lambda L: L["name"])
+    return {
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "percentile": percentile,
+        "target_qty": target_qty,
+        "excluded_types": sorted(excl),
+        "legends": out_legends,
+    }
+
+
+def save_cart_js(payload: dict, path: str = "cart.js") -> None:
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__CART_DATA__ = ")
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, path)
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if args and args[0] == "--staples":
@@ -833,6 +938,13 @@ if __name__ == "__main__":
         save_staples_js(payload)
         n = sum(len(v) for v in payload["rarities"].values())
         print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
+    elif args and args[0] == "--cart":
+        payload = build_cart_data()
+        save_cart_js(payload)
+        print(
+            f"cart.js written: {len(payload['legends'])} legends, "
+            f"top {payload['target_qty']} cards each, top-{payload['percentile']}% finishers"
+        )
     elif args and args[0] == "--check":
         print(f"Pinging {LEGENDS_INDEX_URL}…")
         index = fetch_legends_index()
@@ -883,8 +995,10 @@ if __name__ == "__main__":
                 print(f"  ! legends/{s}/decks.json not found; skip")
         rebuild_champions_index()
         save_staples_js(build_staples())
-        print("staples.js refreshed")
+        save_cart_js(build_cart_data())
+        print("staples.js + cart.js refreshed")
     else:
         url = args[0] if args else DEFAULT_URL
         main(url)
         save_staples_js(build_staples())
+        save_cart_js(build_cart_data())
