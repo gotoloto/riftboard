@@ -580,7 +580,9 @@ def main(archetype_url: str) -> None:
             type_vals = fields.get("types", [])
             if type_vals:
                 info["type"] = type_vals[0]
-            info["rarity"] = fields.get("rarity", [None])[0]
+            rarities = fields.get("rarity") or []
+            non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
+            info["rarity"] = (non_showcase or rarities or [None])[0]
             info["image_url"] = image_url
         except Exception as exc:
             print(f"      ! card {slug} failed: {exc}")
@@ -709,7 +711,9 @@ def update_archetype(slug: str) -> dict:
         type_vals = fields.get("types", [])
         if type_vals:
             info["type"] = type_vals[0]
-        info["rarity"] = fields.get("rarity", [None])[0]
+        rarities = fields.get("rarity") or []
+        non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
+        info["rarity"] = (non_showcase or rarities or [None])[0]
         info["image_url"] = image_url
         time.sleep(0.25)
 
@@ -870,13 +874,20 @@ def fetch_card_catalog(slugs=None) -> dict:
             skipped += 1
             continue  # Overnumbered-only / alt-art-only — drop per user spec.
         c = canon[0]
+        # The detail page lists "Rarity" twice: once for the currently-displayed
+        # printing (which is "showcase" for cards whose default view is the
+        # alt-art) and once for the canonical card. Skip showcase so we land on
+        # the underlying tier (rare/uncommon/etc).
+        rarities = fields.get("rarity") or []
+        non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
+        rarity = (non_showcase or rarities or [""])[0].lower()
         out[slug] = {
             "slug": slug,
             "name": (fields.get("name") or [slug])[0],
             "type": (fields.get("types") or [""])[0].lower(),
             "domains": fields.get("domains", []),
             "cost": (fields.get("cost") or [None])[0],
-            "rarity": (fields.get("rarity") or [""])[0].lower(),
+            "rarity": rarity,
             "set": c["set"],
             "set_num": c["num"],
             "set_max": c["setmax"],
