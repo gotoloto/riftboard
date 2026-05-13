@@ -120,6 +120,7 @@ function aggregateLegend(data, percentile) {
       decks_including: e.qtys.length,
       inclusion_pct: n ? (e.qtys.length / n) * 100 : 0,
       median_copies: Math.round(med),
+      qtys: e.qtys, // sorted ascending; used by the marginal-copy picker
     });
   }
   out.sort((a, b) =>
@@ -132,15 +133,55 @@ function aggregateLegend(data, percentile) {
 
 function legendShoppingList(allCards, qtyTarget) {
   const excluded = new Set(["rune", "legend", "battlefield"]);
-  const main = [];
-  let total = 0;
+  // Marginal-copy ranking: each card expands into copy-slots (1st, 2nd, 3rd, …).
+  // Each slot's score is the count of filtered decks running AT LEAST that many
+  // copies of the card. Greedy-pick the top qtyTarget slots across the whole
+  // pool; a card's picked Wanted is just the number of its slots that landed.
+  // Beats "sort cards by inclusion, take each card's median" because a card's
+  // 2nd or 3rd copy can be more common than another card's lone copy.
+  const slots = [];
   for (const c of allCards) {
     if (excluded.has(c.type)) continue;
-    const qty = Math.max(1, c.median_copies);
-    main.push({ ...c, qty });
-    total += qty;
-    if (total >= qtyTarget) break;
+    const maxQty = c.qtys.length ? c.qtys[c.qtys.length - 1] : 1;
+    for (let i = 1; i <= maxQty; i++) {
+      // qtys is sorted asc; count of entries >= i = length - first-ge-i index.
+      let lo = 0, hi = c.qtys.length;
+      while (lo < hi) {
+        const m = (lo + hi) >>> 1;
+        if (c.qtys[m] < i) lo = m + 1;
+        else hi = m;
+      }
+      const cnt = c.qtys.length - lo;
+      if (cnt <= 0) break;
+      slots.push({ slug: c.slug, copyIndex: i, count: cnt });
+    }
   }
+  // Most common copy-slots first. Tie-break: keep a card's earlier copies
+  // contiguous (alphabetical, then copyIndex asc) so the pick order is
+  // stable.
+  slots.sort(
+    (a, b) =>
+      b.count - a.count ||
+      a.slug.localeCompare(b.slug) ||
+      a.copyIndex - b.copyIndex
+  );
+
+  const cardQtys = new Map();
+  for (let i = 0; i < slots.length && i < qtyTarget; i++) {
+    const s = slots[i];
+    cardQtys.set(s.slug, (cardQtys.get(s.slug) || 0) + 1);
+  }
+
+  const bySlug = new Map(allCards.map((c) => [c.slug, c]));
+  const main = [...cardQtys.entries()]
+    .map(([slug, qty]) => ({ ...bySlug.get(slug), qty }))
+    .sort(
+      (a, b) =>
+        b.qty - a.qty ||
+        b.decks_including - a.decks_including ||
+        a.name.localeCompare(b.name)
+    );
+
   const legend = allCards.find((c) => c.type === "legend");
   const battlefields = allCards
     .filter((c) => c.type === "battlefield")
