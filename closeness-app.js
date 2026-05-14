@@ -113,6 +113,8 @@ function renderMissingList(missing) {
   return `<ul class="missing-list">${items}</ul>`;
 }
 
+let currentRows = [];
+
 function render() {
   if (!data) {
     metaEl.textContent =
@@ -126,6 +128,7 @@ function render() {
         a.score.points - b.score.points ||
         a.legend.name.localeCompare(b.legend.name)
     );
+  currentRows = rows;
 
   const ts = data.scraped_at
     ? new Date(data.scraped_at).toLocaleString()
@@ -156,8 +159,11 @@ function render() {
     })
     .join("");
 
-  // Click → toggle expanded row with the full missing list
-  tbody.addEventListener("click", (ev) => {
+}
+
+// One click handler, attached once. Reads from `currentRows` so each render
+// stays in sync without stacking duplicate listeners.
+tbody.addEventListener("click", (ev) => {
     const tr = ev.target.closest("tr.legend-row");
     if (!tr) return;
     const next = tr.nextElementSibling;
@@ -168,14 +174,13 @@ function render() {
     // Close any other open expansion
     tbody.querySelectorAll("tr.expanded-row").forEach((el) => el.remove());
     const slug = tr.dataset.slug;
-    const row = rows.find((r) => r.legend.slug === slug);
+    const row = currentRows.find((r) => r.legend.slug === slug);
     if (!row) return;
     const expanded = document.createElement("tr");
     expanded.className = "expanded-row";
     expanded.innerHTML = `<td colspan="5">${renderMissingList(row.score.missingCards)}</td>`;
     tr.after(expanded);
-  });
-}
+});
 
 enrouteEl.addEventListener("change", () => {
   includeEnRoute = enrouteEl.checked;
