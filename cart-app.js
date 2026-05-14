@@ -17,6 +17,7 @@ const LS = {
   qty: "cart:qty",
   includeSideboard: "cart:includeSideboard",
   capRarity: "cart:capRarity",
+  legendTeams: "cart:legendTeams",
 };
 
 const RARITY_ORDER = ["common", "uncommon", "rare", "epic", "showcase"];
@@ -87,6 +88,10 @@ const state = {
   qtyTarget: readJSON(LS.qty, 60),
   includeSideboard: readJSON(LS.includeSideboard, true),
   capRarity: readJSON(LS.capRarity, ""),
+  // Per-legend team assignments — { slug: "A" | "B" }. Slugs without an entry
+  // are treated as solo (their qty contributes in full to Wanted, same as
+  // every other solo legend or team).
+  legendTeams: readJSON(LS.legendTeams, {}),
 };
 for (const s of [...state.selectedLegends]) {
   if (!championBySlug.has(s)) state.selectedLegends.delete(s);
@@ -282,14 +287,29 @@ function buildRows() {
   }
   const rows = [];
   for (const m of merged.values()) {
-    // If the card's rarity is at or above the user's cap threshold, the
-    // default Wanted is the *max* qty any single selected legend needs
-    // (rather than the sum). Rationale: rare/epic cards are expensive, and
-    // you usually only need enough for one deck at a time.
-    const cap = shouldCap(m.rarity, state.capRarity);
-    const defaultWanted = cap
-      ? Math.max(...m.perLegend.map((l) => l.qty), 0)
-      : m.defaultWanted;
+    // Wanted aggregation across selected legends has two knobs:
+    //   1. Team assignments (state.legendTeams) — legends on the same team
+    //      share, so within-team contribution is the *max* qty across that
+    //      team's legends. Solo legends (no team set) each count for their
+    //      full qty. Total = sum of per-team maxes.
+    //   2. Rarity cap (state.capRarity) — for cards at or above the chosen
+    //      tier, override teams and collapse *all* selected legends to a
+    //      single shared pool (max across everyone). Useful for expensive
+    //      tiers where one playset is enough for the whole household.
+    let defaultWanted;
+    if (shouldCap(m.rarity, state.capRarity)) {
+      defaultWanted = m.perLegend.length
+        ? Math.max(...m.perLegend.map((l) => l.qty))
+        : 0;
+    } else {
+      const groups = new Map();
+      for (const l of m.perLegend) {
+        const team = state.legendTeams[l.slug];
+        const key = team ? `team:${team}` : `solo:${l.slug}`;
+        groups.set(key, Math.max(groups.get(key) || 0, l.qty));
+      }
+      defaultWanted = [...groups.values()].reduce((s, x) => s + x, 0);
+    }
     const wOverride = state.wantedOverride[m.slug];
     const wanted = wOverride != null ? wOverride : defaultWanted;
     const owned = ownedFor(m.slug);
@@ -363,6 +383,7 @@ function renderPicker(filteredCounts) {
   pillsEl.innerHTML = champions
     .map((c) => {
       const on = state.selectedLegends.has(c.slug);
+      const team = state.legendTeams[c.slug];
       const filt = filteredCounts.get(c.slug);
       const loaded = dataCache.has(c.slug);
       const countText = on
@@ -370,10 +391,27 @@ function renderPicker(filteredCounts) {
           ? `${filt}`
           : "…"
         : `${c.deck_count}`;
-      return `<button type="button" class="legend-pill${on ? " on" : ""}" data-slug="${escapeHtml(c.slug)}" title="${escapeHtml(c.name)} — total ${c.deck_count} decks${filt != null ? `; ${filt} match the filter` : ""}">${escapeHtml(c.name)} <span class="deck-count">${countText}</span></button>`;
+      const teamClass = on && team ? ` team-${team}` : "";
+      const teamBadge = on
+        ? `<span class="team-badge ${team ? `team-${team}` : "team-none"}" data-team-control title="Click to cycle — / A / B">${team || "—"}</span>`
+        : "";
+      return `<button type="button" class="legend-pill${on ? " on" : ""}${teamClass}" data-slug="${escapeHtml(c.slug)}" title="${escapeHtml(c.name)} — total ${c.deck_count} decks${filt != null ? `; ${filt} match the filter` : ""}">${escapeHtml(c.name)} <span class="deck-count">${countText}</span>${teamBadge}</button>`;
     })
     .join("");
-  pickerCountEl.textContent = `${state.selectedLegends.size} selected`;
+  const teamCounts = { A: 0, B: 0 };
+  for (const slug of state.selectedLegends) {
+    const t = state.legendTeams[slug];
+    if (t === "A" || t === "B") teamCounts[t]++;
+  }
+  const soloCount = state.selectedLegends.size - teamCounts.A - teamCounts.B;
+  const parts = [];
+  if (teamCounts.A) parts.push(`Team A ${teamCounts.A}`);
+  if (teamCounts.B) parts.push(`Team B ${teamCounts.B}`);
+  if (soloCount) parts.push(`solo ${soloCount}`);
+  pickerCountEl.textContent =
+    state.selectedLegends.size === 0
+      ? "0 selected"
+      : `${state.selectedLegends.size} selected · ${parts.join(" · ")}`;
 }
 
 function render() {
@@ -475,9 +513,22 @@ function refreshSummary() {
 
 function attachHandlers() {
   pillsEl.addEventListener("click", async (ev) => {
+    const teamCtrl = ev.target.closest("[data-team-control]");
     const btn = ev.target.closest(".legend-pill");
     if (!btn) return;
     const slug = btn.dataset.slug;
+    if (teamCtrl) {
+      // Click on the team badge cycles —/A/B without toggling selection.
+      ev.preventDefault();
+      ev.stopPropagation();
+      const cur = state.legendTeams[slug];
+      const next = !cur ? "A" : cur === "A" ? "B" : null;
+      if (next) state.legendTeams[slug] = next;
+      else delete state.legendTeams[slug];
+      writeJSON(LS.legendTeams, state.legendTeams);
+      render();
+      return;
+    }
     if (state.selectedLegends.has(slug)) state.selectedLegends.delete(slug);
     else state.selectedLegends.add(slug);
     writeJSON(LS.legends, [...state.selectedLegends]);

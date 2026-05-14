@@ -89,6 +89,26 @@
   color: white;
 }
 .legend-pill.on .deck-count { color: rgba(255,255,255,0.75); }
+.legend-pill.on.team-A { background: #16a34a; border-color: #16a34a; }
+.legend-pill.on.team-B { background: #a855f7; border-color: #a855f7; }
+
+.team-badge {
+  display: inline-block;
+  margin-left: 6px;
+  min-width: 16px;
+  padding: 0 5px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  user-select: none;
+}
+.team-badge:hover { background: rgba(255, 255, 255, 0.28); }
+.team-badge.team-none { color: rgba(255, 255, 255, 0.55); }
 
 .cart-section { margin-top: 12px; }
 .cart-toolbar {
