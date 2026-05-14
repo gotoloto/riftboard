@@ -903,11 +903,14 @@ def fetch_card_catalog(slugs=None) -> dict:
 
 def import_collection_xlsx(
     xlsx_path: str,
-    output_path: str = "collection-owned.js",
+    owned_path: str = "collection-owned.js",
+    enroute_path: str = "collection-enroute.js",
 ) -> dict:
-    """Read a filled-in collection xlsx and emit a JS file mapping
-    slug → qty owned. The cart page uses this as the default Owned for
-    every card; user edits in the cart UI still override per-slug."""
+    """Read a filled-in collection xlsx and emit JS files mapping
+    slug → qty owned (and slug → qty en route, if the column exists).
+    The cart page reads `__OWNED_DEFAULTS__` as the Owned baseline; the
+    closeness page can toggle in `__EN_ROUTE_DEFAULTS__` so cards
+    in-transit count toward completeness."""
     try:
         from openpyxl import load_workbook
     except ImportError:
@@ -918,37 +921,53 @@ def import_collection_xlsx(
     headers = [str(c.value or "").strip() for c in ws[1]]
     try:
         slug_col = headers.index("Slug")
-        qty_col = headers.index("Qty Owned")
+        owned_col = headers.index("Qty Owned")
     except ValueError as exc:
         raise SystemExit(f"missing required column: {exc}")
+    enroute_col = headers.index("Qty En Route") if "Qty En Route" in headers else None
+
+    def parse_qty(v):
+        if v is None or v == "":
+            return None
+        try:
+            n = int(v)
+        except (TypeError, ValueError):
+            return None
+        return n if n > 0 else None
+
     owned: dict = {}
-    skipped = 0
+    enroute: dict = {}
     for row in ws.iter_rows(min_row=2, values_only=True):
         slug = row[slug_col]
-        qty = row[qty_col]
         if not slug:
             continue
-        if qty is None or qty == "":
-            continue
-        try:
-            q = int(qty)
-        except (TypeError, ValueError):
-            skipped += 1
-            continue
-        if q <= 0:
-            continue
-        owned[str(slug).strip()] = q
-    tmp = output_path + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        f.write("window.__OWNED_DEFAULTS__ = ")
-        json.dump(owned, f, ensure_ascii=False, separators=(",", ":"))
-        f.write(";\n")
-    os.replace(tmp, output_path)
+        s = str(slug).strip()
+        oq = parse_qty(row[owned_col])
+        if oq is not None:
+            owned[s] = oq
+        if enroute_col is not None:
+            eq = parse_qty(row[enroute_col])
+            if eq is not None:
+                enroute[s] = eq
+
+    def write_js(path, varname, data):
+        tmp = path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            f.write(f"window.{varname} = ")
+            json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+            f.write(";\n")
+        os.replace(tmp, path)
+
+    write_js(owned_path, "__OWNED_DEFAULTS__", owned)
+    write_js(enroute_path, "__EN_ROUTE_DEFAULTS__", enroute)
     return {
-        "path": output_path,
-        "distinct": len(owned),
-        "total": sum(owned.values()),
-        "skipped": skipped,
+        "owned_path": owned_path,
+        "owned_distinct": len(owned),
+        "owned_total": sum(owned.values()),
+        "enroute_path": enroute_path,
+        "enroute_distinct": len(enroute),
+        "enroute_total": sum(enroute.values()),
+        "enroute_column_present": enroute_col is not None,
     }
 
 
@@ -1348,9 +1367,19 @@ if __name__ == "__main__":
             raise SystemExit("usage: scrape.py --import-collection <path-to-xlsx>")
         info = import_collection_xlsx(args[1])
         print(
-            f"{info['path']} written: {info['distinct']} distinct cards, "
-            f"{info['total']} total copies"
+            f"{info['owned_path']} written: "
+            f"{info['owned_distinct']} distinct, {info['owned_total']} copies"
         )
+        if info["enroute_column_present"]:
+            print(
+                f"{info['enroute_path']} written: "
+                f"{info['enroute_distinct']} distinct, "
+                f"{info['enroute_total']} copies"
+            )
+        else:
+            print(
+                f"  (no 'Qty En Route' column in xlsx — wrote empty {info['enroute_path']})"
+            )
     elif args and args[0] == "--check":
         print(f"Pinging {LEGENDS_INDEX_URL}…")
         index = fetch_legends_index()

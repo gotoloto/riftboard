@@ -16,10 +16,30 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-const owned = window.__OWNED_DEFAULTS__ || {};
+const ownedRaw = window.__OWNED_DEFAULTS__ || {};
+const enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 const data = window.__CLOSENESS_DATA__;
 const tbody = document.querySelector("#closeness-table tbody");
 const metaEl = document.getElementById("meta");
+const enrouteEl = document.getElementById("include-enroute");
+const enrouteInfoEl = document.getElementById("enroute-info");
+
+const LS_KEY = "closeness:includeEnRoute";
+let includeEnRoute = false;
+try {
+  includeEnRoute = JSON.parse(localStorage.getItem(LS_KEY) || "false");
+} catch (_) {}
+
+function effectiveOwned() {
+  if (!includeEnRoute) return ownedRaw;
+  const merged = { ...ownedRaw };
+  for (const [slug, q] of Object.entries(enRoute)) {
+    merged[slug] = (merged[slug] || 0) + q;
+  }
+  return merged;
+}
+
+let owned = effectiveOwned();
 
 function weightFor(rarity) {
   return RARITY_WEIGHT[(rarity || "").toLowerCase()] ?? 1;
@@ -112,7 +132,14 @@ function render() {
     : "—";
   const ownedDistinct = Object.keys(owned).length;
   const ownedTotal = Object.values(owned).reduce((s, v) => s + v, 0);
-  metaEl.innerHTML = `${rows.length} legends · composite at top-${data.percentile}% finishers · collection: ${ownedDistinct.toLocaleString()} distinct cards, ${ownedTotal.toLocaleString()} copies · generated ${ts}`;
+  const enRouteDistinct = Object.keys(enRoute).length;
+  const enRouteTotal = Object.values(enRoute).reduce((s, v) => s + v, 0);
+  metaEl.innerHTML = `${rows.length} legends · composite at top-${data.percentile}% finishers · collection: ${ownedDistinct.toLocaleString()} distinct cards, ${ownedTotal.toLocaleString()} copies${includeEnRoute && enRouteDistinct ? " <em>(incl. en route)</em>" : ""} · generated ${ts}`;
+  enrouteInfoEl.textContent = enRouteDistinct
+    ? `(${enRouteDistinct} distinct · ${enRouteTotal} copies)`
+    : "(none in collection)";
+  enrouteEl.checked = includeEnRoute;
+  enrouteEl.disabled = enRouteDistinct === 0;
 
   tbody.innerHTML = rows
     .map((r, i) => {
@@ -149,5 +176,14 @@ function render() {
     tr.after(expanded);
   });
 }
+
+enrouteEl.addEventListener("change", () => {
+  includeEnRoute = enrouteEl.checked;
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify(includeEnRoute));
+  } catch (_) {}
+  owned = effectiveOwned();
+  render();
+});
 
 render();
