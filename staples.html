@@ -18,12 +18,24 @@
       Sorted by total appearances across every cached legend's tournament decks.
       Runes and battlefields excluded. Each card shows the legends that run it in
       more than 50% of their decks, with that legend's inclusion rate.
+      <strong>Missing</strong> assumes a 3-of playset (max(0, 3 − Owned)).
     </p>
+    <label class="enroute-toggle">
+      <input type="checkbox" id="include-enroute" />
+      Include en-route cards as owned
+      <span id="enroute-info" class="muted"></span>
+    </label>
+    <label class="enroute-toggle">
+      <input type="checkbox" id="hide-complete" />
+      Hide cards where Missing = 0
+    </label>
   </header>
 
   <main id="rarities"></main>
 
   <img id="card-thumb" alt="" hidden />
+  <script src="collection-owned.js"></script>
+  <script src="collection-enroute.js"></script>
   <script src="staples.js"></script>
   <script src="staples-app.js"></script>
 </body>
