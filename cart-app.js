@@ -18,6 +18,7 @@ const LS = {
   includeSideboard: "cart:includeSideboard",
   capRarity: "cart:capRarity",
   legendTeams: "cart:legendTeams",
+  includeEnRoute: "cart:includeEnRoute",
 };
 
 const RARITY_ORDER = ["common", "uncommon", "rare", "epic", "showcase"];
@@ -72,12 +73,16 @@ const championBySlug = new Map(champions.map((c) => [c.slug, c]));
 // Baseline owned counts loaded from collection-owned.js (the user's collection
 // import). Per-row overrides in state.ownedOverride win when present.
 const defaultOwned = window.__OWNED_DEFAULTS__ || {};
+const enRouteDefaults = window.__EN_ROUTE_DEFAULTS__ || {};
 
 function ownedFor(slug) {
+  // Manual override always wins.
   if (Object.prototype.hasOwnProperty.call(state.ownedOverride, slug)) {
     return state.ownedOverride[slug];
   }
-  return defaultOwned[slug] || 0;
+  const base = defaultOwned[slug] || 0;
+  const enr = state.includeEnRoute ? (enRouteDefaults[slug] || 0) : 0;
+  return base + enr;
 }
 
 const state = {
@@ -92,6 +97,7 @@ const state = {
   // are treated as solo (their qty contributes in full to Wanted, same as
   // every other solo legend or team).
   legendTeams: readJSON(LS.legendTeams, {}),
+  includeEnRoute: readJSON(LS.includeEnRoute, false),
 };
 for (const s of [...state.selectedLegends]) {
   if (!championBySlug.has(s)) state.selectedLegends.delete(s);
@@ -377,6 +383,7 @@ const metaEl = document.getElementById("meta");
 const percentileInputEl = document.getElementById("percentile-input");
 const qtyInputEl = document.getElementById("qty-input");
 const sideboardToggleEl = document.getElementById("sideboard-toggle");
+const enrouteToggleEl = document.getElementById("enroute-toggle");
 const capRaritySelectEl = document.getElementById("cap-rarity-select");
 
 function renderPicker(filteredCounts) {
@@ -419,6 +426,8 @@ function render() {
   percentileInputEl.value = state.percentile;
   qtyInputEl.value = state.qtyTarget;
   sideboardToggleEl.checked = state.includeSideboard;
+  enrouteToggleEl.checked = state.includeEnRoute;
+  enrouteToggleEl.disabled = Object.keys(enRouteDefaults).length === 0;
   capRaritySelectEl.value = state.capRarity || "";
 
   if (state.selectedLegends.size === 0) {
@@ -572,6 +581,11 @@ function attachHandlers() {
   sideboardToggleEl.addEventListener("change", () => {
     state.includeSideboard = sideboardToggleEl.checked;
     writeJSON(LS.includeSideboard, state.includeSideboard);
+    render();
+  });
+  enrouteToggleEl.addEventListener("change", () => {
+    state.includeEnRoute = enrouteToggleEl.checked;
+    writeJSON(LS.includeEnRoute, state.includeEnRoute);
     render();
   });
   capRaritySelectEl.addEventListener("change", () => {
