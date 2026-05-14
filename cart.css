@@ -145,3 +145,14 @@ table#cart-table td.used-in {
   margin-left: 4px;
   font-variant-numeric: tabular-nums;
 }
+.used-chip .sb-badge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgba(217, 191, 40, 0.18);
+  color: #b9a022;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}

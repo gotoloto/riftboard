@@ -15,6 +15,7 @@ const LS = {
   wanted: "cart:wanted",
   percentile: "cart:percentile",
   qty: "cart:qty",
+  includeSideboard: "cart:includeSideboard",
 };
 
 const RARITY = {
@@ -74,6 +75,7 @@ const state = {
   wantedOverride: readJSON(LS.wanted, {}),
   percentile: readJSON(LS.percentile, 25),
   qtyTarget: readJSON(LS.qty, 60),
+  includeSideboard: readJSON(LS.includeSideboard, true),
 };
 for (const s of [...state.selectedLegends]) {
   if (!championBySlug.has(s)) state.selectedLegends.delete(s);
@@ -104,27 +106,47 @@ async function ensureDataLoaded(slugs) {
   await Promise.all(slugs.map(loadLegendData));
 }
 
-function aggregateLegend(data, percentile) {
+function medianOfSorted(arr) {
+  if (!arr.length) return 0;
+  const mid = (arr.length / 2) | 0;
+  return arr.length % 2 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
+}
+
+function aggregateLegend(data, percentile, includeSideboard) {
   const decks = (data.decks || []).filter(
     (d) => d.fp != null && d.fp <= percentile
   );
   const n = decks.length;
   const perCard = new Map();
   for (const d of decks) {
-    for (const [slug, qty] of d.c || []) {
+    const main = new Map();
+    for (const [slug, q] of d.c || [])
+      main.set(slug, (main.get(slug) || 0) + q);
+    const side = new Map();
+    if (includeSideboard)
+      for (const [slug, q] of d.s || [])
+        side.set(slug, (side.get(slug) || 0) + q);
+    const all = new Set([...main.keys(), ...side.keys()]);
+    for (const slug of all) {
+      const m = main.get(slug) || 0;
+      const s = side.get(slug) || 0;
+      if (m + s <= 0) continue;
       let e = perCard.get(slug);
-      if (!e) { e = { qtys: [] }; perCard.set(slug, e); }
-      e.qtys.push(qty);
+      if (!e) {
+        e = { qtys: [], main_qtys: [], side_qtys: [] };
+        perCard.set(slug, e);
+      }
+      e.qtys.push(m + s);
+      e.main_qtys.push(m);
+      e.side_qtys.push(s);
     }
   }
   const out = [];
   for (const [slug, e] of perCard) {
     const meta = (data.cards_meta || {})[slug] || {};
     e.qtys.sort((a, b) => a - b);
-    const mid = (e.qtys.length / 2) | 0;
-    const med = e.qtys.length % 2
-      ? e.qtys[mid]
-      : (e.qtys[mid - 1] + e.qtys[mid]) / 2;
+    const mainSorted = e.main_qtys.slice().sort((a, b) => a - b);
+    const sideSorted = e.side_qtys.slice().sort((a, b) => a - b);
     out.push({
       slug,
       name: meta.name || slug,
@@ -136,7 +158,9 @@ function aggregateLegend(data, percentile) {
       set: setFromImg(meta.img),
       decks_including: e.qtys.length,
       inclusion_pct: n ? (e.qtys.length / n) * 100 : 0,
-      median_copies: Math.round(med),
+      median_copies: Math.round(medianOfSorted(e.qtys)),
+      median_main: Math.round(medianOfSorted(mainSorted)),
+      median_side: Math.round(medianOfSorted(sideSorted)),
       qtys: e.qtys, // sorted ascending; used by the marginal-copy picker
     });
   }
@@ -199,13 +223,15 @@ function legendShoppingList(allCards, qtyTarget) {
         a.name.localeCompare(b.name)
     );
 
+  // Legend card and battlefields stay mainboard-only — they don't sit in
+  // sideboards in practice, so attribute their full qty to mainboard.
   const legend = allCards.find((c) => c.type === "legend");
   const battlefields = allCards
     .filter((c) => c.type === "battlefield")
     .slice(0, 6)
-    .map((c) => ({ ...c, qty: 1 }));
+    .map((c) => ({ ...c, qty: 1, median_main: 1, median_side: 0 }));
   return [
-    ...(legend ? [{ ...legend, qty: 1 }] : []),
+    ...(legend ? [{ ...legend, qty: 1, median_main: 1, median_side: 0 }] : []),
     ...battlefields,
     ...main,
   ];
@@ -218,7 +244,11 @@ function buildRows() {
     const data = dataCache.get(slug);
     const champ = championBySlug.get(slug);
     if (!data || !champ) continue;
-    const { filteredDeckCount, allCards } = aggregateLegend(data, state.percentile);
+    const { filteredDeckCount, allCards } = aggregateLegend(
+      data,
+      state.percentile,
+      state.includeSideboard
+    );
     filteredCounts.set(slug, filteredDeckCount);
     const list = legendShoppingList(allCards, state.qtyTarget);
     for (const c of list) {
@@ -227,7 +257,15 @@ function buildRows() {
         m = { ...c, perLegend: [], defaultWanted: 0 };
         merged.set(c.slug, m);
       }
-      m.perLegend.push({ slug, name: champ.name, qty: c.qty });
+      // Split the picked qty into main and side parts proportional to the
+      // medians, capped at qty. Lets the chip's tooltip show "3 main + 2 side"
+      // without re-running the picker per board.
+      const medMain = c.median_main || 0;
+      const medSide = c.median_side || 0;
+      let mainQty = Math.min(c.qty, medMain);
+      let sideQty = c.qty - mainQty;
+      if (sideQty < 0) { mainQty = c.qty; sideQty = 0; }
+      m.perLegend.push({ slug, name: champ.name, qty: c.qty, mainQty, sideQty });
       m.defaultWanted += c.qty;
     }
   }
@@ -261,12 +299,19 @@ function renderRow(row) {
     ? ` <span class="tag" style="text-transform:capitalize">${escapeHtml(row.type)}</span>`
     : "";
   const usedIn = row.perLegend
-    .map(
-      (l) =>
-        `<a class="used-chip" href="./?champion=${encodeURIComponent(
-          l.slug
-        )}" title="${escapeHtml(l.name)}">${escapeHtml(l.name)}<span class="qty">×${l.qty}</span></a>`
-    )
+    .map((l) => {
+      const split =
+        l.sideQty > 0
+          ? `${l.mainQty} main + ${l.sideQty} side`
+          : `${l.qty} main`;
+      const sbBadge =
+        l.sideQty > 0 ? `<span class="sb-badge">SB ${l.sideQty}</span>` : "";
+      return `<a class="used-chip" href="./?champion=${encodeURIComponent(
+        l.slug
+      )}" title="${escapeHtml(l.name)} — ${split}">${escapeHtml(
+        l.name
+      )}<span class="qty">×${l.qty}</span>${sbBadge}</a>`;
+    })
     .join("");
   const wOverridden = state.wantedOverride[row.slug] != null;
   // Override styling = user edited (regardless of value); baseline from the
@@ -292,6 +337,7 @@ const pillsEl = document.getElementById("legend-pills");
 const metaEl = document.getElementById("meta");
 const percentileInputEl = document.getElementById("percentile-input");
 const qtyInputEl = document.getElementById("qty-input");
+const sideboardToggleEl = document.getElementById("sideboard-toggle");
 
 function renderPicker(filteredCounts) {
   pillsEl.innerHTML = champions
@@ -314,6 +360,7 @@ function render() {
   metaEl.innerHTML = `${champions.length} legends cached`;
   percentileInputEl.value = state.percentile;
   qtyInputEl.value = state.qtyTarget;
+  sideboardToggleEl.checked = state.includeSideboard;
 
   if (state.selectedLegends.size === 0) {
     renderPicker(new Map());
@@ -448,6 +495,11 @@ function attachHandlers() {
     if (v > 500) v = 500;
     state.qtyTarget = v;
     writeJSON(LS.qty, v);
+    render();
+  });
+  sideboardToggleEl.addEventListener("change", () => {
+    state.includeSideboard = sideboardToggleEl.checked;
+    writeJSON(LS.includeSideboard, state.includeSideboard);
     render();
   });
 
