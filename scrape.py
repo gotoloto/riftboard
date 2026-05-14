@@ -1102,6 +1102,120 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
     return {"path": path, "rows": last_row - 1}
 
 
+def build_closeness_data(
+    percentile: float = 25.0,
+    output_path: str = "closeness-data.js",
+) -> dict:
+    """For each cached legend, build the top-percentile *composite* deck —
+    1 legend + 3 battlefields + 12 runes + 40 maindeck cards using a
+    sort-by-inclusion + greedy-median pick per slot (same shape as the
+    main dashboard's Composite mode). Saved as closeness-data.js so the
+    /closeness.html page can score it against the user's collection
+    without lazy-loading every legend's data.js."""
+    static_targets = {"legend": 1, "battlefield": 3, "rune": 12}
+    maindeck_target = 40
+    excluded_from_main = {"legend", "battlefield", "rune"}
+
+    def pick_by_median(pool, target):
+        picks = []
+        filled = 0
+        for c in pool:
+            if filled >= target:
+                break
+            wanted = max(1, c["median_copies"])
+            copies = min(wanted, target - filled)
+            picks.append({**c, "qty": copies})
+            filled += copies
+        return picks
+
+    out_legends = []
+    for decks_path in sorted(glob.glob("legends/*/decks.json")):
+        slug = os.path.basename(os.path.dirname(decks_path))
+        try:
+            raw = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
+        decks = [
+            d
+            for d in raw.get("decks", [])
+            if d.get("finish_pct") is not None and d["finish_pct"] <= percentile
+        ]
+        if not decks:
+            continue
+        cards_meta = raw.get("cards_meta", {})
+        n = len(decks)
+        per_card: dict = {}
+        for d in decks:
+            for c in d.get("cards", []):
+                if c.get("board") != "main":
+                    continue
+                cs = c["slug"]
+                per_card.setdefault(cs, []).append(c.get("qty", 0))
+        cards = []
+        for cs, qtys in per_card.items():
+            qtys.sort()
+            mid = len(qtys) // 2
+            med = qtys[mid] if len(qtys) % 2 else (qtys[mid - 1] + qtys[mid]) / 2
+            meta = cards_meta.get(cs, {})
+            cards.append(
+                {
+                    "slug": cs,
+                    "name": meta.get("name", cs),
+                    "type": (meta.get("type") or "").lower(),
+                    "rarity": (meta.get("rarity") or "").lower(),
+                    "decks_including": len(qtys),
+                    "median_copies": int(round(med)),
+                }
+            )
+        cards.sort(
+            key=lambda c: (
+                -c["decks_including"],
+                -c["median_copies"],
+                c["name"],
+            )
+        )
+        composite = []
+        for key in ("legend", "battlefield", "rune"):
+            composite += pick_by_median(
+                [c for c in cards if c["type"] == key],
+                static_targets[key],
+            )
+        composite += pick_by_median(
+            [c for c in cards if c["type"] not in excluded_from_main],
+            maindeck_target,
+        )
+        out_legends.append(
+            {
+                "slug": slug,
+                "name": raw.get("archetype", slug),
+                "filtered_deck_count": n,
+                "composite": [
+                    {
+                        "slug": c["slug"],
+                        "name": c["name"],
+                        "qty": c["qty"],
+                        "rarity": c["rarity"],
+                        "type": c["type"],
+                    }
+                    for c in composite
+                ],
+            }
+        )
+    out_legends.sort(key=lambda L: L["name"])
+    payload = {
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "percentile": percentile,
+        "legends": out_legends,
+    }
+    tmp = output_path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__CLOSENESS_DATA__ = ")
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, output_path)
+    return {"path": output_path, "legends": len(out_legends)}
+
+
 def save_staples_js(payload: dict, path: str = "staples.js") -> None:
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
@@ -1122,6 +1236,9 @@ if __name__ == "__main__":
         catalog = fetch_card_catalog()
         save_catalog_json(catalog)
         print(f"{CATALOG_PATH} written: {len(catalog)} cards")
+    elif args and args[0] == "--closeness":
+        info = build_closeness_data()
+        print(f"{info['path']} written: {info['legends']} legends")
     elif args and args[0] == "--collection":
         info = build_collection_template()
         print(f"{info['path']} written: {info['rows']} unique cards")
@@ -1184,9 +1301,11 @@ if __name__ == "__main__":
         rebuild_champions_index()
         save_staples_js(build_staples())
         build_collection_template()
-        print("staples.js + collection-template.xlsx refreshed")
+        build_closeness_data()
+        print("staples.js + collection-template.xlsx + closeness-data.js refreshed")
     else:
         url = args[0] if args else DEFAULT_URL
         main(url)
         save_staples_js(build_staples())
         build_collection_template()
+        build_closeness_data()

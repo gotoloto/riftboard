@@ -1,0 +1,78 @@
+.back-link {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back-link:hover { text-decoration: underline; }
+.note { max-width: 880px; }
+
+#closeness-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+#closeness-table th, #closeness-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+#closeness-table th {
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+#closeness-table th.num, #closeness-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+#closeness-table tbody tr:nth-child(odd) { background: var(--row); }
+#closeness-table tbody tr:nth-child(even) { background: var(--row-alt); }
+#closeness-table td.rank { color: var(--muted); width: 32px; }
+#closeness-table td.distance { font-weight: 600; }
+
+#closeness-table tr.legend-row { cursor: pointer; }
+#closeness-table tr.legend-row:hover { background: rgba(96, 165, 250, 0.10); }
+#closeness-table tr.expanded-row td { background: var(--row-alt); padding: 12px 14px; }
+
+.rarity-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  margin-right: 4px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: capitalize;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-variant-numeric: tabular-nums;
+}
+.rarity-tag.rarity-common   { color: #9ca3af; }
+.rarity-tag.rarity-uncommon { color: #38bdf8; border-color: rgba(56,189,248,.45); }
+.rarity-tag.rarity-rare     { color: #ec4899; border-color: rgba(236,72,153,.45); }
+.rarity-tag.rarity-epic     { color: #f97316; border-color: rgba(249,115,22,.45); }
+.rarity-tag.rarity-showcase { color: #facc15; border-color: rgba(250,204,21,.45); }
+
+.missing-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 4px 18px;
+}
+.missing-list li {
+  display: flex; gap: 8px; align-items: baseline;
+  font-size: 12px;
+  padding: 2px 0;
+  border-bottom: 1px dotted var(--border);
+}
+.missing-list li:last-child { border-bottom: none; }
+.missing-list .qty {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  min-width: 32px;
+}
+.missing-list .name { flex: 1; }
+.missing-list .pts {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}

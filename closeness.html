@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound — collection closeness</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="closeness.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1>Collection closeness</h1>
+      <a class="back-link" href="./">← Main dashboard</a>
+    </div>
+    <p id="meta" class="muted"></p>
+    <p class="muted note">
+      Ranks each legend by how close your imported collection is to building
+      its top-25% composite deck (1 legend + 3 battlefields + 12 runes + 40
+      maindeck). Each missing copy adds points by rarity (pull-rate weighted):
+      <strong>common 1</strong> · <strong>uncommon 2.333</strong> ·
+      <strong>rare 3.5</strong> · <strong>epic 28</strong> ·
+      <strong>showcase 28</strong>. Lower distance = closer to a complete
+      deck. Click a row to see exactly what's missing.
+    </p>
+  </header>
+
+  <main>
+    <div class="table-scroll">
+      <table id="closeness-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Legend</th>
+            <th class="num">Distance</th>
+            <th class="num">Missing copies</th>
+            <th>By rarity</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="collection-owned.js"></script>
+  <script src="closeness-data.js"></script>
+  <script src="closeness-app.js"></script>
+</body>
+</html>

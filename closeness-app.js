@@ -1,0 +1,153 @@
+"use strict";
+
+const RARITY_WEIGHT = {
+  common: 1,
+  uncommon: 2.333,
+  rare: 3.5,
+  epic: 28,
+  showcase: 28,
+};
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+const owned = window.__OWNED_DEFAULTS__ || {};
+const data = window.__CLOSENESS_DATA__;
+const tbody = document.querySelector("#closeness-table tbody");
+const metaEl = document.getElementById("meta");
+
+function weightFor(rarity) {
+  return RARITY_WEIGHT[(rarity || "").toLowerCase()] ?? 1;
+}
+
+function scoreLegend(L) {
+  const missingCards = [];
+  const missingByRarity = {};
+  let points = 0;
+  let totalMissing = 0;
+  for (const c of L.composite) {
+    const need = c.qty;
+    const have = owned[c.slug] || 0;
+    const short = Math.max(0, need - have);
+    if (short <= 0) continue;
+    const w = weightFor(c.rarity);
+    const pts = short * w;
+    points += pts;
+    totalMissing += short;
+    const rar = (c.rarity || "unknown").toLowerCase();
+    missingByRarity[rar] = (missingByRarity[rar] || 0) + short;
+    missingCards.push({
+      slug: c.slug,
+      name: c.name,
+      need,
+      have,
+      short,
+      rarity: rar,
+      type: c.type,
+      pts,
+    });
+  }
+  // Order missing: highest points first, then by short qty desc, then name
+  missingCards.sort((a, b) => b.pts - a.pts || b.short - a.short || a.name.localeCompare(b.name));
+  return { points, totalMissing, missingByRarity, missingCards };
+}
+
+function rarityChips(byRar) {
+  const order = ["common", "uncommon", "rare", "epic", "showcase"];
+  const seen = new Set();
+  const parts = [];
+  for (const r of order) {
+    if (byRar[r]) {
+      parts.push(`<span class="rarity-tag rarity-${r}">${r} ${byRar[r]}</span>`);
+      seen.add(r);
+    }
+  }
+  // Unknown / other rarities
+  for (const r of Object.keys(byRar)) {
+    if (!seen.has(r)) {
+      parts.push(`<span class="rarity-tag">${escapeHtml(r)} ${byRar[r]}</span>`);
+    }
+  }
+  return parts.join(" ");
+}
+
+function renderMissingList(missing) {
+  if (!missing.length) {
+    return `<p class="muted">Nothing missing — this deck is buildable from your collection.</p>`;
+  }
+  const items = missing
+    .map((m) => {
+      return `<li>
+        <span class="qty">${m.short} of ${m.need}</span>
+        <span class="rarity-tag rarity-${escapeHtml(m.rarity)}">${escapeHtml(m.rarity)}</span>
+        <span class="name">${escapeHtml(m.name)}</span>
+        <span class="pts">${m.pts.toFixed(1)} pts</span>
+      </li>`;
+    })
+    .join("");
+  return `<ul class="missing-list">${items}</ul>`;
+}
+
+function render() {
+  if (!data) {
+    metaEl.textContent =
+      "closeness-data.js missing. Run `python3 scrape.py --closeness`.";
+    return;
+  }
+  const rows = data.legends
+    .map((L) => ({ legend: L, score: scoreLegend(L) }))
+    .sort(
+      (a, b) =>
+        a.score.points - b.score.points ||
+        a.legend.name.localeCompare(b.legend.name)
+    );
+
+  const ts = data.scraped_at
+    ? new Date(data.scraped_at).toLocaleString()
+    : "—";
+  const ownedDistinct = Object.keys(owned).length;
+  const ownedTotal = Object.values(owned).reduce((s, v) => s + v, 0);
+  metaEl.innerHTML = `${rows.length} legends · composite at top-${data.percentile}% finishers · collection: ${ownedDistinct.toLocaleString()} distinct cards, ${ownedTotal.toLocaleString()} copies · generated ${ts}`;
+
+  tbody.innerHTML = rows
+    .map((r, i) => {
+      const dist = r.score.points;
+      const fmtDist = dist === 0 ? "0" : dist.toFixed(1);
+      return `
+      <tr class="legend-row" data-slug="${escapeHtml(r.legend.slug)}">
+        <td class="rank">${i + 1}</td>
+        <td>${escapeHtml(r.legend.name)}</td>
+        <td class="num distance">${fmtDist}</td>
+        <td class="num">${r.score.totalMissing}</td>
+        <td>${rarityChips(r.score.missingByRarity)}</td>
+      </tr>`;
+    })
+    .join("");
+
+  // Click → toggle expanded row with the full missing list
+  tbody.addEventListener("click", (ev) => {
+    const tr = ev.target.closest("tr.legend-row");
+    if (!tr) return;
+    const next = tr.nextElementSibling;
+    if (next && next.classList.contains("expanded-row")) {
+      next.remove();
+      return;
+    }
+    // Close any other open expansion
+    tbody.querySelectorAll("tr.expanded-row").forEach((el) => el.remove());
+    const slug = tr.dataset.slug;
+    const row = rows.find((r) => r.legend.slug === slug);
+    if (!row) return;
+    const expanded = document.createElement("tr");
+    expanded.className = "expanded-row";
+    expanded.innerHTML = `<td colspan="5">${renderMissingList(row.score.missingCards)}</td>`;
+    tr.after(expanded);
+  });
+}
+
+render();
