@@ -458,26 +458,37 @@ function renderCompositeDeck() {
 }
 
 function findRepresentativeDeck() {
+  const boardKey = state.board === "side" ? "s" : "c";
   const decks = state.rawDecks
     .filter(deckPasses)
-    .filter((d) => ((state.board === "side" ? d.s : d.c) || []).length > 0);
+    .filter((d) => (d[boardKey] || []).length > 0);
   if (!decks.length) return null;
 
-  const medSplit = computeDynamicTargets(decks); // {unit, spell, gear} from mainboards
+  // Build the composite as a slug → qty map (the same picks that Composite
+  // mode renders). The representative deck is the real deck whose own
+  // (slug, qty) profile is closest to that composite. Distance is Manhattan
+  // — sum of |composite_qty(s) − deck_qty(s)| across every slug either
+  // side mentions. Much more meaningful than matching unit/spell/gear
+  // totals, which can tie wildly different decks.
+  const composite = new Map();
+  for (const sec of buildCompositeSections()) {
+    for (const p of sec.picks || []) {
+      composite.set(p.slug, (composite.get(p.slug) || 0) + p.picked_copies);
+    }
+  }
 
   let best = null;
   let bestDist = Infinity;
   for (const d of decks) {
-    const tally = { unit: 0, spell: 0, gear: 0 };
-    for (const [slug, qty] of d.c || []) {
-      const t = (state.cardsMeta[slug]?.type || "").toLowerCase();
-      if (t in tally) tally[t] += qty;
+    const tally = new Map();
+    for (const [slug, qty] of d[boardKey] || []) {
+      tally.set(slug, (tally.get(slug) || 0) + qty);
     }
-    const dist = Math.hypot(
-      tally.unit - medSplit.unit,
-      tally.spell - medSplit.spell,
-      tally.gear - medSplit.gear
-    );
+    const slugs = new Set([...composite.keys(), ...tally.keys()]);
+    let dist = 0;
+    for (const s of slugs) {
+      dist += Math.abs((composite.get(s) || 0) - (tally.get(s) || 0));
+    }
     const fp = d.fp == null ? Infinity : d.fp;
     const bestFp = best == null || best.fp == null ? Infinity : best.fp;
     if (dist < bestDist || (dist === bestDist && fp < bestFp)) {
