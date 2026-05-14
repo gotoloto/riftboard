@@ -29,6 +29,14 @@
   color: var(--fg);
   text-align: right;
 }
+.cart-config select {
+  padding: 3px 6px;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--fg);
+}
 .cart-config .config-note { font-size: 12px; }
 
 .legend-picker {

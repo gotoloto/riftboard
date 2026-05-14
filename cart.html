@@ -37,7 +37,16 @@
       <input id="sideboard-toggle" type="checkbox" checked>
       Include sideboards
     </label>
-    <span class="config-note muted">Each legend also contributes 1 of its legend card and 1 of each of its top 6 battlefields.</span>
+    <label class="config-label">Cap Wanted at max-per-legend for
+      <select id="cap-rarity-select">
+        <option value="">— off (always sum) —</option>
+        <option value="uncommon">uncommon + rare + epic + showcase</option>
+        <option value="rare">rare + epic + showcase</option>
+        <option value="epic">epic + showcase</option>
+        <option value="showcase">showcase only</option>
+      </select>
+    </label>
+    <span class="config-note muted">Each legend also contributes 1 of its legend card and 1 of each of its top 6 battlefields. Rarity capping is a default-only setting — your manual Wanted edits still win.</span>
   </section>
 
   <section class="legend-picker">

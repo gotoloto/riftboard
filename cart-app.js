@@ -16,7 +16,17 @@ const LS = {
   percentile: "cart:percentile",
   qty: "cart:qty",
   includeSideboard: "cart:includeSideboard",
+  capRarity: "cart:capRarity",
 };
+
+const RARITY_ORDER = ["common", "uncommon", "rare", "epic", "showcase"];
+
+function shouldCap(rarity, threshold) {
+  if (!threshold) return false;
+  const ri = RARITY_ORDER.indexOf((rarity || "").toLowerCase());
+  const ti = RARITY_ORDER.indexOf(threshold);
+  return ri >= 0 && ti >= 0 && ri >= ti;
+}
 
 const RARITY = {
   common:   { ch: "●", cls: "common" },
@@ -76,6 +86,7 @@ const state = {
   percentile: readJSON(LS.percentile, 25),
   qtyTarget: readJSON(LS.qty, 60),
   includeSideboard: readJSON(LS.includeSideboard, true),
+  capRarity: readJSON(LS.capRarity, ""),
 };
 for (const s of [...state.selectedLegends]) {
   if (!championBySlug.has(s)) state.selectedLegends.delete(s);
@@ -271,12 +282,20 @@ function buildRows() {
   }
   const rows = [];
   for (const m of merged.values()) {
+    // If the card's rarity is at or above the user's cap threshold, the
+    // default Wanted is the *max* qty any single selected legend needs
+    // (rather than the sum). Rationale: rare/epic cards are expensive, and
+    // you usually only need enough for one deck at a time.
+    const cap = shouldCap(m.rarity, state.capRarity);
+    const defaultWanted = cap
+      ? Math.max(...m.perLegend.map((l) => l.qty), 0)
+      : m.defaultWanted;
     const wOverride = state.wantedOverride[m.slug];
-    const wanted = wOverride != null ? wOverride : m.defaultWanted;
+    const wanted = wOverride != null ? wOverride : defaultWanted;
     const owned = ownedFor(m.slug);
     const needed = Math.max(0, wanted - owned);
     m.perLegend.sort((a, b) => b.qty - a.qty || a.name.localeCompare(b.name));
-    rows.push({ ...m, wanted, owned, needed });
+    rows.push({ ...m, defaultWanted, wanted, owned, needed });
   }
   rows.sort(
     (a, b) =>
@@ -338,6 +357,7 @@ const metaEl = document.getElementById("meta");
 const percentileInputEl = document.getElementById("percentile-input");
 const qtyInputEl = document.getElementById("qty-input");
 const sideboardToggleEl = document.getElementById("sideboard-toggle");
+const capRaritySelectEl = document.getElementById("cap-rarity-select");
 
 function renderPicker(filteredCounts) {
   pillsEl.innerHTML = champions
@@ -361,6 +381,7 @@ function render() {
   percentileInputEl.value = state.percentile;
   qtyInputEl.value = state.qtyTarget;
   sideboardToggleEl.checked = state.includeSideboard;
+  capRaritySelectEl.value = state.capRarity || "";
 
   if (state.selectedLegends.size === 0) {
     renderPicker(new Map());
@@ -500,6 +521,11 @@ function attachHandlers() {
   sideboardToggleEl.addEventListener("change", () => {
     state.includeSideboard = sideboardToggleEl.checked;
     writeJSON(LS.includeSideboard, state.includeSideboard);
+    render();
+  });
+  capRaritySelectEl.addEventListener("change", () => {
+    state.capRarity = capRaritySelectEl.value || "";
+    writeJSON(LS.capRarity, state.capRarity);
     render();
   });
 
