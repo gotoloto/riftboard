@@ -280,7 +280,7 @@ function buildRows() {
   }
   rows.sort(
     (a, b) =>
-      b.needed - a.needed || b.wanted - a.wanted || a.name.localeCompare(b.name)
+      b.wanted - a.wanted || b.needed - a.needed || a.name.localeCompare(b.name)
   );
   return { rows, filteredCounts };
 }
