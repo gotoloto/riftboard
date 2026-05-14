@@ -38,6 +38,17 @@ header { margin-bottom: 16px; }
   flex-wrap: wrap;
   margin-bottom: 4px;
 }
+.page-nav {
+  display: flex; align-items: baseline; gap: 14px;
+  margin-left: auto;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.page-nav a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.page-nav a:hover { text-decoration: underline; }
 h1 { margin: 0; font-size: 22px; }
 .muted { color: var(--muted); font-size: 13px; }
 #champion-select {
