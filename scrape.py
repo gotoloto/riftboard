@@ -1063,12 +1063,29 @@ def build_collection_template(path: str = "collection-template.xlsx") -> dict:
         raise SystemExit("openpyxl is required: pip install openpyxl")
 
     catalog = load_catalog()
+    # Legend cards on the source's detail page only show the epithet
+    # (e.g. "Scorn of the Moon" instead of "Diana, Scorn of the Moon").
+    # Restore the full archetype identity from champions.js for those rows.
+    legend_full_names: dict = {}
+    try:
+        with open("champions.js", encoding="utf-8") as f:
+            txt = f.read()
+        start = txt.index("=") + 1
+        end = txt.rfind(";")
+        for entry in json.loads(txt[start:end]):
+            legend_full_names[f"details-{entry['slug']}"] = entry["name"]
+    except Exception:
+        pass
+
     if catalog:
         rows = sorted(
             (
                 {
                     "slug": slug,
-                    "name": m.get("name", slug),
+                    "name": legend_full_names.get(slug)
+                    if (m.get("type") or "").lower() == "legend"
+                    and legend_full_names.get(slug)
+                    else m.get("name", slug),
                     "set": m.get("set", ""),
                     "set_num_raw": str(m.get("set_num") or ""),
                     "set_num_int": m.get("set_num") or 10**9,
