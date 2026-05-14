@@ -901,6 +901,57 @@ def fetch_card_catalog(slugs=None) -> dict:
     return out
 
 
+def import_collection_xlsx(
+    xlsx_path: str,
+    output_path: str = "collection-owned.js",
+) -> dict:
+    """Read a filled-in collection xlsx and emit a JS file mapping
+    slug → qty owned. The cart page uses this as the default Owned for
+    every card; user edits in the cart UI still override per-slug."""
+    try:
+        from openpyxl import load_workbook
+    except ImportError:
+        raise SystemExit("openpyxl is required: pip install openpyxl")
+
+    wb = load_workbook(xlsx_path, data_only=True)
+    ws = wb.active
+    headers = [str(c.value or "").strip() for c in ws[1]]
+    try:
+        slug_col = headers.index("Slug")
+        qty_col = headers.index("Qty Owned")
+    except ValueError as exc:
+        raise SystemExit(f"missing required column: {exc}")
+    owned: dict = {}
+    skipped = 0
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        slug = row[slug_col]
+        qty = row[qty_col]
+        if not slug:
+            continue
+        if qty is None or qty == "":
+            continue
+        try:
+            q = int(qty)
+        except (TypeError, ValueError):
+            skipped += 1
+            continue
+        if q <= 0:
+            continue
+        owned[str(slug).strip()] = q
+    tmp = output_path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__OWNED_DEFAULTS__ = ")
+        json.dump(owned, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, output_path)
+    return {
+        "path": output_path,
+        "distinct": len(owned),
+        "total": sum(owned.values()),
+        "skipped": skipped,
+    }
+
+
 def save_catalog_json(catalog: dict, path: str = CATALOG_PATH) -> None:
     save_json(
         path,
@@ -1074,6 +1125,14 @@ if __name__ == "__main__":
     elif args and args[0] == "--collection":
         info = build_collection_template()
         print(f"{info['path']} written: {info['rows']} unique cards")
+    elif args and args[0] == "--import-collection":
+        if len(args) < 2:
+            raise SystemExit("usage: scrape.py --import-collection <path-to-xlsx>")
+        info = import_collection_xlsx(args[1])
+        print(
+            f"{info['path']} written: {info['distinct']} distinct cards, "
+            f"{info['total']} total copies"
+        )
     elif args and args[0] == "--check":
         print(f"Pinging {LEGENDS_INDEX_URL}…")
         index = fetch_legends_index()

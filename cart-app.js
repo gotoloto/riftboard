@@ -57,6 +57,16 @@ function writeJSON(key, value) {
 
 const champions = window.__CHAMPIONS__ || [];
 const championBySlug = new Map(champions.map((c) => [c.slug, c]));
+// Baseline owned counts loaded from collection-owned.js (the user's collection
+// import). Per-row overrides in state.ownedOverride win when present.
+const defaultOwned = window.__OWNED_DEFAULTS__ || {};
+
+function ownedFor(slug) {
+  if (Object.prototype.hasOwnProperty.call(state.ownedOverride, slug)) {
+    return state.ownedOverride[slug];
+  }
+  return defaultOwned[slug] || 0;
+}
 
 const state = {
   selectedLegends: new Set(readJSON(LS.legends, DEFAULT_LEGENDS)),
@@ -225,7 +235,7 @@ function buildRows() {
   for (const m of merged.values()) {
     const wOverride = state.wantedOverride[m.slug];
     const wanted = wOverride != null ? wOverride : m.defaultWanted;
-    const owned = state.ownedOverride[m.slug] || 0;
+    const owned = ownedFor(m.slug);
     const needed = Math.max(0, wanted - owned);
     m.perLegend.sort((a, b) => b.qty - a.qty || a.name.localeCompare(b.name));
     rows.push({ ...m, wanted, owned, needed });
@@ -259,7 +269,9 @@ function renderRow(row) {
     )
     .join("");
   const wOverridden = state.wantedOverride[row.slug] != null;
-  const oOverridden = (state.ownedOverride[row.slug] || 0) > 0;
+  // Override styling = user edited (regardless of value); baseline from the
+  // imported collection isn't highlighted.
+  const oOverridden = Object.prototype.hasOwnProperty.call(state.ownedOverride, row.slug);
   return `
     <tr data-slug="${escapeHtml(row.slug)}" data-set="${escapeHtml(row.set || "?")}">
       <td>${link}${typeTag}</td>
@@ -356,9 +368,17 @@ function recomputeRow(tr) {
   else delete state.wantedOverride[slug];
   writeJSON(LS.wanted, state.wantedOverride);
 
-  ownedEl.classList.toggle("overridden", owned > 0);
-  if (owned > 0) state.ownedOverride[slug] = owned;
-  else delete state.ownedOverride[slug];
+  // Owned override = anything that differs from the imported baseline.
+  // If the user types the same value as their baseline, drop the override so
+  // future collection imports stay in sync naturally.
+  const baseline = defaultOwned[slug] || 0;
+  if (owned === baseline) {
+    delete state.ownedOverride[slug];
+    ownedEl.classList.remove("overridden");
+  } else {
+    state.ownedOverride[slug] = owned;
+    ownedEl.classList.add("overridden");
+  }
   writeJSON(LS.owned, state.ownedOverride);
 
   refreshSummary();

@@ -14,5 +14,8 @@ scrape-*.log
 *.tmp
 /decks.json  # only the root-level stray (legends/<slug>/decks.json must NOT be ignored)
 
+# Personal collection workbooks dropped in for import
+/collection-template_*.xlsx
+
 # Claude Code workspace state (preview server config, plans, worktrees)
 .claude/
