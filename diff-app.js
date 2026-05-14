@@ -30,9 +30,21 @@ function rarityHtml(rarity) {
   return ` <span class="rarity rarity-${g.cls}" title="${escapeHtml(rarity)}" aria-hidden="true">${g.ch}</span>`;
 }
 
-const owned = window.__OWNED_DEFAULTS__ || {};
+const ownedRaw = window.__OWNED_DEFAULTS__ || {};
+const enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 const catalog = window.__CATALOG__ || {};
 const lookup = window.__DECK_LOOKUP__;
+
+const LS_INCLUDE_ENROUTE = "diff:includeEnRoute";
+let includeEnRoute = false;
+try {
+  includeEnRoute = JSON.parse(localStorage.getItem(LS_INCLUDE_ENROUTE) || "false");
+} catch (_) {}
+
+function ownedFor(slug) {
+  const o = ownedRaw[slug] || 0;
+  return o + (includeEnRoute ? (enRoute[slug] || 0) : 0);
+}
 
 const metaEl = document.getElementById("meta");
 const inputEl = document.getElementById("deck-url");
@@ -48,8 +60,26 @@ const copyBtn = document.getElementById("copy-btn");
 if (!lookup) {
   metaEl.textContent = "deck-lookup.js missing. Run `python3 scrape.py --deck-lookup`.";
 } else {
-  metaEl.innerHTML = `${lookup.deck_count.toLocaleString()} cached decks · ${Object.keys(catalog).length.toLocaleString()} known cards · collection: ${Object.keys(owned).length.toLocaleString()} distinct cards owned`;
+  metaEl.innerHTML = `${lookup.deck_count.toLocaleString()} cached decks · ${Object.keys(catalog).length.toLocaleString()} known cards · collection: ${Object.keys(ownedRaw).length.toLocaleString()} distinct cards owned`;
 }
+
+const enrouteToggleEl = document.getElementById("include-enroute");
+const enrouteInfoEl = document.getElementById("enroute-info");
+const enRouteDistinct = Object.keys(enRoute).length;
+const enRouteTotal = Object.values(enRoute).reduce((s, v) => s + v, 0);
+enrouteToggleEl.checked = includeEnRoute;
+enrouteToggleEl.disabled = enRouteDistinct === 0;
+enrouteInfoEl.textContent = enRouteDistinct
+  ? `(${enRouteDistinct} distinct · ${enRouteTotal} copies)`
+  : "(none in collection)";
+enrouteToggleEl.addEventListener("change", () => {
+  includeEnRoute = enrouteToggleEl.checked;
+  try {
+    localStorage.setItem(LS_INCLUDE_ENROUTE, JSON.stringify(includeEnRoute));
+  } catch (_) {}
+  // If a diff is already on screen, re-run it.
+  if (!resultEl.hidden) runDiff();
+});
 
 function normalizeDeckKey(input) {
   let k = (input || "").trim();
@@ -109,7 +139,7 @@ function compute(key, d) {
   let totalMissing = 0;
   const missingByRarity = {};
   for (const [slug, n] of need) {
-    const have = owned[slug] || 0;
+    const have = ownedFor(slug);
     const miss = Math.max(0, n - have);
     if (miss <= 0) continue;
     const meta = catalog[slug] || {};

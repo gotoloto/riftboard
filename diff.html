@@ -27,6 +27,11 @@
     <input id="deck-url" type="url" placeholder="https://riftdecks.com/riftbound-metagame/deck-…" autocomplete="off" spellcheck="false" />
     <button type="button" id="find-btn" class="btn">Find diff</button>
   </section>
+  <label class="enroute-toggle">
+    <input type="checkbox" id="include-enroute" />
+    Include en-route cards as owned
+    <span id="enroute-info" class="muted"></span>
+  </label>
 
   <section id="result" hidden>
     <div id="deck-info" class="deck-info"></div>
@@ -57,6 +62,7 @@
 
   <img id="card-thumb" alt="" hidden />
   <script src="collection-owned.js"></script>
+  <script src="collection-enroute.js"></script>
   <script src="cards-catalog.js"></script>
   <script src="deck-lookup.js"></script>
   <script src="tcgplayer-fixes.js"></script>
