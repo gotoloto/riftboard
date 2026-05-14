@@ -881,6 +881,32 @@ def fetch_card_catalog(slugs=None) -> dict:
         rarities = fields.get("rarity") or []
         non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
         rarity = (non_showcase or rarities or [""])[0].lower()
+        # If the main page only carries showcase entries (e.g. Irelia, Fervent
+        # — every default-rendered field is showcase), the standard printing
+        # lives on a variant URL like /cards/details-<slug>/<id>. Walk those
+        # until we find a non-showcase rarity, since showcase prints are
+        # always optional alt-art and a regular-rarity copy exists.
+        if rarity == "showcase":
+            variant_urls = []
+            for a in soup.find_all("a", href=True):
+                vm = re.match(
+                    r"^/cards/" + re.escape(slug) + r"/\d+$",
+                    a["href"],
+                )
+                if vm and a["href"] not in variant_urls:
+                    variant_urls.append(a["href"])
+            for vurl in variant_urls:
+                try:
+                    vhtml = fetch(urljoin(BASE, vurl))
+                except Exception:
+                    continue
+                vfields, _ = parse_card_detail(vhtml)
+                vrar = vfields.get("rarity") or []
+                vnon = [r for r in vrar if (r or "").lower() != "showcase"]
+                if vnon:
+                    rarity = vnon[0].lower()
+                    break
+                time.sleep(0.15)
         out[slug] = {
             "slug": slug,
             "name": (fields.get("name") or [slug])[0],
