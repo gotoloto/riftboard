@@ -952,6 +952,86 @@ def import_collection_xlsx(
     }
 
 
+DECK_URL_PREFIX = "https://riftdecks.com/riftbound-metagame/"
+
+
+def build_deck_lookup_data(output_path: str = "deck-lookup.js") -> dict:
+    """Flat index keyed by deck URL → that deck's cards + tournament metadata.
+    Used by /diff.html so the user can paste a riftdecks deck URL and we
+    pick up the cards from local cache instead of fighting CORS/Cloudflare.
+
+    Slugs are interned into a single string table to keep the payload small
+    (every deck reuses the same ~500 card slugs)."""
+    slug_index: dict = {}
+    slugs_list: list = []
+
+    def sid(slug):
+        if slug not in slug_index:
+            slug_index[slug] = len(slugs_list)
+            slugs_list.append(slug)
+        return slug_index[slug]
+
+    decks_out: dict = {}
+    for decks_path in sorted(glob.glob("legends/*/decks.json")):
+        legend_slug = os.path.basename(os.path.dirname(decks_path))
+        try:
+            raw = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
+        legend_name = raw.get("archetype", legend_slug)
+        for d in raw.get("decks", []):
+            url = d.get("url") or ""
+            if not url:
+                continue
+            key = url[len(DECK_URL_PREFIX):] if url.startswith(DECK_URL_PREFIX) else url
+            main: dict = {}
+            side: dict = {}
+            for c in d.get("cards", []):
+                m = main if c.get("board") == "main" else side
+                m[c["slug"]] = m.get(c["slug"], 0) + c.get("qty", 0)
+            decks_out[key] = {
+                "t": d.get("title", ""),
+                "ln": legend_name,
+                "rk": d.get("rank"),
+                "pl": d.get("players"),
+                "fp": d.get("finish_pct"),
+                "dt": d.get("date"),
+                "c": [[sid(s), q] for s, q in main.items()],
+                "s": [[sid(s), q] for s, q in side.items()],
+            }
+
+    payload = {
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "url_prefix": DECK_URL_PREFIX,
+        "slugs": slugs_list,
+        "deck_count": len(decks_out),
+        "decks": decks_out,
+    }
+    tmp = output_path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__DECK_LOOKUP__ = ")
+        json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, output_path)
+    return {
+        "path": output_path,
+        "deck_count": len(decks_out),
+        "slugs": len(slugs_list),
+    }
+
+
+def save_catalog_js(catalog: dict, path: str = "cards-catalog.js") -> None:
+    """JS-wrapper twin of cards-catalog.json so dashboard pages can load the
+    catalog with a plain <script> tag (works under file:// and avoids extra
+    fetch() round-trips)."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__CATALOG__ = ")
+        json.dump(catalog, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, path)
+
+
 def save_catalog_json(catalog: dict, path: str = CATALOG_PATH) -> None:
     save_json(
         path,
@@ -1235,7 +1315,11 @@ if __name__ == "__main__":
     elif args and args[0] == "--catalog":
         catalog = fetch_card_catalog()
         save_catalog_json(catalog)
-        print(f"{CATALOG_PATH} written: {len(catalog)} cards")
+        save_catalog_js(catalog)
+        print(f"{CATALOG_PATH} + cards-catalog.js written: {len(catalog)} cards")
+    elif args and args[0] == "--deck-lookup":
+        info = build_deck_lookup_data()
+        print(f"{info['path']} written: {info['deck_count']} decks")
     elif args and args[0] == "--closeness":
         info = build_closeness_data()
         print(f"{info['path']} written: {info['legends']} legends")
@@ -1302,10 +1386,23 @@ if __name__ == "__main__":
         save_staples_js(build_staples())
         build_collection_template()
         build_closeness_data()
-        print("staples.js + collection-template.xlsx + closeness-data.js refreshed")
+        build_deck_lookup_data()
+        # Catalog js is a wrapper for the existing JSON; cheap to regen.
+        try:
+            save_catalog_js(load_catalog())
+        except Exception:
+            pass
+        print(
+            "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
+        )
     else:
         url = args[0] if args else DEFAULT_URL
         main(url)
         save_staples_js(build_staples())
         build_collection_template()
         build_closeness_data()
+        build_deck_lookup_data()
+        try:
+            save_catalog_js(load_catalog())
+        except Exception:
+            pass

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound — deck diff</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="diff.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1>Deck diff</h1>
+      <a class="back-link" href="./">← Main dashboard</a>
+    </div>
+    <p id="meta" class="muted"></p>
+    <p class="muted note">
+      Paste any <a href="https://riftdecks.com/" target="_blank" rel="noopener">riftdecks.com</a>
+      tournament-deck URL. We look it up in our local cache (5,000+ decks
+      across 40 legends) and compute what's missing from your collection.
+      Distance is rarity-weighted (common 1 · uncommon 2.333 · rare 3.5 ·
+      epic 28 · showcase 28).
+    </p>
+  </header>
+
+  <section class="input-row">
+    <input id="deck-url" type="url" placeholder="https://riftdecks.com/riftbound-metagame/deck-…" autocomplete="off" spellcheck="false" />
+    <button type="button" id="find-btn" class="btn">Find diff</button>
+  </section>
+
+  <section id="result" hidden>
+    <div id="deck-info" class="deck-info"></div>
+    <div class="summary-row">
+      <span id="diff-summary" class="muted"></span>
+      <button type="button" id="copy-btn" class="copy-btn">Copy missing (TCGplayer)</button>
+    </div>
+    <div class="table-scroll">
+      <table id="diff-table">
+        <thead>
+          <tr>
+            <th>Card</th>
+            <th>Type</th>
+            <th>Set</th>
+            <th class="num">Need</th>
+            <th class="num">Own</th>
+            <th class="num">Missing</th>
+            <th class="num">Pts</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="empty-state" class="muted" hidden></p>
+  </section>
+
+  <section id="error-state" class="error" hidden></section>
+
+  <img id="card-thumb" alt="" hidden />
+  <script src="collection-owned.js"></script>
+  <script src="cards-catalog.js"></script>
+  <script src="deck-lookup.js"></script>
+  <script src="tcgplayer-fixes.js"></script>
+  <script src="diff-app.js"></script>
+</body>
+</html>
