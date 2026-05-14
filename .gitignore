@@ -16,6 +16,9 @@ scrape-*.log
 
 # Personal collection workbooks dropped in for import
 /collection-template_*.xlsx
+/collection-template *.xlsx
+# Excel lock files (when the workbook is open)
+~$*.xlsx
 
 # Claude Code workspace state (preview server config, plans, worktrees)
 .claude/
