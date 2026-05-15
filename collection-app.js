@@ -533,7 +533,7 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const nameHtml = `<span class="card-name"${img}>${escapeHtml(name)}</span>`;
   if (!allowQtyControls) {
     // Legend slot: just a remove button.
-    return `<li data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button></li>`;
+    return `<li class="with-remove" data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button></li>`;
   }
   return `<li data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button></li>`;
 }

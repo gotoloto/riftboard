@@ -294,18 +294,22 @@ table#collection-table td.actions {
   padding: 0;
 }
 .deck-list li {
-  display: flex;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 22px 22px;
   align-items: center;
   gap: 4px;
   padding: 2px 0;
   font-size: 12px;
 }
+.deck-list li.with-remove {
+  grid-template-columns: 28px minmax(0, 1fr) 22px;
+}
 .deck-list .qty {
   font-variant-numeric: tabular-nums;
-  min-width: 28px;
+  text-align: right;
 }
 .deck-list .card-name {
-  flex: 1;
+  min-width: 0;
   color: var(--fg);
   text-decoration: none;
   white-space: nowrap;
@@ -317,10 +321,11 @@ table#collection-table td.actions {
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--fg);
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 600;
   line-height: 1;
   border-radius: 4px;
   cursor: pointer;
@@ -328,7 +333,8 @@ table#collection-table td.actions {
 .deck-list button:hover { background: var(--accent); color: white; border-color: var(--accent); }
 .deck-list button.remove { color: #f87171; }
 .deck-list button.remove:hover { background: #dc2626; color: white; border-color: #dc2626; }
-.deck-list .empty {
+.deck-list li.empty {
+  display: block;
   color: var(--muted);
   font-size: 12px;
   font-style: italic;
