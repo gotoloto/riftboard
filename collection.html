@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound — collection + deck builder</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="collection.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1>Collection</h1>
+      <a class="back-link" href="./">← Main dashboard</a>
+    </div>
+    <p id="meta" class="muted"></p>
+    <p id="sheet-status" class="muted sheet-status"></p>
+    <p class="muted note">
+      Every card you own (≥1 copy). Filter by rarity, set, type, domain,
+      owned/missing quantities, or which legend uses it. Hover a card to
+      preview the art; click the name to open it on
+      <a href="https://riftdecks.com/" target="_blank" rel="noopener">riftdecks.com</a>.
+      Use <strong>+M</strong> / <strong>+S</strong> to drop cards into the
+      deck builder on the right.
+    </p>
+  </header>
+
+  <main class="collection-layout">
+    <section class="collection-main">
+      <section class="filter-bar">
+        <div class="filter-row top">
+          <input id="search" type="search" placeholder="Filter cards by name…" autocomplete="off" spellcheck="false" />
+          <label class="enroute-toggle">
+            <input type="checkbox" id="include-enroute" />
+            Include en-route as owned
+          </label>
+          <button type="button" id="clear-filters" class="copy-btn" title="Reset all filters and sort">× Clear filters</button>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label">Rarity</span>
+          <div class="pills" id="pills-rarity"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Set</span>
+          <div class="pills" id="pills-set"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Type</span>
+          <div class="pills" id="pills-type"></div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Domain</span>
+          <div class="pills" id="pills-domain"></div>
+        </div>
+
+        <div class="filter-row range-row">
+          <label>Owned
+            <input type="number" id="owned-min" min="0" step="1" placeholder="min" />
+            –
+            <input type="number" id="owned-max" min="0" step="1" placeholder="max" />
+          </label>
+          <label>Missing
+            <input type="number" id="missing-min" min="0" step="1" placeholder="min" />
+            –
+            <input type="number" id="missing-max" min="0" step="1" placeholder="max" />
+          </label>
+          <label>Used by
+            <select id="legend-filter">
+              <option value="">— any legend —</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <div class="summary-row">
+        <span id="row-count" class="muted"></span>
+      </div>
+
+      <div class="table-scroll">
+        <table id="collection-table">
+          <thead>
+            <tr>
+              <th class="rank">#</th>
+              <th class="sortable" data-sort="name">Card <span class="arrow">▾</span></th>
+              <th class="sortable" data-sort="set">Set <span class="arrow">▾</span></th>
+              <th class="sortable" data-sort="rarity">Rarity <span class="arrow">▾</span></th>
+              <th class="sortable" data-sort="type">Type <span class="arrow">▾</span></th>
+              <th>Domains</th>
+              <th class="num sortable" data-sort="owned">Owned <span class="arrow">▾</span></th>
+              <th class="num sortable" data-sort="missing">Missing <span class="arrow">▾</span></th>
+              <th>Used in</th>
+              <th class="actions-col">Add</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="empty-state" class="muted" hidden>No cards match these filters.</p>
+    </section>
+
+    <aside class="deck-sidebar" aria-label="Deck builder">
+      <header class="deck-header">
+        <h2>Build a deck</h2>
+        <div class="deck-tabs" role="tablist">
+          <button type="button" class="deck-tab active" data-tab="main" role="tab" aria-selected="true">Maindeck</button>
+          <button type="button" class="deck-tab" data-tab="side" role="tab">Sideboard</button>
+        </div>
+      </header>
+
+      <div class="deck-pane" id="deck-main">
+        <section class="deck-section" data-bucket="legend">
+          <header><span>Legend</span><span class="count"><span id="cnt-legend">0</span>/1</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+        <section class="deck-section" data-bucket="battlefields">
+          <header><span>Battlefields</span><span class="count"><span id="cnt-bf">0</span>/3</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+        <section class="deck-section" data-bucket="units">
+          <header><span>Units</span><span class="count" id="cnt-units">0</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+        <section class="deck-section" data-bucket="gear">
+          <header><span>Gear</span><span class="count" id="cnt-gear">0</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+        <section class="deck-section" data-bucket="spells">
+          <header><span>Spells</span><span class="count" id="cnt-spells">0</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+        <p class="deck-total">Maindeck: <span id="cnt-main">0</span>/40</p>
+      </div>
+
+      <div class="deck-pane" id="deck-side" hidden>
+        <section class="deck-section" data-bucket="side">
+          <header><span>Sideboard</span><span class="count"><span id="cnt-side">0</span>/8</span></header>
+          <ul class="deck-list"></ul>
+        </section>
+      </div>
+
+      <footer class="deck-footer">
+        <button type="button" id="copy-deck" class="copy-btn">Copy decklist</button>
+        <button type="button" id="new-deck" class="copy-btn" title="Wipe the current draft">New deck</button>
+      </footer>
+      <p class="muted footnote">
+        Runes aren't tracked here — you own 99 of each by default.
+        Draft auto-saves to your browser.
+      </p>
+    </aside>
+  </main>
+
+  <img id="card-thumb" alt="" hidden />
+  <div id="toast" hidden></div>
+
+  <script src="cards-catalog.js"></script>
+  <script src="closeness-data.js"></script>
+  <script src="champions.js"></script>
+  <script src="collection-owned.js"></script>
+  <script src="collection-enroute.js"></script>
+  <script src="collection-sheet.js"></script>
+  <script src="collection-app.js"></script>
+</body>
+</html>

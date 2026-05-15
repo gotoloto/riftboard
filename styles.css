@@ -338,6 +338,39 @@ td a:hover { text-decoration: underline; }
 .tag.domain-order     { color: #d9bf28; border-color: rgba(217,191,40,0.55); background: rgba(217,191,40,0.16); }
 .tag.domain-colorless { color: #94a3b8; border-color: rgba(160,160,160,0.5); background: rgba(216,216,216,0.14); }
 
+/* Legend-chip — shared by staples, collection. Round pill linking back to
+   /?champion=<slug>. `.solo` is the highlighted style for cards used by
+   only one legend. */
+.legend-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 1px 4px 1px 0;
+  border-radius: 999px;
+  background: var(--row);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.legend-chip:hover { background: var(--row-alt); }
+.legend-chip .pct,
+.legend-chip .qty {
+  color: var(--muted);
+  margin-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.legend-chip.solo {
+  background: rgba(96, 165, 250, 0.12);
+  border-color: var(--accent);
+}
+
+/* Missing-cards highlight — shared by staples, collection. */
+td.missing-pos {
+  color: #f87171;
+  font-weight: 600;
+}
+
 .bar {
   display: inline-block;
   width: 60px;
