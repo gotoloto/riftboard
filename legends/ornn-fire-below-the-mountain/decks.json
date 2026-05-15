@@ -1,8 +1,8 @@
 {
   "archetype": "Ornn, Fire Below the Mountain",
   "url": "https://riftdecks.com/legends/constructed/ornn-fire-below-the-mountain?metagame_id=3",
-  "scraped_at": "2026-05-13T01:21:52.994935Z",
-  "deck_count": 123,
+  "scraped_at": "2026-05-15T13:45:36.572057Z",
+  "deck_count": 125,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-ao-en-142206",
@@ -30145,6 +30145,498 @@
       "players": 64,
       "finish_pct": 85.9,
       "date": "2026-04-04"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-chong-feng-ba-ao-en-4-0-146430",
+      "title": "冲锋吧!奥恩!4.0 by C+.Jude | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ornn, Fire Below the Mountain",
+          "slug": "details-ornn-fire-below-the-mountain",
+          "url": "https://riftdecks.com/cards/details-ornn-fire-below-the-mountain",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ornn, Forge God",
+          "slug": "details-ornn-forge-god",
+          "url": "https://riftdecks.com/cards/details-ornn-forge-god",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pit Crew",
+          "slug": "details-pit-crew",
+          "url": "https://riftdecks.com/cards/details-pit-crew",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Mother",
+          "slug": "details-sprite-mother",
+          "url": "https://riftdecks.com/cards/details-sprite-mother",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Insight",
+          "slug": "details-seal-of-insight",
+          "url": "https://riftdecks.com/cards/details-seal-of-insight",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Poro Snax",
+          "slug": "details-poro-snax",
+          "url": "https://riftdecks.com/cards/details-poro-snax",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sterak's Gage",
+          "slug": "details-steraks-gage",
+          "url": "https://riftdecks.com/cards/details-steraks-gage",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Svellsongur",
+          "slug": "details-svellsongur",
+          "url": "https://riftdecks.com/cards/details-svellsongur",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Shurelya's Requiem",
+          "slug": "details-shurelyas-requiem",
+          "url": "https://riftdecks.com/cards/details-shurelyas-requiem",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Dusk Rose Lab",
+          "slug": "details-dusk-rose-lab",
+          "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Forgefire Cape",
+          "slug": "details-forgefire-cape",
+          "url": "https://riftdecks.com/cards/details-forgefire-cape",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ornn, Forge God",
+          "slug": "details-ornn-forge-god",
+          "url": "https://riftdecks.com/cards/details-ornn-forge-god",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 32,
+      "finish_pct": 25.0,
+      "date": "2026-05-13"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ornn-144894",
+      "title": "Ornn by Pilo Obаndo | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ornn, Fire Below the Mountain",
+          "slug": "details-ornn-fire-below-the-mountain",
+          "url": "https://riftdecks.com/cards/details-ornn-fire-below-the-mountain",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ornn, Forge God",
+          "slug": "details-ornn-forge-god",
+          "url": "https://riftdecks.com/cards/details-ornn-forge-god",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pit Crew",
+          "slug": "details-pit-crew",
+          "url": "https://riftdecks.com/cards/details-pit-crew",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Queen",
+          "slug": "details-sprite-queen",
+          "url": "https://riftdecks.com/cards/details-sprite-queen",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Focus",
+          "slug": "details-seal-of-focus",
+          "url": "https://riftdecks.com/cards/details-seal-of-focus",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Insight",
+          "slug": "details-seal-of-insight",
+          "url": "https://riftdecks.com/cards/details-seal-of-insight",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Poro Snax",
+          "slug": "details-poro-snax",
+          "url": "https://riftdecks.com/cards/details-poro-snax",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Brutalizer",
+          "slug": "details-brutalizer",
+          "url": "https://riftdecks.com/cards/details-brutalizer",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Svellsongur",
+          "slug": "details-svellsongur",
+          "url": "https://riftdecks.com/cards/details-svellsongur",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Forgefire Cape",
+          "slug": "details-forgefire-cape",
+          "url": "https://riftdecks.com/cards/details-forgefire-cape",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Premonition",
+          "slug": "details-premonition",
+          "url": "https://riftdecks.com/cards/details-premonition",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Dusk Rose Lab",
+          "slug": "details-dusk-rose-lab",
+          "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Legion Quartermaster",
+          "slug": "details-legion-quartermaster",
+          "url": "https://riftdecks.com/cards/details-legion-quartermaster",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Shurelya's Requiem",
+          "slug": "details-shurelyas-requiem",
+          "url": "https://riftdecks.com/cards/details-shurelyas-requiem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 1,
+      "players": 6,
+      "finish_pct": 16.7,
+      "date": "2026-05-13"
     }
   ],
   "cards_meta": {

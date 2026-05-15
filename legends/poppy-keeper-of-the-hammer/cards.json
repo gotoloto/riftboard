@@ -1,8 +1,8 @@
 {
   "archetype": "Poppy, Keeper of the Hammer",
   "url": "https://riftdecks.com/legends/constructed/poppy-keeper-of-the-hammer?metagame_id=3",
-  "scraped_at": "2026-05-13T01:24:16.534571Z",
-  "deck_count": 52,
+  "scraped_at": "2026-05-15T13:45:49.045252Z",
+  "deck_count": 58,
   "cards": [
     {
       "slug": "details-poppy-keeper-of-the-hammer",
@@ -15,7 +15,7 @@
       "cost": "-",
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-poppy-keeper-of-the-hammer",
-      "decks_including": 52,
+      "decks_including": 58,
       "inclusion_pct": 100.0,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
@@ -35,14 +35,34 @@
       "cost": "-",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-body-rune",
-      "decks_including": 50,
-      "inclusion_pct": 96.2,
+      "decks_including": 55,
+      "inclusion_pct": 94.8,
       "avg_copies_when_included": 7.0,
       "copies_pct": {
-        "0": 3.8,
+        "0": 5.2,
         "1": 0.0,
         "2": 0.0,
-        "3+": 96.2
+        "3+": 94.8
+      }
+    },
+    {
+      "slug": "details-poppy-paragon",
+      "name": "Poppy, Paragon",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "5",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-poppy-paragon",
+      "decks_including": 54,
+      "inclusion_pct": 93.1,
+      "avg_copies_when_included": 1.19,
+      "copies_pct": {
+        "0": 6.9,
+        "1": 81.0,
+        "2": 6.9,
+        "3+": 5.2
       }
     },
     {
@@ -56,34 +76,14 @@
       "cost": "2CC",
       "rarity": "epic",
       "url": "https://riftdecks.com/cards/details-keepers-verdict",
-      "decks_including": 49,
-      "inclusion_pct": 94.2,
-      "avg_copies_when_included": 2.1,
+      "decks_including": 53,
+      "inclusion_pct": 91.4,
+      "avg_copies_when_included": 2.11,
       "copies_pct": {
-        "0": 5.8,
-        "1": 7.7,
-        "2": 69.2,
-        "3+": 17.3
-      }
-    },
-    {
-      "slug": "details-poppy-paragon",
-      "name": "Poppy, Paragon",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "5",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-poppy-paragon",
-      "decks_including": 49,
-      "inclusion_pct": 94.2,
-      "avg_copies_when_included": 1.2,
-      "copies_pct": {
-        "0": 5.8,
-        "1": 80.8,
-        "2": 7.7,
-        "3+": 5.8
+        "0": 8.6,
+        "1": 6.9,
+        "2": 67.2,
+        "3+": 17.2
       }
     },
     {
@@ -96,14 +96,14 @@
       "cost": "-",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-order-rune",
-      "decks_including": 46,
-      "inclusion_pct": 88.5,
-      "avg_copies_when_included": 5.43,
+      "decks_including": 51,
+      "inclusion_pct": 87.9,
+      "avg_copies_when_included": 5.39,
       "copies_pct": {
-        "0": 11.5,
+        "0": 12.1,
         "1": 0.0,
         "2": 0.0,
-        "3+": 88.5
+        "3+": 87.9
       }
     },
     {
@@ -116,14 +116,14 @@
       "cost": "2C",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-challenge",
-      "decks_including": 45,
-      "inclusion_pct": 86.5,
+      "decks_including": 50,
+      "inclusion_pct": 86.2,
       "avg_copies_when_included": 2.38,
       "copies_pct": {
-        "0": 13.5,
-        "1": 15.4,
-        "2": 23.1,
-        "3+": 48.1
+        "0": 13.8,
+        "1": 13.8,
+        "2": 25.9,
+        "3+": 46.6
       }
     },
     {
@@ -136,14 +136,14 @@
       "cost": "2",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-grim-resolve",
-      "decks_including": 38,
-      "inclusion_pct": 73.1,
-      "avg_copies_when_included": 2.82,
+      "decks_including": 40,
+      "inclusion_pct": 69.0,
+      "avg_copies_when_included": 2.8,
       "copies_pct": {
-        "0": 26.9,
+        "0": 31.0,
         "1": 0.0,
-        "2": 13.5,
-        "3+": 59.6
+        "2": 13.8,
+        "3+": 55.2
       }
     },
     {
@@ -156,14 +156,14 @@
       "cost": "2",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-shepherds-heirloom",
-      "decks_including": 37,
-      "inclusion_pct": 71.2,
-      "avg_copies_when_included": 2.32,
+      "decks_including": 39,
+      "inclusion_pct": 67.2,
+      "avg_copies_when_included": 2.33,
       "copies_pct": {
-        "0": 28.8,
-        "1": 9.6,
-        "2": 28.8,
-        "3+": 32.7
+        "0": 32.8,
+        "1": 8.6,
+        "2": 27.6,
+        "3+": 31.0
       }
     },
     {
@@ -176,14 +176,14 @@
       "cost": "2",
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-tactical-retreat",
-      "decks_including": 35,
-      "inclusion_pct": 67.3,
-      "avg_copies_when_included": 1.94,
+      "decks_including": 38,
+      "inclusion_pct": 65.5,
+      "avg_copies_when_included": 1.92,
       "copies_pct": {
-        "0": 32.7,
-        "1": 11.5,
-        "2": 48.1,
-        "3+": 7.7
+        "0": 34.5,
+        "1": 12.1,
+        "2": 46.6,
+        "3+": 6.9
       }
     },
     {
@@ -196,14 +196,14 @@
       "cost": "1CC",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-punch-first",
-      "decks_including": 34,
-      "inclusion_pct": 65.4,
+      "decks_including": 36,
+      "inclusion_pct": 62.1,
       "avg_copies_when_included": 1.97,
       "copies_pct": {
-        "0": 34.6,
-        "1": 5.8,
-        "2": 55.8,
-        "3+": 3.8
+        "0": 37.9,
+        "1": 5.2,
+        "2": 53.4,
+        "3+": 3.4
       }
     },
     {
@@ -216,14 +216,14 @@
       "cost": "5",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-voracious-gromp",
-      "decks_including": 32,
-      "inclusion_pct": 61.5,
+      "decks_including": 34,
+      "inclusion_pct": 58.6,
       "avg_copies_when_included": 2.47,
       "copies_pct": {
-        "0": 38.5,
-        "1": 3.8,
-        "2": 25.0,
-        "3+": 32.7
+        "0": 41.4,
+        "1": 3.4,
+        "2": 24.1,
+        "3+": 31.0
       }
     },
     {
@@ -236,14 +236,14 @@
       "cost": "1",
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-sacrifice",
-      "decks_including": 30,
-      "inclusion_pct": 57.7,
-      "avg_copies_when_included": 1.93,
+      "decks_including": 33,
+      "inclusion_pct": 56.9,
+      "avg_copies_when_included": 1.97,
       "copies_pct": {
-        "0": 42.3,
-        "1": 25.0,
-        "2": 11.5,
-        "3+": 21.2
+        "0": 43.1,
+        "1": 22.4,
+        "2": 13.8,
+        "3+": 20.7
       }
     },
     {
@@ -256,14 +256,14 @@
       "cost": "5C",
       "rarity": "epic",
       "url": "https://riftdecks.com/cards/details-rengar-trophy-hunter",
-      "decks_including": 29,
-      "inclusion_pct": 55.8,
-      "avg_copies_when_included": 2.38,
+      "decks_including": 30,
+      "inclusion_pct": 51.7,
+      "avg_copies_when_included": 2.37,
       "copies_pct": {
-        "0": 44.2,
-        "1": 3.8,
-        "2": 26.9,
-        "3+": 25.0
+        "0": 48.3,
+        "1": 3.4,
+        "2": 25.9,
+        "3+": 22.4
       }
     },
     {
@@ -276,12 +276,12 @@
       "cost": "-",
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-gardens-of-becoming",
-      "decks_including": 28,
-      "inclusion_pct": 53.8,
+      "decks_including": 30,
+      "inclusion_pct": 51.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 46.2,
-        "1": 53.8,
+        "0": 48.3,
+        "1": 51.7,
         "2": 0.0,
         "3+": 0.0
       }
@@ -296,14 +296,14 @@
       "cost": "3",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-kinkou-initiate",
-      "decks_including": 27,
-      "inclusion_pct": 51.9,
-      "avg_copies_when_included": 2.63,
+      "decks_including": 28,
+      "inclusion_pct": 48.3,
+      "avg_copies_when_included": 2.61,
       "copies_pct": {
-        "0": 48.1,
-        "1": 3.8,
-        "2": 11.5,
-        "3+": 36.5
+        "0": 51.7,
+        "1": 3.4,
+        "2": 12.1,
+        "3+": 32.8
       }
     },
     {
@@ -316,14 +316,34 @@
       "cost": "1C",
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-repulse",
-      "decks_including": 26,
-      "inclusion_pct": 50.0,
-      "avg_copies_when_included": 1.77,
+      "decks_including": 28,
+      "inclusion_pct": 48.3,
+      "avg_copies_when_included": 1.79,
       "copies_pct": {
-        "0": 50.0,
-        "1": 17.3,
-        "2": 26.9,
-        "3+": 5.8
+        "0": 51.7,
+        "1": 15.5,
+        "2": 27.6,
+        "3+": 5.2
+      }
+    },
+    {
+      "slug": "details-hidden-blade",
+      "name": "Hidden Blade",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-hidden-blade",
+      "decks_including": 27,
+      "inclusion_pct": 46.6,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 53.4,
+        "1": 6.9,
+        "2": 32.8,
+        "3+": 6.9
       }
     },
     {
@@ -337,33 +357,13 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
       "decks_including": 25,
-      "inclusion_pct": 48.1,
+      "inclusion_pct": 43.1,
       "avg_copies_when_included": 2.24,
       "copies_pct": {
-        "0": 51.9,
-        "1": 11.5,
-        "2": 13.5,
-        "3+": 23.1
-      }
-    },
-    {
-      "slug": "details-hidden-blade",
-      "name": "Hidden Blade",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2C",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-hidden-blade",
-      "decks_including": 25,
-      "inclusion_pct": 48.1,
-      "avg_copies_when_included": 2.0,
-      "copies_pct": {
-        "0": 51.9,
-        "1": 7.7,
-        "2": 32.7,
-        "3+": 7.7
+        "0": 56.9,
+        "1": 10.3,
+        "2": 12.1,
+        "3+": 20.7
       }
     },
     {
@@ -377,11 +377,11 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-sunken-temple",
       "decks_including": 24,
-      "inclusion_pct": 46.2,
+      "inclusion_pct": 41.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 53.8,
-        "1": 46.2,
+        "0": 58.6,
+        "1": 41.4,
         "2": 0.0,
         "3+": 0.0
       }
@@ -396,13 +396,13 @@
       "cost": "1C",
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-sabotage",
-      "decks_including": 20,
-      "inclusion_pct": 38.5,
-      "avg_copies_when_included": 1.45,
+      "decks_including": 23,
+      "inclusion_pct": 39.7,
+      "avg_copies_when_included": 1.43,
       "copies_pct": {
-        "0": 61.5,
-        "1": 21.2,
-        "2": 17.3,
+        "0": 60.3,
+        "1": 22.4,
+        "2": 17.2,
         "3+": 0.0
       }
     },
@@ -416,14 +416,14 @@
       "cost": "3",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-heroic-charge",
-      "decks_including": 19,
-      "inclusion_pct": 36.5,
-      "avg_copies_when_included": 1.53,
+      "decks_including": 20,
+      "inclusion_pct": 34.5,
+      "avg_copies_when_included": 1.5,
       "copies_pct": {
-        "0": 63.5,
-        "1": 23.1,
-        "2": 7.7,
-        "3+": 5.8
+        "0": 65.5,
+        "1": 22.4,
+        "2": 6.9,
+        "3+": 5.2
       }
     },
     {
@@ -436,14 +436,94 @@
       "cost": "2",
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-enthralling-protector",
-      "decks_including": 18,
-      "inclusion_pct": 34.6,
-      "avg_copies_when_included": 2.56,
+      "decks_including": 19,
+      "inclusion_pct": 32.8,
+      "avg_copies_when_included": 2.58,
       "copies_pct": {
-        "0": 65.4,
-        "1": 3.8,
-        "2": 7.7,
-        "3+": 23.1
+        "0": 67.2,
+        "1": 3.4,
+        "2": 6.9,
+        "3+": 22.4
+      }
+    },
+    {
+      "slug": "details-rift-herald",
+      "name": "Rift Herald",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "8C",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-rift-herald",
+      "decks_including": 19,
+      "inclusion_pct": 32.8,
+      "avg_copies_when_included": 2.42,
+      "copies_pct": {
+        "0": 67.2,
+        "1": 0.0,
+        "2": 19.0,
+        "3+": 13.8
+      }
+    },
+    {
+      "slug": "details-elder-dragon",
+      "name": "Elder Dragon",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "12CCCC",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-elder-dragon",
+      "decks_including": 18,
+      "inclusion_pct": 31.0,
+      "avg_copies_when_included": 2.67,
+      "copies_pct": {
+        "0": 69.0,
+        "1": 1.7,
+        "2": 6.9,
+        "3+": 22.4
+      }
+    },
+    {
+      "slug": "details-vilemaws-lair",
+      "name": "Vilemaw's Lair",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+      "decks_including": 17,
+      "inclusion_pct": 29.3,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 70.7,
+        "1": 29.3,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-reckoners-arena",
+      "name": "Reckoner's Arena",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-reckoners-arena",
+      "decks_including": 17,
+      "inclusion_pct": 29.3,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 70.7,
+        "1": 29.3,
+        "2": 0.0,
+        "3+": 0.0
       }
     },
     {
@@ -457,73 +537,13 @@
       "rarity": "epic",
       "url": "https://riftdecks.com/cards/details-arachnoid-horror",
       "decks_including": 17,
-      "inclusion_pct": 32.7,
+      "inclusion_pct": 29.3,
       "avg_copies_when_included": 1.53,
       "copies_pct": {
-        "0": 67.3,
-        "1": 19.2,
-        "2": 9.6,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-rift-herald",
-      "name": "Rift Herald",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "8C",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-rift-herald",
-      "decks_including": 16,
-      "inclusion_pct": 30.8,
-      "avg_copies_when_included": 2.38,
-      "copies_pct": {
-        "0": 69.2,
-        "1": 0.0,
-        "2": 19.2,
-        "3+": 11.5
-      }
-    },
-    {
-      "slug": "details-reckoners-arena",
-      "name": "Reckoner's Arena",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-reckoners-arena",
-      "decks_including": 16,
-      "inclusion_pct": 30.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 69.2,
-        "1": 30.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-elder-dragon",
-      "name": "Elder Dragon",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "12CCCC",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-elder-dragon",
-      "decks_including": 15,
-      "inclusion_pct": 28.8,
-      "avg_copies_when_included": 2.6,
-      "copies_pct": {
-        "0": 71.2,
-        "1": 1.9,
-        "2": 7.7,
-        "3+": 19.2
+        "0": 70.7,
+        "1": 17.2,
+        "2": 8.6,
+        "3+": 3.4
       }
     },
     {
@@ -536,14 +556,54 @@
       "cost": "3",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-first-mate",
-      "decks_including": 15,
-      "inclusion_pct": 28.8,
-      "avg_copies_when_included": 2.13,
+      "decks_including": 16,
+      "inclusion_pct": 27.6,
+      "avg_copies_when_included": 2.12,
       "copies_pct": {
-        "0": 71.2,
-        "1": 3.8,
-        "2": 17.3,
-        "3+": 7.7
+        "0": 72.4,
+        "1": 3.4,
+        "2": 17.2,
+        "3+": 6.9
+      }
+    },
+    {
+      "slug": "details-gemhand-hunter",
+      "name": "Gemhand Hunter",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-gemhand-hunter",
+      "decks_including": 15,
+      "inclusion_pct": 25.9,
+      "avg_copies_when_included": 2.93,
+      "copies_pct": {
+        "0": 74.1,
+        "1": 0.0,
+        "2": 1.7,
+        "3+": 24.1
+      }
+    },
+    {
+      "slug": "details-demacian-diplomat",
+      "name": "Demacian Diplomat",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-demacian-diplomat",
+      "decks_including": 14,
+      "inclusion_pct": 24.1,
+      "avg_copies_when_included": 2.79,
+      "copies_pct": {
+        "0": 75.9,
+        "1": 1.7,
+        "2": 1.7,
+        "3+": 20.7
       }
     },
     {
@@ -557,93 +617,113 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-master-yi-tempered",
       "decks_including": 14,
-      "inclusion_pct": 26.9,
+      "inclusion_pct": 24.1,
       "avg_copies_when_included": 2.21,
       "copies_pct": {
-        "0": 73.1,
-        "1": 3.8,
-        "2": 13.5,
-        "3+": 9.6
+        "0": 75.9,
+        "1": 3.4,
+        "2": 12.1,
+        "3+": 8.6
       }
     },
     {
-      "slug": "details-gemhand-hunter",
-      "name": "Gemhand Hunter",
-      "type": "unit",
+      "slug": "details-dazzling-aurora",
+      "name": "Dazzling Aurora",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "9CC",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-dazzling-aurora",
+      "decks_including": 13,
+      "inclusion_pct": 22.4,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 77.6,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 22.4
+      }
+    },
+    {
+      "slug": "details-mobilize",
+      "name": "Mobilize",
+      "type": "spell",
       "domains": [
         "body"
       ],
       "cost": "2",
       "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-gemhand-hunter",
-      "decks_including": 14,
-      "inclusion_pct": 26.9,
-      "avg_copies_when_included": 2.93,
+      "url": "https://riftdecks.com/cards/details-mobilize",
+      "decks_including": 13,
+      "inclusion_pct": 22.4,
+      "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 73.1,
+        "0": 77.6,
         "1": 0.0,
-        "2": 1.9,
-        "3+": 25.0
+        "2": 0.0,
+        "3+": 22.4
       }
     },
     {
-      "slug": "details-vilemaws-lair",
-      "name": "Vilemaw's Lair",
+      "slug": "details-catalyst-of-aeons",
+      "name": "Catalyst of Aeons",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-catalyst-of-aeons",
+      "decks_including": 13,
+      "inclusion_pct": 22.4,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 77.6,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 22.4
+      }
+    },
+    {
+      "slug": "details-aspirants-climb",
+      "name": "Aspirant's Climb",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-vilemaws-lair",
-      "decks_including": 13,
-      "inclusion_pct": 25.0,
+      "url": "https://riftdecks.com/cards/details-aspirants-climb",
+      "decks_including": 12,
+      "inclusion_pct": 20.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 75.0,
-        "1": 25.0,
+        "0": 79.3,
+        "1": 20.7,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-demacian-diplomat",
-      "name": "Demacian Diplomat",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "2",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-demacian-diplomat",
-      "decks_including": 12,
-      "inclusion_pct": 23.1,
-      "avg_copies_when_included": 2.75,
-      "copies_pct": {
-        "0": 76.9,
-        "1": 1.9,
-        "2": 1.9,
-        "3+": 19.2
-      }
-    },
-    {
-      "slug": "details-poppy-defender-of-the-meek",
-      "name": "Poppy, Defender of the Meek",
-      "type": "unit",
+      "slug": "details-vanguard-armory",
+      "name": "Vanguard Armory",
+      "type": "gear",
       "domains": [
         "order"
       ],
-      "cost": "6C",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-poppy-defender-of-the-meek",
-      "decks_including": 11,
-      "inclusion_pct": 21.2,
-      "avg_copies_when_included": 1.82,
+      "cost": "7C",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-vanguard-armory",
+      "decks_including": 12,
+      "inclusion_pct": 20.7,
+      "avg_copies_when_included": 1.83,
       "copies_pct": {
-        "0": 78.8,
-        "1": 9.6,
-        "2": 5.8,
-        "3+": 5.8
+        "0": 79.3,
+        "1": 6.9,
+        "2": 10.3,
+        "3+": 3.4
       }
     },
     {
@@ -657,33 +737,93 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-black-rose-dignitary",
       "decks_including": 11,
-      "inclusion_pct": 21.2,
+      "inclusion_pct": 19.0,
       "avg_copies_when_included": 2.64,
       "copies_pct": {
-        "0": 78.8,
+        "0": 81.0,
         "1": 0.0,
-        "2": 7.7,
-        "3+": 13.5
+        "2": 6.9,
+        "3+": 12.1
       }
     },
     {
-      "slug": "details-amateur-recital",
-      "name": "Amateur Recital",
-      "type": "battlefield",
+      "slug": "details-confront",
+      "name": "Confront",
+      "type": "spell",
       "domains": [
-        "colorless"
+        "body"
       ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-amateur-recital",
-      "decks_including": 10,
-      "inclusion_pct": 19.2,
-      "avg_copies_when_included": 1.0,
+      "cost": "2",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-confront",
+      "decks_including": 11,
+      "inclusion_pct": 19.0,
+      "avg_copies_when_included": 2.73,
       "copies_pct": {
-        "0": 80.8,
-        "1": 19.2,
-        "2": 0.0,
-        "3+": 0.0
+        "0": 81.0,
+        "1": 1.7,
+        "2": 1.7,
+        "3+": 15.5
+      }
+    },
+    {
+      "slug": "details-hunters-machete",
+      "name": "Hunter's Machete",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-hunters-machete",
+      "decks_including": 11,
+      "inclusion_pct": 19.0,
+      "avg_copies_when_included": 2.36,
+      "copies_pct": {
+        "0": 81.0,
+        "1": 0.0,
+        "2": 12.1,
+        "3+": 6.9
+      }
+    },
+    {
+      "slug": "details-forge-of-the-future",
+      "name": "Forge of the Future",
+      "type": "gear",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-forge-of-the-future",
+      "decks_including": 11,
+      "inclusion_pct": 19.0,
+      "avg_copies_when_included": 2.64,
+      "copies_pct": {
+        "0": 81.0,
+        "1": 1.7,
+        "2": 3.4,
+        "3+": 13.8
+      }
+    },
+    {
+      "slug": "details-poppy-defender-of-the-meek",
+      "name": "Poppy, Defender of the Meek",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "6C",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-poppy-defender-of-the-meek",
+      "decks_including": 11,
+      "inclusion_pct": 19.0,
+      "avg_copies_when_included": 1.82,
+      "copies_pct": {
+        "0": 81.0,
+        "1": 8.6,
+        "2": 5.2,
+        "3+": 5.2
       }
     },
     {
@@ -697,173 +837,53 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-crimson-pigeons",
       "decks_including": 10,
-      "inclusion_pct": 19.2,
+      "inclusion_pct": 17.2,
       "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 80.8,
+        "0": 82.8,
         "1": 0.0,
         "2": 0.0,
-        "3+": 19.2
+        "3+": 17.2
       }
     },
     {
-      "slug": "details-catalyst-of-aeons",
-      "name": "Catalyst of Aeons",
-      "type": "spell",
-      "domains": [
-        "body"
-      ],
-      "cost": "4",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-catalyst-of-aeons",
-      "decks_including": 10,
-      "inclusion_pct": 19.2,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 80.8,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 19.2
-      }
-    },
-    {
-      "slug": "details-dazzling-aurora",
-      "name": "Dazzling Aurora",
-      "type": "gear",
-      "domains": [
-        "body"
-      ],
-      "cost": "9CC",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-dazzling-aurora",
-      "decks_including": 10,
-      "inclusion_pct": 19.2,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 80.8,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 19.2
-      }
-    },
-    {
-      "slug": "details-mobilize",
-      "name": "Mobilize",
-      "type": "spell",
-      "domains": [
-        "body"
-      ],
-      "cost": "2",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-mobilize",
-      "decks_including": 10,
-      "inclusion_pct": 19.2,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 80.8,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 19.2
-      }
-    },
-    {
-      "slug": "details-vanguard-armory",
-      "name": "Vanguard Armory",
-      "type": "gear",
-      "domains": [
-        "order"
-      ],
-      "cost": "7C",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-vanguard-armory",
-      "decks_including": 10,
-      "inclusion_pct": 19.2,
-      "avg_copies_when_included": 1.8,
-      "copies_pct": {
-        "0": 80.8,
-        "1": 7.7,
-        "2": 7.7,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-aspirants-climb",
-      "name": "Aspirant's Climb",
+      "slug": "details-amateur-recital",
+      "name": "Amateur Recital",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-aspirants-climb",
-      "decks_including": 9,
-      "inclusion_pct": 17.3,
+      "url": "https://riftdecks.com/cards/details-amateur-recital",
+      "decks_including": 10,
+      "inclusion_pct": 17.2,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 82.7,
-        "1": 17.3,
+        "0": 82.8,
+        "1": 17.2,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-confront",
-      "name": "Confront",
-      "type": "spell",
-      "domains": [
-        "body"
-      ],
-      "cost": "2",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-confront",
-      "decks_including": 9,
-      "inclusion_pct": 17.3,
-      "avg_copies_when_included": 2.67,
-      "copies_pct": {
-        "0": 82.7,
-        "1": 1.9,
-        "2": 1.9,
-        "3+": 13.5
-      }
-    },
-    {
-      "slug": "details-forge-of-the-future",
-      "name": "Forge of the Future",
-      "type": "gear",
+      "slug": "details-harnessed-dragon",
+      "name": "Harnessed Dragon",
+      "type": "unit",
       "domains": [
         "order"
       ],
-      "cost": "2",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-forge-of-the-future",
-      "decks_including": 9,
-      "inclusion_pct": 17.3,
-      "avg_copies_when_included": 2.67,
+      "cost": "8CC",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-harnessed-dragon",
+      "decks_including": 10,
+      "inclusion_pct": 17.2,
+      "avg_copies_when_included": 2.0,
       "copies_pct": {
-        "0": 82.7,
-        "1": 1.9,
-        "2": 1.9,
-        "3+": 13.5
-      }
-    },
-    {
-      "slug": "details-shadows-call",
-      "name": "Shadow's Call",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-shadows-call",
-      "decks_including": 9,
-      "inclusion_pct": 17.3,
-      "avg_copies_when_included": 1.78,
-      "copies_pct": {
-        "0": 82.7,
-        "1": 9.6,
-        "2": 1.9,
-        "3+": 5.8
+        "0": 82.8,
+        "1": 3.4,
+        "2": 10.3,
+        "3+": 3.4
       }
     },
     {
@@ -877,33 +897,33 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-trinity-force",
       "decks_including": 9,
-      "inclusion_pct": 17.3,
+      "inclusion_pct": 15.5,
       "avg_copies_when_included": 1.67,
       "copies_pct": {
-        "0": 82.7,
-        "1": 11.5,
+        "0": 84.5,
+        "1": 10.3,
         "2": 0.0,
-        "3+": 5.8
+        "3+": 5.2
       }
     },
     {
-      "slug": "details-hunters-machete",
-      "name": "Hunter's Machete",
-      "type": "gear",
+      "slug": "details-shadows-call",
+      "name": "Shadow's Call",
+      "type": "spell",
       "domains": [
-        "body"
+        "order"
       ],
-      "cost": "3",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-hunters-machete",
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-shadows-call",
       "decks_including": 9,
-      "inclusion_pct": 17.3,
-      "avg_copies_when_included": 2.33,
+      "inclusion_pct": 15.5,
+      "avg_copies_when_included": 1.78,
       "copies_pct": {
-        "0": 82.7,
-        "1": 0.0,
-        "2": 11.5,
-        "3+": 5.8
+        "0": 84.5,
+        "1": 8.6,
+        "2": 1.7,
+        "3+": 5.2
       }
     },
     {
@@ -917,13 +937,33 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-dragonsoul-sage",
       "decks_including": 8,
-      "inclusion_pct": 15.4,
+      "inclusion_pct": 13.8,
       "avg_copies_when_included": 2.62,
       "copies_pct": {
-        "0": 84.6,
+        "0": 86.2,
         "1": 0.0,
-        "2": 5.8,
-        "3+": 9.6
+        "2": 5.2,
+        "3+": 8.6
+      }
+    },
+    {
+      "slug": "details-cull-the-weak",
+      "name": "Cull the Weak",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-cull-the-weak",
+      "decks_including": 8,
+      "inclusion_pct": 13.8,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 86.2,
+        "1": 0.0,
+        "2": 13.8,
+        "3+": 0.0
       }
     },
     {
@@ -937,33 +977,13 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-crowd-favorite",
       "decks_including": 8,
-      "inclusion_pct": 15.4,
+      "inclusion_pct": 13.8,
       "avg_copies_when_included": 2.38,
       "copies_pct": {
-        "0": 84.6,
+        "0": 86.2,
         "1": 0.0,
-        "2": 9.6,
-        "3+": 5.8
-      }
-    },
-    {
-      "slug": "details-harnessed-dragon",
-      "name": "Harnessed Dragon",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "8CC",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-harnessed-dragon",
-      "decks_including": 8,
-      "inclusion_pct": 15.4,
-      "avg_copies_when_included": 2.0,
-      "copies_pct": {
-        "0": 84.6,
-        "1": 3.8,
-        "2": 7.7,
-        "3+": 3.8
+        "2": 8.6,
+        "3+": 5.2
       }
     },
     {
@@ -977,13 +997,33 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-stare-down",
       "decks_including": 7,
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 12.1,
       "avg_copies_when_included": 1.86,
       "copies_pct": {
-        "0": 86.5,
-        "1": 7.7,
+        "0": 87.9,
+        "1": 6.9,
         "2": 0.0,
-        "3+": 5.8
+        "3+": 5.2
+      }
+    },
+    {
+      "slug": "details-forgotten-monument",
+      "name": "Forgotten Monument",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-forgotten-monument",
+      "decks_including": 7,
+      "inclusion_pct": 12.1,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 87.9,
+        "1": 12.1,
+        "2": 0.0,
+        "3+": 0.0
       }
     },
     {
@@ -997,33 +1037,33 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-ashe-focused",
       "decks_including": 7,
-      "inclusion_pct": 13.5,
+      "inclusion_pct": 12.1,
       "avg_copies_when_included": 1.43,
       "copies_pct": {
-        "0": 86.5,
-        "1": 7.7,
-        "2": 5.8,
+        "0": 87.9,
+        "1": 6.9,
+        "2": 5.2,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-cull-the-weak",
-      "name": "Cull the Weak",
+      "slug": "details-deathgrip",
+      "name": "Deathgrip",
       "type": "spell",
       "domains": [
         "order"
       ],
-      "cost": "2C",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-cull-the-weak",
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-deathgrip",
       "decks_including": 6,
-      "inclusion_pct": 11.5,
-      "avg_copies_when_included": 2.0,
+      "inclusion_pct": 10.3,
+      "avg_copies_when_included": 1.33,
       "copies_pct": {
-        "0": 88.5,
-        "1": 0.0,
-        "2": 11.5,
-        "3+": 0.0
+        "0": 89.7,
+        "1": 8.6,
+        "2": 0.0,
+        "3+": 1.7
       }
     },
     {
@@ -1037,11 +1077,11 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-unyielding-spirit",
       "decks_including": 6,
-      "inclusion_pct": 11.5,
+      "inclusion_pct": 10.3,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 88.5,
-        "1": 11.5,
+        "0": 89.7,
+        "1": 10.3,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1056,14 +1096,34 @@
       "cost": "1",
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-flurry-of-blades",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 2.0,
+      "decks_including": 6,
+      "inclusion_pct": 10.3,
+      "avg_copies_when_included": 2.17,
       "copies_pct": {
-        "0": 90.4,
-        "1": 1.9,
-        "2": 5.8,
-        "3+": 1.9
+        "0": 89.7,
+        "1": 1.7,
+        "2": 5.2,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-gentle-gemdragon",
+      "name": "Gentle Gemdragon",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "8",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-gentle-gemdragon",
+      "decks_including": 6,
+      "inclusion_pct": 10.3,
+      "avg_copies_when_included": 2.17,
+      "copies_pct": {
+        "0": 89.7,
+        "1": 0.0,
+        "2": 8.6,
+        "3+": 1.7
       }
     },
     {
@@ -1076,14 +1136,14 @@
       "cost": "4",
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-wily-newtfish",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 1.6,
+      "decks_including": 6,
+      "inclusion_pct": 10.3,
+      "avg_copies_when_included": 1.5,
       "copies_pct": {
-        "0": 90.4,
-        "1": 5.8,
-        "2": 1.9,
-        "3+": 1.9
+        "0": 89.7,
+        "1": 6.9,
+        "2": 1.7,
+        "3+": 1.7
       }
     },
     {
@@ -1097,33 +1157,13 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-nidalee-cat-form",
       "decks_including": 5,
-      "inclusion_pct": 9.6,
+      "inclusion_pct": 8.6,
       "avg_copies_when_included": 2.6,
       "copies_pct": {
-        "0": 90.4,
+        "0": 91.4,
         "1": 0.0,
-        "2": 3.8,
-        "3+": 5.8
-      }
-    },
-    {
-      "slug": "details-forgotten-monument",
-      "name": "Forgotten Monument",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-forgotten-monument",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 90.4,
-        "1": 9.6,
-        "2": 0.0,
-        "3+": 0.0
+        "2": 3.4,
+        "3+": 5.2
       }
     },
     {
@@ -1137,211 +1177,11 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-the-papertree",
       "decks_including": 5,
-      "inclusion_pct": 9.6,
+      "inclusion_pct": 8.6,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 90.4,
-        "1": 9.6,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-deathgrip",
-      "name": "Deathgrip",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-deathgrip",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 1.4,
-      "copies_pct": {
-        "0": 90.4,
-        "1": 7.7,
-        "2": 0.0,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-blood-rose",
-      "name": "Blood Rose",
-      "type": "gear",
-      "domains": [
-        "body"
-      ],
-      "cost": "1",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-blood-rose",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 1.2,
-      "copies_pct": {
-        "0": 90.4,
-        "1": 7.7,
-        "2": 1.9,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-grove-of-the-god-willow",
-      "name": "Grove of the God-Willow",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
-      "decks_including": 5,
-      "inclusion_pct": 9.6,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 90.4,
-        "1": 9.6,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-ruin-runner",
-      "name": "Ruin Runner",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "6",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-ruin-runner",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.5,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 3.8,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-rally-the-troops",
-      "name": "Rally the Troops",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-rally-the-troops",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.25,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 5.8,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-irresistible-faefolk",
-      "name": "Irresistible Faefolk",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "2",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-irresistible-faefolk",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 7.7
-      }
-    },
-    {
-      "slug": "details-zaun-warrens",
-      "name": "Zaun Warrens",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-zaun-warrens",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 7.7,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-nilah-joyful-ascetic",
-      "name": "Nilah, Joyful Ascetic",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "3C",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-nilah-joyful-ascetic",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.5,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 3.8,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-galio-indefatigable",
-      "name": "Galio, Indefatigable",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "3C",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-galio-indefatigable",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.5,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 3.8,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-startipped-peak",
-      "name": "Startipped Peak",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-startipped-peak",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 7.7,
+        "0": 91.4,
+        "1": 8.6,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1356,14 +1196,194 @@
       "cost": "4",
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-fiora-victorious",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
       "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 92.3,
+        "0": 91.4,
         "1": 0.0,
         "2": 0.0,
-        "3+": 7.7
+        "3+": 8.6
+      }
+    },
+    {
+      "slug": "details-divining-shells",
+      "name": "Divining Shells",
+      "type": "gear",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-divining-shells",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 2.4,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 1.7,
+        "2": 1.7,
+        "3+": 5.2
+      }
+    },
+    {
+      "slug": "details-nilah-joyful-ascetic",
+      "name": "Nilah, Joyful Ascetic",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3C",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-nilah-joyful-ascetic",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 2.4,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 0.0,
+        "2": 5.2,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-herald-of-scales",
+      "name": "Herald of Scales",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-herald-of-scales",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 2.4,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 0.0,
+        "2": 5.2,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-ruin-runner",
+      "name": "Ruin Runner",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "6",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-ruin-runner",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 2.4,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 0.0,
+        "2": 5.2,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-rockfall-path",
+      "name": "Rockfall Path",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-rockfall-path",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 8.6,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-blood-rose",
+      "name": "Blood Rose",
+      "type": "gear",
+      "domains": [
+        "body"
+      ],
+      "cost": "1",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-blood-rose",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 1.2,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 6.9,
+        "2": 1.7,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-grove-of-the-god-willow",
+      "name": "Grove of the God-Willow",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+      "decks_including": 5,
+      "inclusion_pct": 8.6,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 91.4,
+        "1": 8.6,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-rally-the-troops",
+      "name": "Rally the Troops",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-rally-the-troops",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 2.25,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 0.0,
+        "2": 5.2,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-irresistible-faefolk",
+      "name": "Irresistible Faefolk",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-irresistible-faefolk",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 6.9
       }
     },
     {
@@ -1377,12 +1397,72 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-here-to-help",
       "decks_including": 4,
-      "inclusion_pct": 7.7,
+      "inclusion_pct": 6.9,
       "avg_copies_when_included": 1.5,
       "copies_pct": {
-        "0": 92.3,
-        "1": 3.8,
-        "2": 3.8,
+        "0": 93.1,
+        "1": 3.4,
+        "2": 3.4,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-galio-indefatigable",
+      "name": "Galio, Indefatigable",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "3C",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-galio-indefatigable",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 2.5,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 0.0,
+        "2": 3.4,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-blood-money",
+      "name": "Blood Money",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-blood-money",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 6.9
+      }
+    },
+    {
+      "slug": "details-salvage",
+      "name": "Salvage",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "2C",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-salvage",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 6.9,
+        "2": 0.0,
         "3+": 0.0
       }
     },
@@ -1397,71 +1477,151 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-shen-kinkou",
       "decks_including": 4,
-      "inclusion_pct": 7.7,
+      "inclusion_pct": 6.9,
       "avg_copies_when_included": 1.25,
       "copies_pct": {
-        "0": 92.3,
-        "1": 5.8,
-        "2": 1.9,
+        "0": 93.1,
+        "1": 5.2,
+        "2": 1.7,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-divining-shells",
-      "name": "Divining Shells",
-      "type": "gear",
-      "domains": [
-        "order"
-      ],
-      "cost": "2",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-divining-shells",
-      "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.5,
-      "copies_pct": {
-        "0": 92.3,
-        "1": 1.9,
-        "2": 0.0,
-        "3+": 5.8
-      }
-    },
-    {
-      "slug": "details-gentle-gemdragon",
-      "name": "Gentle Gemdragon",
+      "slug": "details-akshan-mischievous",
+      "name": "Akshan, Mischievous",
       "type": "unit",
       "domains": [
         "body"
       ],
-      "cost": "8",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-gentle-gemdragon",
+      "cost": "4",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-akshan-mischievous",
       "decks_including": 4,
-      "inclusion_pct": 7.7,
-      "avg_copies_when_included": 2.25,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 92.3,
-        "1": 0.0,
-        "2": 5.8,
-        "3+": 1.9
+        "0": 93.1,
+        "1": 6.9,
+        "2": 0.0,
+        "3+": 0.0
       }
     },
     {
-      "slug": "details-rockfall-path",
-      "name": "Rockfall Path",
+      "slug": "details-startipped-peak",
+      "name": "Startipped Peak",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-rockfall-path",
+      "url": "https://riftdecks.com/cards/details-startipped-peak",
       "decks_including": 4,
-      "inclusion_pct": 7.7,
+      "inclusion_pct": 6.9,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 92.3,
-        "1": 7.7,
+        "0": 93.1,
+        "1": 6.9,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-zaun-warrens",
+      "name": "Zaun Warrens",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-zaun-warrens",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 6.9,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-disposal-order",
+      "name": "Disposal Order",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-disposal-order",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 3.4,
+        "2": 0.0,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-divine-judgment",
+      "name": "Divine Judgment",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "7CC",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-divine-judgment",
+      "decks_including": 4,
+      "inclusion_pct": 6.9,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 93.1,
+        "1": 0.0,
+        "2": 6.9,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-the-ruination",
+      "name": "The Ruination",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "9CCC",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-the-ruination",
+      "decks_including": 3,
+      "inclusion_pct": 5.2,
+      "avg_copies_when_included": 2.67,
+      "copies_pct": {
+        "0": 94.8,
+        "1": 0.0,
+        "2": 1.7,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-sigil-of-the-storm",
+      "name": "Sigil of the Storm",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+      "decks_including": 3,
+      "inclusion_pct": 5.2,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 94.8,
+        "1": 5.2,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1477,33 +1637,13 @@
       "rarity": "rare",
       "url": "https://riftdecks.com/cards/details-clash-of-giants",
       "decks_including": 3,
-      "inclusion_pct": 5.8,
+      "inclusion_pct": 5.2,
       "avg_copies_when_included": 2.0,
       "copies_pct": {
-        "0": 94.2,
+        "0": 94.8,
         "1": 0.0,
-        "2": 5.8,
+        "2": 5.2,
         "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-herald-of-scales",
-      "name": "Herald of Scales",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "4",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-herald-of-scales",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 2.33,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 0.0,
-        "2": 3.8,
-        "3+": 1.9
       }
     },
     {
@@ -1517,171 +1657,11 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-recruit-the-vanguard",
       "decks_including": 3,
-      "inclusion_pct": 5.8,
+      "inclusion_pct": 5.2,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 94.2,
-        "1": 5.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-soraka-wanderer",
-      "name": "Soraka, Wanderer",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "4C",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-soraka-wanderer",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 1.33,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 3.8,
-        "2": 1.9,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-blood-money",
-      "name": "Blood Money",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-blood-money",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 5.8
-      }
-    },
-    {
-      "slug": "details-akshan-mischievous",
-      "name": "Akshan, Mischievous",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "4",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-akshan-mischievous",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 5.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-leona-determined",
-      "name": "Leona, Determined",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "4C",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-leona-determined",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 2.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 1.9,
-        "2": 1.9,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-salvage",
-      "name": "Salvage",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "2C",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-salvage",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 5.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-the-ruination",
-      "name": "The Ruination",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "9CCC",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-the-ruination",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 2.67,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 0.0,
-        "2": 1.9,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-divine-judgment",
-      "name": "Divine Judgment",
-      "type": "spell",
-      "domains": [
-        "order"
-      ],
-      "cost": "7CC",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-divine-judgment",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 2.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 0.0,
-        "2": 5.8,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-hall-of-legends",
-      "name": "Hall of Legends",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-hall-of-legends",
-      "decks_including": 3,
-      "inclusion_pct": 5.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 94.2,
-        "1": 5.8,
+        "0": 94.8,
+        "1": 5.2,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1697,13 +1677,73 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-facebreaker",
       "decks_including": 3,
-      "inclusion_pct": 5.8,
+      "inclusion_pct": 5.2,
       "avg_copies_when_included": 2.67,
       "copies_pct": {
-        "0": 94.2,
+        "0": 94.8,
         "1": 0.0,
-        "2": 1.9,
-        "3+": 3.8
+        "2": 1.7,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-soraka-wanderer",
+      "name": "Soraka, Wanderer",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-soraka-wanderer",
+      "decks_including": 3,
+      "inclusion_pct": 5.2,
+      "avg_copies_when_included": 1.33,
+      "copies_pct": {
+        "0": 94.8,
+        "1": 3.4,
+        "2": 1.7,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-hall-of-legends",
+      "name": "Hall of Legends",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-hall-of-legends",
+      "decks_including": 3,
+      "inclusion_pct": 5.2,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 94.8,
+        "1": 5.2,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-leona-determined",
+      "name": "Leona, Determined",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-leona-determined",
+      "decks_including": 3,
+      "inclusion_pct": 5.2,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 94.8,
+        "1": 1.7,
+        "2": 1.7,
+        "3+": 1.7
       }
     },
     {
@@ -1717,52 +1757,52 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-towering-combatant",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 96.2,
+        "0": 96.6,
         "1": 0.0,
         "2": 0.0,
-        "3+": 3.8
+        "3+": 3.4
       }
     },
     {
-      "slug": "details-windswept-hillock",
-      "name": "Windswept Hillock",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-windswept-hillock",
-      "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-atakhan",
-      "name": "Atakhan",
+      "slug": "details-loyal-poro",
+      "name": "Loyal Poro",
       "type": "unit",
       "domains": [
         "order"
       ],
-      "cost": "10CCC",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-atakhan",
+      "cost": "3",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-loyal-poro",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 1.0,
+      "inclusion_pct": 3.4,
+      "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
+        "0": 96.6,
+        "1": 0.0,
         "2": 0.0,
+        "3+": 3.4
+      }
+    },
+    {
+      "slug": "details-spectral-matron",
+      "name": "Spectral Matron",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "4CC",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-spectral-matron",
+      "decks_including": 2,
+      "inclusion_pct": 3.4,
+      "avg_copies_when_included": 2.0,
+      "copies_pct": {
+        "0": 96.6,
+        "1": 0.0,
+        "2": 3.4,
         "3+": 0.0
       }
     },
@@ -1777,72 +1817,32 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-fortified-position",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-scrutinizing-sergeant",
-      "name": "Scrutinizing Sergeant",
-      "type": "unit",
+      "slug": "details-seal-of-strength",
+      "name": "Seal of Strength",
+      "type": "gear",
       "domains": [
-        "order"
+        "body"
       ],
-      "cost": "6",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-scrutinizing-sergeant",
+      "cost": "0C",
+      "rarity": "epic",
+      "url": "https://riftdecks.com/cards/details-seal-of-strength",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-loyal-poro",
-      "name": "Loyal Poro",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "3",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-loyal-poro",
-      "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 96.2,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 3.8
-      }
-    },
-    {
-      "slug": "details-spectral-matron",
-      "name": "Spectral Matron",
-      "type": "unit",
-      "domains": [
-        "order"
-      ],
-      "cost": "4CC",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-spectral-matron",
-      "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 2.0,
       "copies_pct": {
-        "0": 96.2,
+        "0": 96.6,
         "1": 0.0,
-        "2": 3.8,
+        "2": 3.4,
         "3+": 0.0
       }
     },
@@ -1857,33 +1857,33 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-soaring-scout",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.5,
       "copies_pct": {
-        "0": 96.2,
-        "1": 1.9,
-        "2": 1.9,
+        "0": 96.6,
+        "1": 1.7,
+        "2": 1.7,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-disposal-order",
-      "name": "Disposal Order",
-      "type": "spell",
+      "slug": "details-windswept-hillock",
+      "name": "Windswept Hillock",
+      "type": "battlefield",
       "domains": [
-        "body"
+        "colorless"
       ],
-      "cost": "2",
+      "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-disposal-order",
+      "url": "https://riftdecks.com/cards/details-windswept-hillock",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 2.0,
+      "inclusion_pct": 3.4,
+      "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 1.9,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
-        "3+": 1.9
+        "3+": 0.0
       }
     },
     {
@@ -1897,11 +1897,31 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-ravenbloom-conservatory",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
+        "0": 96.6,
+        "1": 3.4,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-safety-inspector",
+      "name": "Safety Inspector",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "5C",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-safety-inspector",
+      "decks_including": 2,
+      "inclusion_pct": 3.4,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1917,31 +1937,11 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-targons-peak",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-sigil-of-the-storm",
-      "name": "Sigil of the Storm",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
-      "decks_including": 2,
-      "inclusion_pct": 3.8,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
         "3+": 0.0
       }
@@ -1957,131 +1957,51 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-the-grand-plaza",
       "decks_including": 2,
-      "inclusion_pct": 3.8,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 96.2,
-        "1": 3.8,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-emperors-dais",
-      "name": "Emperor's Dais",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-emperors-dais",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-imposing-challenger",
-      "name": "Imposing Challenger",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "5",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-imposing-challenger",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-altar-of-blood",
-      "name": "Altar of Blood",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-altar-of-blood",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-carrion-dredger",
-      "name": "Carrion Dredger",
+      "slug": "details-atakhan",
+      "name": "Atakhan",
       "type": "unit",
       "domains": [
         "order"
       ],
-      "cost": "2",
-      "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-carrion-dredger",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 3.0,
+      "cost": "10CCC",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-atakhan",
+      "decks_including": 2,
+      "inclusion_pct": 3.4,
+      "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 0.0,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
-        "3+": 1.9
+        "3+": 0.0
       }
     },
     {
-      "slug": "details-targonian-visionary",
-      "name": "Targonian Visionary",
+      "slug": "details-scrutinizing-sergeant",
+      "name": "Scrutinizing Sergeant",
       "type": "unit",
       "domains": [
-        "body"
+        "order"
       ],
       "cost": "6",
       "rarity": "common",
-      "url": "https://riftdecks.com/cards/details-targonian-visionary",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-yone-blademaster",
-      "name": "Yone, Blademaster",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "5C",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-yone-blademaster",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "url": "https://riftdecks.com/cards/details-scrutinizing-sergeant",
+      "decks_including": 2,
+      "inclusion_pct": 3.4,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 96.6,
+        "1": 3.4,
         "2": 0.0,
         "3+": 0.0
       }
@@ -2097,31 +2017,171 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-seat-of-power",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-the-candlelit-sanctum",
-      "name": "The Candlelit Sanctum",
+      "slug": "details-targonian-visionary",
+      "name": "Targonian Visionary",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "6",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-targonian-visionary",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-treasure-hoard",
+      "name": "Treasure Hoard",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-the-candlelit-sanctum",
+      "url": "https://riftdecks.com/cards/details-treasure-hoard",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-carrion-dredger",
+      "name": "Carrion Dredger",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "url": "https://riftdecks.com/cards/details-carrion-dredger",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-altar-of-blood",
+      "name": "Altar of Blood",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-altar-of-blood",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 1.7,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-determined-sentry",
+      "name": "Determined Sentry",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "1",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-determined-sentry",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-vaults-of-helia",
+      "name": "Vaults of Helia",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 1.7,
+        "2": 0.0,
+        "3+": 0.0
+      }
+    },
+    {
+      "slug": "details-lucian-merciless",
+      "name": "Lucian, Merciless",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-lucian-merciless",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-trifarian-war-camp",
+      "name": "Trifarian War Camp",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 1.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }
@@ -2137,51 +2197,31 @@
       "rarity": "common",
       "url": "https://riftdecks.com/cards/details-bandle-soldier",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 3.0,
       "copies_pct": {
-        "0": 98.1,
+        "0": 98.3,
         "1": 0.0,
         "2": 0.0,
-        "3+": 1.9
+        "3+": 1.7
       }
     },
     {
-      "slug": "details-determined-sentry",
-      "name": "Determined Sentry",
-      "type": "unit",
-      "domains": [
-        "body"
-      ],
-      "cost": "1",
-      "rarity": "rare",
-      "url": "https://riftdecks.com/cards/details-determined-sentry",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 3.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 0.0,
-        "2": 0.0,
-        "3+": 1.9
-      }
-    },
-    {
-      "slug": "details-treasure-hoard",
-      "name": "Treasure Hoard",
+      "slug": "details-abandoned-hall",
+      "name": "Abandoned Hall",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-treasure-hoard",
+      "url": "https://riftdecks.com/cards/details-abandoned-hall",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }
@@ -2197,91 +2237,91 @@
       "rarity": "uncommon",
       "url": "https://riftdecks.com/cards/details-hallowed-tomb",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-vaults-of-helia",
-      "name": "Vaults of Helia",
+      "slug": "details-emperors-dais",
+      "name": "Emperor's Dais",
       "type": "battlefield",
       "domains": [
         "colorless"
       ],
       "cost": "-",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+      "url": "https://riftdecks.com/cards/details-emperors-dais",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-abandoned-hall",
-      "name": "Abandoned Hall",
-      "type": "battlefield",
-      "domains": [
-        "colorless"
-      ],
-      "cost": "-",
-      "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-abandoned-hall",
-      "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 1.0,
-      "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
-        "2": 0.0,
-        "3+": 0.0
-      }
-    },
-    {
-      "slug": "details-seal-of-strength",
-      "name": "Seal of Strength",
-      "type": "gear",
+      "slug": "details-yone-blademaster",
+      "name": "Yone, Blademaster",
+      "type": "unit",
       "domains": [
         "body"
       ],
-      "cost": "0C",
-      "rarity": "epic",
-      "url": "https://riftdecks.com/cards/details-seal-of-strength",
+      "cost": "5C",
+      "rarity": "rare",
+      "url": "https://riftdecks.com/cards/details-yone-blademaster",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
-      "avg_copies_when_included": 2.0,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 0.0,
-        "2": 1.9,
+        "0": 98.3,
+        "1": 1.7,
+        "2": 0.0,
         "3+": 0.0
       }
     },
     {
-      "slug": "details-safety-inspector",
-      "name": "Safety Inspector",
+      "slug": "details-imposing-challenger",
+      "name": "Imposing Challenger",
       "type": "unit",
       "domains": [
-        "order"
+        "body"
       ],
-      "cost": "5C",
+      "cost": "5",
       "rarity": "uncommon",
-      "url": "https://riftdecks.com/cards/details-safety-inspector",
+      "url": "https://riftdecks.com/cards/details-imposing-challenger",
       "decks_including": 1,
-      "inclusion_pct": 1.9,
+      "inclusion_pct": 1.7,
+      "avg_copies_when_included": 3.0,
+      "copies_pct": {
+        "0": 98.3,
+        "1": 0.0,
+        "2": 0.0,
+        "3+": 1.7
+      }
+    },
+    {
+      "slug": "details-the-candlelit-sanctum",
+      "name": "The Candlelit Sanctum",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "url": "https://riftdecks.com/cards/details-the-candlelit-sanctum",
+      "decks_including": 1,
+      "inclusion_pct": 1.7,
       "avg_copies_when_included": 1.0,
       "copies_pct": {
-        "0": 98.1,
-        "1": 1.9,
+        "0": 98.3,
+        "1": 1.7,
         "2": 0.0,
         "3+": 0.0
       }

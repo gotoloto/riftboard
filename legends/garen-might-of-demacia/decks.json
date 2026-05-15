@@ -1,8 +1,8 @@
 {
   "archetype": "Garen, Might of Demacia",
   "url": "https://riftdecks.com/legends/constructed/garen-might-of-demacia?metagame_id=3",
-  "scraped_at": "2026-05-12T15:40:13.905250Z",
-  "deck_count": 7,
+  "scraped_at": "2026-05-15T13:39:30.779774Z",
+  "deck_count": 8,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-xin-li-xue-gai-lunbo1-141943",
@@ -1721,6 +1721,256 @@
       "players": 128,
       "finish_pct": 68.8,
       "date": "2026-04-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-za-jiao-gai-lun-134346",
+      "title": "杂交盖伦 by 猫岛巡礼-鹭灯 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Garen, Might of Demacia",
+          "slug": "details-garen-might-of-demacia",
+          "url": "https://riftdecks.com/cards/details-garen-might-of-demacia",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Garen, Commander",
+          "slug": "details-garen-commander",
+          "url": "https://riftdecks.com/cards/details-garen-commander",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Crimson Pigeons",
+          "slug": "details-crimson-pigeons",
+          "url": "https://riftdecks.com/cards/details-crimson-pigeons",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "First Mate",
+          "slug": "details-first-mate",
+          "url": "https://riftdecks.com/cards/details-first-mate",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lucian, Merciless",
+          "slug": "details-lucian-merciless",
+          "url": "https://riftdecks.com/cards/details-lucian-merciless",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Machine Evangel",
+          "slug": "details-machine-evangel",
+          "url": "https://riftdecks.com/cards/details-machine-evangel",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Undertitan",
+          "slug": "details-undertitan",
+          "url": "https://riftdecks.com/cards/details-undertitan",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Unity",
+          "slug": "details-seal-of-unity",
+          "url": "https://riftdecks.com/cards/details-seal-of-unity",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Eye of the Herald",
+          "slug": "details-eye-of-the-herald",
+          "url": "https://riftdecks.com/cards/details-eye-of-the-herald",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Armory",
+          "slug": "details-vanguard-armory",
+          "url": "https://riftdecks.com/cards/details-vanguard-armory",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Confront",
+          "slug": "details-confront",
+          "url": "https://riftdecks.com/cards/details-confront",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Imperial Decree",
+          "slug": "details-imperial-decree",
+          "url": "https://riftdecks.com/cards/details-imperial-decree",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forge of the Fluft",
+          "slug": "details-forge-of-the-fluft",
+          "url": "https://riftdecks.com/cards/details-forge-of-the-fluft",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cannon Barrage",
+          "slug": "details-cannon-barrage",
+          "url": "https://riftdecks.com/cards/details-cannon-barrage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Yone, Blademaster",
+          "slug": "details-yone-blademaster",
+          "url": "https://riftdecks.com/cards/details-yone-blademaster",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 36,
+      "finish_pct": 88.9,
+      "date": "2026-05-05"
     }
   ],
   "cards_meta": {
@@ -2616,6 +2866,138 @@
       "cost": "-",
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-288-298_full.png"
+    },
+    "details-first-mate": {
+      "name": "First Mate",
+      "url": "https://riftdecks.com/cards/details-first-mate",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-132-298_full.png"
+    },
+    "details-loyal-poro": {
+      "name": "Loyal Poro",
+      "url": "https://riftdecks.com/cards/details-loyal-poro",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "3",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-156-219_full.png"
+    },
+    "details-lucian-merciless": {
+      "name": "Lucian, Merciless",
+      "url": "https://riftdecks.com/cards/details-lucian-merciless",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "3",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-113a-221_full.png"
+    },
+    "details-machine-evangel": {
+      "name": "Machine Evangel",
+      "url": "https://riftdecks.com/cards/details-machine-evangel",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "5C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-239-298_full.png"
+    },
+    "details-undertitan": {
+      "name": "Undertitan",
+      "url": "https://riftdecks.com/cards/details-undertitan",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "6C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-175-221_full.png"
+    },
+    "details-b-f-sword": {
+      "name": "B.F. Sword",
+      "url": "https://riftdecks.com/cards/details-b-f-sword",
+      "type": "gear",
+      "domains": [
+        "order"
+      ],
+      "cost": "4",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-161-221_full.png"
+    },
+    "details-forge-of-the-fluft": {
+      "name": "Forge of the Fluft",
+      "url": "https://riftdecks.com/cards/details-forge-of-the-fluft",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-208-221_full.png"
+    },
+    "details-the-papertree": {
+      "name": "The Papertree",
+      "url": "https://riftdecks.com/cards/details-the-papertree",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-219-221_full.png"
+    },
+    "details-trifarian-war-camp": {
+      "name": "Trifarian War Camp",
+      "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-294-298_full.png"
+    },
+    "details-cannon-barrage": {
+      "name": "Cannon Barrage",
+      "url": "https://riftdecks.com/cards/details-cannon-barrage",
+      "type": "spell",
+      "domains": [
+        "body"
+      ],
+      "cost": "2C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-127-298_full.png"
+    },
+    "details-ashe-focused": {
+      "name": "Ashe, Focused",
+      "url": "https://riftdecks.com/cards/details-ashe-focused",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "5C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-169-219_full.png"
+    },
+    "details-yone-blademaster": {
+      "name": "Yone, Blademaster",
+      "url": "https://riftdecks.com/cards/details-yone-blademaster",
+      "type": "unit",
+      "domains": [
+        "body"
+      ],
+      "cost": "5C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-116-221_full.png"
     }
   }
 }
