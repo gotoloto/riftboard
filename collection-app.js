@@ -9,6 +9,11 @@
 // this file).
 const RARITY_ORDER = { common: 0, uncommon: 1, rare: 2, epic: 3, showcase: 4 };
 const PLAYSET = 3;
+// Riftbound deck-construction cap: no more than 3 copies of any single card
+// in maindeck or sideboard (each tracked independently). Battlefields have
+// their own bucket-size cap of 3 total. Runes are unrestricted and not
+// tracked here. Legend slot is always exactly 1.
+const MAX_COPIES = 3;
 
 // Static enums used by the pill filters. Kept here (not derived from catalog)
 // so empty categories always render — gives the UI predictable layout.
@@ -190,6 +195,7 @@ function addToDeck(slug, side) {
   }
   if (side) {
     if (deckTotalIn(slug) >= ownedFor(slug)) return;
+    if ((deck.side[slug] || 0) >= MAX_COPIES) return;
     deck.side[slug] = (deck.side[slug] || 0) + 1;
   } else {
     const bucket = bucketForType(c.type);
@@ -199,6 +205,8 @@ function addToDeck(slug, side) {
       deck.legend = slug;
     } else {
       if (deckTotalIn(slug) >= ownedFor(slug)) return;
+      // Per-card cap for main + battlefields (3 max of any single card).
+      if ((deck[bucket][slug] || 0) >= MAX_COPIES) return;
       deck[bucket][slug] = (deck[bucket][slug] || 0) + 1;
     }
   }
@@ -224,6 +232,7 @@ function decFromDeck(bucket, slug) {
 function incFromDeck(bucket, slug) {
   if (bucket === "legend") return; // can't have 2 legends
   if (deckTotalIn(slug) >= ownedFor(slug)) return;
+  if ((deck[bucket][slug] || 0) >= MAX_COPIES) return;
   deck[bucket][slug] = (deck[bucket][slug] || 0) + 1;
   saveDeck();
   renderDeck();
@@ -418,16 +427,26 @@ function renderRow(row, idx) {
     ? `<a href="${escapeHtml(c.url)}"${img} target="_blank" rel="noopener">${escapeHtml(c.name)}</a>`
     : `<span${img}>${escapeHtml(c.name)}</span>`;
 
-  // +M / +S disabled state.
+  // +M / +S disabled state. Two reasons to disable:
+  // 1. No more owned copies left to assign anywhere.
+  // 2. The destination bucket is already at MAX_COPIES (3) for this slug.
   const remaining = row.owned - deckTotalIn(row.slug);
   const isRune = c.type === "rune";
+  const mainBucket = bucketForType(c.type); // "legend" | "battlefields" | "main" | null
+  const mainBucketCount =
+    mainBucket && mainBucket !== "legend" ? (deck[mainBucket][row.slug] || 0) : 0;
+  const sideCount = deck.side[row.slug] || 0;
+  const mainAtCap = mainBucket && mainBucket !== "legend" && mainBucketCount >= MAX_COPIES;
+  const sideAtCap = sideCount >= MAX_COPIES;
   const mainDisabled =
-    isRune || remaining <= 0 || (c.type === "legend" && deck.legend === row.slug);
-  const sideDisabled = remaining <= 0;
+    isRune || remaining <= 0 || (c.type === "legend" && deck.legend === row.slug) || mainAtCap;
+  const sideDisabled = remaining <= 0 || sideAtCap;
   const mTitle = isRune
     ? "Runes aren't tracked"
     : c.type === "legend"
     ? "Add as legend"
+    : mainAtCap
+    ? `Already at ${MAX_COPIES} copies`
     : c.type === "battlefield"
     ? "Add to battlefields"
     : `Add to maindeck (${c.type})`;
@@ -489,7 +508,10 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const name = c ? c.name : slug;
   const img = c && c.image_url ? ` data-img="${escapeHtml(c.image_url)}"` : "";
   const remaining = ownedFor(slug) - deckTotalIn(slug);
-  const incDisabled = remaining <= 0;
+  // Per-bucket cap of 3 copies applies to main/battlefields/side. Legend
+  // is implicitly capped at 1 by being a single slot.
+  const bucketAtCap = bucket !== "legend" && qty >= MAX_COPIES;
+  const incDisabled = remaining <= 0 || bucketAtCap;
   const qtyHtml = `<span class="qty">${qty} ×</span>`;
   const nameHtml = `<span class="card-name"${img}>${escapeHtml(name)}</span>`;
   if (!allowQtyControls) {
