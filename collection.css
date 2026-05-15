@@ -199,7 +199,8 @@ table#collection-table th.actions-col,
 table#collection-table td.actions {
   white-space: nowrap;
   text-align: left;
-  width: 1%;
+  width: 70px;
+  min-width: 70px;
 }
 .add-btn {
   border: 1px solid var(--border);
