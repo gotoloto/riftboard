@@ -16,8 +16,10 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-const ownedRaw = window.__OWNED_DEFAULTS__ || {};
-const enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+// `let` so collection-sheet.js can swap in fresh values after its async
+// fetch resolves (see collection:updated listener at the bottom).
+let ownedRaw = window.__OWNED_DEFAULTS__ || {};
+let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 const data = window.__CLOSENESS_DATA__;
 const tbody = document.querySelector("#closeness-table tbody");
 const metaEl = document.getElementById("meta");
@@ -187,6 +189,13 @@ enrouteEl.addEventListener("change", () => {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify(includeEnRoute));
   } catch (_) {}
+  owned = effectiveOwned();
+  render();
+});
+
+window.addEventListener("collection:updated", () => {
+  ownedRaw = window.__OWNED_DEFAULTS__ || {};
+  enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
   owned = effectiveOwned();
   render();
 });

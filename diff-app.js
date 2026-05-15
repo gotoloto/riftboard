@@ -30,8 +30,10 @@ function rarityHtml(rarity) {
   return ` <span class="rarity rarity-${g.cls}" title="${escapeHtml(rarity)}" aria-hidden="true">${g.ch}</span>`;
 }
 
-const ownedRaw = window.__OWNED_DEFAULTS__ || {};
-const enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+// `let` so collection-sheet.js can swap in fresh values after its async
+// fetch resolves (collection:updated listener at the bottom).
+let ownedRaw = window.__OWNED_DEFAULTS__ || {};
+let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 const catalog = window.__CATALOG__ || {};
 const lookup = window.__DECK_LOOKUP__;
 
@@ -272,6 +274,22 @@ function formatPlaintext() {
 findBtn.addEventListener("click", runDiff);
 inputEl.addEventListener("keydown", (ev) => {
   if (ev.key === "Enter") runDiff();
+});
+
+window.addEventListener("collection:updated", () => {
+  ownedRaw = window.__OWNED_DEFAULTS__ || {};
+  enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+  // Refresh the en-route count badge in the toggle row.
+  const newDistinct = Object.keys(enRoute).length;
+  const newTotal = Object.values(enRoute).reduce((s, v) => s + v, 0);
+  enrouteToggleEl.disabled = newDistinct === 0;
+  enrouteInfoEl.textContent = newDistinct
+    ? `(${newDistinct} distinct · ${newTotal} copies)`
+    : "(none in collection)";
+  if (lookup) {
+    metaEl.innerHTML = `${lookup.deck_count.toLocaleString()} cached decks · ${Object.keys(catalog).length.toLocaleString()} known cards · collection: ${Object.keys(ownedRaw).length.toLocaleString()} distinct cards owned`;
+  }
+  if (!resultEl.hidden) runDiff();
 });
 
 copyBtn.addEventListener("click", async () => {

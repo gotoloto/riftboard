@@ -70,6 +70,30 @@ Canonical URL form: `https://riftdecks.com/legends/constructed/<slug>?metagame_i
 - `Qty Owned` and `Qty En Route` columns. The xlsx has 763 rows
   (one per canonical card).
 
+### Live Google Sheet sync (no rescrape required)
+
+The cart/closeness/diff/staples pages also fetch a shared Google Sheet's
+CSV export at runtime (`collection-sheet.js`). Sheet URL is hard-coded:
+`docs.google.com/spreadsheets/d/1Q7RCiWYiC52FIkkDIReUkfotIyGVRSUr/export?format=csv`.
+
+Flow on each page load:
+1. Static `collection-owned.js` + `collection-enroute.js` populate
+   `window.__OWNED_DEFAULTS__` / `__EN_ROUTE_DEFAULTS__` synchronously —
+   first paint uses those.
+2. `collection-sheet.js` fetches the CSV in parallel (~200 ms, CORS open).
+3. On success it **fully replaces** both globals and dispatches
+   `window.dispatchEvent(new CustomEvent("collection:updated"))`.
+4. Each page-app captures owned/en-route in `let` (not `const`) and
+   re-renders on the event.
+
+Status line `<p id="sheet-status">` shows loading/success/error per page.
+Failure (network, sheet revoked, parse error) silently falls back to the
+static `.js` snapshot.
+
+**Consequence:** values in `collection-owned.js` / `collection-enroute.js`
+that aren't also in the sheet vanish once the fetch resolves. The static
+files are now snapshot/offline fallback; the sheet is the source of truth.
+
 ## Tech / hosting
 
 - Static site on GitHub Pages, `main` branch, root path. Deploys ~1 min

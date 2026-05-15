@@ -10,8 +10,10 @@ const RARITY = {
 
 const PLAYSET = 3;
 
-const ownedRaw = window.__OWNED_DEFAULTS__ || {};
-const enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+// `let` so collection-sheet.js can swap in fresh values after its async
+// fetch resolves (see collection:updated listener at the bottom).
+let ownedRaw = window.__OWNED_DEFAULTS__ || {};
+let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 
 const LS_INCLUDE_ENROUTE = "staples:includeEnRoute";
 const LS_HIDE_COMPLETE = "staples:hideComplete";
@@ -225,5 +227,12 @@ function load() {
   renderAll();
   attachHoverThumb();
 }
+
+window.addEventListener("collection:updated", () => {
+  ownedRaw = window.__OWNED_DEFAULTS__ || {};
+  enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+  updateEnrouteInfo();
+  renderAll();
+});
 
 load();

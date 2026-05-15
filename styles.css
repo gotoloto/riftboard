@@ -51,6 +51,17 @@ header { margin-bottom: 16px; }
 .page-nav a:hover { text-decoration: underline; }
 h1 { margin: 0; font-size: 22px; }
 .muted { color: var(--muted); font-size: 13px; }
+
+.sheet-status {
+  margin: 4px 0 8px;
+  font-size: 12px;
+}
+.sheet-status:empty { display: none; }
+.sheet-status.loading::before { content: "⟳ "; }
+.sheet-status.ok { color: #4ade80; }
+.sheet-status.ok::before { content: "✓ "; }
+.sheet-status.err { color: #fca5a5; }
+.sheet-status.err::before { content: "⚠ "; }
 #champion-select {
   font-size: 13px;
   padding: 4px 8px;

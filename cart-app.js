@@ -72,8 +72,11 @@ const champions = window.__CHAMPIONS__ || [];
 const championBySlug = new Map(champions.map((c) => [c.slug, c]));
 // Baseline owned counts loaded from collection-owned.js (the user's collection
 // import). Per-row overrides in state.ownedOverride win when present.
-const defaultOwned = window.__OWNED_DEFAULTS__ || {};
-const enRouteDefaults = window.__EN_ROUTE_DEFAULTS__ || {};
+// `let` (not `const`) because collection-sheet.js may overwrite these after
+// the async CSV fetch resolves; we re-read them in the collection:updated
+// handler below and re-render.
+let defaultOwned = window.__OWNED_DEFAULTS__ || {};
+let enRouteDefaults = window.__EN_ROUTE_DEFAULTS__ || {};
 
 function ownedFor(slug) {
   // Manual override always wins.
@@ -706,3 +709,9 @@ attachHandlers();
 attachHoverThumb();
 render();
 recompute();
+
+window.addEventListener("collection:updated", () => {
+  defaultOwned = window.__OWNED_DEFAULTS__ || {};
+  enRouteDefaults = window.__EN_ROUTE_DEFAULTS__ || {};
+  recompute();
+});
