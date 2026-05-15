@@ -59,7 +59,7 @@ window.__CHAMPIONS__ = [
     "slug": "garen-might-of-demacia",
     "name": "Garen, Might of Demacia",
     "url": "https://riftdecks.com/legends/constructed/garen-might-of-demacia?metagame_id=3",
-    "scraped_at": "2026-05-15T13:39:30.779774Z",
+    "scraped_at": "2026-05-15T14:27:34.524096Z",
     "deck_count": 8
   },
   {
