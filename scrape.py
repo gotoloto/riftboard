@@ -571,7 +571,15 @@ def main(archetype_url: str) -> None:
                     "url": c["url"],
                     "type": c["type"],
                 }
+    # Catalog-aware shortcut: any slug already in cards-catalog.json has its
+    # canonical printing metadata recorded — we skip the detail-page fetch
+    # and copy the fields verbatim. New slugs still get fetched live.
+    catalog = load_catalog()
+    cached_hits = 0
     for i, (slug, info) in enumerate(unique.items(), 1):
+        if enrich_from_catalog(info, catalog.get(slug)):
+            cached_hits += 1
+            continue
         try:
             page_html = fetch(info["url"])
             fields, image_url = parse_card_detail(page_html)
@@ -590,7 +598,10 @@ def main(archetype_url: str) -> None:
         if i % 25 == 0:
             print(f"      card {i}/{len(unique)}")
         time.sleep(0.25)
-    print(f"[3/4] enriched {len(unique)} cards")
+    print(
+        f"[3/4] enriched {len(unique)} cards "
+        f"({cached_hits} from catalog, {len(unique) - cached_hits} freshly fetched)"
+    )
 
     raw = {
         "archetype": archetype,
@@ -605,14 +616,12 @@ def main(archetype_url: str) -> None:
     os.makedirs(out_dir, exist_ok=True)
     decks_path = os.path.join(out_dir, "decks.json")
     data_path = os.path.join(out_dir, "data.js")
-    cards_path = os.path.join(out_dir, "cards.json")
 
-    print(f"[4/4] aggregating {cards_path} + {data_path}")
+    print(f"[4/4] aggregating {data_path}")
     aggregated = aggregate(raw)
     # Prefer the actual legend card's name as the archetype label.
     apply_legend_archetype_label(raw, aggregated)
     save_json(decks_path, raw)
-    save_json(cards_path, aggregated)
     save_data_js(data_path, build_dashboard_payload(raw))
     rebuild_champions_index()
     print(f"      {len(aggregated['cards'])} unique cards over {raw['deck_count']} decks")
@@ -699,8 +708,14 @@ def update_archetype(slug: str) -> dict:
                 "type": c["type"],
             }
             new_slugs.append(c["slug"])
+    # Catalog-aware shortcut for newly-seen slugs.
+    catalog = load_catalog()
+    cached_hits = 0
     for slug2 in new_slugs:
         info = cards_meta[slug2]
+        if enrich_from_catalog(info, catalog.get(slug2)):
+            cached_hits += 1
+            continue
         try:
             fields, image_url = parse_card_detail(fetch(info["url"]))
         except Exception as exc:
@@ -717,12 +732,16 @@ def update_archetype(slug: str) -> dict:
         info["rarity"] = (non_showcase or rarities or [None])[0]
         info["image_url"] = image_url
         time.sleep(0.25)
+    if new_slugs:
+        print(
+            f"    {len(new_slugs)} new slug(s): {cached_hits} from catalog, "
+            f"{len(new_slugs) - cached_hits} freshly fetched"
+        )
 
     raw["scraped_at"] = datetime.utcnow().isoformat() + "Z"
     aggregated = aggregate(raw)
     apply_legend_archetype_label(raw, aggregated)
     save_json(decks_path, raw)
-    save_json(os.path.join(out_dir, "cards.json"), aggregated)
     save_data_js(os.path.join(out_dir, "data.js"), build_dashboard_payload(raw))
     return {
         "new_decks": len(new_decks),
@@ -735,19 +754,29 @@ def update_archetype(slug: str) -> dict:
 def build_staples(top_per_rarity: int = 40) -> dict:
     """Aggregate top cards by total decks_including across every cached
     legend, bucketed by rarity, excluding runes and battlefields. For each
-    card we record which legends play it in >10% of their decks."""
+    card we record which legends play it in >50% of their decks.
+
+    Reads decks.json directly and computes per-legend stats in memory via
+    aggregate() — the previous version read pre-computed cards.json files
+    but those are derived from the same source, so eliminating them removes
+    drift risk without changing the output."""
     legend_info: dict = {}
     image_index: dict = {}
     agg: dict = {}
 
-    for cards_path in sorted(glob.glob("legends/*/cards.json")):
-        legend_slug = os.path.basename(os.path.dirname(cards_path))
-        data = json.load(open(cards_path, encoding="utf-8"))
+    for decks_path in sorted(glob.glob("legends/*/decks.json")):
+        legend_slug = os.path.basename(os.path.dirname(decks_path))
+        try:
+            raw = json.load(open(decks_path, encoding="utf-8"))
+        except Exception:
+            continue
         legend_info[legend_slug] = {
-            "name": data.get("archetype", legend_slug),
-            "deck_count": data.get("deck_count", 0),
+            "name": raw.get("archetype", legend_slug),
+            "deck_count": raw.get("deck_count", 0),
         }
-        for c in data.get("cards", []):
+        # Per-card stats (same shape cards.json used to carry).
+        per_legend = aggregate(raw)
+        for c in per_legend.get("cards", []):
             slug = c.get("slug")
             if not slug:
                 continue
@@ -777,14 +806,8 @@ def build_staples(top_per_rarity: int = 40) -> dict:
                 "decks_including": c.get("decks_including", 0),
                 "inclusion_pct": c.get("inclusion_pct", 0),
             }
-
-    # Pull image_url from each legend's decks.json cards_meta.
-    for decks_path in glob.glob("legends/*/decks.json"):
-        try:
-            d = json.load(open(decks_path, encoding="utf-8"))
-        except Exception:
-            continue
-        for slug, m in d.get("cards_meta", {}).items():
+        # Image index from cards_meta on the same decks.json.
+        for slug, m in raw.get("cards_meta", {}).items():
             if slug not in image_index and m.get("image_url"):
                 image_index[slug] = m["image_url"]
 
@@ -1097,39 +1120,55 @@ def load_catalog() -> dict:
         return {}
 
 
-def find_uncatalogued_slugs() -> list:
-    """Slugs referenced by any cached legend's cards.json but missing from
-    cards-catalog.json. Used by --catalog-new to backfill only the gap
-    instead of re-walking all ~770 card detail pages.
+def enrich_from_catalog(info: dict, catalog_entry) -> bool:
+    """Copy domains/cost/type/rarity/image_url from a cards-catalog.json entry
+    into a per-legend cards_meta entry, so the deck scrape can skip the
+    expensive card-detail-page fetch. Returns True on hit, False if the
+    catalog has no entry for this slug.
 
-    Note: this only finds slugs we've already seen via deck scrapes. A
-    brand-new card that hasn't appeared in any tournament deck yet won't
-    show up here — for that you still want full --catalog (which discovers
-    via /cards). In practice the gap closes quickly because new sets get
+    Only fills fields the caller didn't already provide (so we don't stomp
+    on values that came from the deck page itself, e.g. the name)."""
+    if not catalog_entry:
+        return False
+    info.setdefault("name", catalog_entry.get("name"))
+    info.setdefault("url", catalog_entry.get("url"))
+    info["type"] = catalog_entry.get("type") or info.get("type")
+    info["domains"] = catalog_entry.get("domains") or []
+    info["cost"] = catalog_entry.get("cost")
+    info["rarity"] = catalog_entry.get("rarity")
+    info["image_url"] = catalog_entry.get("image_url")
+    return True
+
+
+def find_uncatalogued_slugs() -> list:
+    """Slugs referenced by any cached legend's decks.json (via its
+    cards_meta — which is the slug index inside decks.json) but missing
+    from cards-catalog.json. Used by --catalog-new to backfill only the
+    gap instead of re-walking all ~770 card detail pages.
+
+    Note: only finds slugs we've already seen via deck scrapes. A brand-
+    new card that hasn't appeared in any tournament deck yet won't show
+    up here — for that you still want full --catalog (which discovers via
+    /cards). In practice the gap closes quickly because new sets get
     play-tested fast."""
     catalog = load_catalog()
     known = set(catalog.keys())
-    found = set()
+    found: set = set()
     legends_dir = pathlib.Path("legends")
     if not legends_dir.exists():
         return []
     for d in sorted(legends_dir.iterdir()):
         if not d.is_dir():
             continue
-        cards_path = d / "cards.json"
-        if not cards_path.exists():
+        decks_path = d / "decks.json"
+        if not decks_path.exists():
             continue
         try:
-            data = json.loads(cards_path.read_text())
+            data = json.loads(decks_path.read_text())
         except Exception:
             continue
-        cards = data.get("cards") if isinstance(data, dict) else data
-        if isinstance(cards, dict):
-            found.update(cards.keys())
-        elif isinstance(cards, list):
-            for c in cards:
-                if isinstance(c, dict) and c.get("slug"):
-                    found.add(c["slug"])
+        cards_meta = data.get("cards_meta") or {}
+        found.update(cards_meta.keys())
     return sorted(found - known)
 
 

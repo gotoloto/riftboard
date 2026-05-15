@@ -15,7 +15,10 @@ they include it.
 - `legends/<slug>/data.js` — full per-champion payload the dashboard reads
   when a champion is selected (`window.__DATA__ = …;`).
 - `legends/<slug>/decks.json` — raw scrape (every deck, every card row).
-- `legends/<slug>/cards.json` — aggregated stats (machine-readable copy).
+  Per-card aggregated stats (`decks_including`, `inclusion_pct`,
+  `copies_pct`, etc.) are computed at runtime by the dashboard and by the
+  scraper's `build_staples` / `build_closeness_data` helpers, so no
+  separate `cards.json` is written.
 
 ## Setup
 

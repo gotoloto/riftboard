@@ -4,13 +4,9 @@
 // Collection explorer + deck builder
 // =====================================================================
 
-const RARITY = {
-  common:   { ch: "●", cls: "common" },
-  uncommon: { ch: "▲", cls: "uncommon" },
-  rare:     { ch: "◆", cls: "rare" },
-  epic:     { ch: "⬟", cls: "epic" },
-  showcase: { ch: "⬢", cls: "showcase" },
-};
+// RARITY + rarityGlyph + escapeHtml + readJSON/writeJSON + parseCost +
+// attachHoverThumb all live in utils.js (loaded by collection.html before
+// this file).
 const RARITY_ORDER = { common: 0, uncommon: 1, rare: 2, epic: 3, showcase: 4 };
 const PLAYSET = 3;
 
@@ -26,41 +22,6 @@ const LS_ENROUTE = "collection:includeEnRoute";
 const LS_DECK = "collection:deckDraft";
 const LS_DECK_TAB = "collection:deckTab";
 
-// ---------- utils ----------
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-function readJSON(key, fallback) {
-  try {
-    const raw = localStorage.getItem(key);
-    if (raw == null) return fallback;
-    return JSON.parse(raw);
-  } catch (_) {
-    return fallback;
-  }
-}
-function writeJSON(key, val) {
-  try { localStorage.setItem(key, JSON.stringify(val)); } catch (_) {}
-}
-function rarityGlyph(rarity) {
-  const r = rarity && RARITY[String(rarity).toLowerCase()];
-  if (!r) return "";
-  return `<span class="rarity rarity-${r.cls}" title="${escapeHtml(rarity)}" aria-hidden="true">${r.ch}</span>`;
-}
-
-// Cost strings are either "-" (no cost; battlefields, legends, runes) or a
-// leading-energy followed by zero or more "C" power chars: "0C", "2",
-// "5CC", "10CCCC". Returns { energy: number|null, power: number }.
-function parseCost(costStr) {
-  if (!costStr || costStr === "-") return { energy: null, power: 0 };
-  const m = String(costStr).match(/^(\d+)(C*)$/);
-  if (!m) return { energy: null, power: 0 };
-  return { energy: parseInt(m[1], 10), power: m[2].length };
-}
 function energyOf(slug) {
   const c = catalog[slug];
   if (!c) return null;
@@ -781,47 +742,8 @@ async function copyDeck() {
   }, 1600);
 }
 
-// ---------- hover thumb ----------
-const cardThumbEl = document.getElementById("card-thumb");
-let thumbTimer = 0;
-const THUMB_W = 240;
-
-function positionThumb(ev) {
-  const pad = 16;
-  const ratio = cardThumbEl.naturalWidth
-    ? cardThumbEl.naturalHeight / cardThumbEl.naturalWidth
-    : 1.4;
-  const h = THUMB_W * ratio;
-  let x = ev.clientX + pad;
-  let y = ev.clientY + pad;
-  if (x + THUMB_W > window.innerWidth) x = ev.clientX - THUMB_W - pad;
-  x = Math.max(pad, Math.min(x, window.innerWidth - THUMB_W - pad));
-  y = Math.max(pad, Math.min(y, window.innerHeight - h - pad));
-  cardThumbEl.style.left = x + "px";
-  cardThumbEl.style.top = y + "px";
-}
-function attachHoverThumb() {
-  document.body.addEventListener("mouseover", (ev) => {
-    const el = ev.target.closest("[data-img]");
-    if (!el) return;
-    const img = el.dataset.img;
-    if (!img) return;
-    clearTimeout(thumbTimer);
-    thumbTimer = window.setTimeout(() => {
-      if (cardThumbEl.src !== img) cardThumbEl.src = img;
-      cardThumbEl.hidden = false;
-      positionThumb(ev);
-    }, 200);
-  });
-  document.body.addEventListener("mousemove", (ev) => {
-    if (!cardThumbEl.hidden) positionThumb(ev);
-  });
-  document.body.addEventListener("mouseout", (ev) => {
-    if (!ev.target.closest("[data-img]")) return;
-    clearTimeout(thumbTimer);
-    cardThumbEl.hidden = true;
-  });
-}
+// attachHoverThumb lives in utils.js (reads the rendered #card-thumb width
+// via getComputedStyle so the 240px override in collection.css still wins).
 
 // ---------- wire up ----------
 function init() {

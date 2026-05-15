@@ -8,13 +8,7 @@ const RARITY_WEIGHT = {
   showcase: 28,
 };
 
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
+// escapeHtml lives in utils.js (loaded by closeness.html before this file).
 
 // `let` so collection-sheet.js can swap in fresh values after its async
 // fetch resolves (see collection:updated listener at the bottom).

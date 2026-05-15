@@ -1,12 +1,7 @@
 "use strict";
 
-const RARITY = {
-  common:   { ch: "●", cls: "common" },
-  uncommon: { ch: "▲", cls: "uncommon" },
-  rare:     { ch: "◆", cls: "rare" },
-  epic:     { ch: "⬟", cls: "epic" },
-  showcase: { ch: "⬢", cls: "showcase" },
-};
+// RARITY, escapeHtml, rarityGlyph, attachHoverThumb all live in utils.js
+// (loaded by staples.html before this file).
 
 const PLAYSET = 3;
 
@@ -34,20 +29,6 @@ function ownedFor(slug) {
 
 function missingFor(slug) {
   return Math.max(0, PLAYSET - ownedFor(slug));
-}
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function rarityGlyph(rarity) {
-  const r = rarity && RARITY[String(rarity).toLowerCase()];
-  if (!r) return "";
-  return `<span class="rarity rarity-${r.cls}" title="${escapeHtml(rarity)}" aria-hidden="true">${r.ch}</span>`;
 }
 
 function renderRow(card, index) {
@@ -130,47 +111,7 @@ function renderSection(rarity, cards) {
   `;
 }
 
-const cardThumbEl = document.getElementById("card-thumb");
-let thumbTimer = 0;
-const THUMB_W = 260;
-
-function positionThumb(ev) {
-  const pad = 16;
-  const ratio = cardThumbEl.naturalWidth
-    ? cardThumbEl.naturalHeight / cardThumbEl.naturalWidth
-    : 1.4;
-  const h = THUMB_W * ratio;
-  let x = ev.clientX + pad;
-  let y = ev.clientY + pad;
-  if (x + THUMB_W > window.innerWidth) x = ev.clientX - THUMB_W - pad;
-  x = Math.max(pad, Math.min(x, window.innerWidth - THUMB_W - pad));
-  y = Math.max(pad, Math.min(y, window.innerHeight - h - pad));
-  cardThumbEl.style.left = x + "px";
-  cardThumbEl.style.top = y + "px";
-}
-
-function attachHoverThumb() {
-  document.body.addEventListener("mouseover", (ev) => {
-    const el = ev.target.closest("[data-img]");
-    if (!el) return;
-    const img = el.dataset.img;
-    if (!img) return;
-    clearTimeout(thumbTimer);
-    thumbTimer = window.setTimeout(() => {
-      if (cardThumbEl.src !== img) cardThumbEl.src = img;
-      cardThumbEl.hidden = false;
-      positionThumb(ev);
-    }, 200);
-  });
-  document.body.addEventListener("mousemove", (ev) => {
-    if (!cardThumbEl.hidden) positionThumb(ev);
-  });
-  document.body.addEventListener("mouseout", (ev) => {
-    if (!ev.target.closest("[data-img]")) return;
-    clearTimeout(thumbTimer);
-    cardThumbEl.hidden = true;
-  });
-}
+// attachHoverThumb lives in utils.js.
 
 let stapleData = null;
 

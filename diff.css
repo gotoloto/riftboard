@@ -1,9 +1,4 @@
-.back-link {
-  font-size: 13px;
-  color: var(--accent);
-  text-decoration: none;
-}
-.back-link:hover { text-decoration: underline; }
+/* .back-link + .enroute-toggle + .copy-btn + #card-thumb live in styles.css. */
 .note { max-width: 760px; }
 
 .input-row {
@@ -33,16 +28,7 @@
 }
 .btn:hover { filter: brightness(1.08); }
 
-.enroute-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  margin: 0 0 12px;
-  cursor: pointer;
-}
-.enroute-toggle input { margin: 0; }
-.enroute-toggle .muted { font-size: 12px; }
+.enroute-toggle { margin: 0 0 12px; }
 
 .error {
   margin: 12px 0;
@@ -75,21 +61,9 @@
   gap: 12px;
   margin: 12px 0 8px;
 }
-.copy-btn {
-  padding: 6px 12px;
-  font-size: 13px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg);
-  color: var(--fg);
-  cursor: pointer;
-}
-.copy-btn:hover { background: var(--row-alt); }
-.copy-btn.copied {
-  background: #16a34a;
-  border-color: #16a34a;
-  color: white;
-}
+/* Override the shared .copy-btn (12px/4px-10px) to a chunkier size for the
+   prominent 'Copy missing' button on the diff page. */
+.copy-btn { padding: 6px 12px; font-size: 13px; }
 
 table#diff-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 720px; }
 table#diff-table th, table#diff-table td {
@@ -114,16 +88,4 @@ table#diff-table tbody tr:nth-child(odd) { background: var(--row); }
 table#diff-table tbody tr:nth-child(even) { background: var(--row-alt); }
 table#diff-table td.missing { font-weight: 600; }
 
-#card-thumb {
-  position: fixed;
-  z-index: 1000;
-  width: 260px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-  background: var(--row);
-}
-@media (hover: none), (pointer: coarse) {
-  #card-thumb { display: none !important; }
-}
+/* #card-thumb lives in styles.css (shared default 260px). */

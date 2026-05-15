@@ -10,13 +10,7 @@ const NUM_COLS = new Set([
   "copies_pct.3+",
 ]);
 
-const RARITY = {
-  common:   { ch: "●", cls: "common" },
-  uncommon: { ch: "▲", cls: "uncommon" },
-  rare:     { ch: "◆", cls: "rare" },
-  epic:     { ch: "⬟", cls: "epic" },
-  showcase: { ch: "⬢", cls: "showcase" },
-};
+// RARITY + escapeHtml live in utils.js (loaded by index.html before this).
 
 function rarityHtml(slug) {
   const r = state.cardsMeta[slug]?.rarity;
@@ -100,14 +94,6 @@ function compareValues(a, b, key, dir) {
 function pctBar(p) {
   const clamped = Math.max(0, Math.min(100, p));
   return `<span class="bar"><span style="width:${clamped}%"></span></span>`;
-}
-
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 function renderRow(card) {

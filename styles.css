@@ -438,6 +438,26 @@ td.missing-pos {
   border-color: #16a34a;
   color: white;
 }
+
+/* Back-link used in every sub-page header to return to the main dashboard. */
+.back-link {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* En-route toggle row — shared by closeness / cart / diff / staples /
+   collection. Per-page margin overrides go in each page's CSS. */
+.enroute-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.enroute-toggle input { margin: 0; }
+.enroute-toggle .muted { font-size: 12px; }
 #median-meta {
   padding: 8px 14px 0;
   font-size: 12px;

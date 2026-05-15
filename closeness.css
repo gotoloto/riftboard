@@ -1,21 +1,6 @@
-.back-link {
-  font-size: 13px;
-  color: var(--accent);
-  text-decoration: none;
-}
-.back-link:hover { text-decoration: underline; }
+/* .back-link + .enroute-toggle base live in styles.css (shared). */
 .note { max-width: 880px; }
-
-.enroute-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  margin: 4px 0 8px;
-  cursor: pointer;
-}
-.enroute-toggle input { margin: 0; }
-.enroute-toggle .muted { font-size: 12px; }
+.enroute-toggle { margin: 4px 0 8px; }
 
 #closeness-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 #closeness-table th, #closeness-table td {
