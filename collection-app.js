@@ -408,7 +408,6 @@ function renderRow(row, idx) {
       <td class="domains">${domains}</td>
       <td class="num">${row.owned}</td>
       <td class="${missingCls}">${row.missing}</td>
-      <td class="legends">${legendChipsHtml(row.legends)}</td>
       <td class="actions">
         <button class="add-btn" data-action="add-main" data-slug="${escapeHtml(row.slug)}"${mainDisabled ? " disabled" : ""} title="${escapeHtml(mTitle)}">+M</button>
         <button class="add-btn" data-action="add-side" data-slug="${escapeHtml(row.slug)}"${sideDisabled ? " disabled" : ""} title="Add to sideboard">+S</button>
