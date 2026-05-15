@@ -197,8 +197,9 @@ table#collection-table td.legends { font-size: 11px; line-height: 1.55; }
 
 table#collection-table th.actions-col,
 table#collection-table td.actions {
-  text-align: right;
   white-space: nowrap;
+  text-align: left;
+  width: 1%;
 }
 .add-btn {
   border: 1px solid var(--border);

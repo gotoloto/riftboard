@@ -480,6 +480,10 @@ function renderRow(row, idx) {
   return `
     <tr data-slug="${escapeHtml(row.slug)}">
       <td class="rank">${idx + 1}</td>
+      <td class="actions">
+        <button class="add-btn" data-action="add-main" data-slug="${escapeHtml(row.slug)}"${mainDisabled ? " disabled" : ""} title="${escapeHtml(mTitle)}">+M</button>
+        <button class="add-btn" data-action="add-side" data-slug="${escapeHtml(row.slug)}"${sideDisabled ? " disabled" : ""} title="Add to sideboard">+S</button>
+      </td>
       <td class="name">${nameLink} ${rarityGlyph(c.rarity)}</td>
       <td class="set-cell">${escapeHtml(c.set)} <span class="muted">#${c.set_num}</span></td>
       <td class="rarity-cell">${escapeHtml(c.rarity)}</td>
@@ -488,10 +492,6 @@ function renderRow(row, idx) {
       <td class="domains">${domains}</td>
       <td class="num">${row.owned}</td>
       <td class="${missingCls}">${row.missing}</td>
-      <td class="actions">
-        <button class="add-btn" data-action="add-main" data-slug="${escapeHtml(row.slug)}"${mainDisabled ? " disabled" : ""} title="${escapeHtml(mTitle)}">+M</button>
-        <button class="add-btn" data-action="add-side" data-slug="${escapeHtml(row.slug)}"${sideDisabled ? " disabled" : ""} title="Add to sideboard">+S</button>
-      </td>
     </tr>
   `;
 }
