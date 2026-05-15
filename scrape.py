@@ -11,6 +11,7 @@ Defaults to the Lillia, Bashful Bloom Unleashed Constructed page.
 import glob
 import json
 import os
+import pathlib
 import re
 import sys
 import time
@@ -1096,6 +1097,42 @@ def load_catalog() -> dict:
         return {}
 
 
+def find_uncatalogued_slugs() -> list:
+    """Slugs referenced by any cached legend's cards.json but missing from
+    cards-catalog.json. Used by --catalog-new to backfill only the gap
+    instead of re-walking all ~770 card detail pages.
+
+    Note: this only finds slugs we've already seen via deck scrapes. A
+    brand-new card that hasn't appeared in any tournament deck yet won't
+    show up here — for that you still want full --catalog (which discovers
+    via /cards). In practice the gap closes quickly because new sets get
+    play-tested fast."""
+    catalog = load_catalog()
+    known = set(catalog.keys())
+    found = set()
+    legends_dir = pathlib.Path("legends")
+    if not legends_dir.exists():
+        return []
+    for d in sorted(legends_dir.iterdir()):
+        if not d.is_dir():
+            continue
+        cards_path = d / "cards.json"
+        if not cards_path.exists():
+            continue
+        try:
+            data = json.loads(cards_path.read_text())
+        except Exception:
+            continue
+        cards = data.get("cards") if isinstance(data, dict) else data
+        if isinstance(cards, dict):
+            found.update(cards.keys())
+        elif isinstance(cards, list):
+            for c in cards:
+                if isinstance(c, dict) and c.get("slug"):
+                    found.add(c["slug"])
+    return sorted(found - known)
+
+
 def build_collection_template(path: str = "collection-template.xlsx") -> dict:
     """Walk every cached legend's cards_meta, dedupe across legends by slug,
     and emit an Excel template the user can fill in to record what they own.
@@ -1379,6 +1416,23 @@ if __name__ == "__main__":
         save_catalog_json(catalog)
         save_catalog_js(catalog)
         print(f"{CATALOG_PATH} + cards-catalog.js written: {len(catalog)} cards")
+    elif args and args[0] == "--catalog-new":
+        # Incremental: fetch detail pages only for slugs referenced by some
+        # legend's cards.json but missing from cards-catalog.json. Avoids
+        # re-walking all ~770 cards when only a handful are new.
+        existing = load_catalog()
+        missing = find_uncatalogued_slugs()
+        if not missing:
+            print(f"catalog already has all {len(existing)} referenced cards · nothing to do")
+        else:
+            print(f"existing catalog: {len(existing)} cards · fetching {len(missing)} new slug(s):")
+            for s in missing:
+                print(f"  + {s}")
+            new_entries = fetch_card_catalog(slugs=missing)
+            merged = {**existing, **new_entries}
+            save_catalog_json(merged)
+            save_catalog_js(merged)
+            print(f"{CATALOG_PATH} + cards-catalog.js written: {len(merged)} cards (+{len(merged) - len(existing)} new)")
     elif args and args[0] == "--deck-lookup":
         info = build_deck_lookup_data()
         print(f"{info['path']} written: {info['deck_count']} decks")
