@@ -295,14 +295,14 @@ table#collection-table td.actions {
 }
 .deck-list li {
   display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) 22px 22px;
+  grid-template-columns: 22px 22px 24px minmax(0, 1fr);
   align-items: center;
   gap: 4px;
   padding: 2px 0;
   font-size: 12px;
 }
 .deck-list li.with-remove {
-  grid-template-columns: 28px minmax(0, 1fr) 22px;
+  grid-template-columns: 22px 24px minmax(0, 1fr);
 }
 .deck-list .qty {
   font-variant-numeric: tabular-nums;

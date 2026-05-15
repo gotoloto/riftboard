@@ -532,10 +532,11 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const qtyHtml = `<span class="qty">${qty} ×</span>`;
   const nameHtml = `<span class="card-name"${img}>${escapeHtml(name)}</span>`;
   if (!allowQtyControls) {
-    // Legend slot: just a remove button.
-    return `<li class="with-remove" data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button></li>`;
+    // Legend slot: just a remove button. Layout: × | qty | name
+    return `<li class="with-remove" data-slug="${escapeHtml(slug)}"><button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button>${qtyHtml}${nameHtml}</li>`;
   }
-  return `<li data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button></li>`;
+  // Layout: − | + | qty | name (controls grouped left, name truncates on the right)
+  return `<li data-slug="${escapeHtml(slug)}"><button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button>${qtyHtml}${nameHtml}</li>`;
 }
 
 function computeEnergyCurve(slugQtyMap) {
