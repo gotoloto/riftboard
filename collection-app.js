@@ -67,12 +67,45 @@ function energyOf(slug) {
   return parseCost(c.cost).energy;
 }
 
-// Energy buckets for the curve: 0..6 each, plus a 7+ catch-all.
+// Energy buckets for the curve and energy filter pills: 0..6 each plus a
+// 7+ catch-all. Kept as strings so they double as pill labels.
 const CURVE_BUCKETS = ["0", "1", "2", "3", "4", "5", "6", "7+"];
 function bucketIndexForEnergy(e) {
   if (e == null) return -1;
   if (e >= 7) return 7;
   return Math.max(0, Math.min(7, e));
+}
+
+// First letter of each domain — used to render the power "C" chars in the
+// cost cell using the card's primary domain. Calm and Chaos collide on
+// "C"; the colour disambiguates them.
+const DOMAIN_LETTER = {
+  calm: "C",
+  chaos: "C",
+  fury: "F",
+  mind: "M",
+  order: "O",
+  body: "B",
+  colorless: "C",
+};
+function primaryDomain(card) {
+  const ds = card.domains || [];
+  // Prefer non-colorless if the card is multi-domain with colorless mixed in
+  // (unlikely given current data but defensive).
+  return ds.find((d) => d !== "colorless") || ds[0] || null;
+}
+function renderPowerGlyphs(card, power) {
+  if (!power) return "";
+  const dom = primaryDomain(card);
+  const letter = dom ? DOMAIN_LETTER[dom] || "C" : "C";
+  const cls = dom ? `pwr-${dom}` : "pwr-colorless";
+  const tip =
+    (card.domains || []).length > 1
+      ? `${power} power · any of: ${card.domains.join(", ")}`
+      : dom
+      ? `${power} ${dom} power`
+      : `${power} power`;
+  return `<span class="power ${cls}" title="${escapeHtml(tip)}">${letter.repeat(power)}</span>`;
 }
 
 // ---------- data ----------
@@ -114,6 +147,7 @@ const DEFAULT_FILTERS = {
   sets: [],
   types: [],
   domains: [],
+  energies: [],     // pill labels from CURVE_BUCKETS — multi-select OR
   ownedMin: "",
   ownedMax: "",
   missingMin: "",
@@ -293,6 +327,7 @@ function buildVisibleRows() {
   const setSet = filters.sets.length ? new Set(filters.sets) : null;
   const tSet = filters.types.length ? new Set(filters.types) : null;
   const dSet = filters.domains.length ? new Set(filters.domains) : null;
+  const eSet = filters.energies.length ? new Set(filters.energies) : null;
   const oMin = filters.ownedMin === "" ? null : parseInt(filters.ownedMin, 10);
   const oMax = filters.ownedMax === "" ? null : parseInt(filters.ownedMax, 10);
   const mMin = filters.missingMin === "" ? null : parseInt(filters.missingMin, 10);
@@ -319,6 +354,11 @@ function buildVisibleRows() {
     if (dSet) {
       const ds = c.domains || [];
       if (!ds.some((d) => dSet.has(d))) continue;
+    }
+    if (eSet) {
+      const e = parseCost(c.cost).energy;
+      const bIdx = bucketIndexForEnergy(e);
+      if (bIdx < 0 || !eSet.has(CURVE_BUCKETS[bIdx])) continue;
     }
     if (oMin != null && ownedQty < oMin) continue;
     if (oMax != null && ownedQty > oMax) continue;
@@ -435,9 +475,7 @@ function renderRow(row, idx) {
   const costCell =
     energy == null
       ? `<td class="cost-cell no-cost">—</td>`
-      : `<td class="cost-cell">${energy}${
-          power > 0 ? `<span class="power" title="${power} power">${"C".repeat(power)}</span>` : ""
-        }</td>`;
+      : `<td class="cost-cell">${energy}${renderPowerGlyphs(c, power)}</td>`;
 
   return `
     <tr data-slug="${escapeHtml(row.slug)}">
@@ -518,6 +556,39 @@ function computeEnergyCurve(slugQtyMap) {
   }
   const avg = totalCounted > 0 ? sumE / totalCounted : null;
   return { buckets, avg, totalCounted };
+}
+
+function computePowerByDomain(slugQtyMap) {
+  // For each card with power > 0, attribute the full power × qty to EACH of
+  // the card's domains (multi-domain cards count in both columns). This
+  // matches mana-base planning: a "calm or body" card needs you to be able
+  // to cover it from either side.
+  const totals = {};
+  for (const [slug, qty] of Object.entries(slugQtyMap || {})) {
+    const c = catalog[slug];
+    if (!c) continue;
+    const { power } = parseCost(c.cost);
+    if (power <= 0) continue;
+    const ds = (c.domains || []).filter((d) => d !== "colorless");
+    const targets = ds.length ? ds : c.domains || [];
+    for (const d of targets) {
+      totals[d] = (totals[d] || 0) + power * qty;
+    }
+  }
+  return totals;
+}
+
+function renderPowerByDomain(containerEl, label, totals) {
+  // Render order matches DOMAIN_OPTS so the layout doesn't jiggle as the
+  // deck composition changes.
+  const rows = DOMAIN_OPTS.filter((d) => totals[d] > 0).map((d) => {
+    const letter = DOMAIN_LETTER[d] || "?";
+    return `<span class="pbd-row" title="${escapeHtml(d)} — ${totals[d]} power"><span class="pbd-letter pwr-${d}">${letter}</span> ${totals[d]}<span class="domain-name">${escapeHtml(d)}</span></span>`;
+  });
+  containerEl.innerHTML = `
+    <div class="pbd-title">${escapeHtml(label)}</div>
+    ${rows.length ? rows.join("") : `<span class="pbd-empty">No power requirements yet.</span>`}
+  `;
 }
 
 function renderEnergyCurve(containerEl, label, curve) {
@@ -625,6 +696,18 @@ function renderDeck() {
     document.getElementById("curve-side"),
     "Sideboard energy",
     computeEnergyCurve(deck.side)
+  );
+
+  // Per-domain power demand (one per pane).
+  renderPowerByDomain(
+    document.getElementById("power-main"),
+    "Power demand",
+    computePowerByDomain(deck.main)
+  );
+  renderPowerByDomain(
+    document.getElementById("power-side"),
+    "Power demand",
+    computePowerByDomain(deck.side)
   );
 
   // Tabs
@@ -748,6 +831,7 @@ function init() {
   renderPills("pills-set", SET_OPTS, "sets");
   renderPills("pills-type", TYPE_OPTS, "types");
   renderPills("pills-domain", DOMAIN_OPTS, "domains");
+  renderPills("pills-energy", CURVE_BUCKETS, "energies");
   populateLegendDropdown();
 
   // Restore filter widget values from saved state.

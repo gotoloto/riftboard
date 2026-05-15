@@ -53,6 +53,10 @@
           <span class="filter-label">Domain</span>
           <div class="pills" id="pills-domain"></div>
         </div>
+        <div class="filter-row">
+          <span class="filter-label">Energy</span>
+          <div class="pills" id="pills-energy"></div>
+        </div>
 
         <div class="filter-row range-row">
           <label>Owned
@@ -131,6 +135,7 @@
         </section>
         <p class="deck-total">Maindeck: <span id="cnt-main">0</span>/40</p>
         <div class="energy-curve" id="curve-main" aria-label="Maindeck energy curve"></div>
+        <div class="power-by-domain" id="power-main" aria-label="Maindeck power demand by domain"></div>
       </div>
 
       <div class="deck-pane" id="deck-side" hidden>
@@ -139,6 +144,7 @@
           <ul class="deck-list"></ul>
         </section>
         <div class="energy-curve" id="curve-side" aria-label="Sideboard energy curve"></div>
+        <div class="power-by-domain" id="power-side" aria-label="Sideboard power demand by domain"></div>
       </div>
 
       <footer class="deck-footer">

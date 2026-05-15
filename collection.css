@@ -400,11 +400,55 @@ table#collection-table td.cost-cell {
   white-space: nowrap;
 }
 table#collection-table td.cost-cell .power {
-  color: var(--muted);
-  margin-left: 2px;
+  margin-left: 3px;
   font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 table#collection-table td.cost-cell.no-cost { color: var(--muted); }
+
+/* Domain colors for power-letter glyphs (and any other power chips). */
+.pwr-calm      { color: #72a666; }
+.pwr-chaos     { color: #b189d6; }
+.pwr-fury      { color: #e43f47; }
+.pwr-mind      { color: #3f8cb8; }
+.pwr-order     { color: #d9bf28; }
+.pwr-body      { color: #ec8f2f; }
+.pwr-colorless { color: var(--muted); }
+
+/* ---------- Per-domain power summary (deck sidebar) ---------- */
+.power-by-domain {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+.power-by-domain .pbd-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.power-by-domain .pbd-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-right: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.power-by-domain .pbd-letter {
+  font-weight: 700;
+  font-size: 13px;
+  width: 12px;
+  text-align: center;
+}
+.power-by-domain .pbd-row .domain-name {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+.power-by-domain .pbd-empty { color: var(--muted); font-style: italic; }
 
 #card-thumb {
   position: fixed;
