@@ -1,11 +1,16 @@
 "use strict";
 
-const RARITY_WEIGHT = {
-  common: 1,
-  uncommon: 2.333,
-  rare: 3.5,
-  epic: 28,
-  showcase: 28,
+// Fallback "estimated price" per rarity for cards where cards-catalog.json
+// has no listed TCGplayer market price (rare — usually only brand-new
+// cards not yet on the market). Used so a missing-price card doesn't
+// silently get treated as $0. Numbers are deliberately conservative
+// medians from the current Riftbound market.
+const RARITY_FALLBACK_PRICE = {
+  common: 0.25,
+  uncommon: 0.75,
+  rare: 4,
+  epic: 30,
+  showcase: 30,
 };
 
 // escapeHtml lives in utils.js (loaded by closeness.html before this file).
@@ -15,6 +20,7 @@ const RARITY_WEIGHT = {
 let ownedRaw = window.__OWNED_DEFAULTS__ || {};
 let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 const data = window.__CLOSENESS_DATA__;
+const catalog = window.__CATALOG__ || {};
 const tbody = document.querySelector("#closeness-table tbody");
 const metaEl = document.getElementById("meta");
 const enrouteEl = document.getElementById("include-enroute");
@@ -37,24 +43,35 @@ function effectiveOwned() {
 
 let owned = effectiveOwned();
 
-function weightFor(rarity) {
-  return RARITY_WEIGHT[(rarity || "").toLowerCase()] ?? 1;
+function priceFor(slug, rarity) {
+  // Real TCGplayer market price wins; fall back to a rarity heuristic so
+  // brand-new uncatalogued cards still contribute something to the cost.
+  // Runes effectively never need to be bought (owned: 99) so they don't
+  // matter here, but if one ever slipped through it'd use the fallback.
+  const p = catalog[slug]?.price;
+  if (typeof p === "number" && p > 0) {
+    return { dollars: p, source: "catalog" };
+  }
+  const fallback = RARITY_FALLBACK_PRICE[(rarity || "").toLowerCase()] ?? 1;
+  return { dollars: fallback, source: "fallback" };
 }
 
 function scoreLegend(L) {
   const missingCards = [];
   const missingByRarity = {};
-  let points = 0;
+  let cost = 0;
   let totalMissing = 0;
+  let unpriced = 0;
   for (const c of L.composite) {
     const need = c.qty;
     const have = owned[c.slug] || 0;
     const short = Math.max(0, need - have);
     if (short <= 0) continue;
-    const w = weightFor(c.rarity);
-    const pts = short * w;
-    points += pts;
+    const { dollars, source } = priceFor(c.slug, c.rarity);
+    const subCost = short * dollars;
+    cost += subCost;
     totalMissing += short;
+    if (source === "fallback") unpriced += short;
     const rar = (c.rarity || "unknown").toLowerCase();
     missingByRarity[rar] = (missingByRarity[rar] || 0) + short;
     missingCards.push({
@@ -65,12 +82,16 @@ function scoreLegend(L) {
       short,
       rarity: rar,
       type: c.type,
-      pts,
+      unitPrice: dollars,
+      priceSource: source,
+      subCost,
     });
   }
-  // Order missing: highest points first, then by short qty desc, then name
-  missingCards.sort((a, b) => b.pts - a.pts || b.short - a.short || a.name.localeCompare(b.name));
-  return { points, totalMissing, missingByRarity, missingCards };
+  // Order missing: most-expensive-line first, then by short qty desc, then name
+  missingCards.sort(
+    (a, b) => b.subCost - a.subCost || b.short - a.short || a.name.localeCompare(b.name)
+  );
+  return { cost, totalMissing, missingByRarity, missingCards, unpriced };
 }
 
 function rarityChips(byRar) {
@@ -92,17 +113,29 @@ function rarityChips(byRar) {
   return parts.join(" ");
 }
 
+function fmtUSD(n) {
+  if (n >= 100) return "$" + n.toFixed(0);
+  if (n >= 10) return "$" + n.toFixed(1);
+  return "$" + n.toFixed(2);
+}
+
 function renderMissingList(missing) {
   if (!missing.length) {
     return `<p class="muted">Nothing missing — this deck is buildable from your collection.</p>`;
   }
   const items = missing
     .map((m) => {
+      const priceLabel = `${fmtUSD(m.unitPrice)} × ${m.short} = ${fmtUSD(m.subCost)}`;
+      const priceCls = m.priceSource === "fallback" ? "pts muted" : "pts";
+      const priceTitle =
+        m.priceSource === "fallback"
+          ? "Estimated from rarity (no TCGplayer price cached)"
+          : "TCGplayer market price (cached from riftdecks)";
       return `<li>
         <span class="qty">${m.short} of ${m.need}</span>
         <span class="rarity-tag rarity-${escapeHtml(m.rarity)}">${escapeHtml(m.rarity)}</span>
         <span class="name">${escapeHtml(m.name)}</span>
-        <span class="pts">${m.pts.toFixed(1)} pts</span>
+        <span class="${priceCls}" title="${escapeHtml(priceTitle)}">${priceLabel}</span>
       </li>`;
     })
     .join("");
@@ -121,7 +154,7 @@ function render() {
     .map((L) => ({ legend: L, score: scoreLegend(L) }))
     .sort(
       (a, b) =>
-        a.score.points - b.score.points ||
+        a.score.cost - b.score.cost ||
         a.legend.name.localeCompare(b.legend.name)
     );
   currentRows = rows;
@@ -142,13 +175,17 @@ function render() {
 
   tbody.innerHTML = rows
     .map((r, i) => {
-      const dist = r.score.points;
-      const fmtDist = dist === 0 ? "0" : dist.toFixed(1);
+      const cost = r.score.cost;
+      const fmtCost = cost === 0 ? "$0" : fmtUSD(cost);
+      const fbTag =
+        r.score.unpriced > 0
+          ? ` <span class="muted" title="${r.score.unpriced} missing copy/ies have no TCGplayer price; rarity fallback used">(~${r.score.unpriced} est.)</span>`
+          : "";
       return `
       <tr class="legend-row" data-slug="${escapeHtml(r.legend.slug)}">
         <td class="rank">${i + 1}</td>
         <td>${escapeHtml(r.legend.name)}</td>
-        <td class="num distance">${fmtDist}</td>
+        <td class="num distance">${fmtCost}${fbTag}</td>
         <td class="num">${r.score.totalMissing}</td>
         <td>${rarityChips(r.score.missingByRarity)}</td>
       </tr>`;

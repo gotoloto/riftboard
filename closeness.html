@@ -21,13 +21,13 @@
       <span id="enroute-info" class="muted"></span>
     </label>
     <p class="muted note">
-      Ranks each legend by how close your imported collection is to building
-      its top-25% composite deck (1 legend + 3 battlefields + 12 runes + 40
-      maindeck). Each missing copy adds points by rarity (pull-rate weighted):
-      <strong>common 1</strong> · <strong>uncommon 2.333</strong> ·
-      <strong>rare 3.5</strong> · <strong>epic 28</strong> ·
-      <strong>showcase 28</strong>. Lower distance = closer to a complete
-      deck. Click a row to see exactly what's missing.
+      Ranks each legend by how much it'd cost to finish building its top-25%
+      composite deck (1 legend + 3 battlefields + 12 runes + 40 maindeck)
+      from your current collection. Prices are TCGplayer market (USD)
+      embedded on riftdecks card pages and cached in
+      <code>cards-catalog.json</code>; cards with no listed price fall back
+      to a rarity-weighted estimate (common $0.25, uncommon $0.75, rare
+      $4, epic $30). Click a row to see exactly what's missing.
     </p>
   </header>
 
@@ -38,7 +38,7 @@
           <tr>
             <th>#</th>
             <th>Legend</th>
-            <th class="num">Distance</th>
+            <th class="num">Cost to complete</th>
             <th class="num">Missing copies</th>
             <th>By rarity</th>
           </tr>
@@ -52,6 +52,7 @@
   <script src="collection-owned.js"></script>
   <script src="collection-enroute.js"></script>
   <script src="collection-sheet.js"></script>
+  <script src="cards-catalog.js"></script>
   <script src="closeness-data.js"></script>
   <script src="closeness-app.js"></script>
 </body>

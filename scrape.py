@@ -849,6 +849,26 @@ CATALOG_PATH = "cards-catalog.json"
 PRINTING_RE = re.compile(
     r"/img/cards/[^/]+/+([A-Z][A-Z0-9]+)/[a-z][a-z0-9]+-(\d+)([a-z]*)-(\d+)_full\.png"
 )
+# Riftdecks embeds the TCGplayer market price in the meta description of
+# each card page: e.g. <meta name="description" content="...around $2.58.">
+# We pull from there because the in-body chip's markup changes more often
+# than the meta tag does.
+PRICE_RE = re.compile(
+    r'<meta[^>]*name="description"[^>]*content="[^"]*?around \$([0-9]+(?:\.[0-9]+)?)',
+    re.IGNORECASE,
+)
+
+
+def extract_card_price(html: str):
+    """Pull TCGplayer market price (USD) from a card detail page's meta
+    description. Returns float or None if not present."""
+    m = PRICE_RE.search(html)
+    if not m:
+        return None
+    try:
+        return float(m.group(1))
+    except ValueError:
+        return None
 
 
 def fetch_card_catalog(slugs=None) -> dict:
@@ -910,6 +930,13 @@ def fetch_card_catalog(slugs=None) -> dict:
         # lives on a variant URL like /cards/details-<slug>/<id>. Walk those
         # until we find a non-showcase rarity, since showcase prints are
         # always optional alt-art and a regular-rarity copy exists.
+        #
+        # IMPORTANT: when we fall through to a variant for rarity, we ALSO
+        # use that variant's page for price extraction. The main page's
+        # price is the showcase/alt-art premium, which is much higher than
+        # the standard printing's price — and the standard printing is what
+        # users actually buy when 'completing' a deck.
+        price_html = page_html
         if rarity == "showcase":
             variant_urls = []
             for a in soup.find_all("a", href=True):
@@ -929,6 +956,7 @@ def fetch_card_catalog(slugs=None) -> dict:
                 vnon = [r for r in vrar if (r or "").lower() != "showcase"]
                 if vnon:
                     rarity = vnon[0].lower()
+                    price_html = vhtml
                     break
                 time.sleep(0.15)
         out[slug] = {
@@ -943,6 +971,7 @@ def fetch_card_catalog(slugs=None) -> dict:
             "set_max": c["setmax"],
             "image_url": urljoin(BASE, c["src"].replace("//", "/")),
             "url": url,
+            "price": extract_card_price(price_html),
         }
         if i % 25 == 0:
             print(f"    {i}/{len(slugs)} (kept {len(out)}, skipped {skipped})")
@@ -1137,6 +1166,8 @@ def enrich_from_catalog(info: dict, catalog_entry) -> bool:
     info["cost"] = catalog_entry.get("cost")
     info["rarity"] = catalog_entry.get("rarity")
     info["image_url"] = catalog_entry.get("image_url")
+    if catalog_entry.get("price") is not None:
+        info["price"] = catalog_entry["price"]
     return True
 
 
