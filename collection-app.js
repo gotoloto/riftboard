@@ -52,6 +52,29 @@ function rarityGlyph(rarity) {
   return `<span class="rarity rarity-${r.cls}" title="${escapeHtml(rarity)}" aria-hidden="true">${r.ch}</span>`;
 }
 
+// Cost strings are either "-" (no cost; battlefields, legends, runes) or a
+// leading-energy followed by zero or more "C" power chars: "0C", "2",
+// "5CC", "10CCCC". Returns { energy: number|null, power: number }.
+function parseCost(costStr) {
+  if (!costStr || costStr === "-") return { energy: null, power: 0 };
+  const m = String(costStr).match(/^(\d+)(C*)$/);
+  if (!m) return { energy: null, power: 0 };
+  return { energy: parseInt(m[1], 10), power: m[2].length };
+}
+function energyOf(slug) {
+  const c = catalog[slug];
+  if (!c) return null;
+  return parseCost(c.cost).energy;
+}
+
+// Energy buckets for the curve: 0..6 each, plus a 7+ catch-all.
+const CURVE_BUCKETS = ["0", "1", "2", "3", "4", "5", "6", "7+"];
+function bucketIndexForEnergy(e) {
+  if (e == null) return -1;
+  if (e >= 7) return 7;
+  return Math.max(0, Math.min(7, e));
+}
+
 // ---------- data ----------
 const catalogRaw = window.__CATALOG__ || {};
 const catalog = catalogRaw; // slug → card object
@@ -345,6 +368,16 @@ function sortRows(rows) {
         diff = a.missing - b.missing;
         if (diff === 0) diff = cmpName(a, b);
         break;
+      case "cost": {
+        const ca = parseCost(a.card.cost);
+        const cb = parseCost(b.card.cost);
+        // Null energy (cost "-") sorts to the end on asc.
+        const ea = ca.energy == null ? Infinity : ca.energy;
+        const eb = cb.energy == null ? Infinity : cb.energy;
+        diff = ea - eb || ca.power - cb.power;
+        if (diff === 0) diff = cmpName(a, b);
+        break;
+      }
       default:
         diff = cmpName(a, b);
     }
@@ -398,6 +431,14 @@ function renderRow(row, idx) {
     ? "Add to battlefields"
     : `Add to maindeck (${c.type})`;
 
+  const { energy, power } = parseCost(c.cost);
+  const costCell =
+    energy == null
+      ? `<td class="cost-cell no-cost">—</td>`
+      : `<td class="cost-cell">${energy}${
+          power > 0 ? `<span class="power" title="${power} power">${"C".repeat(power)}</span>` : ""
+        }</td>`;
+
   return `
     <tr data-slug="${escapeHtml(row.slug)}">
       <td class="rank">${idx + 1}</td>
@@ -405,6 +446,7 @@ function renderRow(row, idx) {
       <td class="set-cell">${escapeHtml(c.set)} <span class="muted">#${c.set_num}</span></td>
       <td class="rarity-cell">${escapeHtml(c.rarity)}</td>
       <td class="type">${escapeHtml(c.type)}</td>
+      ${costCell}
       <td class="domains">${domains}</td>
       <td class="num">${row.owned}</td>
       <td class="${missingCls}">${row.missing}</td>
@@ -456,6 +498,53 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
     return `<li data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button></li>`;
   }
   return `<li data-slug="${escapeHtml(slug)}">${qtyHtml}${nameHtml}<button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button></li>`;
+}
+
+function computeEnergyCurve(slugQtyMap) {
+  // Returns { buckets: number[8], avg: number|null, totalCounted: number }.
+  // Cards with no energy cost (cost "-": legend, battlefield, rune) are
+  // excluded from the curve and from the average.
+  const buckets = new Array(8).fill(0);
+  let sumE = 0;
+  let totalCounted = 0;
+  for (const [slug, qty] of Object.entries(slugQtyMap || {})) {
+    const e = energyOf(slug);
+    if (e == null) continue;
+    const idx = bucketIndexForEnergy(e);
+    if (idx < 0) continue;
+    buckets[idx] += qty;
+    sumE += e * qty;
+    totalCounted += qty;
+  }
+  const avg = totalCounted > 0 ? sumE / totalCounted : null;
+  return { buckets, avg, totalCounted };
+}
+
+function renderEnergyCurve(containerEl, label, curve) {
+  if (curve.totalCounted === 0) {
+    containerEl.innerHTML = `<div class="curve-title"><span>${escapeHtml(
+      label
+    )}</span><span>—</span></div>`;
+    return;
+  }
+  const max = Math.max(1, ...curve.buckets);
+  const rowsHtml = CURVE_BUCKETS.map((bk, i) => {
+    const n = curve.buckets[i];
+    const pct = (n / max) * 100;
+    const cls = n === 0 ? "curve-row empty" : "curve-row";
+    return `
+      <div class="${cls}">
+        <span class="bucket">${escapeHtml(bk)}</span>
+        <div class="bar-wrap"><div class="bar" style="width:${pct.toFixed(1)}%"></div></div>
+        <span class="count">${n}</span>
+      </div>`;
+  }).join("");
+  containerEl.innerHTML = `
+    <div class="curve-title">
+      <span>${escapeHtml(label)}</span>
+      <span>avg ${curve.avg.toFixed(2)} · ${curve.totalCounted} cards</span>
+    </div>
+    ${rowsHtml}`;
 }
 
 function renderDeck() {
@@ -525,6 +614,18 @@ function renderDeck() {
     .classList.toggle("over", sideTotalN > 8);
   const totalEl = document.querySelector(".deck-total");
   totalEl.classList.toggle("over", mTotal > 40);
+
+  // Energy curves (one per pane).
+  renderEnergyCurve(
+    document.getElementById("curve-main"),
+    "Maindeck energy",
+    computeEnergyCurve(deck.main)
+  );
+  renderEnergyCurve(
+    document.getElementById("curve-side"),
+    "Sideboard energy",
+    computeEnergyCurve(deck.side)
+  );
 
   // Tabs
   document.getElementById("deck-main").hidden = deckTab !== "main";
@@ -713,6 +814,7 @@ function init() {
         filters.sortCol = col;
         // Sensible default direction per column.
         filters.sortDir = (col === "owned" || col === "missing") ? "desc" : "asc";
+        if (col === "cost") filters.sortDir = "asc";
       }
       saveFilters();
       renderTable();

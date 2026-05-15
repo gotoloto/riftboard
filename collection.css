@@ -347,6 +347,65 @@ table#collection-table td.actions {
 .deck-footer .copy-btn { flex: 1; }
 .footnote { font-size: 11px; margin: 6px 0 0; line-height: 1.4; }
 
+/* ---------- Energy curve (horizontal bars) ---------- */
+.energy-curve {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+.energy-curve .curve-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.energy-curve .curve-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 22px;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0;
+  font-variant-numeric: tabular-nums;
+}
+.energy-curve .curve-row .bucket {
+  color: var(--muted);
+  text-align: right;
+}
+.energy-curve .curve-row .bar-wrap {
+  height: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.energy-curve .curve-row .bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.energy-curve .curve-row .count {
+  color: var(--fg);
+}
+.energy-curve .curve-row.empty .bar { background: transparent; }
+.energy-curve .curve-row.empty .count { color: var(--muted); }
+
+/* Per-row energy cost cell styling */
+table#collection-table td.cost-cell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+table#collection-table td.cost-cell .power {
+  color: var(--muted);
+  margin-left: 2px;
+  font-size: 11px;
+}
+table#collection-table td.cost-cell.no-cost { color: var(--muted); }
+
 #card-thumb {
   position: fixed;
   z-index: 1000;

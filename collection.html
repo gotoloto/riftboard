@@ -86,6 +86,7 @@
               <th class="sortable" data-sort="set">Set <span class="arrow">▾</span></th>
               <th class="sortable" data-sort="rarity">Rarity <span class="arrow">▾</span></th>
               <th class="sortable" data-sort="type">Type <span class="arrow">▾</span></th>
+              <th class="num sortable" data-sort="cost" title="Energy cost (leading number). Power requirement (C count) shown faded.">Energy <span class="arrow">▾</span></th>
               <th>Domains</th>
               <th class="num sortable" data-sort="owned">Owned <span class="arrow">▾</span></th>
               <th class="num sortable" data-sort="missing">Missing <span class="arrow">▾</span></th>
@@ -129,6 +130,7 @@
           <ul class="deck-list"></ul>
         </section>
         <p class="deck-total">Maindeck: <span id="cnt-main">0</span>/40</p>
+        <div class="energy-curve" id="curve-main" aria-label="Maindeck energy curve"></div>
       </div>
 
       <div class="deck-pane" id="deck-side" hidden>
@@ -136,6 +138,7 @@
           <header><span>Sideboard</span><span class="count"><span id="cnt-side">0</span>/8</span></header>
           <ul class="deck-list"></ul>
         </section>
+        <div class="energy-curve" id="curve-side" aria-label="Sideboard energy curve"></div>
       </div>
 
       <footer class="deck-footer">
