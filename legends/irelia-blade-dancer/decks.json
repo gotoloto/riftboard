@@ -1,8 +1,8 @@
 {
   "archetype": "Irelia, Blade Dancer",
   "url": "https://riftdecks.com/legends/constructed/irelia-blade-dancer?metagame_id=3",
-  "scraped_at": "2026-05-15T13:40:21.115209Z",
-  "deck_count": 438,
+  "scraped_at": "2026-05-16T16:19:23.798347Z",
+  "deck_count": 444,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-lun-ge-de-zuo-ye-142180",
@@ -112615,6 +112615,1450 @@
       "players": 128,
       "finish_pct": 35.2,
       "date": "2026-04-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dao-141061",
+      "title": "刀 by 优极客.老宙斯 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stellacorn Herder",
+          "slug": "details-stellacorn-herder",
+          "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Draven, Audacious",
+          "slug": "details-draven-audacious",
+          "url": "https://riftdecks.com/cards/details-draven-audacious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "The Syren",
+          "slug": "details-the-syren",
+          "url": "https://riftdecks.com/cards/details-the-syren",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Altar of Blood",
+          "slug": "details-altar-of-blood",
+          "url": "https://riftdecks.com/cards/details-altar-of-blood",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Adaptatron",
+          "slug": "details-adaptatron",
+          "url": "https://riftdecks.com/cards/details-adaptatron",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Tricksy Tentacles",
+          "slug": "details-tricksy-tentacles",
+          "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Whiteflame Protector",
+          "slug": "details-whiteflame-protector",
+          "url": "https://riftdecks.com/cards/details-whiteflame-protector",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 26,
+      "finish_pct": 61.5,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dao-mei-141051",
+      "title": "刀妹 by 小神仙 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Honeyfruit",
+          "slug": "details-honeyfruit",
+          "url": "https://riftdecks.com/cards/details-honeyfruit",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Pack of Wonders",
+          "slug": "details-pack-of-wonders",
+          "url": "https://riftdecks.com/cards/details-pack-of-wonders",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Trove",
+          "slug": "details-treasure-trove",
+          "url": "https://riftdecks.com/cards/details-treasure-trove",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Find Your Center",
+          "slug": "details-find-your-center",
+          "url": "https://riftdecks.com/cards/details-find-your-center",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tricksy Tentacles",
+          "slug": "details-tricksy-tentacles",
+          "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Factory Recall",
+          "slug": "details-factory-recall",
+          "url": "https://riftdecks.com/cards/details-factory-recall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Adaptatron",
+          "slug": "details-adaptatron",
+          "url": "https://riftdecks.com/cards/details-adaptatron",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 3,
+      "players": 26,
+      "finish_pct": 11.5,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dao-mei-141049",
+      "title": "刀妹 by 杨杨 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Find Your Center",
+          "slug": "details-find-your-center",
+          "url": "https://riftdecks.com/cards/details-find-your-center",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tricksy Tentacles",
+          "slug": "details-tricksy-tentacles",
+          "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Factory Recall",
+          "slug": "details-factory-recall",
+          "url": "https://riftdecks.com/cards/details-factory-recall",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Invert Timelines",
+          "slug": "details-invert-timelines",
+          "url": "https://riftdecks.com/cards/details-invert-timelines",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Tasty Faefolk",
+          "slug": "details-tasty-faefolk",
+          "url": "https://riftdecks.com/cards/details-tasty-faefolk",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 1,
+      "players": 26,
+      "finish_pct": 3.8,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-long-dao2-0-124815",
+      "title": "龙刀2.0 by ibtv.卑微小玮 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stellacorn Herder",
+          "slug": "details-stellacorn-herder",
+          "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Focus",
+          "slug": "details-seal-of-focus",
+          "url": "https://riftdecks.com/cards/details-seal-of-focus",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Spirit Wheel",
+          "slug": "details-spirit-wheel",
+          "url": "https://riftdecks.com/cards/details-spirit-wheel",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flash",
+          "slug": "details-flash",
+          "url": "https://riftdecks.com/cards/details-flash",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sneaky Deckhand",
+          "slug": "details-sneaky-deckhand",
+          "url": "https://riftdecks.com/cards/details-sneaky-deckhand",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 86,
+      "players": 128,
+      "finish_pct": 67.2,
+      "date": "2026-04-25"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-a-124826",
+      "title": "啊 by 铜钥匙-zero | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Honeyfruit",
+          "slug": "details-honeyfruit",
+          "url": "https://riftdecks.com/cards/details-honeyfruit",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Pack of Wonders",
+          "slug": "details-pack-of-wonders",
+          "url": "https://riftdecks.com/cards/details-pack-of-wonders",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Trove",
+          "slug": "details-treasure-trove",
+          "url": "https://riftdecks.com/cards/details-treasure-trove",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Find Your Center",
+          "slug": "details-find-your-center",
+          "url": "https://riftdecks.com/cards/details-find-your-center",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tricksy Tentacles",
+          "slug": "details-tricksy-tentacles",
+          "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Papertree",
+          "slug": "details-the-papertree",
+          "url": "https://riftdecks.com/cards/details-the-papertree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Adaptatron",
+          "slug": "details-adaptatron",
+          "url": "https://riftdecks.com/cards/details-adaptatron",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 97,
+      "players": 128,
+      "finish_pct": 75.8,
+      "date": "2026-04-25"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dao-mei-116948",
+      "title": "刀妹 by 扶摇 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Irelia, Blade Dancer",
+          "slug": "details-irelia-blade-dancer",
+          "url": "https://riftdecks.com/cards/details-irelia-blade-dancer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hunter",
+          "slug": "details-treasure-hunter",
+          "url": "https://riftdecks.com/cards/details-treasure-hunter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Diana, No Longer Human",
+          "slug": "details-diana-no-longer-human",
+          "url": "https://riftdecks.com/cards/details-diana-no-longer-human",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stellacorn Herder",
+          "slug": "details-stellacorn-herder",
+          "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Draven, Audacious",
+          "slug": "details-draven-audacious",
+          "url": "https://riftdecks.com/cards/details-draven-audacious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Guardian Angel",
+          "slug": "details-guardian-angel",
+          "url": "https://riftdecks.com/cards/details-guardian-angel",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defiant Dance",
+          "slug": "details-defiant-dance",
+          "url": "https://riftdecks.com/cards/details-defiant-dance",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Back-Alley Bar",
+          "slug": "details-back-alley-bar",
+          "url": "https://riftdecks.com/cards/details-back-alley-bar",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 26,
+      "players": 86,
+      "finish_pct": 30.2,
+      "date": "2026-04-18"
     }
   ],
   "cards_meta": {
