@@ -12,8 +12,17 @@
 // values if the fetch fails (network down, sheet revoked, etc).
 
 (function () {
+  const SHEETS_ID = "1Q7RCiWYiC52FIkkDIReUkfotIyGVRSUr";
   const SHEETS_CSV_URL =
-    "https://docs.google.com/spreadsheets/d/1Q7RCiWYiC52FIkkDIReUkfotIyGVRSUr/export?format=csv";
+    `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv`;
+  // Lock tabs — each one is a deck (or stack of decks) committed by one
+  // person. The site treats those cards as 'unavailable' when the
+  // corresponding 'Include lock' toggle is on. Add new lock tabs here.
+  // Display label (the part before the emoji or whatever) appears in the
+  // toggle text.
+  const LOCK_TABS = ["Travis 🔒", "Santiago 🔒"];
+  const lockTabUrl = (name) =>
+    `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(name)}`;
 
   // ---------- CSV parser (RFC-4180-ish, handles quoted fields) ----------
   function parseCSV(text) {
@@ -70,15 +79,52 @@
     return { owned, enroute };
   }
 
-  function applyCollections(data, source) {
+  // Parse a lock-tab CSV. Each row is a single quoted cell from the deck
+  // text the user pasted ('"3 Defy"'). Section headers like "LEGEND",
+  // "BATTLEFIELDS (3)", "MAINDECK (40)", "SIDEBOARD (8)" are skipped.
+  // Names are matched against the catalog by case-insensitive lookup,
+  // with a legend-epithet alias so older pastes ("Bashful Bloom") still
+  // resolve. Returns { slug: total_qty } across whatever decks the tab
+  // contains.
+  function parseLockTab(text) {
+    const out = {};
+    const rows = parseCSV(text);
+    const catalog = window.__CATALOG__ || {};
+    if (!Object.keys(catalog).length) return out; // catalog not loaded yet
+    const nameToSlug = new Map();
+    for (const [slug, c] of Object.entries(catalog)) {
+      const n = (c.name || "").trim().toLowerCase();
+      if (n) nameToSlug.set(n, slug);
+      if (c.type === "legend" && n.includes(",")) {
+        const ep = n.split(",", 2)[1].trim();
+        if (ep) nameToSlug.set(ep, slug);
+      }
+    }
+    const lineRe = /^(\d+)\s+(.+)$/;
+    for (const row of rows) {
+      const line = (row[0] || "").trim();
+      if (!line) continue;
+      const ln = line.match(lineRe);
+      if (!ln) continue;
+      const qty = parseInt(ln[1], 10);
+      const name = ln[2].trim();
+      const slug = nameToSlug.get(name.toLowerCase());
+      if (!slug) continue;
+      out[slug] = (out[slug] || 0) + qty;
+    }
+    return out;
+  }
+
+  function applyState(state, source) {
     // "Fully replace" semantics: sheet is the source of truth when fetched
     // successfully. Anything not in the sheet (or with qty 0) is treated as
     // not owned.
-    window.__OWNED_DEFAULTS__ = data.owned;
-    window.__EN_ROUTE_DEFAULTS__ = data.enroute;
+    window.__OWNED_DEFAULTS__ = state.owned;
+    window.__EN_ROUTE_DEFAULTS__ = state.enroute;
+    window.__LOCKS__ = state.locks || {};
     window.__COLLECTION_SOURCE__ = source;
     window.dispatchEvent(
-      new CustomEvent("collection:updated", { detail: { source, data } })
+      new CustomEvent("collection:updated", { detail: { source, state } })
     );
   }
 
@@ -90,31 +136,61 @@
     if (kind) el.classList.add(kind);
   }
 
-  // Fire immediately. Page-apps render once with the static .js values,
-  // then re-render when the event lands. Typical fetch is ~200 ms.
+  // Fetch everything (collection + each lock tab) in parallel. Page-apps
+  // render once with the static .js values, then re-render when this
+  // resolves. Typical: ~250-500 ms.
   updateStatus("Syncing collection from Google Sheet…", "loading");
   const startedAt = Date.now();
-  fetch(SHEETS_CSV_URL, { cache: "no-cache" })
-    .then((res) => {
+
+  const fetchAsText = (url) =>
+    fetch(url, { cache: "no-cache" }).then((res) => {
       if (!res.ok) throw new Error("HTTP " + res.status);
       return res.text();
-    })
-    .then((text) => {
-      const data = csvToCollections(text);
-      if (!data) throw new Error("CSV parse failed");
-      const elapsed = Date.now() - startedAt;
-      applyCollections(data, "sheet");
-      const ownedCount = Object.keys(data.owned).length;
-      const erCount = Object.keys(data.enroute).length;
+    });
+
+  Promise.allSettled([
+    fetchAsText(SHEETS_CSV_URL),
+    ...LOCK_TABS.map((name) => fetchAsText(lockTabUrl(name))),
+  ]).then((results) => {
+    const elapsed = Date.now() - startedAt;
+    const [collectionRes, ...lockRes] = results;
+    if (collectionRes.status !== "fulfilled") {
       updateStatus(
-        `Collection from Google Sheet · ${ownedCount} owned · ${erCount} en-route · synced in ${elapsed} ms`,
-        "ok"
-      );
-    })
-    .catch((err) => {
-      updateStatus(
-        "Sheet fetch failed (" + err.message + ") · using local snapshot",
+        "Sheet fetch failed (" + (collectionRes.reason?.message || "?") + ") · using local snapshot",
         "err"
       );
+      return;
+    }
+    const data = csvToCollections(collectionRes.value);
+    if (!data) {
+      updateStatus("Sheet CSV parse failed · using local snapshot", "err");
+      return;
+    }
+    // Lock tabs: keyed by display name (e.g. "Travis 🔒"). Missing/empty
+    // tabs just contribute {}.
+    const locks = {};
+    LOCK_TABS.forEach((name, i) => {
+      const r = lockRes[i];
+      if (r.status === "fulfilled") {
+        try { locks[name] = parseLockTab(r.value); }
+        catch (_) { locks[name] = {}; }
+      } else {
+        locks[name] = {};
+      }
     });
+    applyState({ owned: data.owned, enroute: data.enroute, locks }, "sheet");
+    const ownedCount = Object.keys(data.owned).length;
+    const erCount = Object.keys(data.enroute).length;
+    const lockSummary = LOCK_TABS
+      .map((n) => {
+        const slugs = Object.keys(locks[n]);
+        const copies = Object.values(locks[n]).reduce((a, b) => a + b, 0);
+        return `${n} ${copies}/${slugs.length}`;
+      })
+      .join(" · ");
+    updateStatus(
+      `Sheet · ${ownedCount} owned · ${erCount} en-route · ${lockSummary} · synced in ${elapsed} ms`,
+      "ok"
+    );
+  });
 })();

@@ -63,7 +63,8 @@ function ownedFor(slug) {
   }
   const base = defaultOwned[slug] || 0;
   const enr = state.includeEnRoute ? (enRouteDefaults[slug] || 0) : 0;
-  return base + enr;
+  const locked = lockedTotal(slug, "cart");
+  return Math.max(0, base + enr - locked);
 }
 
 const state = {
@@ -648,11 +649,13 @@ function formatPlaintext() {
 
 attachHandlers();
 attachHoverThumb();
+ensureLockToggles(document.getElementById("lock-toggles"), "cart", () => recompute());
 render();
 recompute();
 
 window.addEventListener("collection:updated", () => {
   defaultOwned = window.__OWNED_DEFAULTS__ || {};
   enRouteDefaults = window.__EN_ROUTE_DEFAULTS__ || {};
+  ensureLockToggles(document.getElementById("lock-toggles"), "cart", () => recompute());
   recompute();
 });

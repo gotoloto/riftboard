@@ -902,6 +902,10 @@ def fetch_card_catalog(slugs=None) -> dict:
             }
         )
         print(f"  {len(slugs)} slugs on /cards")
+    # For legend-type cards, riftdecks' card detail page often returns just
+    # the epithet ("Bashful Bloom"); the legend's archetype listing has the
+    # full label ("Lillia, Bashful Bloom"). Pull that mapping once.
+    legend_full_names = load_legend_full_names()
     out: dict = {}
     skipped = 0
     for i, slug in enumerate(slugs, 1):
@@ -1001,10 +1005,16 @@ def fetch_card_catalog(slugs=None) -> dict:
                 winner_non = [r for r in winner_rar if (r or "").lower() != "showcase"]
                 if winner_non:
                     rarity = winner_non[0].lower()
+        card_type = (fields.get("types") or [""])[0].lower()
+        card_name = normalize_name((fields.get("name") or [slug])[0])
+        # Legend-card override: prefer the full archetype name over the
+        # epithet-only string the detail page returns.
+        if card_type == "legend" and slug in legend_full_names:
+            card_name = legend_full_names[slug]
         out[slug] = {
             "slug": slug,
-            "name": normalize_name((fields.get("name") or [slug])[0]),
-            "type": (fields.get("types") or [""])[0].lower(),
+            "name": card_name,
+            "type": card_type,
             "domains": fields.get("domains", []),
             "cost": (fields.get("cost") or [None])[0],
             "rarity": rarity,
@@ -1193,6 +1203,32 @@ def load_catalog() -> dict:
             return json.load(f).get("cards", {}) or {}
     except FileNotFoundError:
         return {}
+
+
+def load_legend_full_names() -> dict:
+    """Map of catalog-slug -> full archetype name for every cached legend.
+    Used to ensure legend-type catalog entries store the full name (e.g.
+    'Lillia, Bashful Bloom') rather than the epithet-only label that the
+    card detail page often returns ('Bashful Bloom')."""
+    out: dict = {}
+    legends_dir = pathlib.Path("legends")
+    if not legends_dir.exists():
+        return out
+    for d in sorted(legends_dir.iterdir()):
+        if not d.is_dir():
+            continue
+        decks_path = d / "decks.json"
+        if not decks_path.exists():
+            continue
+        try:
+            raw = json.loads(decks_path.read_text())
+        except Exception:
+            continue
+        archetype = (raw.get("archetype") or "").strip()
+        if not archetype:
+            continue
+        out[f"details-{d.name}"] = normalize_name(archetype)
+    return out
 
 
 def enrich_from_catalog(info: dict, catalog_entry) -> bool:

@@ -26,7 +26,9 @@ try {
 
 function ownedFor(slug) {
   const o = ownedRaw[slug] || 0;
-  return o + (includeEnRoute ? (enRoute[slug] || 0) : 0);
+  const er = includeEnRoute ? (enRoute[slug] || 0) : 0;
+  const locked = lockedTotal(slug, "diff");
+  return Math.max(0, o + er - locked);
 }
 
 const metaEl = document.getElementById("meta");
@@ -270,6 +272,13 @@ window.addEventListener("collection:updated", () => {
   if (lookup) {
     metaEl.innerHTML = `${lookup.deck_count.toLocaleString()} cached decks · ${Object.keys(catalog).length.toLocaleString()} known cards · collection: ${Object.keys(ownedRaw).length.toLocaleString()} distinct cards owned`;
   }
+  ensureLockToggles(document.getElementById("lock-toggles"), "diff", () => {
+    if (!resultEl.hidden) runDiff();
+  });
+  if (!resultEl.hidden) runDiff();
+});
+
+ensureLockToggles(document.getElementById("lock-toggles"), "diff", () => {
   if (!resultEl.hidden) runDiff();
 });
 

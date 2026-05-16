@@ -100,7 +100,9 @@ let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 
 function ownedFor(slug) {
   const o = owned[slug] || 0;
-  return o + (includeEnRoute ? (enRoute[slug] || 0) : 0);
+  const er = includeEnRoute ? (enRoute[slug] || 0) : 0;
+  const locked = lockedTotal(slug, "builder");
+  return Math.max(0, o + er - locked);
 }
 function missingFor(slug) {
   return Math.max(0, PLAYSET - ownedFor(slug));
@@ -251,6 +253,99 @@ function newDeck() {
   saveDeck();
   renderDeck();
   renderTable();
+}
+
+// ---------- paste-import: text decklist → deck state ----------
+
+// Name → slug lookup. Built once on init; rebuilt on collection:updated so
+// that legend-name fixes / catalog refreshes propagate. We index both the
+// canonical catalog name and useful legend aliases (epithet-only) so
+// pasted decklists from older Copy outputs ('Bashful Bloom') still resolve
+// to the modern slug ('details-lillia-bashful-bloom').
+let nameToSlug = new Map();
+function rebuildNameIndex() {
+  nameToSlug = new Map();
+  for (const [slug, c] of Object.entries(catalog)) {
+    const n = (c.name || "").trim();
+    if (n) nameToSlug.set(n.toLowerCase(), slug);
+    // Legend epithet alias: 'Lillia, Bashful Bloom' → also map 'Bashful Bloom'
+    if (c.type === "legend" && n.includes(",")) {
+      const epithet = n.split(",", 2)[1].trim();
+      if (epithet) nameToSlug.set(epithet.toLowerCase(), slug);
+    }
+  }
+}
+
+const SECTION_RE = /^(LEGEND|BATTLEFIELDS?|MAINDECK|SIDEBOARD)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
+const LINE_RE = /^(\d+)\s+(.+)$/;
+
+function parseDecklistText(text) {
+  // Returns { deck: {legend, battlefields, main, side}, warnings: [...] }.
+  // Sections are heuristic — if no section header is seen, lines route
+  // by catalog type. Lines with N Card Name match LINE_RE. We strip
+  // wrapping CSV double-quotes so the Google Sheet CSV-export format
+  // ('"3 Defy"') also parses.
+  const out = { legend: null, battlefields: {}, main: {}, side: {} };
+  const warnings = [];
+  let section = null;  // null | "legend" | "battlefields" | "main" | "side"
+
+  for (let raw of text.split(/\r?\n/)) {
+    let line = raw.trim();
+    if (!line) continue;
+    // Strip surrounding double-quotes (CSV export from Sheets does this).
+    if (line.startsWith('"') && line.endsWith('"')) {
+      line = line.slice(1, -1).trim();
+    }
+    if (!line) continue;
+    const m = line.match(SECTION_RE);
+    if (m) {
+      const head = m[1].toUpperCase();
+      if (head === "LEGEND") section = "legend";
+      else if (head.startsWith("BATTLEFIELD")) section = "battlefields";
+      else if (head === "MAINDECK") section = "main";
+      else if (head === "SIDEBOARD") section = "side";
+      continue;
+    }
+    const ln = line.match(LINE_RE);
+    if (!ln) continue;
+    const qty = parseInt(ln[1], 10);
+    const name = ln[2].trim();
+    const slug = nameToSlug.get(name.toLowerCase());
+    if (!slug) {
+      warnings.push(`Unknown card: ${name}`);
+      continue;
+    }
+    const c = catalog[slug];
+    // If no section header was seen, infer the bucket from card type.
+    let bucket = section;
+    if (!bucket) {
+      if (c.type === "legend") bucket = "legend";
+      else if (c.type === "battlefield") bucket = "battlefields";
+      else if (c.type === "rune") {
+        warnings.push(`Skipped rune: ${name} (not tracked in builder)`);
+        continue;
+      } else bucket = "main";
+    }
+    if (bucket === "legend") {
+      if (out.legend) warnings.push(`Multiple legends; using last: ${name}`);
+      out.legend = slug;
+    } else if (c.type === "rune") {
+      // Runes never enter the builder regardless of section.
+      warnings.push(`Skipped rune: ${name}`);
+    } else {
+      out[bucket][slug] = (out[bucket][slug] || 0) + qty;
+    }
+  }
+  return { deck: out, warnings };
+}
+
+function importDecklistText(text) {
+  const { deck: parsed, warnings } = parseDecklistText(text);
+  deck = parsed;
+  saveDeck();
+  renderDeck();
+  renderTable();
+  return warnings;
 }
 
 // ---------- filter UI ----------
@@ -893,6 +988,41 @@ function init() {
   document.getElementById("copy-deck").addEventListener("click", copyDeck);
   document.getElementById("new-deck").addEventListener("click", newDeck);
 
+  // Paste-import UI
+  const pasteBtn = document.getElementById("import-deck");
+  const pastePanel = document.getElementById("paste-panel");
+  const pasteText = document.getElementById("paste-text");
+  const pasteLoad = document.getElementById("paste-load");
+  const pasteCancel = document.getElementById("paste-cancel");
+  const pasteResult = document.getElementById("paste-result");
+  pasteBtn.addEventListener("click", () => {
+    pastePanel.hidden = !pastePanel.hidden;
+    if (!pastePanel.hidden) pasteText.focus();
+  });
+  pasteCancel.addEventListener("click", () => {
+    pastePanel.hidden = true;
+    pasteText.value = "";
+    pasteResult.textContent = "";
+    pasteResult.className = "muted footnote";
+  });
+  pasteLoad.addEventListener("click", () => {
+    const text = pasteText.value;
+    if (!text.trim()) return;
+    const warnings = importDecklistText(text);
+    if (warnings.length) {
+      pasteResult.textContent = `Loaded with ${warnings.length} warning${warnings.length === 1 ? "" : "s"}: ${warnings.slice(0, 3).join("; ")}${warnings.length > 3 ? ` (+${warnings.length - 3} more)` : ""}`;
+      pasteResult.className = "footnote has-warn";
+    } else {
+      pasteResult.textContent = "Loaded.";
+      pasteResult.className = "footnote ok";
+    }
+  });
+
+  rebuildNameIndex();
+  ensureLockToggles(document.getElementById("lock-toggles"), "builder", () => {
+    renderTable();
+    renderDeck();
+  });
   attachHoverThumb();
   renderTable();
   renderDeck();
@@ -901,6 +1031,11 @@ function init() {
 window.addEventListener("collection:updated", () => {
   owned = window.__OWNED_DEFAULTS__ || {};
   enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+  rebuildNameIndex();
+  ensureLockToggles(document.getElementById("lock-toggles"), "builder", () => {
+    renderTable();
+    renderDeck();
+  });
   renderTable();
   renderDeck();
 });

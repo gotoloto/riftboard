@@ -33,10 +33,16 @@ try {
 } catch (_) {}
 
 function effectiveOwned() {
-  if (!includeEnRoute) return ownedRaw;
+  // owned + (en-route if toggled) - sum(active-lock-tab quantities)
   const merged = { ...ownedRaw };
-  for (const [slug, q] of Object.entries(enRoute)) {
-    merged[slug] = (merged[slug] || 0) + q;
+  if (includeEnRoute) {
+    for (const [slug, q] of Object.entries(enRoute)) {
+      merged[slug] = (merged[slug] || 0) + q;
+    }
+  }
+  for (const slug of Object.keys(merged)) {
+    const locked = lockedTotal(slug, "closeness");
+    if (locked) merged[slug] = Math.max(0, merged[slug] - locked);
   }
   return merged;
 }
@@ -227,8 +233,16 @@ enrouteEl.addEventListener("change", () => {
 window.addEventListener("collection:updated", () => {
   ownedRaw = window.__OWNED_DEFAULTS__ || {};
   enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
+  ensureLockToggles(document.getElementById("lock-toggles"), "closeness", () => {
+    owned = effectiveOwned();
+    render();
+  });
   owned = effectiveOwned();
   render();
 });
 
+ensureLockToggles(document.getElementById("lock-toggles"), "closeness", () => {
+  owned = effectiveOwned();
+  render();
+});
 render();

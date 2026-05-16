@@ -325,6 +325,35 @@ table#collection-table td.actions {
 .deck-footer .copy-btn { flex: 1; }
 .footnote { font-size: 11px; margin: 6px 0 0; line-height: 1.4; }
 
+/* ---------- Paste-import panel ---------- */
+.paste-panel {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+.paste-panel textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: 12px ui-monospace, Menlo, monospace;
+  background: var(--row);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px;
+  resize: vertical;
+  min-height: 100px;
+}
+.paste-panel .paste-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+.paste-panel .paste-actions .copy-btn { flex: 1; }
+#paste-result.has-warn { color: #f87171; }
+#paste-result.ok { color: #4ade80; }
+
 /* ---------- Energy curve (horizontal bars) ---------- */
 .energy-curve {
   margin-top: 10px;

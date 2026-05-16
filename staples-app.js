@@ -24,7 +24,9 @@ try {
 
 function ownedFor(slug) {
   const o = ownedRaw[slug] || 0;
-  return o + (includeEnRoute ? (enRoute[slug] || 0) : 0);
+  const er = includeEnRoute ? (enRoute[slug] || 0) : 0;
+  const locked = lockedTotal(slug, "staples");
+  return Math.max(0, o + er - locked);
 }
 
 function missingFor(slug) {
@@ -165,6 +167,7 @@ function load() {
     renderAll();
   });
 
+  ensureLockToggles(document.getElementById("lock-toggles"), "staples", renderAll);
   renderAll();
   attachHoverThumb();
 }
@@ -173,6 +176,7 @@ window.addEventListener("collection:updated", () => {
   ownedRaw = window.__OWNED_DEFAULTS__ || {};
   enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
   updateEnrouteInfo();
+  ensureLockToggles(document.getElementById("lock-toggles"), "staples", renderAll);
   renderAll();
 });
 

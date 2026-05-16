@@ -34,6 +34,7 @@
             <input type="checkbox" id="include-enroute" />
             Include en-route as owned
           </label>
+          <span id="lock-toggles" class="lock-toggles"></span>
           <button type="button" id="clear-filters" class="copy-btn" title="Reset all filters and sort">× Clear filters</button>
         </div>
 
@@ -150,7 +151,20 @@
       <footer class="deck-footer">
         <button type="button" id="copy-deck" class="copy-btn">Copy decklist</button>
         <button type="button" id="new-deck" class="copy-btn" title="Wipe the current draft">New deck</button>
+        <button type="button" id="import-deck" class="copy-btn" title="Paste a decklist to load it">Paste…</button>
       </footer>
+      <div id="paste-panel" class="paste-panel" hidden>
+        <p class="muted footnote">
+          Paste a decklist (format produced by Copy decklist). Sections are
+          optional; lines are <code>N Card Name</code>.
+        </p>
+        <textarea id="paste-text" rows="10" placeholder="LEGEND&#10;1 Lillia, Bashful Bloom&#10;&#10;BATTLEFIELDS (3)&#10;3 Veiled Temple&#10;..."></textarea>
+        <div class="paste-actions">
+          <button type="button" id="paste-load" class="copy-btn">Load</button>
+          <button type="button" id="paste-cancel" class="copy-btn">Cancel</button>
+        </div>
+        <p id="paste-result" class="muted footnote"></p>
+      </div>
       <p class="muted footnote">
         Runes aren't tracked here — you own 99 of each by default.
         Draft auto-saves to your browser.

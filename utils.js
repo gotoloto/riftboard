@@ -49,6 +49,69 @@ function writeJSON(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
 }
 
+// ---------- lock-tab toggles ----------
+// window.__LOCKS__ is populated by collection-sheet.js from the Google Sheet
+// tabs ("Travis 🔒", "Santiago 🔒"). Each entry is { slug: qty } describing
+// cards committed to that person's decks and therefore unavailable for
+// new builds. Pages render an "Include <tab>?" checkbox per tab; when
+// checked, that tab's qtys subtract from owned.
+
+function lockTabNames() {
+  return Object.keys(window.__LOCKS__ || {});
+}
+
+function readLockToggle(pagePrefix, tab) {
+  // Default ON — most of the time you want to see the realistic available
+  // pool, with both locks applied.
+  try {
+    const raw = localStorage.getItem(`${pagePrefix}:lock:${tab}`);
+    return raw == null ? true : JSON.parse(raw);
+  } catch (_) {
+    return true;
+  }
+}
+
+function activeLockTabs(pagePrefix) {
+  return lockTabNames().filter((tab) => readLockToggle(pagePrefix, tab));
+}
+
+function lockedTotal(slug, pagePrefix) {
+  // Sum of qty locked into all currently-active lock tabs for this slug.
+  const locks = window.__LOCKS__ || {};
+  let total = 0;
+  for (const tab of activeLockTabs(pagePrefix)) {
+    total += locks[tab]?.[slug] || 0;
+  }
+  return total;
+}
+
+// Render a checkbox per known lock tab into containerEl. Idempotent — if
+// the tab set hasn't changed since the last call, it's a no-op (keeps
+// existing DOM + listeners). onChange() fires when any toggle flips.
+function ensureLockToggles(containerEl, pagePrefix, onChange) {
+  if (!containerEl) return;
+  const tabs = lockTabNames();
+  const key = tabs.join("");
+  if (containerEl.dataset.tabs === key) return;
+  containerEl.dataset.tabs = key;
+  containerEl.innerHTML = "";
+  for (const tab of tabs) {
+    const lsKey = `${pagePrefix}:lock:${tab}`;
+    const on = readLockToggle(pagePrefix, tab);
+    const label = document.createElement("label");
+    label.className = "enroute-toggle lock-toggle";
+    label.innerHTML = `<input type="checkbox"${on ? " checked" : ""}/> Include ${escapeHtml(tab)}?`;
+    const input = label.querySelector("input");
+    input.addEventListener("change", () => {
+      try {
+        localStorage.setItem(lsKey, JSON.stringify(input.checked));
+      } catch (_) {}
+      if (typeof onChange === "function") onChange();
+    });
+    containerEl.appendChild(label);
+  }
+}
+
 // ---------- catalog cost parser ----------
 // Cost strings are "-" (no cost; battlefields, legends, runes) or a leading
 // energy followed by zero or more "C" power chars: "0C", "2", "5CC",
