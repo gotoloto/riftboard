@@ -60,26 +60,31 @@ function lockTabNames() {
   return Object.keys(window.__LOCKS__ || {});
 }
 
+// Toggle semantics — the label is "Include <tab>?":
+//   checked   = include those cards in the available pool (lock ignored,
+//               cards count toward owned)
+//   unchecked = exclude those cards (lock applies, cards subtracted)
+// Default: unchecked. Realistic view of your collection = locks apply.
+//
+// Note: LS key was renamed from <page>:lock:<tab> to <page>:includeLock:<tab>
+// when the semantics flipped (previously checked = apply lock). Any value
+// stored under the old key is silently ignored — users get the new default.
 function readLockToggle(pagePrefix, tab) {
-  // Default ON — most of the time you want to see the realistic available
-  // pool, with both locks applied.
   try {
-    const raw = localStorage.getItem(`${pagePrefix}:lock:${tab}`);
-    return raw == null ? true : JSON.parse(raw);
+    const raw = localStorage.getItem(`${pagePrefix}:includeLock:${tab}`);
+    return raw == null ? false : JSON.parse(raw);
   } catch (_) {
-    return true;
+    return false;
   }
 }
 
-function activeLockTabs(pagePrefix) {
-  return lockTabNames().filter((tab) => readLockToggle(pagePrefix, tab));
-}
-
 function lockedTotal(slug, pagePrefix) {
-  // Sum of qty locked into all currently-active lock tabs for this slug.
+  // Sum locked qty across tabs the user has NOT marked 'include' — those
+  // cards are excluded from their available pool.
   const locks = window.__LOCKS__ || {};
   let total = 0;
-  for (const tab of activeLockTabs(pagePrefix)) {
+  for (const tab of lockTabNames()) {
+    if (readLockToggle(pagePrefix, tab)) continue; // 'included' → don't subtract
     total += locks[tab]?.[slug] || 0;
   }
   return total;
@@ -96,7 +101,7 @@ function ensureLockToggles(containerEl, pagePrefix, onChange) {
   containerEl.dataset.tabs = key;
   containerEl.innerHTML = "";
   for (const tab of tabs) {
-    const lsKey = `${pagePrefix}:lock:${tab}`;
+    const lsKey = `${pagePrefix}:includeLock:${tab}`;
     const on = readLockToggle(pagePrefix, tab);
     const label = document.createElement("label");
     label.className = "enroute-toggle lock-toggle";
