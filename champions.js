@@ -197,7 +197,7 @@ window.__CHAMPIONS__ = [
   },
   {
     "slug": "reksai-void-burrower",
-    "name": "Reksai, Void Burrower",
+    "name": "Rek'Sai, Void Burrower",
     "url": "https://riftdecks.com/legends/constructed/reksai-void-burrower?metagame_id=3",
     "scraped_at": "2026-05-15T13:46:04.632574Z",
     "deck_count": 52

@@ -61,6 +61,23 @@ def _parse_rank(text: str):
     return None
 
 
+# Names as published on riftdecks that we need to correct site-wide. The
+# slug for each remains its riftdecks form (lowercase, no apostrophe), so
+# this map only affects user-facing display names.
+NAME_FIXES = {
+    "Reksai": "Rek'Sai",
+}
+
+
+def normalize_name(s):
+    """Apply NAME_FIXES to a card or deck/title string. No-op for non-strings."""
+    if not isinstance(s, str):
+        return s
+    for wrong, right in NAME_FIXES.items():
+        s = s.replace(wrong, right)
+    return s
+
+
 def parse_listing(html: str):
     soup = BeautifulSoup(html, "html.parser")
     deck_links = []
@@ -126,7 +143,7 @@ def parse_listing(html: str):
             r"Riftbound (?:\w+ )?(.+?) decks - (\d+) available", title
         )
         if m:
-            archetype = m.group(1).strip()
+            archetype = normalize_name(m.group(1).strip())
             total = int(m.group(2))
         else:
             # Generic search-result title like "Riftbound Top Decks (156 published)"
@@ -185,7 +202,7 @@ def parse_deck(html: str, url: str):
         slug = href.rsplit("/", 1)[-1]
         cards.append(
             {
-                "name": link.get_text(strip=True),
+                "name": normalize_name(link.get_text(strip=True)),
                 "slug": slug,
                 "url": urljoin(BASE, href),
                 "qty": qty,
@@ -193,7 +210,7 @@ def parse_deck(html: str, url: str):
                 "board": board,
             }
         )
-    return {"url": url, "title": title, "cards": cards}
+    return {"url": url, "title": normalize_name(title), "cards": cards}
 
 
 def parse_card_detail(html: str):
@@ -986,7 +1003,7 @@ def fetch_card_catalog(slugs=None) -> dict:
                     rarity = winner_non[0].lower()
         out[slug] = {
             "slug": slug,
-            "name": (fields.get("name") or [slug])[0],
+            "name": normalize_name((fields.get("name") or [slug])[0]),
             "type": (fields.get("types") or [""])[0].lower(),
             "domains": fields.get("domains", []),
             "cost": (fields.get("cost") or [None])[0],
