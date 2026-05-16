@@ -5,7 +5,7 @@
 // =====================================================================
 
 // RARITY + rarityGlyph + escapeHtml + readJSON/writeJSON + parseCost +
-// attachHoverThumb all live in utils.js (loaded by collection.html before
+// attachHoverThumb all live in utils.js (loaded by builder.html before
 // this file).
 const RARITY_ORDER = { common: 0, uncommon: 1, rare: 2, epic: 3, showcase: 4 };
 const PLAYSET = 3;
