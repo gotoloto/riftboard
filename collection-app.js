@@ -309,12 +309,21 @@ function buildVisibleRows() {
       )
     : null;
 
+  // Iterate the union of owned + (en-route, when its toggle is on) so cards
+  // you only have en-route still appear when the toggle includes them.
+  // Previously this loop only walked Object.keys(owned), which meant a
+  // card with 0 owned but N en-route was silently filtered out before the
+  // ownedFor check ever ran.
+  const allSlugs = new Set(Object.keys(owned));
+  if (includeEnRoute) {
+    for (const s of Object.keys(enRoute)) allSlugs.add(s);
+  }
   const rows = [];
-  for (const slug of Object.keys(owned)) {
+  for (const slug of allSlugs) {
     const c = catalog[slug];
     if (!c) continue; // unknown slug — skip rather than guess
     const ownedQty = ownedFor(slug);
-    if (ownedQty <= 0) continue; // 'collection' = only what you own
+    if (ownedQty <= 0) continue; // 'collection' = only what you own (incl. en-route if toggled)
     const missing = missingFor(slug);
 
     if (searchLc && !c.name.toLowerCase().includes(searchLc)) continue;
@@ -495,7 +504,11 @@ function renderTable() {
     emptyEl.hidden = true;
     tbodyEl.innerHTML = rows.map(renderRow).join("");
   }
-  const ownedCount = Object.keys(owned).filter((s) => ownedFor(s) > 0).length;
+  // Same union as buildVisibleRows for the 'of N' denominator — otherwise
+  // en-route-only cards would appear in the table but not in the count.
+  const denom = new Set(Object.keys(owned));
+  if (includeEnRoute) for (const s of Object.keys(enRoute)) denom.add(s);
+  const ownedCount = [...denom].filter((s) => ownedFor(s) > 0).length;
   rowCountEl.textContent = `Showing ${rows.length.toLocaleString()} of ${ownedCount.toLocaleString()} owned card${
     ownedCount === 1 ? "" : "s"
   }`;
