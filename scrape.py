@@ -919,46 +919,71 @@ def fetch_card_catalog(slugs=None) -> dict:
             continue  # Overnumbered-only / alt-art-only — drop per user spec.
         c = canon[0]
         # The detail page lists "Rarity" twice: once for the currently-displayed
-        # printing (which is "showcase" for cards whose default view is the
-        # alt-art) and once for the canonical card. Skip showcase so we land on
-        # the underlying tier (rare/uncommon/etc).
+        # printing and once for the canonical card. Showcase entries indicate
+        # alt-art premium printings — never what a user actually buys for play.
         rarities = fields.get("rarity") or []
         non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
         rarity = (non_showcase or rarities or [""])[0].lower()
-        # If the main page only carries showcase entries (e.g. Irelia, Fervent
-        # — every default-rendered field is showcase), the standard printing
-        # lives on a variant URL like /cards/details-<slug>/<id>. Walk those
-        # until we find a non-showcase rarity, since showcase prints are
-        # always optional alt-art and a regular-rarity copy exists.
-        #
-        # IMPORTANT: when we fall through to a variant for rarity, we ALSO
-        # use that variant's page for price extraction. The main page's
-        # price is the showcase/alt-art premium, which is much higher than
-        # the standard printing's price — and the standard printing is what
-        # users actually buy when 'completing' a deck.
-        price_html = page_html
-        if rarity == "showcase":
-            variant_urls = []
-            for a in soup.find_all("a", href=True):
-                vm = re.match(
-                    r"^/cards/" + re.escape(slug) + r"/\d+$",
-                    a["href"],
-                )
-                if vm and a["href"] not in variant_urls:
-                    variant_urls.append(a["href"])
-            for vurl in variant_urls:
-                try:
-                    vhtml = fetch(urljoin(BASE, vurl))
-                except Exception:
-                    continue
-                vfields, _ = parse_card_detail(vhtml)
-                vrar = vfields.get("rarity") or []
-                vnon = [r for r in vrar if (r or "").lower() != "showcase"]
-                if vnon:
-                    rarity = vnon[0].lower()
-                    price_html = vhtml
-                    break
+
+        # Build a list of every printing URL: the main URL plus all variant
+        # links of the form /cards/<slug>/<N>. Then pick the cheapest one
+        # whose own rarity list contains NO 'showcase' entry. This handles,
+        # uniformly:
+        #   - Showcase variants (alt-art, often 10-1000x the standard).
+        #   - Holographic/foil variants (sometimes higher than standard,
+        #     sometimes lower depending on print runs).
+        #   - Cards where the main URL happens to default to a premium
+        #     printing (e.g. Kai'sa, Daughter of the Void — main shows the
+        #     showcase chase at $2331, but /186 is the $0.31 standard).
+        # By taking the minimum non-showcase price, we always converge on
+        # the cheapest playable copy the user could actually buy.
+        variant_urls = []
+        for a in soup.find_all("a", href=True):
+            vm = re.match(
+                r"^/cards/" + re.escape(slug) + r"/\d+$",
+                a["href"],
+            )
+            if vm and a["href"] not in variant_urls:
+                variant_urls.append(a["href"])
+        # Riftdecks' rarity list has *two* entries per page: position 0 is
+        # the rarity of the currently-DISPLAYED printing, position 1 is some
+        # canonical-card metadata that's identical across all variants of
+        # the same slug. So to decide whether a page is showing a showcase
+        # printing we look only at the first entry. Position 1 is noise for
+        # this decision.
+        def displayed_rarity(rar_list):
+            return (rar_list[0] or "").lower() if rar_list else ""
+
+        # Candidate set: each entry is (price, html, rarity_list, source).
+        candidates = []
+        if displayed_rarity(rarities) != "showcase":
+            p = extract_card_price(page_html)
+            if p is not None:
+                candidates.append((p, page_html, rarities, "main"))
+        for vurl in variant_urls:
+            try:
+                vhtml = fetch(urljoin(BASE, vurl))
+            except Exception:
+                continue
+            vfields, _ = parse_card_detail(vhtml)
+            vrar = vfields.get("rarity") or []
+            if displayed_rarity(vrar) == "showcase":
                 time.sleep(0.15)
+                continue
+            p = extract_card_price(vhtml)
+            if p is not None:
+                candidates.append((p, vhtml, vrar, vurl))
+            time.sleep(0.15)
+        # Choose the cheapest non-showcase candidate. If the main page rarity
+        # was showcase-only, also adopt rarity from the winning variant.
+        price = None
+        if candidates:
+            candidates.sort(key=lambda x: x[0])
+            price, _winner_html, winner_rar, _src = candidates[0]
+            if rarity == "showcase":
+                winner_non = [r for r in winner_rar if (r or "").lower() != "showcase"]
+                if winner_non:
+                    rarity = winner_non[0].lower()
         out[slug] = {
             "slug": slug,
             "name": (fields.get("name") or [slug])[0],
@@ -971,7 +996,11 @@ def fetch_card_catalog(slugs=None) -> dict:
             "set_max": c["setmax"],
             "image_url": urljoin(BASE, c["src"].replace("//", "/")),
             "url": url,
-            "price": extract_card_price(price_html),
+            "price": price,
+            # Number of distinct printing URLs (main + variants) — useful for
+            # spotting cards with foil/showcase/holo variants so future runs
+            # can target multi-printing slugs without re-discovering them.
+            "printing_count": 1 + len(variant_urls),
         }
         if i % 25 == 0:
             print(f"    {i}/{len(slugs)} (kept {len(out)}, skipped {skipped})")
