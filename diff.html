@@ -18,9 +18,10 @@
     <p class="muted note">
       Paste any <a href="https://riftdecks.com/" target="_blank" rel="noopener">riftdecks.com</a>
       tournament-deck URL. We look it up in our local cache (5,000+ decks
-      across 40 legends) and compute what's missing from your collection.
-      Distance is rarity-weighted (common 1 · uncommon 2.333 · rare 3.5 ·
-      epic 28 · showcase 28).
+      across 40 legends) and compute what's missing from your collection
+      plus the dollar cost to complete it. Per-row cost is the missing
+      qty × TCGplayer market price cached on the card; cards without a
+      cached price fall back to a rarity-based estimate (shown in muted text).
     </p>
   </header>
 
@@ -51,7 +52,7 @@
             <th class="num">Need</th>
             <th class="num">Own</th>
             <th class="num">Missing</th>
-            <th class="num">Pts</th>
+            <th class="num" title="Missing × TCGplayer market price (cached prices from cards-catalog.js; rarity-estimate fallback shown in muted text)">Cost</th>
           </tr>
         </thead>
         <tbody></tbody>

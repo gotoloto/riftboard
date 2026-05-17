@@ -1,5 +1,29 @@
 "use strict";
 
+// Fallback prices (USD) when the catalog has no TCGplayer market price for
+// a slug — mirrors closeness-app.js. Lets brand-new uncatalogued cards
+// still contribute a sensible dollar value to the missing-cost total.
+const RARITY_FALLBACK_PRICE = {
+  common: 0.25,
+  uncommon: 0.75,
+  rare: 4,
+  epic: 30,
+  showcase: 30,
+};
+
+function priceFor(slug, rarity) {
+  const p = (catalog[slug] || {}).price;
+  if (typeof p === "number" && p > 0) return { dollars: p, source: "catalog" };
+  const fb = RARITY_FALLBACK_PRICE[(rarity || "").toLowerCase()] ?? 1;
+  return { dollars: fb, source: "fallback" };
+}
+
+function fmtUSD(n) {
+  if (n >= 100) return "$" + n.toFixed(0);
+  if (n >= 10) return "$" + n.toFixed(1);
+  return "$" + n.toFixed(2);
+}
+
 const RARITY_WEIGHT = {
   common: 1,
   uncommon: 2.333,
@@ -121,7 +145,9 @@ function compute(key, d) {
 
   const rows = [];
   let points = 0;
+  let totalCost = 0;
   let totalMissing = 0;
+  let unpricedCopies = 0;
   const missingByRarity = {};
   for (const [slug, n] of need) {
     const have = ownedFor(slug);
@@ -131,8 +157,12 @@ function compute(key, d) {
     const rar = (meta.rarity || "").toLowerCase();
     const w = RARITY_WEIGHT[rar] ?? 1;
     const pts = miss * w;
+    const { dollars: unitPrice, source: priceSource } = priceFor(slug, rar);
+    const lineCost = miss * unitPrice;
     points += pts;
+    totalCost += lineCost;
     totalMissing += miss;
+    if (priceSource === "fallback") unpricedCopies += miss;
     missingByRarity[rar || "?"] = (missingByRarity[rar || "?"] || 0) + miss;
     rows.push({
       slug,
@@ -146,15 +176,21 @@ function compute(key, d) {
       have,
       missing: miss,
       pts,
+      unitPrice,
+      priceSource,
+      lineCost,
     });
   }
+  // Sort by line cost descending — biggest dollar items at the top, so
+  // the user can decide what to prioritize buying. Ties: most missing
+  // copies first, then name.
   rows.sort(
     (a, b) =>
-      b.pts - a.pts ||
+      b.lineCost - a.lineCost ||
       b.missing - a.missing ||
       a.name.localeCompare(b.name)
   );
-  return { rows, points, totalMissing, missingByRarity };
+  return { rows, points, totalCost, totalMissing, missingByRarity, unpricedCopies };
 }
 
 function rarityChips(byRar) {
@@ -193,6 +229,11 @@ function renderRow(r) {
   const typeTag = r.type
     ? `<span class="tag" style="text-transform:capitalize">${escapeHtml(r.type)}</span>`
     : "";
+  const costTitle =
+    r.priceSource === "fallback"
+      ? `Rarity-based estimate (no TCGplayer price cached) · ${fmtUSD(r.unitPrice)} × ${r.missing}`
+      : `TCGplayer market · ${fmtUSD(r.unitPrice)} × ${r.missing}`;
+  const costCls = r.priceSource === "fallback" ? "num cost muted" : "num cost";
   return `
     <tr>
       <td>${link}</td>
@@ -201,7 +242,7 @@ function renderRow(r) {
       <td class="num">${r.need}</td>
       <td class="num">${r.have}</td>
       <td class="num missing">${r.missing}</td>
-      <td class="num">${r.pts.toFixed(1)}</td>
+      <td class="${costCls}" title="${escapeHtml(costTitle)}">${fmtUSD(r.lineCost)}</td>
     </tr>`;
 }
 
@@ -225,17 +266,20 @@ function runDiff() {
     return;
   }
   const { key, deck } = hit;
-  const { rows, points, totalMissing, missingByRarity } = compute(key, deck);
+  const { rows, totalCost, totalMissing, missingByRarity, unpricedCopies } = compute(key, deck);
   renderInfo(key, deck);
   if (rows.length === 0) {
     tbody.innerHTML = "";
     emptyEl.hidden = false;
     emptyEl.innerHTML = `<strong>You can build this deck.</strong> Nothing missing.`;
-    summaryEl.innerHTML = `0 missing · 0.0 distance pts`;
+    summaryEl.innerHTML = `0 missing · $0`;
   } else {
     emptyEl.hidden = true;
     tbody.innerHTML = rows.map(renderRow).join("");
-    summaryEl.innerHTML = `${totalMissing} missing copies across ${rows.length} cards · ${points.toFixed(1)} distance pts · ${rarityChips(missingByRarity)}`;
+    const estTag = unpricedCopies > 0
+      ? ` <span class="muted" title="${unpricedCopies} missing copy/ies have no TCGplayer price cached; rarity fallback used">(~${unpricedCopies} est.)</span>`
+      : "";
+    summaryEl.innerHTML = `${totalMissing} missing copies across ${rows.length} cards · <strong>${fmtUSD(totalCost)}</strong> to complete${estTag} · ${rarityChips(missingByRarity)}`;
   }
   resultEl.hidden = false;
 }
