@@ -371,6 +371,59 @@ td.missing-pos {
   font-weight: 600;
 }
 
+/* The motto banner — top-of-page reminder that dashboards send you to hell.
+   Inlined on index.html. Minimize state persists via localStorage. */
+.motto {
+  position: relative;
+  max-width: 760px;
+  margin: 12px auto 12px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0b0b;
+  line-height: 0;
+}
+.motto[hidden] { display: none; }
+.motto-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+}
+.motto-toggle {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 2;
+}
+.motto-toggle:hover { background: rgba(0, 0, 0, 0.75); }
+.motto-show {
+  display: inline-flex;
+  align-items: center;
+  margin: 8px 0 12px;
+  padding: 2px 10px;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--row);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  font-style: italic;
+}
+.motto-show:hover { color: var(--fg); }
+.motto-show[hidden] { display: none; }
+
 .bar {
   display: inline-block;
   width: 60px;

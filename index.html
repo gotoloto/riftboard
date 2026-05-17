@@ -7,6 +7,35 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <aside id="motto" class="motto" aria-label="Site motto">
+    <button type="button" id="motto-min" class="motto-toggle" title="Minimize" aria-label="Minimize motto">−</button>
+    <img src="datadriven.png" alt="If you have ever made a 'data-driven' decision after looking at a 'dashboard' you are going to hell — @donald.boat" class="motto-img" />
+  </aside>
+  <button type="button" id="motto-show" class="motto-show" hidden aria-label="Show motto">▾ motto</button>
+  <script>
+    // Persistent motto-minimize state. Lightweight enough to inline.
+    (function () {
+      const motto = document.getElementById("motto");
+      const show = document.getElementById("motto-show");
+      const KEY = "motto:minimized";
+      let minimized = false;
+      try { minimized = JSON.parse(localStorage.getItem(KEY) || "false"); } catch (_) {}
+      function apply(m) {
+        motto.hidden = m;
+        show.hidden = !m;
+      }
+      apply(minimized);
+      document.getElementById("motto-min").addEventListener("click", () => {
+        try { localStorage.setItem(KEY, "true"); } catch (_) {}
+        apply(true);
+      });
+      show.addEventListener("click", () => {
+        try { localStorage.setItem(KEY, "false"); } catch (_) {}
+        apply(false);
+      });
+    })();
+  </script>
+
   <header>
     <div class="header-row">
       <h1 id="archetype-title">Loading…</h1>
