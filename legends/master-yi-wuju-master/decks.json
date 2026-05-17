@@ -1,8 +1,8 @@
 {
   "archetype": "Master Yi, Wuju Master",
   "url": "https://riftdecks.com/legends/constructed/master-yi-wuju-master?metagame_id=3",
-  "scraped_at": "2026-05-17T04:58:34.460981Z",
-  "deck_count": 251,
+  "scraped_at": "2026-05-17T15:36:57.863697Z",
+  "deck_count": 252,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-j-150461",
@@ -61537,6 +61537,264 @@
       "players": 24,
       "finish_pct": 16.7,
       "date": "2026-04-03"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-yds-149957",
+      "title": "YDS by AllenF | riftDecks.com",
+      "cards": [
+        {
+          "name": "Master Yi, Wuju Master",
+          "slug": "details-master-yi-wuju-master",
+          "url": "https://riftdecks.com/cards/details-master-yi-wuju-master",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Master Yi, Tempered",
+          "slug": "details-master-yi-tempered",
+          "url": "https://riftdecks.com/cards/details-master-yi-tempered",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Gemhand Hunter",
+          "slug": "details-gemhand-hunter",
+          "url": "https://riftdecks.com/cards/details-gemhand-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Wuju Apprentice",
+          "slug": "details-wuju-apprentice",
+          "url": "https://riftdecks.com/cards/details-wuju-apprentice",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Herald of Spring",
+          "slug": "details-herald-of-spring",
+          "url": "https://riftdecks.com/cards/details-herald-of-spring",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Voracious Gromp",
+          "slug": "details-voracious-gromp",
+          "url": "https://riftdecks.com/cards/details-voracious-gromp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Whiteflame Protector",
+          "slug": "details-whiteflame-protector",
+          "url": "https://riftdecks.com/cards/details-whiteflame-protector",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Master Yi, Unstoppable",
+          "slug": "details-master-yi-unstoppable",
+          "url": "https://riftdecks.com/cards/details-master-yi-unstoppable",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Hunter's Machete",
+          "slug": "details-hunters-machete",
+          "url": "https://riftdecks.com/cards/details-hunters-machete",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Combat Experience",
+          "slug": "details-combat-experience",
+          "url": "https://riftdecks.com/cards/details-combat-experience",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Punch First",
+          "slug": "details-punch-first",
+          "url": "https://riftdecks.com/cards/details-punch-first",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grim Resolve",
+          "slug": "details-grim-resolve",
+          "url": "https://riftdecks.com/cards/details-grim-resolve",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Alpha Strike",
+          "slug": "details-alpha-strike",
+          "url": "https://riftdecks.com/cards/details-alpha-strike",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Concentrate",
+          "slug": "details-concentrate",
+          "url": "https://riftdecks.com/cards/details-concentrate",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gardens of Becoming",
+          "slug": "details-gardens-of-becoming",
+          "url": "https://riftdecks.com/cards/details-gardens-of-becoming",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Reckoner's Arena",
+          "slug": "details-reckoners-arena",
+          "url": "https://riftdecks.com/cards/details-reckoners-arena",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Body Rune",
+          "slug": "details-body-rune",
+          "url": "https://riftdecks.com/cards/details-body-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Sabotage",
+          "slug": "details-sabotage",
+          "url": "https://riftdecks.com/cards/details-sabotage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unyielding Spirit",
+          "slug": "details-unyielding-spirit",
+          "url": "https://riftdecks.com/cards/details-unyielding-spirit",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Challenge",
+          "slug": "details-challenge",
+          "url": "https://riftdecks.com/cards/details-challenge",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ruin Runner",
+          "slug": "details-ruin-runner",
+          "url": "https://riftdecks.com/cards/details-ruin-runner",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 40,
+      "finish_pct": 80.0,
+      "date": "2026-05-16"
     }
   ],
   "cards_meta": {

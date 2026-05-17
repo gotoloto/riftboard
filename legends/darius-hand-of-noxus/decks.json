@@ -1,8 +1,8 @@
 {
   "archetype": "Darius, Hand of Noxus",
   "url": "https://riftdecks.com/legends/constructed/darius-hand-of-noxus?metagame_id=3",
-  "scraped_at": "2026-05-17T04:05:21.095266Z",
-  "deck_count": 34,
+  "scraped_at": "2026-05-17T15:30:55.979842Z",
+  "deck_count": 35,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-luo-ke-wang-guo-shi-jie-150340",
@@ -8095,6 +8095,240 @@
       "players": 29,
       "finish_pct": 100.0,
       "date": "2026-04-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-darius-hand-of-noxus-148917",
+      "title": "Darius, Hand of Noxus by HelpWаntedNeeded | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Destructive",
+          "slug": "details-vi-destructive",
+          "url": "https://riftdecks.com/cards/details-vi-destructive",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rek'Sai, Breacher",
+          "slug": "details-reksai-breacher",
+          "url": "https://riftdecks.com/cards/details-reksai-breacher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Undying Legion",
+          "slug": "details-undying-legion",
+          "url": "https://riftdecks.com/cards/details-undying-legion",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Captain",
+          "slug": "details-vanguard-captain",
+          "url": "https://riftdecks.com/cards/details-vanguard-captain",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Xin Zhao, Vigilant",
+          "slug": "details-xin-zhao-vigilant",
+          "url": "https://riftdecks.com/cards/details-xin-zhao-vigilant",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Glasc Mixologist",
+          "slug": "details-glasc-mixologist",
+          "url": "https://riftdecks.com/cards/details-glasc-mixologist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Harnessed Dragon",
+          "slug": "details-harnessed-dragon",
+          "url": "https://riftdecks.com/cards/details-harnessed-dragon",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Rage",
+          "slug": "details-seal-of-rage",
+          "url": "https://riftdecks.com/cards/details-seal-of-rage",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Unity",
+          "slug": "details-seal-of-unity",
+          "url": "https://riftdecks.com/cards/details-seal-of-unity",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Baited Hook",
+          "slug": "details-baited-hook",
+          "url": "https://riftdecks.com/cards/details-baited-hook",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Grand Plaza",
+          "slug": "details-the-grand-plaza",
+          "url": "https://riftdecks.com/cards/details-the-grand-plaza",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Smite",
+          "slug": "details-smite",
+          "url": "https://riftdecks.com/cards/details-smite",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Noxian Guillotine",
+          "slug": "details-noxian-guillotine",
+          "url": "https://riftdecks.com/cards/details-noxian-guillotine",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
     }
   ],
   "cards_meta": {
@@ -9436,6 +9670,18 @@
       "rarity": "rare",
       "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-170-219_full.png",
       "price": 0.18
+    },
+    "details-the-grand-plaza": {
+      "name": "The Grand Plaza",
+      "url": "https://riftdecks.com/cards/details-the-grand-plaza",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-293-298_full.png",
+      "price": 0.14
     }
   }
 }
