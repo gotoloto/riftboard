@@ -548,7 +548,7 @@ function renderRepresentativeDeck() {
     deckTitle(deck)
   )}</strong> · ${finishStr} · ${dateStr} · <a href="${
     deck.u
-  }" target="_blank" rel="noopener">view on riftdecks ↗</a> <span class="muted">(snapshot — author may have edited since)</span>`;
+  }" target="_blank" rel="noopener">view on riftdecks ↗</a> <span class="muted" title="Riftdecks' backend serves different deck content depending on the visitor's source IP (see CLAUDE.md). What we cached and what you see live can be entirely different decks, not just edits.">(snapshot — your live view may differ)</span>`;
 
   medianContextEl.textContent = `· ${boardLabel} · ${total} cards (closest real deck to median split)`;
 

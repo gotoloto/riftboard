@@ -54,11 +54,30 @@ Canonical URL form: `https://riftdecks.com/legends/constructed/<slug>?metagame_i
 - **TCGplayer name fixes** in `tcgplayer-fixes.js`: cards where the default
   comma→dash rewrite is wrong (e.g. `Khazix, Voidreaver` → `Kha'zix - Voidreaver`,
   `Allay, Eager Admirer` keeps its comma). Add new entries there as found.
-- **Decks data drifts**: empirically, riftdecks rewrites tournament decks
-  over time (every cached deck mismatched live after 24 hours during one
-  audit). The user is sceptical that this is real (suspects a parser bug),
-  but multiple controlled re-scrapes confirm it. Don't rebuild the parser —
-  it's correct; just re-scrape periodically.
+- **Decks "drift" is actually IP-affinity poisoning** (diagnosed
+  2026-05-17). Riftdecks' load balancer pins each client to one of
+  several backend application servers via a stable hash of the source
+  IP. Some backends have diverged data (stale snapshots, partial
+  replication, missed cache invalidations — they don't share their
+  ops with us). Travis' home Comcast IP hash-pins to a backend whose
+  Lillia/Diana/etc. decks are wrong-but-plausible (real Riftbound
+  decks under the wrong URLs). His iPhone cellular IP hash-pins to a
+  clean backend. Same Cloudflare POP (SJC) and same `cf-cache-status:
+  DYNAMIC` (no edge caching) for both — Cloudflare is just passing
+  through. Verified independently in 2026-05-17 reddit thread
+  (`r/riftboundtcg`): user "Jahikoi" on a different ISP saw the same
+  correct deck the iPhone saw, with Travis' OP screenshot showing the
+  phantom. Earlier theories that "riftdecks rewrites decks over time"
+  (the 24-hour audit) and "authors edit decks after the fact" (the
+  representative-deck tooltip from May 10) were both wrong — those
+  symptoms came from sampling backend-A vs backend-B across runs, not
+  from any actual mutation over time.
+
+  **Practical**: scrape from a clean IP (hotspot, VPN exit, VPS). The
+  scraper is technically correct; the data source is non-deterministic
+  per source IP. A `--refresh` mode on scrape.py re-fetches every
+  cached deck URL so a single clean-IP session can repair the entire
+  cache.
 - **Set sizes** (for completeness checks): UNL 219, OGN 298, SFD 221, OGS 24.
   Catalog now covers all 763 canonical printings (overnumbered-only dropped).
 - **40 legends** currently cached. All on `?metagame_id=3`.
