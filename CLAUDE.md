@@ -79,6 +79,15 @@ Canonical URL form: `https://riftdecks.com/legends/constructed/<slug>?metagame_i
   per source IP. A `--refresh` mode on scrape.py re-fetches every
   cached deck URL so a single clean-IP session can repair the entire
   cache.
+
+  **Canary**: scrape.py runs `check_canary()` before every fetching
+  command. It pings deck 147957 and aborts the run if the response
+  contains the phantom 'Protector of Dreams' champion instead of the
+  expected 'Fae Fawn'. Prevents accidental cache poisoning if WARP/VPN
+  drops or if running from an unfamiliar network. Skip with env var
+  `RIFTBOUND_SKIP_CANARY=1` (only needed if deck 147957 itself has
+  been edited upstream — then re-tune CANARY_CLEAN_MARKER /
+  CANARY_POISON_MARKER in scrape.py).
 - **Set sizes** (for completeness checks): UNL 219, OGN 298, SFD 221, OGS 24.
   Catalog now covers all 763 canonical printings (overnumbered-only dropped).
 - **40 legends** currently cached. All on `?metagame_id=3`.

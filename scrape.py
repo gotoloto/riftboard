@@ -43,6 +43,69 @@ def fetch(url: str, retries: int = 3) -> str:
     raise RuntimeError(f"fetch failed for {url}: {last}")
 
 
+# --- IP-affinity poisoning canary --------------------------------------
+# Riftdecks' origin LB hash-pins clients to backends by source IP. Some
+# backends serve diverged data ("phantom" decks; see CLAUDE.md). The
+# canary fetches one known-good deck whose clean content we've verified
+# (Lillia 147957 → has Lillia, Fae Fawn as champion, NOT Lillia, Protector
+# of Dreams). If we see the phantom version, we're on the bad backend and
+# should abort before writing anything to the cache.
+#
+# If 147957 ever changes content (e.g. SantiSM edits the deck), bump
+# both strings below. Keep CANARY_POISONED accurate too — checking only
+# for the clean string isn't enough (a deck-not-found response would
+# also lack it).
+CANARY_URL = "https://riftdecks.com/riftbound-metagame/deck-lillia-bashful-bloom-147957"
+CANARY_CLEAN_MARKER = "Fae Fawn"
+CANARY_POISON_MARKER = "Protector of Dreams"
+
+
+def check_canary() -> None:
+    """Verify the source IP is hitting the good riftdecks backend before
+    starting a scrape. Aborts the process with a helpful message if we're
+    on the poisoned backend or if the canary URL is unreachable.
+
+    No-ops if env var RIFTBOUND_SKIP_CANARY is set (escape hatch for
+    debugging or when 147957 itself has been edited and the canary needs
+    re-tuning)."""
+    if os.environ.get("RIFTBOUND_SKIP_CANARY"):
+        print("  (canary skipped via RIFTBOUND_SKIP_CANARY)")
+        return
+    try:
+        html = fetch(CANARY_URL)
+    except Exception as e:
+        print(f"  ! canary fetch failed: {e}")
+        print("  Aborting to avoid corrupting the cache.")
+        sys.exit(2)
+    has_clean = CANARY_CLEAN_MARKER in html
+    has_poison = CANARY_POISON_MARKER in html
+    if has_clean and not has_poison:
+        return  # backend looks consistent with our reference, proceed
+    print()
+    print("=" * 70)
+    print(" ⚠  CANARY FAILED — source IP appears to be hitting riftdecks'")
+    print("    poisoned backend (Lillia 147957 returned wrong content).")
+    if has_poison:
+        print("    Saw the phantom 'Protector of Dreams' champion instead of the")
+        print("    expected 'Fae Fawn'.")
+    else:
+        print("    The canary deck no longer contains the expected 'Fae Fawn' marker.")
+        print("    Either the bad backend is serving something else now, or the deck")
+        print("    has been edited upstream and the canary needs updating.")
+    print()
+    print("    To restore a clean route:")
+    print("      • Enable Cloudflare WARP (1.1.1.1 app) on this device, OR")
+    print("      • Tether to your phone's mobile data, OR")
+    print("      • Connect via a VPN exit on a different network")
+    print("    then re-run.")
+    print()
+    print("    Bypass with RIFTBOUND_SKIP_CANARY=1 if 147957 itself has been edited")
+    print("    and you need to update the canary markers in scrape.py.")
+    print("    See CLAUDE.md → 'IP-affinity poisoning' for the full diagnosis.")
+    print("=" * 70)
+    sys.exit(2)
+
+
 RANK_TOP_RE = re.compile(r"Top\s*(\d+)", re.I)
 RANK_ORDINAL_RE = re.compile(r"^(\d+)(?:st|nd|rd|th)$", re.I)
 PLAYERS_RE = re.compile(r"(\d+)\s*Players", re.I)
@@ -1696,6 +1759,7 @@ if __name__ == "__main__":
         n = sum(len(v) for v in payload["rarities"].values())
         print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
     elif args and args[0] == "--catalog":
+        check_canary()
         catalog = fetch_card_catalog()
         save_catalog_json(catalog)
         save_catalog_js(catalog)
@@ -1704,6 +1768,7 @@ if __name__ == "__main__":
         # Incremental: fetch detail pages only for slugs referenced by some
         # legend's cards.json but missing from cards-catalog.json. Avoids
         # re-walking all ~770 cards when only a handful are new.
+        check_canary()
         existing = load_catalog()
         missing = find_uncatalogued_slugs()
         if not missing:
@@ -1765,6 +1830,7 @@ if __name__ == "__main__":
         for s, c in new:
             print(f"  + {s}: {c} (not cached — run `scrape.py {LEGENDS_INDEX_URL[:-len('/legends')]}/legends/constructed/{s}?metagame_id=3` to add)")
     elif args and args[0] == "--update":
+        check_canary()
         explicit_slugs = args[1:]
         if explicit_slugs:
             slugs = explicit_slugs
@@ -1810,6 +1876,7 @@ if __name__ == "__main__":
         # Used to repair the cache after scraping through a poisoned IP
         # (riftdecks' IP-affinity backend serves different content per IP).
         # See CLAUDE.md for context.
+        check_canary()
         explicit_slugs = args[1:]
         slugs = explicit_slugs if explicit_slugs else list_cached_slugs()
         print(f"Refreshing {len(slugs)} legend(s)…")
@@ -1843,6 +1910,7 @@ if __name__ == "__main__":
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )
     else:
+        check_canary()
         url = args[0] if args else DEFAULT_URL
         main(url)
         save_staples_js(build_staples())
