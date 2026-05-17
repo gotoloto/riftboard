@@ -27,6 +27,7 @@ All commands run from the repo with `.venv/bin/python3 scrape.py …`.
 |---|---|
 | `scrape.py <archetype-url>` | Full scrape for one legend. Writes `legends/<slug>/{decks.json, data.js}`. Per-card aggregated stats are computed in-memory from `decks.json` whenever needed. Auto-regenerates downstream artifacts (champions.js, staples.js, collection-template.xlsx, closeness-data.js, deck-lookup.js). |
 | `scrape.py --update [<slug>…]` | Incremental: pings `/legends` once, only walks the per-archetype listings whose deck counts changed. Fetches only new decks and new card metadata. |
+| `scrape.py --refresh [<slug>…]` | Re-fetches every cached deck URL for the given legends (default: all). Wholesale replaces deck contents — used to flush cache contamination from running `--update` through a poisoned IP. **Only run from a clean source IP** (hotspot / VPN / VPS). See "IP-affinity poisoning" note. |
 | `scrape.py --check` | Read-only freshness report. |
 | `scrape.py --catalog` | Re-scrape every card detail page (~770) for the canonical printing, rarity, image URL. Slow (~3 min). Writes `cards-catalog.json` + `cards-catalog.js`. |
 | `scrape.py --catalog-new` | Incremental: fetch detail pages only for slugs referenced by a legend's `decks.json` (via its `cards_meta` slug index) but missing from `cards-catalog.json`. Fast (seconds when 0–5 missing). Backfills after `--update` if new cards entered the meta. |

@@ -768,6 +768,138 @@ def update_archetype(slug: str) -> dict:
     }
 
 
+def refresh_archetype(slug: str) -> dict:
+    """Re-fetch every cached deck URL for this archetype, overwriting the
+    cached card contents. Useful when the data source served wrong content
+    earlier (e.g. riftdecks' IP-affinity backend bug) and we need to replace
+    the entire deck cache from a clean source IP. Listing metadata
+    (rank/players/date) is also refreshed; brand-new deck URLs picked up
+    while listing get fetched and appended like in update_archetype."""
+    out_dir = legend_dir(slug)
+    decks_path = os.path.join(out_dir, "decks.json")
+    raw = json.load(open(decks_path, encoding="utf-8"))
+    archetype_url = ensure_metagame_param(raw["url"])
+    raw["url"] = archetype_url
+
+    print(f"  listing {archetype_url}")
+    html = fetch(archetype_url)
+    deck_links, max_page, _, _, deck_meta = parse_listing(html)
+    sep = "&" if "?" in archetype_url else "?"
+    for p in range(2, max_page + 1):
+        try:
+            page_html = fetch(f"{archetype_url}{sep}page={p}")
+        except Exception as exc:
+            print(f"    ! page {p}: {exc}")
+            continue
+        more, _, _, _, more_meta = parse_listing(page_html)
+        for u in more:
+            if u not in deck_meta and u in more_meta:
+                deck_meta[u] = more_meta[u]
+            if u not in deck_links:
+                deck_links.append(u)
+        time.sleep(0.4)
+    print(f"  listed {len(deck_links)} decks across {max_page} pages")
+
+    # Re-fetch EVERY URL in the listing — both previously cached and new.
+    refreshed_decks = []
+    new_count = 0
+    failed = 0
+    cached_by_url = {d["url"]: d for d in raw["decks"]}
+    for i, durl in enumerate(deck_links, 1):
+        try:
+            page_html = fetch(durl)
+            d = parse_deck(page_html, durl)
+        except Exception as exc:
+            print(f"    ! deck {i}/{len(deck_links)}: {exc}")
+            failed += 1
+            continue
+        if not d:
+            failed += 1
+            continue
+        m = deck_meta.get(durl, {})
+        d["rank"] = m.get("rank")
+        d["players"] = m.get("players")
+        d["finish_pct"] = m.get("finish_pct")
+        d["date"] = m.get("date")
+        refreshed_decks.append(d)
+        if durl not in cached_by_url:
+            new_count += 1
+        if i % 25 == 0:
+            print(f"    deck {i}/{len(deck_links)} (new so far: {new_count}, failed: {failed})")
+        time.sleep(0.3)
+    # Replace decks wholesale with the freshly-fetched set. Anything that
+    # was in cache but isn't in the listing anymore (deleted upstream)
+    # naturally drops out — that's intentional for a refresh.
+    raw["decks"] = refreshed_decks
+    raw["deck_count"] = len(refreshed_decks)
+
+    # Rebuild cards_meta from the fresh deck contents.
+    fresh_slugs = {c["slug"] for d in refreshed_decks for c in d["cards"]}
+    cards_meta = raw.get("cards_meta") or {}
+    for slug2 in fresh_slugs:
+        if slug2 in cards_meta:
+            continue
+        # Find a card record to seed name/url/type
+        seed = next(
+            (c for d in refreshed_decks for c in d["cards"] if c["slug"] == slug2),
+            None,
+        )
+        if not seed:
+            continue
+        cards_meta[slug2] = {
+            "name": seed["name"],
+            "url": seed["url"],
+            "type": seed["type"],
+        }
+    # Drop slugs no longer referenced by any deck.
+    for slug2 in list(cards_meta.keys()):
+        if slug2 not in fresh_slugs:
+            cards_meta.pop(slug2, None)
+    raw["cards_meta"] = cards_meta
+
+    # Catalog-aware enrichment for any cards_meta entries lacking metadata
+    # (typical when a slug was newly added by this refresh).
+    catalog = load_catalog()
+    cached_hits = 0
+    fresh_fetches = 0
+    for slug2, info in cards_meta.items():
+        if info.get("rarity"):
+            continue  # already enriched
+        if enrich_from_catalog(info, catalog.get(slug2)):
+            cached_hits += 1
+            continue
+        try:
+            fields, image_url = parse_card_detail(fetch(info["url"]))
+        except Exception:
+            continue
+        info["domains"] = fields.get("domains", [])
+        cost_vals = fields.get("cost", [])
+        info["cost"] = cost_vals[0] if cost_vals else None
+        type_vals = fields.get("types", [])
+        if type_vals:
+            info["type"] = type_vals[0]
+        rarities = fields.get("rarity") or []
+        non_showcase = [r for r in rarities if (r or "").lower() != "showcase"]
+        info["rarity"] = (non_showcase or rarities or [None])[0]
+        info["image_url"] = image_url
+        fresh_fetches += 1
+        time.sleep(0.25)
+    if cached_hits or fresh_fetches:
+        print(f"    cards_meta enriched: {cached_hits} from catalog, {fresh_fetches} freshly fetched")
+
+    raw["scraped_at"] = datetime.utcnow().isoformat() + "Z"
+    aggregated = aggregate(raw)
+    apply_legend_archetype_label(raw, aggregated)
+    save_json(decks_path, raw)
+    save_data_js(os.path.join(out_dir, "data.js"), build_dashboard_payload(raw))
+    return {
+        "refreshed": len(refreshed_decks),
+        "new_decks": new_count,
+        "failed": failed,
+        "total_decks": raw["deck_count"],
+    }
+
+
 def build_staples(top_per_rarity: int = 40) -> dict:
     """Aggregate top cards by total decks_including across every cached
     legend, bucketed by rarity, excluding runes and battlefields. For each
@@ -1670,6 +1802,43 @@ if __name__ == "__main__":
             save_catalog_js(load_catalog())
         except Exception:
             pass
+        print(
+            "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
+        )
+    elif args and args[0] == "--refresh":
+        # Re-fetch every cached deck URL for the given legends (default: all).
+        # Used to repair the cache after scraping through a poisoned IP
+        # (riftdecks' IP-affinity backend serves different content per IP).
+        # See CLAUDE.md for context.
+        explicit_slugs = args[1:]
+        slugs = explicit_slugs if explicit_slugs else list_cached_slugs()
+        print(f"Refreshing {len(slugs)} legend(s)…")
+        totals = {"refreshed": 0, "new_decks": 0, "failed": 0}
+        for s in slugs:
+            print(f"=== {s} ===")
+            try:
+                stats = refresh_archetype(s)
+                print(f"  {stats}")
+                for k in totals:
+                    totals[k] += stats.get(k, 0)
+            except FileNotFoundError:
+                print(f"  ! legends/{s}/decks.json not found; skip")
+        rebuild_champions_index()
+        save_staples_js(build_staples())
+        build_collection_template()
+        build_closeness_data()
+        build_deck_lookup_data()
+        try:
+            save_catalog_js(load_catalog())
+        except Exception:
+            pass
+        print(
+            f"\nDone. Refreshed {totals['refreshed']} decks across {len(slugs)} legend(s)."
+        )
+        print(
+            f"  new decks discovered during refresh: {totals['new_decks']}"
+        )
+        print(f"  failed deck fetches: {totals['failed']}")
         print(
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )
