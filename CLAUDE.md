@@ -2,8 +2,9 @@
 
 A local-first dashboard summarising Riftbound (League of Legends TCG)
 tournament decks scraped from [riftdecks.com](https://riftdecks.com).
-Hosted statically at **https://gotoloto.github.io/riftbound-meta-dashboard/**.
-Repo: `gotoloto/riftbound-meta-dashboard` (working dir
+Hosted statically at **https://gotoloto.github.io/riftboard/** (renamed from
+the old `riftbound-meta-dashboard`; GitHub redirects the old URL).
+Repo: `gotoloto/riftboard` (working dir
 `/Users/travisschmauss/Desktop/vibe coding/riftbound`).
 
 ## Pages
