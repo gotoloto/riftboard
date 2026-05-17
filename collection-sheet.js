@@ -183,9 +183,8 @@
     const erCount = Object.keys(data.enroute).length;
     const lockSummary = LOCK_TABS
       .map((n) => {
-        const slugs = Object.keys(locks[n]);
         const copies = Object.values(locks[n]).reduce((a, b) => a + b, 0);
-        return `${n} ${copies}/${slugs.length}`;
+        return `${n} ${copies}`;
       })
       .join(" · ");
     updateStatus(
