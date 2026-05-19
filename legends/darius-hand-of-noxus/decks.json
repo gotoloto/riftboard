@@ -1,8 +1,8 @@
 {
   "archetype": "Darius, Hand of Noxus",
   "url": "https://riftdecks.com/legends/constructed/darius-hand-of-noxus?metagame_id=3",
-  "scraped_at": "2026-05-17T15:30:55.979842Z",
-  "deck_count": 35,
+  "scraped_at": "2026-05-19T03:54:24.852107Z",
+  "deck_count": 42,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-luo-ke-wang-guo-shi-jie-150340",
@@ -8329,6 +8329,1764 @@
       "players": 1405,
       "finish_pct": null,
       "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-yu-zhou-nuo-shou-153375",
+      "title": "宇宙诺手 by KLG.无名之辈 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Carrion Dredger",
+          "slug": "details-carrion-dredger",
+          "url": "https://riftdecks.com/cards/details-carrion-dredger",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pouty Poro",
+          "slug": "details-pouty-poro",
+          "url": "https://riftdecks.com/cards/details-pouty-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Black Rose Dignitary",
+          "slug": "details-black-rose-dignitary",
+          "url": "https://riftdecks.com/cards/details-black-rose-dignitary",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Undying Legion",
+          "slug": "details-undying-legion",
+          "url": "https://riftdecks.com/cards/details-undying-legion",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jhin, Murderous Artist",
+          "slug": "details-jhin-murderous-artist",
+          "url": "https://riftdecks.com/cards/details-jhin-murderous-artist",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blighted Battleaxe",
+          "slug": "details-blighted-battleaxe",
+          "url": "https://riftdecks.com/cards/details-blighted-battleaxe",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sacrifice",
+          "slug": "details-sacrifice",
+          "url": "https://riftdecks.com/cards/details-sacrifice",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Angle Shot",
+          "slug": "details-angle-shot",
+          "url": "https://riftdecks.com/cards/details-angle-shot",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rengar, Unseen",
+          "slug": "details-rengar-unseen",
+          "url": "https://riftdecks.com/cards/details-rengar-unseen",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 356,
+      "players": 640,
+      "finish_pct": 55.6,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-shang-gong-zhe-qi-shou-153226",
+      "title": "尚攻者弃守 by 茶壶 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Carrion Dredger",
+          "slug": "details-carrion-dredger",
+          "url": "https://riftdecks.com/cards/details-carrion-dredger",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Noxian Guillotine",
+          "slug": "details-noxian-guillotine",
+          "url": "https://riftdecks.com/cards/details-noxian-guillotine",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Divine Judgment",
+          "slug": "details-divine-judgment",
+          "url": "https://riftdecks.com/cards/details-divine-judgment",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Forge of the Future",
+          "slug": "details-forge-of-the-future",
+          "url": "https://riftdecks.com/cards/details-forge-of-the-future",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Piercing Light",
+          "slug": "details-piercing-light",
+          "url": "https://riftdecks.com/cards/details-piercing-light",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Divine Judgment",
+          "slug": "details-divine-judgment",
+          "url": "https://riftdecks.com/cards/details-divine-judgment",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 207,
+      "players": 640,
+      "finish_pct": 32.3,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-kai-fan-153171",
+      "title": "开饭！ by 几点开饭 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Soaring Scout",
+          "slug": "details-soaring-scout",
+          "url": "https://riftdecks.com/cards/details-soaring-scout",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Captain",
+          "slug": "details-vanguard-captain",
+          "url": "https://riftdecks.com/cards/details-vanguard-captain",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Long Sword",
+          "slug": "details-long-sword",
+          "url": "https://riftdecks.com/cards/details-long-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rally the Troops",
+          "slug": "details-rally-the-troops",
+          "url": "https://riftdecks.com/cards/details-rally-the-troops",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Vengeance",
+          "slug": "details-vengeance",
+          "url": "https://riftdecks.com/cards/details-vengeance",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Against the Odds",
+          "slug": "details-against-the-odds",
+          "url": "https://riftdecks.com/cards/details-against-the-odds",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 152,
+      "players": 640,
+      "finish_pct": 23.8,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-jin-yi-nuo-152447",
+      "title": "津一诺 by 灵花祭.ECG.Chаnce | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jhin, Murderous Artist",
+          "slug": "details-jhin-murderous-artist",
+          "url": "https://riftdecks.com/cards/details-jhin-murderous-artist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Unseen",
+          "slug": "details-rengar-unseen",
+          "url": "https://riftdecks.com/cards/details-rengar-unseen",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Long Sword",
+          "slug": "details-long-sword",
+          "url": "https://riftdecks.com/cards/details-long-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blood Rush",
+          "slug": "details-blood-rush",
+          "url": "https://riftdecks.com/cards/details-blood-rush",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Smite",
+          "slug": "details-smite",
+          "url": "https://riftdecks.com/cards/details-smite",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 31,
+      "players": 85,
+      "finish_pct": 36.5,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-darius-hand-of-noxus-148564",
+      "title": "Darius, Hand of Noxus by Dimmers | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Unsung Hero",
+          "slug": "details-unsung-hero",
+          "url": "https://riftdecks.com/cards/details-unsung-hero",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Galio, Indefatigable",
+          "slug": "details-galio-indefatigable",
+          "url": "https://riftdecks.com/cards/details-galio-indefatigable",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Captain",
+          "slug": "details-vanguard-captain",
+          "url": "https://riftdecks.com/cards/details-vanguard-captain",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Xin Zhao, Vigilant",
+          "slug": "details-xin-zhao-vigilant",
+          "url": "https://riftdecks.com/cards/details-xin-zhao-vigilant",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Glasc Mixologist",
+          "slug": "details-glasc-mixologist",
+          "url": "https://riftdecks.com/cards/details-glasc-mixologist",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Harnessed Dragon",
+          "slug": "details-harnessed-dragon",
+          "url": "https://riftdecks.com/cards/details-harnessed-dragon",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Unity",
+          "slug": "details-seal-of-unity",
+          "url": "https://riftdecks.com/cards/details-seal-of-unity",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Baited Hook",
+          "slug": "details-baited-hook",
+          "url": "https://riftdecks.com/cards/details-baited-hook",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "B.F. Sword",
+          "slug": "details-b-f-sword",
+          "url": "https://riftdecks.com/cards/details-b-f-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Imperial Decree",
+          "slug": "details-imperial-decree",
+          "url": "https://riftdecks.com/cards/details-imperial-decree",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-darius-hand-of-noxus-148312",
+      "title": "Darius, Hand of Noxus by Rаkiiii | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian Gloryseeker",
+          "slug": "details-trifarian-gloryseeker",
+          "url": "https://riftdecks.com/cards/details-trifarian-gloryseeker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Captain",
+          "slug": "details-vanguard-captain",
+          "url": "https://riftdecks.com/cards/details-vanguard-captain",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Xin Zhao, Vigilant",
+          "slug": "details-xin-zhao-vigilant",
+          "url": "https://riftdecks.com/cards/details-xin-zhao-vigilant",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Arena Kingpin",
+          "slug": "details-arena-kingpin",
+          "url": "https://riftdecks.com/cards/details-arena-kingpin",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Draven, Showboat",
+          "slug": "details-draven-showboat",
+          "url": "https://riftdecks.com/cards/details-draven-showboat",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Unity",
+          "slug": "details-seal-of-unity",
+          "url": "https://riftdecks.com/cards/details-seal-of-unity",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Baited Hook",
+          "slug": "details-baited-hook",
+          "url": "https://riftdecks.com/cards/details-baited-hook",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Veiled Temple",
+          "slug": "details-veiled-temple",
+          "url": "https://riftdecks.com/cards/details-veiled-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 3,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 9,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Draven, Showboat",
+          "slug": "details-draven-showboat",
+          "url": "https://riftdecks.com/cards/details-draven-showboat",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Imperial Decree",
+          "slug": "details-imperial-decree",
+          "url": "https://riftdecks.com/cards/details-imperial-decree",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-darius-hand-of-noxus-148086",
+      "title": "Darius, Hand of Noxus by Uze | riftDecks.com",
+      "cards": [
+        {
+          "name": "Darius, Hand of Noxus",
+          "slug": "details-darius-hand-of-noxus",
+          "url": "https://riftdecks.com/cards/details-darius-hand-of-noxus",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Pouty Poro",
+          "slug": "details-pouty-poro",
+          "url": "https://riftdecks.com/cards/details-pouty-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian Gloryseeker",
+          "slug": "details-trifarian-gloryseeker",
+          "url": "https://riftdecks.com/cards/details-trifarian-gloryseeker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Captain",
+          "slug": "details-vanguard-captain",
+          "url": "https://riftdecks.com/cards/details-vanguard-captain",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Xin Zhao, Vigilant",
+          "slug": "details-xin-zhao-vigilant",
+          "url": "https://riftdecks.com/cards/details-xin-zhao-vigilant",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Spectral Matron",
+          "slug": "details-spectral-matron",
+          "url": "https://riftdecks.com/cards/details-spectral-matron",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Unity",
+          "slug": "details-seal-of-unity",
+          "url": "https://riftdecks.com/cards/details-seal-of-unity",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Baited Hook",
+          "slug": "details-baited-hook",
+          "url": "https://riftdecks.com/cards/details-baited-hook",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rally the Troops",
+          "slug": "details-rally-the-troops",
+          "url": "https://riftdecks.com/cards/details-rally-the-troops",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Monastery of Hirana",
+          "slug": "details-monastery-of-hirana",
+          "url": "https://riftdecks.com/cards/details-monastery-of-hirana",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Seat of Power",
+          "slug": "details-seat-of-power",
+          "url": "https://riftdecks.com/cards/details-seat-of-power",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
     }
   ],
   "cards_meta": {
@@ -9682,6 +11440,42 @@
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-293-298_full.png",
       "price": 0.14
+    },
+    "details-angle-shot": {
+      "name": "Angle Shot",
+      "url": "https://riftdecks.com/cards/details-angle-shot",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-011-221_full.png",
+      "price": 0.1
+    },
+    "details-forge-of-the-future": {
+      "name": "Forge of the Future",
+      "url": "https://riftdecks.com/cards/details-forge-of-the-future",
+      "type": "gear",
+      "domains": [
+        "order"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-212-298_full.png",
+      "price": 0.1
+    },
+    "details-vengeance": {
+      "name": "Vengeance",
+      "url": "https://riftdecks.com/cards/details-vengeance",
+      "type": "spell",
+      "domains": [
+        "order"
+      ],
+      "cost": "4CC",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-229-298_full.png",
+      "price": 0.25
     }
   }
 }

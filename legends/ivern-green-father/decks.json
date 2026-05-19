@@ -1,8 +1,8 @@
 {
   "archetype": "Ivern, Green Father",
   "url": "https://riftdecks.com/legends/constructed/ivern-green-father?metagame_id=3",
-  "scraped_at": "2026-05-17T15:33:30.642198Z",
-  "deck_count": 75,
+  "scraped_at": "2026-05-19T04:11:23.588343Z",
+  "deck_count": 88,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-ivern-green-father-148275",
@@ -18313,6 +18313,3208 @@
       "players": 1405,
       "finish_pct": null,
       "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-cui-cui-de-shen-153635",
+      "title": "脆脆的神 by XXT.em | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Yuumi, Magical Cat",
+          "slug": "details-yuumi-magical-cat",
+          "url": "https://riftdecks.com/cards/details-yuumi-magical-cat",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Allay, Eager Admirer",
+          "slug": "details-allay-eager-admirer",
+          "url": "https://riftdecks.com/cards/details-allay-eager-admirer",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Janna, Savior",
+          "slug": "details-janna-savior",
+          "url": "https://riftdecks.com/cards/details-janna-savior",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 616,
+      "players": 640,
+      "finish_pct": 96.2,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-zui-ai-chun-se-153630",
+      "title": "最爱春色！ by 幽默空间·不吃糖·黑炭白茶 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Targon's Peak",
+          "slug": "details-targons-peak",
+          "url": "https://riftdecks.com/cards/details-targons-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 611,
+      "players": 640,
+      "finish_pct": 95.5,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-a-mao-a-gou-153628",
+      "title": "阿猫阿狗 by 凤尾菊·先见之明 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Undying Loyalty",
+          "slug": "details-undying-loyalty",
+          "url": "https://riftdecks.com/cards/details-undying-loyalty",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 609,
+      "players": 640,
+      "finish_pct": 95.2,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-cui-shen-153390",
+      "title": "翠神 by 阿黎 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Starhound",
+          "slug": "details-starhound",
+          "url": "https://riftdecks.com/cards/details-starhound",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 371,
+      "players": 640,
+      "finish_pct": 58.0,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-an-fei-pai-guaibo3-153364",
+      "title": "按费拍怪bo3 by Berry | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Daring Poro",
+          "slug": "details-daring-poro",
+          "url": "https://riftdecks.com/cards/details-daring-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back-Alley Bar",
+          "slug": "details-back-alley-bar",
+          "url": "https://riftdecks.com/cards/details-back-alley-bar",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Frozen Fortress",
+          "slug": "details-frozen-fortress",
+          "url": "https://riftdecks.com/cards/details-frozen-fortress",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sigil of the Storm",
+          "slug": "details-sigil-of-the-storm",
+          "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 345,
+      "players": 640,
+      "finish_pct": 53.9,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-yuan-shen-qi-dong-153307",
+      "title": "元神启动 by 华蓝_阿苑 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Daring Poro",
+          "slug": "details-daring-poro",
+          "url": "https://riftdecks.com/cards/details-daring-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 288,
+      "players": 640,
+      "finish_pct": 45.0,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ai-weng-153184",
+      "title": "艾翁 by 浅梦 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Soaring Scout",
+          "slug": "details-soaring-scout",
+          "url": "https://riftdecks.com/cards/details-soaring-scout",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Meditation",
+          "slug": "details-meditation",
+          "url": "https://riftdecks.com/cards/details-meditation",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 165,
+      "players": 640,
+      "finish_pct": 25.8,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dong-wu-zhi-you-153013",
+      "title": "动物之友 by XXT.FG·NANA | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Soaring Scout",
+          "slug": "details-soaring-scout",
+          "url": "https://riftdecks.com/cards/details-soaring-scout",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Starhound",
+          "slug": "details-starhound",
+          "url": "https://riftdecks.com/cards/details-starhound",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Amateur Recital",
+          "slug": "details-amateur-recital",
+          "url": "https://riftdecks.com/cards/details-amateur-recital",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Valley of Idols",
+          "slug": "details-valley-of-idols",
+          "url": "https://riftdecks.com/cards/details-valley-of-idols",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 121,
+      "players": 128,
+      "finish_pct": 94.5,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-zhang-sha11-152499",
+      "title": "长沙11 by 锦刻 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Soaring Scout",
+          "slug": "details-soaring-scout",
+          "url": "https://riftdecks.com/cards/details-soaring-scout",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Crimson Pigeons",
+          "slug": "details-crimson-pigeons",
+          "url": "https://riftdecks.com/cards/details-crimson-pigeons",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Crimson Pigeons",
+          "slug": "details-crimson-pigeons",
+          "url": "https://riftdecks.com/cards/details-crimson-pigeons",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ashe, Focused",
+          "slug": "details-ashe-focused",
+          "url": "https://riftdecks.com/cards/details-ashe-focused",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 83,
+      "players": 85,
+      "finish_pct": 97.6,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ivern-green-father-150958",
+      "title": "Ivern, Green Father by Fermin Liljeqvist | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Crimson Pigeons",
+          "slug": "details-crimson-pigeons",
+          "url": "https://riftdecks.com/cards/details-crimson-pigeons",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Alluring",
+          "slug": "details-ahri-alluring",
+          "url": "https://riftdecks.com/cards/details-ahri-alluring",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Starhound",
+          "slug": "details-starhound",
+          "url": "https://riftdecks.com/cards/details-starhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Thwonk!",
+          "slug": "details-thwonk",
+          "url": "https://riftdecks.com/cards/details-thwonk",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trapping Grounds",
+          "slug": "details-trapping-grounds",
+          "url": "https://riftdecks.com/cards/details-trapping-grounds",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw's Lair",
+          "slug": "details-vilemaws-lair",
+          "url": "https://riftdecks.com/cards/details-vilemaws-lair",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Mageseeker Warden",
+          "slug": "details-mageseeker-warden",
+          "url": "https://riftdecks.com/cards/details-mageseeker-warden",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 15,
+      "finish_pct": 100.0,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ivern-green-father-148148",
+      "title": "Ivern, Green Father by Stunningprаm | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Daring Poro",
+          "slug": "details-daring-poro",
+          "url": "https://riftdecks.com/cards/details-daring-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blitzcrank, Impassive",
+          "slug": "details-blitzcrank-impassive",
+          "url": "https://riftdecks.com/cards/details-blitzcrank-impassive",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Frozen Fortress",
+          "slug": "details-frozen-fortress",
+          "url": "https://riftdecks.com/cards/details-frozen-fortress",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-av-137077",
+      "title": "av by On99白夜 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Nami, Headstrong",
+          "slug": "details-nami-headstrong",
+          "url": "https://riftdecks.com/cards/details-nami-headstrong",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Cull the Weak",
+          "slug": "details-cull-the-weak",
+          "url": "https://riftdecks.com/cards/details-cull-the-weak",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deathgrip",
+          "slug": "details-deathgrip",
+          "url": "https://riftdecks.com/cards/details-deathgrip",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wind Wall",
+          "slug": "details-wind-wall",
+          "url": "https://riftdecks.com/cards/details-wind-wall",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tricksy Tentacles",
+          "slug": "details-tricksy-tentacles",
+          "url": "https://riftdecks.com/cards/details-tricksy-tentacles",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Altar of Blood",
+          "slug": "details-altar-of-blood",
+          "url": "https://riftdecks.com/cards/details-altar-of-blood",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Amateur Recital",
+          "slug": "details-amateur-recital",
+          "url": "https://riftdecks.com/cards/details-amateur-recital",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 8,
+      "players": 29,
+      "finish_pct": 27.6,
+      "date": "2026-05-07"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ai-weng-130110",
+      "title": "爱翁 by TаiChi | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ivern, Green Father",
+          "slug": "details-ivern-green-father",
+          "url": "https://riftdecks.com/cards/details-ivern-green-father",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Nurturer",
+          "slug": "details-ivern-nurturer",
+          "url": "https://riftdecks.com/cards/details-ivern-nurturer",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalwart Poro",
+          "slug": "details-stalwart-poro",
+          "url": "https://riftdecks.com/cards/details-stalwart-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Trusty Ramhound",
+          "slug": "details-trusty-ramhound",
+          "url": "https://riftdecks.com/cards/details-trusty-ramhound",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Loyal Poro",
+          "slug": "details-loyal-poro",
+          "url": "https://riftdecks.com/cards/details-loyal-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frisky Hunter",
+          "slug": "details-frisky-hunter",
+          "url": "https://riftdecks.com/cards/details-frisky-hunter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stalking Wolf",
+          "slug": "details-stalking-wolf",
+          "url": "https://riftdecks.com/cards/details-stalking-wolf",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Starhound",
+          "slug": "details-starhound",
+          "url": "https://riftdecks.com/cards/details-starhound",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ultrasoft Poro",
+          "slug": "details-ultrasoft-poro",
+          "url": "https://riftdecks.com/cards/details-ultrasoft-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ivern, Friend to All",
+          "slug": "details-ivern-friend-to-all",
+          "url": "https://riftdecks.com/cards/details-ivern-friend-to-all",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Daisy!",
+          "slug": "details-daisy",
+          "url": "https://riftdecks.com/cards/details-daisy",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Friendship",
+          "slug": "details-friendship",
+          "url": "https://riftdecks.com/cards/details-friendship",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Forbidding Waste",
+          "slug": "details-forbidding-waste",
+          "url": "https://riftdecks.com/cards/details-forbidding-waste",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Vaults of Helia",
+          "slug": "details-vaults-of-helia",
+          "url": "https://riftdecks.com/cards/details-vaults-of-helia",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Facebreaker",
+          "slug": "details-facebreaker",
+          "url": "https://riftdecks.com/cards/details-facebreaker",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Meditation",
+          "slug": "details-meditation",
+          "url": "https://riftdecks.com/cards/details-meditation",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Salvage",
+          "slug": "details-salvage",
+          "url": "https://riftdecks.com/cards/details-salvage",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Flurry of Feathers",
+          "slug": "details-flurry-of-feathers",
+          "url": "https://riftdecks.com/cards/details-flurry-of-feathers",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 27,
+      "finish_pct": 100.0,
+      "date": "2026-05-02"
     }
   ],
   "cards_meta": {
@@ -19676,6 +22878,54 @@
       "rarity": "rare",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-036-298_full.png",
       "price": 0.63
+    },
+    "details-en-garde": {
+      "name": "En Garde",
+      "url": "https://riftdecks.com/cards/details-en-garde",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "1",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-046-298_full.png",
+      "price": 0.2
+    },
+    "details-ahri-alluring": {
+      "name": "Ahri, Alluring",
+      "url": "https://riftdecks.com/cards/details-ahri-alluring",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "5C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-066-298_full.png",
+      "price": 1.07
+    },
+    "details-trapping-grounds": {
+      "name": "Trapping Grounds",
+      "url": "https://riftdecks.com/cards/details-trapping-grounds",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-217-219_full.png",
+      "price": 0.16
+    },
+    "details-mageseeker-warden": {
+      "name": "Mageseeker Warden",
+      "url": "https://riftdecks.com/cards/details-mageseeker-warden",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "6C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-070-298_full.png",
+      "price": 0.24
     }
   }
 }
