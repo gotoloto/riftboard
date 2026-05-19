@@ -325,21 +325,29 @@ def build_dashboard_payload(raw: dict) -> dict:
     for d in raw["decks"]:
         mainboard: dict[str, int] = {}
         sideboard: dict[str, int] = {}
+        champion_slug = None
         for c in d["cards"]:
             target = mainboard if c["board"] == "main" else sideboard
             target[c["slug"]] = target.get(c["slug"], 0) + c["qty"]
-        decks_slim.append(
-            {
-                "u": d["url"],
-                "t": d.get("title", ""),
-                "rk": d.get("rank"),
-                "pl": d.get("players"),
-                "fp": d.get("finish_pct"),
-                "dt": d.get("date"),
-                "c": [[slug, qty] for slug, qty in mainboard.items()],
-                "s": [[slug, qty] for slug, qty in sideboard.items()],
-            }
-        )
+            # Riftbound decks have one type=champion card per deck (separate
+            # from the deck's type=legend anchor). Capture its slug so the
+            # dashboard can group decks by champion ("flavor") without
+            # re-parsing decks.json.
+            if (c.get("type") or "").lower() == "champion" and not champion_slug:
+                champion_slug = c["slug"]
+        deck_obj = {
+            "u": d["url"],
+            "t": d.get("title", ""),
+            "rk": d.get("rank"),
+            "pl": d.get("players"),
+            "fp": d.get("finish_pct"),
+            "dt": d.get("date"),
+            "c": [[slug, qty] for slug, qty in mainboard.items()],
+            "s": [[slug, qty] for slug, qty in sideboard.items()],
+        }
+        if champion_slug:
+            deck_obj["ch"] = champion_slug
+        decks_slim.append(deck_obj)
     cards_meta = {}
     for slug, m in raw["cards_meta"].items():
         cards_meta[slug] = {
@@ -420,6 +428,120 @@ def legend_dir(slug: str) -> str:
 LEGENDS_INDEX_URL = "https://riftdecks.com/legends"
 LEGEND_COUNT_RE = re.compile(r"(\d+)\s*Decks?\b", re.I)
 LEGEND_SLUG_RE = re.compile(r"/legends/constructed/([a-z0-9-]+)")
+
+
+TOURNAMENTS_INDEX_URL = "https://riftdecks.com/riftbound-tournaments?metagame_id=3"
+TOURNAMENT_ROW_RE = re.compile(
+    r'<tr[^>]+data-href="https://riftdecks\.com/riftbound-tournaments/([^"]+)"[^>]*>(.*?)</tr>',
+    re.DOTALL,
+)
+TOURNAMENT_DECK_HREF_RE = re.compile(r'/riftbound-metagame/(deck-[a-z0-9-]+)')
+
+
+def build_tournaments_index() -> dict:
+    """Build a sidecar tournaments catalog with explicit country codes and a
+    deck_url -> tournament_slug map. Doesn't touch any cached deck content —
+    pure additional metadata enabling region filtering in the dashboard.
+
+    Output: tournaments.json (machine-readable) + tournaments.js (loaded by
+    pages that want region info). ~3 minutes on a clean route — 8 listing
+    pages + ~150-200 per-tournament page fetches."""
+    tournaments = []
+    deck_to_tournament: dict = {}
+    seen_slugs = set()
+    page = 1
+    while True:
+        url = (
+            f"{TOURNAMENTS_INDEX_URL}&page={page}" if page > 1 else TOURNAMENTS_INDEX_URL
+        )
+        try:
+            html = fetch(url)
+        except Exception as exc:
+            print(f"  ! listing page {page}: {exc}")
+            break
+        rows_on_page = 0
+        for m in TOURNAMENT_ROW_RE.finditer(html):
+            slug = m.group(1)
+            body = m.group(2)
+            if slug in seen_slugs:
+                continue
+            seen_slugs.add(slug)
+            rows_on_page += 1
+            country_m = re.search(r"flag-country-([a-z]+)", body)
+            name_m = re.search(
+                r'<a[^>]+href="/riftbound-tournaments/[^"]+"[^>]*>([^<]+)</a>',
+                body,
+            )
+            date_m = re.search(r"(\d{4}-\d{2}-\d{2})", body)
+            tournaments.append(
+                {
+                    "slug": slug,
+                    "name": (name_m.group(1).strip() if name_m else slug),
+                    "country": (country_m.group(1).upper() if country_m else None),
+                    "date": (date_m.group(1) if date_m else None),
+                    "deck_count": None,  # filled in below
+                }
+            )
+        if rows_on_page == 0:
+            break
+        # Stop at the highest page=N link in the pagination. Note the HTML
+        # uses entity-encoded ampersands (`&amp;page=N`) plus the bare `?`
+        # form on the first link, so we tolerate either.
+        max_page = max(
+            (int(p) for p in re.findall(r"(?:[?&]|&amp;)page=(\d+)", html)),
+            default=page,
+        )
+        if page >= max_page:
+            break
+        page += 1
+        time.sleep(0.3)
+    print(f"  {len(tournaments)} tournaments listed across {page} listing page(s)")
+
+    # Walk each tournament's own page to enumerate deck URLs
+    for i, t in enumerate(tournaments, 1):
+        try:
+            html = fetch(
+                f"https://riftdecks.com/riftbound-tournaments/{t['slug']}"
+            )
+        except Exception as exc:
+            print(f"  ! {t['slug']}: {exc}")
+            continue
+        deck_ids = TOURNAMENT_DECK_HREF_RE.findall(html)
+        t["deck_count"] = len(set(deck_ids))
+        for did in set(deck_ids):
+            deck_url = f"https://riftdecks.com/riftbound-metagame/{did}"
+            # Last tournament wins if a deck appears in multiple (shouldn't
+            # happen in practice — riftdecks scopes deck IDs per tournament)
+            deck_to_tournament[deck_url] = t["slug"]
+        if i % 25 == 0:
+            print(f"    {i}/{len(tournaments)} tournaments walked")
+        time.sleep(0.3)
+
+    return {
+        "scraped_at": datetime.utcnow().isoformat() + "Z",
+        "tournaments": tournaments,
+        "deck_to_tournament": deck_to_tournament,
+    }
+
+
+def save_tournaments(catalog: dict) -> None:
+    save_json("tournaments.json", catalog)
+    # JS twin — keep the same name/shape so the dashboard can read it
+    tmp = "tournaments.js.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__TOURNAMENTS__ = ")
+        json.dump(
+            {
+                "scrapedAt": catalog["scraped_at"],
+                "tournaments": catalog["tournaments"],
+                "deckToTournament": catalog["deck_to_tournament"],
+            },
+            f,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        f.write(";\n")
+    os.replace(tmp, "tournaments.js")
 
 
 def fetch_legends_index() -> dict:
@@ -1758,6 +1880,19 @@ if __name__ == "__main__":
         save_staples_js(payload)
         n = sum(len(v) for v in payload["rarities"].values())
         print(f"staples.js written: {n} cards across {payload['total_decks']} decks / {payload['total_legends']} legends")
+    elif args and args[0] == "--tournaments":
+        check_canary()
+        cat = build_tournaments_index()
+        save_tournaments(cat)
+        countries = {}
+        for t in cat["tournaments"]:
+            c = t.get("country") or "?"
+            countries[c] = countries.get(c, 0) + 1
+        print(
+            f"tournaments.json + tournaments.js written: "
+            f"{len(cat['tournaments'])} tournaments · {len(cat['deck_to_tournament'])} decks mapped"
+        )
+        print("  Countries:", ", ".join(f"{k}={v}" for k, v in sorted(countries.items(), key=lambda x: -x[1])))
     elif args and args[0] == "--catalog":
         check_canary()
         catalog = fetch_card_catalog()
@@ -1868,6 +2003,14 @@ if __name__ == "__main__":
             save_catalog_js(load_catalog())
         except Exception:
             pass
+        # Refresh the tournament sidecar so new deck URLs get mapped to
+        # their tournament (and the region filter on index.html stays
+        # accurate).
+        try:
+            save_tournaments(build_tournaments_index())
+            print("tournaments.json + tournaments.js refreshed")
+        except Exception as exc:
+            print(f"  ! tournaments refresh failed: {exc}")
         print(
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )

@@ -41,10 +41,43 @@ const state = {
   maxFinishPct: 100,
   includeUnranked: true,
   minDate: null, // "YYYY-MM-DD" or null
+  selectedRegion: "", // "", "CN", "WEST", "unknown"
   board: "main", // "main" or "side"
   medianMode: "composite", // "composite" or "representative"
   expandedSlugs: new Set(), // card slugs whose deck-list is expanded
 };
+
+// ---- Region helpers (joined from tournaments.js at render time) ----
+// Coarse buckets keyed by ISO country code. Tweak here; no re-scrape needed.
+const CN_COUNTRIES = new Set(["CN", "HK", "TW", "MO"]);
+const WEST_COUNTRIES = new Set([
+  "US", "CA", "GB", "DE", "FR", "IT", "ES", "NL", "PL", "SE",
+  "BE", "CH", "AT", "AU", "NZ", "BR", "MX", "AR", "PT", "IE",
+  "NO", "FI", "DK", "CZ",
+]);
+function regionFor(countryCode) {
+  if (!countryCode) return null;
+  if (CN_COUNTRIES.has(countryCode)) return "CN";
+  if (WEST_COUNTRIES.has(countryCode)) return "WEST";
+  return null;
+}
+
+const __regionCache = new Map();
+function regionForDeckUrl(url) {
+  if (!url) return null;
+  if (__regionCache.has(url)) return __regionCache.get(url);
+  const T = window.__TOURNAMENTS__;
+  let region = null;
+  if (T) {
+    const slug = T.deckToTournament?.[url];
+    if (slug) {
+      const t = T.tournaments?.find((x) => x.slug === slug);
+      if (t) region = regionFor(t.country);
+    }
+  }
+  __regionCache.set(url, region);
+  return region;
+}
 
 const tbody = document.querySelector("#cards-table tbody");
 const thead = document.querySelector("#cards-table thead");
@@ -592,6 +625,14 @@ function renderMedianDeck() {
 
 function deckPasses(deck) {
   if (state.minDate && deck.dt && deck.dt < state.minDate) return false;
+  if (state.selectedRegion) {
+    const r = regionForDeckUrl(deck.u);
+    if (state.selectedRegion === "unknown") {
+      if (r) return false; // user wants only unclassified, this one is classified
+    } else if (r !== state.selectedRegion) {
+      return false;
+    }
+  }
   if (deck.fp == null) return state.includeUnranked;
   return deck.fp <= state.maxFinishPct;
 }
@@ -653,8 +694,288 @@ function render() {
 function recomputeAndRender() {
   recompute();
   refreshTypeFilterCounts();
+  renderPerformanceStats();
+  renderTrendSparkline();
   renderMedianDeck();
+  renderCompositionVariance();
   render();
+}
+
+// ---- Tournament-performance stats ----
+function renderPerformanceStats() {
+  const decks = state.rawDecks.filter(deckPasses);
+  const ranked = decks.filter((d) => d.rk != null && d.fp != null);
+  // Median finish_pct
+  let median = null;
+  if (ranked.length) {
+    const sorted = ranked.map((d) => d.fp).sort((a, b) => a - b);
+    const mid = sorted.length >> 1;
+    median = sorted.length % 2
+      ? sorted[mid]
+      : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+  // Top-8 rate (over ranked decks)
+  const top8 = ranked.filter((d) => d.rk <= 8).length;
+  const top8Rate = ranked.length ? (top8 / ranked.length) : null;
+  // Best-ever finish
+  let best = null;
+  for (const d of ranked) {
+    if (!best || d.rk < best.rk || (d.rk === best.rk && (d.pl || 0) > (best.pl || 0))) {
+      best = d;
+    }
+  }
+  // Distinct events via tournament slug
+  const T = window.__TOURNAMENTS__;
+  const slugs = new Set();
+  if (T && T.deckToTournament) {
+    for (const d of decks) {
+      const s = T.deckToTournament[d.u];
+      if (s) slugs.add(s);
+    }
+  }
+
+  const set = (id, html, title) => {
+    const el = document.querySelector(`#${id} .stat-value`);
+    if (!el) return;
+    el.innerHTML = html;
+    if (title) el.title = title;
+  };
+  set("stat-median", median != null ? `${median.toFixed(1)}%` : "—",
+      median != null ? `Median finish percentile across ${ranked.length} ranked deck(s)` : "");
+  set("stat-top8",
+      top8Rate != null ? `${(top8Rate * 100).toFixed(1)}%` : "—",
+      ranked.length ? `${top8} Top-8 finishes out of ${ranked.length} ranked decks` : "");
+  if (best) {
+    const placeStr = best.pl ? `${best.rk} of ${best.pl}` : `Rank ${best.rk}`;
+    const link = `<a href="${escapeHtml(best.u)}" target="_blank" rel="noopener" title="${escapeHtml(deckTitle(best))} (${best.dt || "?"})">${escapeHtml(placeStr)}</a>`;
+    set("stat-best", link);
+  } else {
+    set("stat-best", "—");
+  }
+  set("stat-events", slugs.size ? slugs.size.toLocaleString() : "—",
+      slugs.size ? `${slugs.size} distinct tournament(s) in the filtered set` : "");
+}
+
+// ---- Time-trend sparkline ----
+function renderTrendSparkline() {
+  const svg = document.getElementById("trend-sparkline");
+  const deltaEl = document.getElementById("stat-sparkline-delta");
+  if (!svg) return;
+  const decks = state.rawDecks.filter(deckPasses).filter((d) => d.dt);
+  if (!decks.length) {
+    svg.innerHTML = "";
+    if (deltaEl) deltaEl.textContent = "";
+    return;
+  }
+  // Bucket by ISO week (Mon-start). Use the latest deck date as the anchor.
+  function weekKey(d) {
+    const dt = new Date(d + "T00:00:00Z");
+    const day = dt.getUTCDay() || 7; // Mon=1..Sun=7
+    dt.setUTCDate(dt.getUTCDate() - (day - 1));
+    return dt.toISOString().slice(0, 10);
+  }
+  const counts = new Map();
+  for (const d of decks) {
+    const k = weekKey(d.dt);
+    counts.set(k, (counts.get(k) || 0) + 1);
+  }
+  // Anchor to latest week, walk back 12 weeks
+  const sortedKeys = [...counts.keys()].sort();
+  const latest = sortedKeys[sortedKeys.length - 1];
+  const buckets = [];
+  const cursor = new Date(latest + "T00:00:00Z");
+  for (let i = 11; i >= 0; i--) {
+    const dt = new Date(cursor.getTime() - i * 7 * 86400000);
+    const k = dt.toISOString().slice(0, 10);
+    buckets.push({ key: k, count: counts.get(k) || 0 });
+  }
+  const max = Math.max(1, ...buckets.map((b) => b.count));
+  const W = 200, H = 30, barW = W / buckets.length;
+  const pad = 1;
+  const bars = buckets
+    .map((b, i) => {
+      const h = Math.max(b.count > 0 ? 2 : 0, (b.count / max) * (H - 2));
+      const x = i * barW + pad;
+      const y = H - h;
+      const w = Math.max(2, barW - pad * 2);
+      return `<rect x="${x.toFixed(2)}" y="${y.toFixed(2)}" width="${w.toFixed(2)}" height="${h.toFixed(2)}" fill="var(--accent)"><title>Week of ${b.key}: ${b.count} deck${b.count === 1 ? "" : "s"}</title></rect>`;
+    })
+    .join("");
+  svg.innerHTML = bars;
+
+  // Delta: trailing 30 days vs prior 30
+  const today = new Date(latest + "T00:00:00Z");
+  let recent = 0, prior = 0;
+  for (const d of decks) {
+    const dt = new Date(d.dt + "T00:00:00Z");
+    const daysAgo = (today - dt) / 86400000;
+    if (daysAgo <= 30) recent++;
+    else if (daysAgo <= 60) prior++;
+  }
+  if (deltaEl) {
+    if (prior === 0) {
+      deltaEl.textContent = recent > 0 ? `· ${recent} new in last 30d` : "";
+      deltaEl.className = "";
+    } else {
+      const pct = ((recent - prior) / prior) * 100;
+      const arrow = pct >= 0 ? "↑" : "↓";
+      const cls = Math.abs(pct) < 5 ? "trend-flat" : pct > 0 ? "trend-up" : "trend-down";
+      deltaEl.textContent = `· ${arrow} ${pct >= 0 ? "+" : ""}${pct.toFixed(0)}% vs prior 30d`;
+      deltaEl.className = cls;
+    }
+  }
+}
+
+// ---- Composition variance ----
+// Group filtered decks by champion-card slug (one type=champion per deck),
+// then for each group with ≥5 decks compute card inclusion rates and surface
+// core (≥80% inclusion within group) + flex (20–80%) slots. Groups with <5
+// decks roll into 'Other'.
+function renderCompositionVariance() {
+  const el = document.getElementById("composition-variance");
+  const sumEl = document.getElementById("cv-summary");
+  if (!el) return;
+  const decks = state.rawDecks.filter(deckPasses);
+  if (!decks.length) {
+    el.innerHTML = "";
+    if (sumEl) sumEl.textContent = "";
+    return;
+  }
+  // Champion slug is pre-resolved per deck during scrape (deck.ch). cards_meta
+  // doesn't carry a "champion" type — champions are stored as units in the
+  // card library; the champion *slot* designation only exists per-deck. The
+  // build_dashboard_payload step captures it explicitly so we don't have to
+  // re-parse decks.json client-side.
+  function championSlugOf(deck) {
+    return deck.ch || null;
+  }
+
+  // Bucket decks by champion
+  const byChamp = new Map();
+  let unrouted = 0;
+  for (const d of decks) {
+    const champ = championSlugOf(d);
+    if (!champ) { unrouted++; continue; }
+    if (!byChamp.has(champ)) byChamp.set(champ, []);
+    byChamp.get(champ).push(d);
+  }
+
+  // Sort groups by deck count desc
+  const groups = [...byChamp.entries()]
+    .map(([slug, decks]) => ({
+      slug,
+      name: state.cardsMeta[slug]?.name || slug,
+      url: state.cardsMeta[slug]?.url,
+      decks,
+      count: decks.length,
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  const big = groups.filter((g) => g.count >= 5);
+  const small = groups.filter((g) => g.count < 5);
+
+  // For each big group: inclusion rate per slug (only c/mainboard) and core list
+  function inclusionMap(decks) {
+    const seen = new Map();
+    for (const d of decks) {
+      const ids = new Set((d.c || []).map(([s]) => s));
+      for (const s of ids) seen.set(s, (seen.get(s) || 0) + 1);
+    }
+    return seen;
+  }
+  const groupCores = big.map((g) => {
+    const incl = inclusionMap(g.decks);
+    // Core: ≥80% inclusion. Exclude legend (always 1) and runes (placeholder).
+    const core = [...incl.entries()]
+      .map(([slug, n]) => ({ slug, n, pct: n / g.decks.length }))
+      .filter((x) => x.pct >= 0.8)
+      .filter((x) => {
+        const t = (state.cardsMeta[x.slug]?.type || "").toLowerCase();
+        return t !== "legend" && t !== "rune" && t !== "champion";
+      })
+      .sort((a, b) => b.pct - a.pct || a.slug.localeCompare(b.slug));
+    return { ...g, core };
+  });
+
+  // Flex slots: card slugs that vary widely BETWEEN groups (high in some, low in
+  // others). Compute per-slug max-min across groups, top ones are interesting.
+  let flex = [];
+  if (big.length >= 2) {
+    const allSlugs = new Set();
+    for (const g of big) for (const d of g.decks) for (const [s] of (d.c || [])) allSlugs.add(s);
+    const perSlugPcts = new Map();
+    for (const s of allSlugs) {
+      const pcts = big.map((g) => {
+        const incl = g.decks.filter((d) => (d.c || []).some(([slug]) => slug === s)).length;
+        return incl / g.decks.length;
+      });
+      // Skip runes / legends / champions, and pure noise (<5% everywhere)
+      const t = (state.cardsMeta[s]?.type || "").toLowerCase();
+      if (t === "rune" || t === "legend" || t === "champion") continue;
+      const max = Math.max(...pcts), min = Math.min(...pcts);
+      if (max < 0.2) continue;
+      perSlugPcts.set(s, { max, min, range: max - min, pcts });
+    }
+    flex = [...perSlugPcts.entries()]
+      .map(([s, x]) => ({ slug: s, ...x }))
+      .filter((x) => x.range >= 0.4) // flex = ≥40 percentage points of spread
+      .sort((a, b) => b.range - a.range)
+      .slice(0, 8);
+  }
+
+  // Render
+  if (sumEl) {
+    const totalInBig = big.reduce((s, g) => s + g.count, 0);
+    sumEl.textContent =
+      `· ${big.length} flavor${big.length === 1 ? "" : "s"} across ${totalInBig} deck${totalInBig === 1 ? "" : "s"}` +
+      (small.length ? ` (+${small.length} niche)` : "") +
+      (unrouted ? ` · ${unrouted} unrouted (no champion)` : "");
+  }
+  const linkName = (slug, name) => {
+    const url = state.cardsMeta[slug]?.url;
+    return url
+      ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>`
+      : escapeHtml(name);
+  };
+  const fmtCore = (core) => {
+    if (!core.length) return `<span class="muted">no consensus core (high variance)</span>`;
+    return core
+      .slice(0, 10)
+      .map((c) => {
+        const nm = state.cardsMeta[c.slug]?.name || c.slug;
+        return `<span class="cv-pill" title="${escapeHtml(nm)} — ${(c.pct * 100).toFixed(0)}%">${linkName(c.slug, nm)} <span class="muted">${(c.pct * 100).toFixed(0)}%</span></span>`;
+      })
+      .join(" ");
+  };
+
+  const groupHtml = groupCores
+    .map((g, i) => {
+      const pct = ((g.count / decks.length) * 100).toFixed(0);
+      return `<div class="cv-group">
+        <div class="cv-group-header">
+          <span class="cv-rank">${i + 1}</span>
+          <span class="cv-name">${linkName(g.slug, g.name)}</span>
+          <span class="cv-count">${g.count} deck${g.count === 1 ? "" : "s"} · ${pct}%</span>
+        </div>
+        <div class="cv-core">${fmtCore(g.core)}</div>
+      </div>`;
+    })
+    .join("");
+
+  const flexHtml = flex.length
+    ? `<div class="cv-flex">
+         <div class="cv-flex-label">Flex slots that vary by flavor:</div>
+         ${flex
+           .map((x) => {
+             const nm = state.cardsMeta[x.slug]?.name || x.slug;
+             const range = `${(x.min * 100).toFixed(0)}-${(x.max * 100).toFixed(0)}%`;
+             return `<span class="cv-pill" title="${escapeHtml(nm)} — ${range} across flavors">${linkName(x.slug, nm)} <span class="muted">${range}</span></span>`;
+           })
+           .join(" ")}
+       </div>`
+    : "";
+
+  el.innerHTML = (groupHtml || `<p class="muted">No champion-anchored flavors found in the filtered set.</p>`) + flexHtml;
 }
 
 function refreshTypeFilterCounts() {
@@ -836,6 +1157,44 @@ function attachDateFilterHandlers() {
   });
 }
 
+const LS_REGION = "main:selectedRegion";
+
+function attachRegionFilterHandlers() {
+  const pills = document.querySelectorAll(".region-pill");
+  // Restore persisted selection
+  try {
+    const saved = localStorage.getItem(LS_REGION) || "";
+    state.selectedRegion = saved;
+  } catch (_) {}
+  function syncPillUI() {
+    pills.forEach((p) => {
+      p.classList.toggle(
+        "active",
+        (p.dataset.region || "") === state.selectedRegion
+      );
+    });
+  }
+  pills.forEach((p) => {
+    p.addEventListener("click", () => {
+      state.selectedRegion = p.dataset.region || "";
+      try { localStorage.setItem(LS_REGION, state.selectedRegion); } catch (_) {}
+      syncPillUI();
+      recomputeAndRender();
+    });
+  });
+  syncPillUI();
+  // Side-channel info: how many tournaments / decks are in the catalog
+  const infoEl = document.getElementById("region-info");
+  const T = window.__TOURNAMENTS__;
+  if (infoEl && T) {
+    const tn = T.tournaments?.length ?? 0;
+    const mapped = Object.keys(T.deckToTournament || {}).length;
+    infoEl.textContent = `· ${tn} tournaments / ${mapped.toLocaleString()} decks mapped`;
+  } else if (infoEl) {
+    infoEl.textContent = "· tournaments.js not loaded — region filter disabled";
+  }
+}
+
 function formatPlaintextDeck() {
   const lines = [];
   for (const li of medianContentEl.querySelectorAll(".median-section li")) {
@@ -1007,6 +1366,7 @@ function loadChampionData() {
     attachSortHandlers();
     attachPerfFilterHandlers();
     attachDateFilterHandlers();
+    attachRegionFilterHandlers();
     attachBoardToggle();
     attachMedianModeToggle();
     attachCopyButton();

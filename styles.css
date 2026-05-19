@@ -142,6 +142,110 @@ h1 { margin: 0; font-size: 22px; }
   color: white;
   border-color: var(--accent);
 }
+
+/* Region filter — same shape as .perf-filter / .preset. */
+.region-filter {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--row);
+}
+.region-filter .label { color: var(--muted); font-size: 12px; }
+.region-filter .region-pills { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.region-pill {
+  padding: 3px 10px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.region-pill.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Tournament-performance stat strip — sits between the controls and the
+   region filter. 4 dollar-amount-style badges + one inline sparkline. */
+.stat-strip {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 12px;
+}
+.stat-card {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--row);
+  min-width: 100px;
+}
+.stat-card .stat-label {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.stat-card .stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.stat-card .stat-value a { color: var(--accent); text-decoration: none; }
+.stat-card .stat-value a:hover { text-decoration: underline; }
+#stat-sparkline { flex: 1 1 220px; min-width: 220px; }
+#trend-sparkline { display: block; margin-top: 2px; }
+#stat-sparkline-delta { font-size: 11px; }
+#stat-sparkline-delta.trend-up { color: #4ade80; }
+#stat-sparkline-delta.trend-down { color: #f87171; }
+#stat-sparkline-delta.trend-flat { color: var(--muted); }
+
+/* Composition variance panel — under the cards table, mirrors median-deck */
+.composition-variance { margin-top: 16px; }
+.composition-variance summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--row);
+}
+.composition-variance details[open] summary { border-radius: 8px 8px 0 0; }
+.composition-variance .cv-title { font-weight: 600; }
+#composition-variance {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: var(--bg);
+}
+.cv-group { padding: 8px 0; border-bottom: 1px dotted var(--border); }
+.cv-group:last-child { border-bottom: none; }
+.cv-group-header {
+  display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;
+}
+.cv-rank { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 18px; }
+.cv-name { font-weight: 600; }
+.cv-count { color: var(--muted); font-size: 12px; }
+.cv-core, .cv-flex { font-size: 12px; line-height: 1.8; }
+.cv-pill {
+  display: inline-block;
+  padding: 1px 6px;
+  margin: 1px 2px;
+  border-radius: 4px;
+  background: var(--row);
+  border: 1px solid var(--border);
+}
+.cv-pill a { color: var(--accent); text-decoration: none; }
+.cv-pill a:hover { text-decoration: underline; }
+.cv-flex { margin-top: 12px; padding-top: 10px; border-top: 1px dotted var(--border); }
+.cv-flex-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
 .perf-filter .custom { font-size: 12px; color: var(--muted); }
 .perf-filter input[type="number"] {
   width: 50px; padding: 3px 6px;

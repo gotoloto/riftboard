@@ -92,6 +92,28 @@
     <span id="deck-count-info" class="muted"></span>
   </section>
 
+  <section class="stat-strip" aria-label="Tournament performance">
+    <div class="stat-card" id="stat-median"><div class="stat-label">Median finish</div><div class="stat-value">—</div></div>
+    <div class="stat-card" id="stat-top8"><div class="stat-label">Top-8 rate</div><div class="stat-value">—</div></div>
+    <div class="stat-card" id="stat-best"><div class="stat-label">Best ever</div><div class="stat-value">—</div></div>
+    <div class="stat-card" id="stat-events"><div class="stat-label">Distinct events</div><div class="stat-value">—</div></div>
+    <div class="stat-card" id="stat-sparkline">
+      <div class="stat-label">Last 12 weeks <span id="stat-sparkline-delta"></span></div>
+      <svg id="trend-sparkline" width="200" height="30" aria-label="Weekly deck count, last 12 weeks"></svg>
+    </div>
+  </section>
+
+  <section class="region-filter" aria-label="Filter by region">
+    <span class="label">Region:</span>
+    <div class="region-pills">
+      <button type="button" class="region-pill active" data-region="">All</button>
+      <button type="button" class="region-pill" data-region="WEST">Western (Bo3)</button>
+      <button type="button" class="region-pill" data-region="CN">Chinese (Bo1)</button>
+      <button type="button" class="region-pill" data-region="unknown">Unclassified</button>
+    </div>
+    <span id="region-info" class="muted"></span>
+  </section>
+
   <section class="type-filters" id="type-filters" aria-label="Filter by type"></section>
 
   <section class="median-deck">
@@ -133,10 +155,21 @@
     <p id="empty-state" hidden>No cards match.</p>
   </main>
 
+  <section class="composition-variance">
+    <details>
+      <summary>
+        <span class="cv-title">Composition variance</span>
+        <span id="cv-summary" class="muted"></span>
+      </summary>
+      <div id="composition-variance"></div>
+    </details>
+  </section>
+
   <img id="card-thumb" alt="" hidden />
   <script src="utils.js"></script>
   <script src="champions.js"></script>
   <script src="tcgplayer-fixes.js"></script>
+  <script src="tournaments.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
