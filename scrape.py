@@ -9,6 +9,7 @@ Defaults to the Lillia, Bashful Bloom Unleashed Constructed page.
 """
 
 import glob
+import html as html_mod
 import json
 import os
 import pathlib
@@ -468,16 +469,32 @@ def build_tournaments_index() -> dict:
             seen_slugs.add(slug)
             rows_on_page += 1
             country_m = re.search(r"flag-country-([a-z]+)", body)
+            # Online tournaments use an `<img alt="Online">` instead of a
+            # country flag. Treat as a distinct bucket so they don't pollute
+            # the "unclassified" pile.
+            is_online = bool(re.search(r'alt="Online"', body))
+            # The deck-row anchor uses an ABSOLUTE href on the listings page
+            # (`https://riftdecks.com/riftbound-tournaments/<slug>`); the
+            # earlier relative-only regex never matched, so every tournament
+            # was falling back to its slug as the name.
             name_m = re.search(
-                r'<a[^>]+href="/riftbound-tournaments/[^"]+"[^>]*>([^<]+)</a>',
+                r'<a[^>]+href="(?:https?://riftdecks\.com)?/riftbound-tournaments/[^"]+"[^>]*>([^<]+)</a>',
                 body,
             )
             date_m = re.search(r"(\d{4}-\d{2}-\d{2})", body)
             tournaments.append(
                 {
                     "slug": slug,
-                    "name": (name_m.group(1).strip() if name_m else slug),
-                    "country": (country_m.group(1).upper() if country_m else None),
+                    "name": (
+                        html_mod.unescape(name_m.group(1).strip())
+                        if name_m
+                        else slug
+                    ),
+                    "country": (
+                        country_m.group(1).upper()
+                        if country_m
+                        else ("ONLINE" if is_online else None)
+                    ),
                     "date": (date_m.group(1) if date_m else None),
                     "deck_count": None,  # filled in below
                 }
