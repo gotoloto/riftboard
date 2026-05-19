@@ -497,18 +497,37 @@ def build_tournaments_index() -> dict:
         time.sleep(0.3)
     print(f"  {len(tournaments)} tournaments listed across {page} listing page(s)")
 
-    # Walk each tournament's own page to enumerate deck URLs
+    # Walk each tournament's own page to enumerate deck URLs. Tournament
+    # pages paginate (~64 decks/page); we follow `?page=N` until we run out
+    # of pages or stop finding new deck ids. Big events have 2-3 pages.
     for i, t in enumerate(tournaments, 1):
-        try:
-            html = fetch(
-                f"https://riftdecks.com/riftbound-tournaments/{t['slug']}"
+        base = f"https://riftdecks.com/riftbound-tournaments/{t['slug']}"
+        seen_for_t: set = set()
+        page_n = 1
+        while True:
+            page_url = base if page_n == 1 else f"{base}?page={page_n}"
+            try:
+                html = fetch(page_url)
+            except Exception as exc:
+                print(f"  ! {t['slug']} p{page_n}: {exc}")
+                break
+            ids_here = set(TOURNAMENT_DECK_HREF_RE.findall(html))
+            new = ids_here - seen_for_t
+            if not new:
+                break
+            seen_for_t |= ids_here
+            # Check pagination links for a higher page number on this view.
+            # Riftdecks renders `&amp;page=N` in pager anchors.
+            max_page = max(
+                (int(p) for p in re.findall(r"(?:[?&]|&amp;)page=(\d+)", html)),
+                default=page_n,
             )
-        except Exception as exc:
-            print(f"  ! {t['slug']}: {exc}")
-            continue
-        deck_ids = TOURNAMENT_DECK_HREF_RE.findall(html)
-        t["deck_count"] = len(set(deck_ids))
-        for did in set(deck_ids):
+            if page_n >= max_page:
+                break
+            page_n += 1
+            time.sleep(0.3)
+        t["deck_count"] = len(seen_for_t)
+        for did in seen_for_t:
             deck_url = f"https://riftdecks.com/riftbound-metagame/{did}"
             # Last tournament wins if a deck appears in multiple (shouldn't
             # happen in practice — riftdecks scopes deck IDs per tournament)
