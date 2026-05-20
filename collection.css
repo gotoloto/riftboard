@@ -404,6 +404,11 @@ table#collection-table td.actions {
   top: 0;
   left: 0;
   bottom: 0;
+  /* Reset the global .bar rule (styles.css) which is intended for the
+     main dashboard's inclusion-percentage bar — it sets a 3px
+     border-radius and 6px left-margin that bleed in here. */
+  margin: 0;
+  border-radius: 0;
   background: var(--accent);
 }
 /* Stacked bars carry their own hard-stop linear-gradient inline. */
