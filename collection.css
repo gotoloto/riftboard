@@ -389,27 +389,14 @@ table#collection-table td.actions {
   border-radius: 3px;
   overflow: hidden;
 }
-.energy-curve .curve-row .bar-wrap.stacked {
-  display: flex;
-  align-items: stretch;
-}
 .energy-curve .curve-row .bar {
   height: 100%;
   background: var(--accent);
   border-radius: 2px;
 }
-.energy-curve .curve-row .bar-wrap.stacked .bar { border-radius: 0; }
-.energy-curve .curve-row .bar-wrap.stacked .bar:first-child {
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-.energy-curve .curve-row .bar-wrap.stacked .bar:last-child {
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-.energy-curve .curve-row .bar-unit  { background: #60a5fa; } /* blue */
-.energy-curve .curve-row .bar-gear  { background: #fbbf24; } /* amber */
-.energy-curve .curve-row .bar-spell { background: #f472b6; } /* pink */
+/* Stacked bars use a hard-stop linear-gradient set inline, so the bar
+   itself owns the colour layout. No flex children, no rounding gaps. */
+.energy-curve .curve-row .bar.stacked { background: linear-gradient(to right, var(--accent), var(--accent)); }
 .energy-curve .curve-row .count {
   color: var(--fg);
 }

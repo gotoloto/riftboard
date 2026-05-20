@@ -711,20 +711,35 @@ function renderEnergyCurve(containerEl, label, curve) {
     (a, b) => ({ unit: a.unit + b.unit, gear: a.gear + b.gear, spell: a.spell + b.spell }),
     { unit: 0, gear: 0, spell: 0 }
   );
+  const COLOR = { unit: "#60a5fa", gear: "#fbbf24", spell: "#f472b6" };
   const rowsHtml = CURVE_BUCKETS.map((bk, i) => {
     const b = curve.buckets[i];
     const cls = b.total === 0 ? "curve-row empty" : "curve-row";
-    // Each segment widths as a percentage of the FULL rail so the stack
-    // sums to (b.total / max) of the available width.
-    const segPct = (n) => ((n / max) * 100).toFixed(2);
-    const segs = [];
-    if (b.unit > 0) segs.push(`<div class="bar bar-unit" style="width:${segPct(b.unit)}%" title="${b.unit} unit"></div>`);
-    if (b.gear > 0) segs.push(`<div class="bar bar-gear" style="width:${segPct(b.gear)}%" title="${b.gear} gear"></div>`);
-    if (b.spell > 0) segs.push(`<div class="bar bar-spell" style="width:${segPct(b.spell)}%" title="${b.spell} spell"></div>`);
+    // Render the stack as a SINGLE bar with a hard-stop linear-gradient,
+    // not as multiple flex children — adjacent flex children round to
+    // different sub-pixel boundaries and leave hairline gaps between
+    // segments. Hard-stop gradient = pixel-perfect adjacency.
+    const railPct = ((b.total / max) * 100).toFixed(2);
+    let cum = 0;
+    const stops = [];
+    for (const seg of ["unit", "gear", "spell"]) {
+      const n = b[seg];
+      if (n <= 0) continue;
+      const start = cum;
+      const end = cum + (n / b.total) * 100;
+      stops.push(`${COLOR[seg]} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+      cum = end;
+    }
+    const title = [
+      b.unit && `${b.unit} unit`,
+      b.gear && `${b.gear} gear`,
+      b.spell && `${b.spell} spell`,
+    ].filter(Boolean).join(" · ");
+    const bg = stops.length ? `background:linear-gradient(to right, ${stops.join(", ")});` : "";
     return `
       <div class="${cls}">
         <span class="bucket">${escapeHtml(bk)}</span>
-        <div class="bar-wrap stacked">${segs.join("")}</div>
+        <div class="bar-wrap"><div class="bar stacked" style="width:${railPct}%;${bg}" title="${escapeHtml(title)}"></div></div>
         <span class="count">${b.total}</span>
       </div>`;
   }).join("");
