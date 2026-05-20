@@ -41,7 +41,9 @@ const state = {
   maxFinishPct: 100,
   includeUnranked: true,
   minDate: null, // "YYYY-MM-DD" or null
-  selectedRegion: "", // "", "CN", "WEST", "ONLINE", "unknown"
+  // Set of region buckets currently enabled. Empty = "All" (no filter).
+  // Multi-select: clicking a pill toggles it; "All" clears the set.
+  selectedRegions: new Set(), // subset of {"CN", "WEST", "ONLINE", "unknown"}
   board: "main", // "main" or "side"
   medianMode: "composite", // "composite" or "representative"
   expandedSlugs: new Set(), // card slugs whose deck-list is expanded
@@ -626,13 +628,11 @@ function renderMedianDeck() {
 
 function deckPasses(deck) {
   if (state.minDate && deck.dt && deck.dt < state.minDate) return false;
-  if (state.selectedRegion) {
+  if (state.selectedRegions.size > 0) {
     const r = regionForDeckUrl(deck.u);
-    if (state.selectedRegion === "unknown") {
-      if (r) return false; // user wants only unclassified, this one is classified
-    } else if (r !== state.selectedRegion) {
-      return false;
-    }
+    // "unknown" pill matches any deck whose region resolves to null
+    const bucket = r || "unknown";
+    if (!state.selectedRegions.has(bucket)) return false;
   }
   if (deck.fp == null) return state.includeUnranked;
   return deck.fp <= state.maxFinishPct;
@@ -1158,27 +1158,61 @@ function attachDateFilterHandlers() {
   });
 }
 
-const LS_REGION = "main:selectedRegion";
+const LS_REGION = "main:selectedRegions";
+// Legacy single-region key — read-once for one-way migration.
+const LS_REGION_LEGACY = "main:selectedRegion";
 
 function attachRegionFilterHandlers() {
   const pills = document.querySelectorAll(".region-pill");
-  // Restore persisted selection
+  // Restore persisted selection. New format is a JSON array of region
+  // codes; legacy format was a single string. Migrate on first load.
   try {
-    const saved = localStorage.getItem(LS_REGION) || "";
-    state.selectedRegion = saved;
-  } catch (_) {}
-  function syncPillUI() {
-    pills.forEach((p) => {
-      p.classList.toggle(
-        "active",
-        (p.dataset.region || "") === state.selectedRegion
+    const raw = localStorage.getItem(LS_REGION);
+    if (raw != null) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) state.selectedRegions = new Set(parsed);
+    } else {
+      const legacy = localStorage.getItem(LS_REGION_LEGACY);
+      if (legacy) state.selectedRegions = new Set([legacy]);
+      // Migrate forward; leave legacy in place as a one-time fallback.
+      localStorage.setItem(
+        LS_REGION,
+        JSON.stringify([...state.selectedRegions])
       );
+    }
+  } catch (_) {}
+  function persist() {
+    try {
+      localStorage.setItem(
+        LS_REGION,
+        JSON.stringify([...state.selectedRegions])
+      );
+    } catch (_) {}
+  }
+  function syncPillUI() {
+    const noneSelected = state.selectedRegions.size === 0;
+    pills.forEach((p) => {
+      const code = p.dataset.region || "";
+      if (code === "") {
+        // The "All" pill is active iff no specific regions are selected.
+        p.classList.toggle("active", noneSelected);
+      } else {
+        p.classList.toggle("active", state.selectedRegions.has(code));
+      }
     });
   }
   pills.forEach((p) => {
     p.addEventListener("click", () => {
-      state.selectedRegion = p.dataset.region || "";
-      try { localStorage.setItem(LS_REGION, state.selectedRegion); } catch (_) {}
+      const code = p.dataset.region || "";
+      if (code === "") {
+        // "All" clears the multi-selection.
+        state.selectedRegions.clear();
+      } else if (state.selectedRegions.has(code)) {
+        state.selectedRegions.delete(code);
+      } else {
+        state.selectedRegions.add(code);
+      }
+      persist();
       syncPillUI();
       recomputeAndRender();
     });
