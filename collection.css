@@ -389,16 +389,54 @@ table#collection-table td.actions {
   border-radius: 3px;
   overflow: hidden;
 }
+.energy-curve .curve-row .bar-wrap.stacked {
+  display: flex;
+  align-items: stretch;
+}
 .energy-curve .curve-row .bar {
   height: 100%;
   background: var(--accent);
   border-radius: 2px;
 }
+.energy-curve .curve-row .bar-wrap.stacked .bar { border-radius: 0; }
+.energy-curve .curve-row .bar-wrap.stacked .bar:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.energy-curve .curve-row .bar-wrap.stacked .bar:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.energy-curve .curve-row .bar-unit  { background: #60a5fa; } /* blue */
+.energy-curve .curve-row .bar-gear  { background: #fbbf24; } /* amber */
+.energy-curve .curve-row .bar-spell { background: #f472b6; } /* pink */
 .energy-curve .curve-row .count {
   color: var(--fg);
 }
 .energy-curve .curve-row.empty .bar { background: transparent; }
 .energy-curve .curve-row.empty .count { color: var(--muted); }
+
+/* Legend chips above the curve */
+.energy-curve .curve-legend {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.energy-curve .curve-key {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.energy-curve .curve-key.key-unit  { background: #60a5fa; }
+.energy-curve .curve-key.key-gear  { background: #fbbf24; }
+.energy-curve .curve-key.key-spell { background: #f472b6; }
 
 /* Per-row energy cost cell styling */
 table#collection-table td.cost-cell {

@@ -631,10 +631,17 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
 }
 
 function computeEnergyCurve(slugQtyMap) {
-  // Returns { buckets: number[8], avg: number|null, totalCounted: number }.
+  // Returns { buckets: {unit, gear, spell, total}[8], avg, totalCounted }.
   // Cards with no energy cost (cost "-": legend, battlefield, rune) are
-  // excluded from the curve and from the average.
-  const buckets = new Array(8).fill(0);
+  // excluded from the curve and from the average. We split per-bucket by
+  // card type so the bars can be rendered as stacks (unit base, gear,
+  // spell on top).
+  const buckets = Array.from({ length: 8 }, () => ({
+    unit: 0,
+    gear: 0,
+    spell: 0,
+    total: 0,
+  }));
   let sumE = 0;
   let totalCounted = 0;
   for (const [slug, qty] of Object.entries(slugQtyMap || {})) {
@@ -642,7 +649,10 @@ function computeEnergyCurve(slugQtyMap) {
     if (e == null) continue;
     const idx = bucketIndexForEnergy(e);
     if (idx < 0) continue;
-    buckets[idx] += qty;
+    const t = catalog[slug]?.type;
+    const seg = t === "unit" || t === "gear" || t === "spell" ? t : "spell";
+    buckets[idx][seg] += qty;
+    buckets[idx].total += qty;
     sumE += e * qty;
     totalCounted += qty;
   }
@@ -690,23 +700,40 @@ function renderEnergyCurve(containerEl, label, curve) {
     )}</span><span>—</span></div>`;
     return;
   }
-  const max = Math.max(1, ...curve.buckets);
+  const max = Math.max(1, ...curve.buckets.map((b) => b.total));
+  // Aggregate totals per type for the legend chip in the header.
+  const tot = curve.buckets.reduce(
+    (a, b) => ({ unit: a.unit + b.unit, gear: a.gear + b.gear, spell: a.spell + b.spell }),
+    { unit: 0, gear: 0, spell: 0 }
+  );
   const rowsHtml = CURVE_BUCKETS.map((bk, i) => {
-    const n = curve.buckets[i];
-    const pct = (n / max) * 100;
-    const cls = n === 0 ? "curve-row empty" : "curve-row";
+    const b = curve.buckets[i];
+    const cls = b.total === 0 ? "curve-row empty" : "curve-row";
+    // Each segment widths as a percentage of the FULL rail so the stack
+    // sums to (b.total / max) of the available width.
+    const segPct = (n) => ((n / max) * 100).toFixed(2);
+    const segs = [];
+    if (b.unit > 0) segs.push(`<div class="bar bar-unit" style="width:${segPct(b.unit)}%" title="${b.unit} unit"></div>`);
+    if (b.gear > 0) segs.push(`<div class="bar bar-gear" style="width:${segPct(b.gear)}%" title="${b.gear} gear"></div>`);
+    if (b.spell > 0) segs.push(`<div class="bar bar-spell" style="width:${segPct(b.spell)}%" title="${b.spell} spell"></div>`);
     return `
       <div class="${cls}">
         <span class="bucket">${escapeHtml(bk)}</span>
-        <div class="bar-wrap"><div class="bar" style="width:${pct.toFixed(1)}%"></div></div>
-        <span class="count">${n}</span>
+        <div class="bar-wrap stacked">${segs.join("")}</div>
+        <span class="count">${b.total}</span>
       </div>`;
   }).join("");
+  // Legend chips. Only show segments that have any cards.
+  const legendBits = [];
+  if (tot.unit > 0) legendBits.push(`<span class="curve-key key-unit"></span>unit ${tot.unit}`);
+  if (tot.gear > 0) legendBits.push(`<span class="curve-key key-gear"></span>gear ${tot.gear}`);
+  if (tot.spell > 0) legendBits.push(`<span class="curve-key key-spell"></span>spell ${tot.spell}`);
   containerEl.innerHTML = `
     <div class="curve-title">
       <span>${escapeHtml(label)}</span>
       <span>avg ${curve.avg.toFixed(2)} · ${curve.totalCounted} cards</span>
     </div>
+    <div class="curve-legend">${legendBits.join(" · ")}</div>
     ${rowsHtml}`;
 }
 
