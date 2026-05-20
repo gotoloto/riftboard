@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Energy curve — stacked bar variations</title>
+  <style>
+    :root {
+      --fg: #111827;
+      --muted: #6b7280;
+      --soft: #d1d5db;
+      --rail: #e5e7eb;
+      --rail-strong: #d1d5db;
+      --bg: #fafafa;
+      --c-unit: #60a5fa;
+      --c-gear: #fbbf24;
+      --c-spell: #f472b6;
+    }
+    body {
+      font: 14px/1.45 system-ui, -apple-system, Segoe UI, sans-serif;
+      padding: 24px 32px 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    h1 { margin: 0 0 4px; font-size: 22px; }
+    .hint { color: var(--muted); margin: 0 0 24px; font-size: 13px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 1000px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 660px)  { .grid { grid-template-columns: 1fr; } }
+    section.variant {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 14px 16px 18px;
+    }
+    section.variant h2 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin: 0 0 4px;
+    }
+    section.variant h2 .key { color: var(--fg); font-weight: 700; margin-right: 6px; }
+    section.variant .desc {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 0 0 12px;
+      min-height: 28px;
+    }
+    .legend {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .legend .chip { display: inline-flex; align-items: center; gap: 4px; }
+    .legend .swatch {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+    .legend .swatch.unit  { background: var(--c-unit); }
+    .legend .swatch.gear  { background: var(--c-gear); }
+    .legend .swatch.spell { background: var(--c-spell); }
+
+    /* Common row scaffolding shared by all variants */
+    .row {
+      display: grid;
+      grid-template-columns: 22px 1fr 24px;
+      align-items: center;
+      gap: 8px;
+      margin: 3px 0;
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+    }
+    .row .lbl { color: var(--muted); text-align: right; }
+    .row .count { color: var(--fg); }
+    .row.empty .count { color: var(--muted); }
+
+    /* =========================================================
+       A. Inset pill in rail (current deployed)
+       ========================================================= */
+    .curveA .track {
+      position: relative;
+      height: 14px;
+      background: var(--rail);
+      border: 1px solid var(--rail-strong);
+      border-radius: 7px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .curveA .fill {
+      position: absolute;
+      top: 2px; left: 0; bottom: 2px;
+      border-radius: 5px;
+    }
+
+    /* =========================================================
+       B. Edge-to-edge — no inner gap, square inside, rail handles corners
+       ========================================================= */
+    .curveB .track {
+      position: relative;
+      height: 12px;
+      background: var(--rail);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .curveB .fill {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+    }
+
+    /* =========================================================
+       C. Floating pill — no rail at all, bar sits on row background
+       ========================================================= */
+    .curveC {
+      padding: 0;
+    }
+    .curveC .track {
+      position: relative;
+      height: 10px;
+    }
+    .curveC .track::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 50%;
+      height: 1px;
+      background: #f3f4f6;
+    }
+    .curveC .fill {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      border-radius: 5px;
+      box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    }
+
+    /* =========================================================
+       D. Segmented — each type is its own small pill with 2px gap
+       ========================================================= */
+    .curveD .track {
+      position: relative;
+      height: 12px;
+      display: flex;
+      gap: 2px;
+    }
+    .curveD .seg {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .curveD .seg.unit  { background: var(--c-unit); }
+    .curveD .seg.gear  { background: var(--c-gear); }
+    .curveD .seg.spell { background: var(--c-spell); }
+
+    /* =========================================================
+       E. Tall block — chunky 22-px bar, minimal radius
+       ========================================================= */
+    .curveE .track {
+      position: relative;
+      height: 22px;
+      background: #f3f4f6;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .curveE .fill {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      border-radius: 4px;
+    }
+
+    /* =========================================================
+       F. Slim ticks — thin 5px line, almost a sparkline row
+       ========================================================= */
+    .curveF .track {
+      position: relative;
+      height: 16px;
+    }
+    .curveF .track::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: calc(50% - 0.5px);
+      height: 1px;
+      background: #f3f4f6;
+    }
+    .curveF .fill {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 5px;
+      left: 0;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Energy curve — stacked bar variations</h1>
+  <p class="hint">
+    Same data in every panel: unit (blue), gear (amber), spell (pink). Pick the treatment you like and I'll wire it into the builder. Or describe a tweak.
+  </p>
+
+  <div class="legend" style="margin-bottom: 22px;">
+    <span class="chip"><span class="swatch unit"></span> unit</span>
+    <span class="chip"><span class="swatch gear"></span> gear</span>
+    <span class="chip"><span class="swatch spell"></span> spell</span>
+  </div>
+
+  <div class="grid">
+    <section class="variant">
+      <h2><span class="key">A</span> Inset pill in rail <span style="color:#9ca3af;font-weight:400;text-transform:none;letter-spacing:0;">(current)</span></h2>
+      <p class="desc">Light gray pill-shaped rail; the colored fill sits inside with 2px of breathing room top/bottom; gradient hard-stops between types.</p>
+      <div class="curveA"></div>
+    </section>
+
+    <section class="variant">
+      <h2><span class="key">B</span> Edge-to-edge</h2>
+      <p class="desc">Rectangular rail with rounded corners. Fill spans the rail exactly (no inset). Rail clips both ends; minimal chrome.</p>
+      <div class="curveB"></div>
+    </section>
+
+    <section class="variant">
+      <h2><span class="key">C</span> Floating pill</h2>
+      <p class="desc">No track behind the bar — just a faint baseline. Reads more like a sparkline, lighter visual weight overall.</p>
+      <div class="curveC"></div>
+    </section>
+
+    <section class="variant">
+      <h2><span class="key">D</span> Segmented chunks</h2>
+      <p class="desc">Each type is its own small rounded pill with a 2px gap between them. No rail. Calls out the type split most strongly.</p>
+      <div class="curveD"></div>
+    </section>
+
+    <section class="variant">
+      <h2><span class="key">E</span> Tall block</h2>
+      <p class="desc">22px tall, slight 4px radius. Most prominent — colors carry the visual weight.</p>
+      <div class="curveE"></div>
+    </section>
+
+    <section class="variant">
+      <h2><span class="key">F</span> Slim ticks</h2>
+      <p class="desc">5px line, mid-row, on a barely-there baseline. Smallest footprint — good if you ever want the curve to fit inline next to the card list.</p>
+      <div class="curveF"></div>
+    </section>
+  </div>
+
+  <script>
+    // Same sample data across every variant so visual differences are
+    // purely about styling, not data.
+    const SAMPLE = [
+      { label: '0',  unit: 0, gear: 0, spell: 0 },
+      { label: '1',  unit: 0, gear: 0, spell: 8 },
+      { label: '2',  unit: 7, gear: 2, spell: 6 },
+      { label: '3',  unit: 1, gear: 0, spell: 6 },
+      { label: '4',  unit: 5, gear: 0, spell: 0 },
+      { label: '5',  unit: 4, gear: 0, spell: 0 },
+      { label: '6',  unit: 0, gear: 0, spell: 0 },
+      { label: '7+', unit: 1, gear: 0, spell: 0 },
+    ];
+    const COLOR = { unit: '#60a5fa', gear: '#fbbf24', spell: '#f472b6' };
+    const MAX = Math.max(1, ...SAMPLE.map((r) => r.unit + r.gear + r.spell));
+
+    // Build the gradient background for a single row (variants A, B, C, E, F).
+    function gradientBg(row) {
+      const total = row.unit + row.gear + row.spell;
+      if (total === 0) return '';
+      const stops = [];
+      let cum = 0;
+      for (const seg of ['unit', 'gear', 'spell']) {
+        const n = row[seg];
+        if (n <= 0) continue;
+        const start = cum;
+        const end = cum + (n / total) * 100;
+        stops.push(`${COLOR[seg]} ${start.toFixed(2)}% ${end.toFixed(2)}%`);
+        cum = end;
+      }
+      return `linear-gradient(to right, ${stops.join(', ')})`;
+    }
+
+    function renderGradientVariant(rootEl) {
+      rootEl.innerHTML = SAMPLE.map((r) => {
+        const total = r.unit + r.gear + r.spell;
+        const widthPct = ((total / MAX) * 100).toFixed(2);
+        const cls = total === 0 ? 'row empty' : 'row';
+        const bg = gradientBg(r);
+        const fillStyle = bg ? `width:${widthPct}%; background:${bg};` : '';
+        return `
+          <div class="${cls}">
+            <span class="lbl">${r.label}</span>
+            <div class="track"><div class="fill" style="${fillStyle}"></div></div>
+            <span class="count">${total}</span>
+          </div>`;
+      }).join('');
+    }
+
+    function renderSegmentedVariant(rootEl) {
+      rootEl.innerHTML = SAMPLE.map((r) => {
+        const total = r.unit + r.gear + r.spell;
+        const cls = total === 0 ? 'row empty' : 'row';
+        const segs = [];
+        for (const seg of ['unit', 'gear', 'spell']) {
+          if (r[seg] > 0) {
+            const w = ((r[seg] / MAX) * 100).toFixed(2);
+            segs.push(`<div class="seg ${seg}" style="width:${w}%" title="${r[seg]} ${seg}"></div>`);
+          }
+        }
+        return `
+          <div class="${cls}">
+            <span class="lbl">${r.label}</span>
+            <div class="track">${segs.join('')}</div>
+            <span class="count">${total}</span>
+          </div>`;
+      }).join('');
+    }
+
+    renderGradientVariant(document.querySelector('.curveA'));
+    renderGradientVariant(document.querySelector('.curveB'));
+    renderGradientVariant(document.querySelector('.curveC'));
+    renderSegmentedVariant(document.querySelector('.curveD'));
+    renderGradientVariant(document.querySelector('.curveE'));
+    renderGradientVariant(document.querySelector('.curveF'));
+  </script>
+</body>
+</html>
