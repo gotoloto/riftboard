@@ -405,8 +405,17 @@ table#collection-table td.actions {
   left: 0;
   bottom: 0;
   /* Reset the global .bar rule (styles.css) which is intended for the
-     main dashboard's inclusion-percentage bar — it sets a 3px
-     border-radius and 6px left-margin that bleed in here. */
+     main dashboard's inclusion-percentage bar. It sets:
+       height: 6px       → wins over top:0/bottom:0, so the bar was
+                           pinning to the top at half-rail-height.
+       width: 60px       → harmless (overridden inline) but reset for
+                           clarity.
+       border-radius: 3px → variant B wants square inner corners.
+       margin-left: 6px  → shifted the fill right.
+       overflow: hidden  → benign but reset.
+     Override all of them. */
+  height: auto;
+  width: auto;
   margin: 0;
   border-radius: 0;
   background: var(--accent);
