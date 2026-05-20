@@ -41,7 +41,7 @@ const state = {
   maxFinishPct: 100,
   includeUnranked: true,
   minDate: null, // "YYYY-MM-DD" or null
-  selectedRegion: "", // "", "CN", "WEST", "unknown"
+  selectedRegion: "", // "", "CN", "WEST", "ONLINE", "unknown"
   board: "main", // "main" or "side"
   medianMode: "composite", // "composite" or "representative"
   expandedSlugs: new Set(), // card slugs whose deck-list is expanded
@@ -57,6 +57,7 @@ const WEST_COUNTRIES = new Set([
 ]);
 function regionFor(countryCode) {
   if (!countryCode) return null;
+  if (countryCode === "ONLINE") return "ONLINE";
   if (CN_COUNTRIES.has(countryCode)) return "CN";
   if (WEST_COUNTRIES.has(countryCode)) return "WEST";
   return null;
