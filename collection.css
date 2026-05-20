@@ -259,6 +259,13 @@ table#collection-table td.actions {
 }
 .deck-section.over .count { color: #f87171; font-weight: 600; }
 .deck-list {
+  /* styles.css's .deck-list rule (for the main dashboard's median-deck
+     panel) sets display:grid + grid-template-columns:repeat(auto-fill,
+     minmax(360px, 1fr)), which would force every LI to be ≥360px and
+     blow past the 320px sidebar. Reset to block so the LIs fill the
+     sidebar; their own .deck-list li { display:grid } still works. */
+  display: block;
+  grid-template-columns: none;
   list-style: none;
   margin: 0;
   padding: 0;
