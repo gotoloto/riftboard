@@ -384,22 +384,25 @@ table#collection-table td.actions {
 }
 .energy-curve .curve-row .bar-wrap {
   position: relative;
-  height: 12px;
+  height: 14px;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 7px;
   overflow: hidden;
   box-sizing: border-box;
 }
-/* Absolute-positioned bar fills the wrap top→bottom exactly; no
-   sub-pixel/inline gaps, no inner border-radius needed (the wrap clips
-   the rounded corners). Width is set inline as a percentage. */
+/* Absolute-positioned bar inset 2px top + bottom so the gray rail
+   peeks evenly above and below. Left edge is flush so the wrap's
+   overflow:hidden + border-radius rounds it; the bar carries its
+   own border-radius so the right end is always rounded too, even
+   when the bar runs the full width. */
 .energy-curve .curve-row .bar {
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
-  bottom: 0;
+  bottom: 2px;
   background: var(--accent);
+  border-radius: 5px;
 }
 /* Stacked bars carry their own hard-stop linear-gradient inline. */
 .energy-curve .curve-row .bar.stacked { background: linear-gradient(to right, var(--accent), var(--accent)); }
