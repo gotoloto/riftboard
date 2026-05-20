@@ -27,6 +27,13 @@ body {
   color: var(--fg);
   background: var(--bg);
   padding: 24px;
+  /* Clamp phantom horizontal scroll. Some element somewhere computes
+     to a width fractionally > viewport (likely a sub-pixel artifact
+     or an absolutely-positioned UI affordance) and produces a scroll
+     bar that reveals no content. `clip` over `hidden` so we don't
+     establish a new scroll container that would break sticky/fixed
+     descendants. Horizontal scroll inside .table-scroll is unaffected. */
+  overflow-x: clip;
 }
 @media (max-width: 640px) {
   body { padding: 14px; }

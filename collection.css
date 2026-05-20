@@ -382,27 +382,22 @@ table#collection-table td.actions {
   color: var(--muted);
   text-align: right;
 }
+/* Variant B (chosen): rectangular rail with 3px rounded corners,
+   fill spans the rail edge-to-edge. The wrap's overflow: hidden
+   does all the corner clipping; the bar itself has no radius. */
 .energy-curve .curve-row .bar-wrap {
   position: relative;
-  height: 14px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 7px;
+  height: 12px;
+  background: var(--rail, #e5e7eb);
+  border-radius: 3px;
   overflow: hidden;
-  box-sizing: border-box;
 }
-/* Absolute-positioned bar inset 2px top + bottom so the gray rail
-   peeks evenly above and below. Left edge is flush so the wrap's
-   overflow:hidden + border-radius rounds it; the bar carries its
-   own border-radius so the right end is always rounded too, even
-   when the bar runs the full width. */
 .energy-curve .curve-row .bar {
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 0;
-  bottom: 2px;
+  bottom: 0;
   background: var(--accent);
-  border-radius: 5px;
 }
 /* Stacked bars carry their own hard-stop linear-gradient inline. */
 .energy-curve .curve-row .bar.stacked { background: linear-gradient(to right, var(--accent), var(--accent)); }
