@@ -104,8 +104,13 @@ function ownedFor(slug) {
   const locked = lockedTotal(slug, "builder");
   return Math.max(0, o + er - locked);
 }
+function playsetFor(slug) {
+  // Legends are always 1-of in a deck, so their playset is 1 (not 3).
+  // Every other type can run up to MAX_COPIES copies per board.
+  return catalog[slug]?.type === "legend" ? 1 : PLAYSET;
+}
 function missingFor(slug) {
-  return Math.max(0, PLAYSET - ownedFor(slug));
+  return Math.max(0, playsetFor(slug) - ownedFor(slug));
 }
 
 // ---------- filter state ----------
