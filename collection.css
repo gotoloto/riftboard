@@ -383,19 +383,25 @@ table#collection-table td.actions {
   text-align: right;
 }
 .energy-curve .curve-row .bar-wrap {
-  height: 10px;
+  position: relative;
+  height: 12px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 3px;
   overflow: hidden;
+  box-sizing: border-box;
 }
+/* Absolute-positioned bar fills the wrap top→bottom exactly; no
+   sub-pixel/inline gaps, no inner border-radius needed (the wrap clips
+   the rounded corners). Width is set inline as a percentage. */
 .energy-curve .curve-row .bar {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
   background: var(--accent);
-  border-radius: 2px;
 }
-/* Stacked bars use a hard-stop linear-gradient set inline, so the bar
-   itself owns the colour layout. No flex children, no rounding gaps. */
+/* Stacked bars carry their own hard-stop linear-gradient inline. */
 .energy-curve .curve-row .bar.stacked { background: linear-gradient(to right, var(--accent), var(--accent)); }
 .energy-curve .curve-row .count {
   color: var(--fg);
