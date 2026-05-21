@@ -276,17 +276,26 @@ function aggregateCards(decks) {
 }
 
 const KNOWN_TYPES = ["legend", "battlefield", "rune", "unit", "spell", "gear"];
+// Champion catalog (sourced from cached deck data via build_champion_slugs).
+// Cards in this set are units in catalog terms but get displayed in their
+// own Champion section per riftdecks' deck-export convention.
+const CHAMPION_SLUGS_SET = new Set(window.__CHAMPION_SLUGS__ || []);
 
 function slotFor(card) {
+  // Slug-based check first so champion units (catalog type=unit but special
+  // role per deck) get pulled out of the units pool.
+  if (card.slug && CHAMPION_SLUGS_SET.has(card.slug)) return "champion";
   const t = (card.type || "").toLowerCase();
   return KNOWN_TYPES.includes(t) ? t : "other";
 }
 
 // Hardcoded slot targets dictated by Riftbound deck-building rules.
-// Unit / spell / gear are computed dynamically (their split varies per deck).
-const STATIC_TARGETS = { legend: 1, battlefield: 3, rune: 12 };
+// Champion + battlefield + rune sum to 16 fixed; the remaining 39 of the
+// 40-card maindeck split between unit/spell/gear dynamically.
+const STATIC_TARGETS = { legend: 1, champion: 1, battlefield: 3, rune: 12 };
 const SLOT_LABELS = {
   legend: "Legend",
+  champion: "Champion",
   battlefield: "Battlefields",
   rune: "Runes",
   unit: "Units",
@@ -296,6 +305,7 @@ const SLOT_LABELS = {
 };
 const SLOT_ORDER = [
   "legend",
+  "champion",
   "unit",
   "spell",
   "gear",
@@ -344,6 +354,9 @@ function pickByMedian(cards, target) {
 }
 
 const MAINDECK_TARGET = 40;
+// Of the 40-card maindeck, 1 slot is the champion; the unit/spell/gear/other
+// pool fills the remaining 39.
+const MAINDECK_NON_CHAMPION_TARGET = 39;
 
 function buildCompositeSections() {
   if (state.board === "side") {
@@ -371,8 +384,8 @@ function buildCompositeSections() {
 
   const sections = [];
 
-  // Maindeck (units + spells + gear + other): pool, total-fill 40, then
-  // sub-categorise the picks. Guarantees the maindeck sums to 40.
+  // Maindeck pool (unit + spell + gear + other) — champion already pulled
+  // out into its own slot. Target 39 so champion(1) + pool(39) = 40.
   const pool = [
     ...grouped.unit,
     ...grouped.spell,
@@ -381,17 +394,23 @@ function buildCompositeSections() {
   ];
   const { picks: mdPicks, filled: mdFilled } = pickByMedian(
     pool,
-    MAINDECK_TARGET
+    MAINDECK_NON_CHAMPION_TARGET
   );
   const subGroups = { unit: [], spell: [], gear: [], other: [] };
   for (const p of mdPicks) subGroups[slotFor(p)].push(p);
 
-  // Render order: Legend → Units → Spells → Gear → Battlefields → Runes
-  // (matches tournament deck-list convention: maindeck first, fixed slots last).
+  // Render order: Legend → Champion → Units → Spells → Gear → Battlefields → Runes
+  // (matches riftdecks' deck-export convention: legend/champion first, then
+  // the variable maindeck split, then fixed-target slots).
   {
     const target = STATIC_TARGETS.legend;
     const { picks, filled } = pickByMedian(grouped.legend, target);
     sections.push({ key: "legend", label: SLOT_LABELS.legend, target, filled, picks });
+  }
+  {
+    const target = STATIC_TARGETS.champion;
+    const { picks, filled } = pickByMedian(grouped.champion, target);
+    sections.push({ key: "champion", label: SLOT_LABELS.champion, target, filled, picks });
   }
   for (const sub of ["unit", "spell", "gear", "other"]) {
     if (subGroups[sub].length === 0 && sub === "other") continue;
@@ -399,7 +418,7 @@ function buildCompositeSections() {
     sections.push({
       key: sub,
       label: SLOT_LABELS[sub],
-      target: MAINDECK_TARGET,
+      target: MAINDECK_NON_CHAMPION_TARGET,
       filled,
       picks: subGroups[sub],
       subOfMaindeck: true,
@@ -410,11 +429,11 @@ function buildCompositeSections() {
     const { picks, filled } = pickByMedian(grouped[key], target);
     sections.push({ key, label: SLOT_LABELS[key], target, filled, picks });
   }
-  // Track maindeck under-fill (rare: if pool too thin to hit 40)
-  if (mdFilled < MAINDECK_TARGET) {
+  // Track maindeck under-fill (rare: if the non-champion pool can't hit 39)
+  if (mdFilled < MAINDECK_NON_CHAMPION_TARGET) {
     sections.push({
       key: "_warning",
-      label: `Maindeck pool exhausted (${mdFilled}/${MAINDECK_TARGET})`,
+      label: `Maindeck pool exhausted (${mdFilled}/${MAINDECK_NON_CHAMPION_TARGET})`,
       target: 0,
       filled: 0,
       picks: [],
@@ -435,12 +454,13 @@ function renderCompositeDeck() {
       (sections.find((s) => s.key === "legend")?.filled || 0) +
       (sections.find((s) => s.key === "battlefield")?.filled || 0) +
       (sections.find((s) => s.key === "rune")?.filled || 0);
+    const champ = sections.find((s) => s.key === "champion")?.filled || 0;
     const md = sections
       .filter((s) => s.subOfMaindeck)
       .reduce((sum, s) => sum + s.filled, 0);
     medianContextEl.textContent = `· ${boardLabel} · ${
-      fixed + md
-    } cards (1 + 3 + 12 + ${md}/40 maindeck)`;
+      fixed + champ + md
+    } cards (1 + 1 + 3 + 12 + ${md}/39 maindeck)`;
   }
 
   medianContentEl.innerHTML = sections
@@ -544,6 +564,7 @@ function renderRepresentativeDeck() {
   // Build sections by slot, using actual quantities from this deck.
   const sectionsBySlot = {
     legend: [],
+    champion: [],
     battlefield: [],
     rune: [],
     unit: [],
@@ -554,7 +575,8 @@ function renderRepresentativeDeck() {
   for (const [slug, qty] of cardList) {
     const meta = state.cardsMeta[slug] || {};
     const card = state.cards.find((c) => c.slug === slug) || {};
-    const slot = slotFor({ type: meta.type });
+    // Pass slug so champion units get sorted into the Champion slot.
+    const slot = slotFor({ slug, type: meta.type });
     sectionsBySlot[slot].push({
       slug,
       name: meta.name || slug,
@@ -588,11 +610,11 @@ function renderRepresentativeDeck() {
 
   medianContextEl.textContent = `· ${boardLabel} · ${total} cards (closest real deck to median split)`;
 
-  // Layout: matches Composite — Legend → Units → Spells → Gear → Battlefields → Runes
+  // Layout: matches Composite — Legend → Champion → Units → Spells → Gear → Battlefields → Runes
   const order =
     state.board === "side"
-      ? ["unit", "spell", "gear", "other", "battlefield", "rune", "legend"]
-      : ["legend", "unit", "spell", "gear", "battlefield", "rune", "other"];
+      ? ["unit", "spell", "gear", "other", "battlefield", "rune", "champion", "legend"]
+      : ["legend", "champion", "unit", "spell", "gear", "battlefield", "rune", "other"];
 
   medianContentEl.innerHTML = order
     .filter((k) => sectionsBySlot[k].length > 0)
@@ -1253,10 +1275,11 @@ function formatPlaintextDeck() {
     side: [],
   };
   // Each .median-section's h3 first text node is the slot label
-  // ("Legend", "Battlefields", "Runes", "Units", "Spells", "Gear",
-  // "Sideboard"). Map to our output buckets.
+  // ("Legend", "Champion", "Battlefields", "Runes", "Units", "Spells",
+  // "Gear", "Sideboard"). Map to our output buckets.
   const labelToBucket = {
     legend: "legend",
+    champion: "champion",
     battlefields: "battlefield",
     runes: "rune",
     units: "maindeck",

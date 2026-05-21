@@ -12,8 +12,13 @@ const PLAYSET = 3;
 // Riftbound deck-construction cap: no more than 3 copies of any single card
 // in maindeck or sideboard (each tracked independently). Battlefields have
 // their own bucket-size cap of 3 total. Runes are unrestricted and not
-// tracked here. Legend slot is always exactly 1.
+// tracked here. Legend and Champion slots are always exactly 1.
 const MAX_COPIES = 3;
+// Set of slugs known to be champions (window.__CHAMPION_SLUGS__ is a list
+// of every slug observed as type=champion in any cached deck). Used to
+// split the Champion: section out of MainDeck: in the riftdecks-style
+// copy + the sidebar UI, and to enforce the 1-champion-per-deck cap.
+const CHAMPION_SLUGS = new Set(window.__CHAMPION_SLUGS__ || []);
 
 // Static enums used by the pill filters. Kept here (not derived from catalog)
 // so empty categories always render — gives the UI predictable layout.
@@ -105,9 +110,12 @@ function ownedFor(slug) {
   return Math.max(0, o + er - locked);
 }
 function playsetFor(slug) {
-  // Legends are always 1-of in a deck, so their playset is 1 (not 3).
-  // Every other type can run up to MAX_COPIES copies per board.
-  return catalog[slug]?.type === "legend" ? 1 : PLAYSET;
+  // Legends and champions are always 1-of in a deck per Riftbound rules,
+  // so their playset is 1 (not 3). Champions are catalog-type=unit but
+  // identified via window.__CHAMPION_SLUGS__.
+  if (catalog[slug]?.type === "legend") return 1;
+  if (CHAMPION_SLUGS.has(slug)) return 1;
+  return PLAYSET;
 }
 function missingFor(slug) {
   return Math.max(0, playsetFor(slug) - ownedFor(slug));
@@ -210,6 +218,15 @@ function addToDeck(slug, side) {
     if (bucket === "legend") {
       // Replace any existing legend; no confirm — easy to undo by adding back.
       deck.legend = slug;
+    } else if (CHAMPION_SLUGS.has(slug)) {
+      // Champions are 1-of per deck per Riftbound rules. Adding a champion
+      // (even a different one) replaces any existing champion in main —
+      // same UX pattern as the Legend slot.
+      for (const s of Object.keys(deck.main)) {
+        if (CHAMPION_SLUGS.has(s)) delete deck.main[s];
+      }
+      if (deckTotalIn(slug) >= ownedFor(slug)) return;
+      deck.main[slug] = 1;
     } else {
       if (deckTotalIn(slug) >= ownedFor(slug)) return;
       // Per-card cap for main + battlefields (3 max of any single card).
@@ -238,6 +255,7 @@ function decFromDeck(bucket, slug) {
 }
 function incFromDeck(bucket, slug) {
   if (bucket === "legend") return; // can't have 2 legends
+  if (CHAMPION_SLUGS.has(slug)) return; // can't have 2 champions either
   if (deckTotalIn(slug) >= ownedFor(slug)) return;
   if ((deck[bucket][slug] || 0) >= MAX_COPIES) return;
   deck[bucket][slug] = (deck[bucket][slug] || 0) + 1;
@@ -799,16 +817,23 @@ function renderDeck() {
   const bfTotal = bucketTotal("battlefields");
   document.getElementById("cnt-bf").textContent = bfTotal;
 
-  // Maindeck — split by type
+  // Maindeck — split by type. Champions live in deck.main (catalog type =
+  // unit) but get their own sub-section per riftdecks' convention. Identified
+  // via window.__CHAMPION_SLUGS__.
   const sortByName = (a, b) =>
     (catalog[a[0]]?.name || a[0]).localeCompare(catalog[b[0]]?.name || b[0]);
   const mainEntries = Object.entries(deck.main).sort(sortByName);
-  const byType = { unit: [], gear: [], spell: [] };
+  const byType = { champion: [], unit: [], gear: [], spell: [] };
   for (const [slug, qty] of mainEntries) {
+    if (CHAMPION_SLUGS.has(slug)) {
+      byType.champion.push([slug, qty]);
+      continue;
+    }
     const t = catalog[slug]?.type;
     if (t && byType[t]) byType[t].push([slug, qty]);
   }
   for (const [type, ul, countId, sectionLabel] of [
+    ["champion", "champion", "cnt-champion", "champion"],
     ["unit", "units", "cnt-units", "units"],
     ["gear", "gear", "cnt-gear", "gear"],
     ["spell", "spells", "cnt-spells", "spells"],
@@ -817,12 +842,20 @@ function renderDeck() {
       `.deck-section[data-bucket="${ul}"] .deck-list`
     );
     const list = byType[type];
+    const emptyText =
+      type === "champion"
+        ? "— +M on a champion —"
+        : `— no ${sectionLabel} added —`;
     sectionUl.innerHTML = list.length
       ? list.map(([slug, qty]) => listItemHtml("main", slug, qty, true)).join("")
-      : `<li class="empty">— no ${sectionLabel} added —</li>`;
+      : `<li class="empty">${emptyText}</li>`;
     const subtotal = list.reduce((s, [, q]) => s + q, 0);
     document.getElementById(countId).textContent = subtotal;
   }
+  // Visual flag if champion overrun (>1).
+  document
+    .querySelector('.deck-section[data-bucket="champion"]')
+    .classList.toggle("over", byType.champion.reduce((s, [, q]) => s + q, 0) > 1);
   const mTotal = mainTotal();
   document.getElementById("cnt-main").textContent = mTotal;
 
@@ -879,11 +912,6 @@ function renderDeck() {
 }
 
 // ---------- copy ----------
-// Set of slugs known to be champions (window.__CHAMPION_SLUGS__ is a list
-// of every slug observed as type=champion in any cached deck). Used to
-// split the Champion: line out of MainDeck: in the riftdecks-style copy.
-const CHAMPION_SLUGS = new Set(window.__CHAMPION_SLUGS__ || []);
-
 function buildDecklistText() {
   // Matches riftdecks' own deck-export format:
   //   Legend:

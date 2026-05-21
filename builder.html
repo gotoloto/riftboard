@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Riftbound — deck builder</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
-  <link rel="stylesheet" href="collection.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="collection.css?v=5" />
 </head>
 <body>
   <header>
@@ -118,6 +118,10 @@
           <header><span>Legend</span><span class="count"><span id="cnt-legend">0</span>/1</span></header>
           <ul class="deck-list"></ul>
         </section>
+        <section class="deck-section" data-bucket="champion">
+          <header><span>Champion</span><span class="count"><span id="cnt-champion">0</span>/1</span></header>
+          <ul class="deck-list"></ul>
+        </section>
         <section class="deck-section" data-bucket="battlefields">
           <header><span>Battlefields</span><span class="count"><span id="cnt-bf">0</span>/3</span></header>
           <ul class="deck-list"></ul>
@@ -183,6 +187,6 @@
   <script src="collection-owned.js"></script>
   <script src="collection-enroute.js"></script>
   <script src="collection-sheet.js"></script>
-  <script src="collection-app.js"></script>
+  <script src="collection-app.js?v=5"></script>
 </body>
 </html>
