@@ -1164,9 +1164,63 @@ function init() {
     renderTable();
     renderDeck();
   });
+  ensureReadLockButtons();
   attachHoverThumb();
   renderTable();
   renderDeck();
+}
+
+// Render a "Read from <tab>" button for each known lock tab into the
+// deck-footer. Idempotent — replaces existing buttons when called again
+// (on collection:updated). Each button loads the lock's raw decklist
+// text into the builder via importDecklistText.
+function ensureReadLockButtons() {
+  const containerEl = document.getElementById("read-lock-buttons");
+  if (!containerEl) return;
+  const tabs = lockTabNames();
+  // Cache-key off the tab list so we don't recreate buttons unnecessarily.
+  const key = tabs.join("|");
+  if (containerEl.dataset.tabs === key) return;
+  containerEl.dataset.tabs = key;
+  containerEl.innerHTML = "";
+  for (const tab of tabs) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.textContent = `Read ${tab}`;
+    btn.title = `Load the decklist pasted into the ${tab} tab of the collection sheet`;
+    btn.addEventListener("click", () => loadFromLock(tab, btn));
+    containerEl.appendChild(btn);
+  }
+}
+
+function loadFromLock(tabName, btnEl) {
+  const raw = (window.__LOCKS_RAW__ || {})[tabName];
+  if (!raw || !raw.trim()) {
+    toast(`${tabName} is empty.`);
+    return;
+  }
+  const warnings = importDecklistText(raw);
+  if (warnings.length) {
+    toast(
+      `Loaded from ${tabName} — ${warnings.length} warning${
+        warnings.length === 1 ? "" : "s"
+      } (see console)`
+    );
+    console.warn(`[Read from ${tabName}] ${warnings.length} warning(s):`);
+    for (const w of warnings) console.warn(`  · ${w}`);
+  } else {
+    toast(`Loaded from ${tabName}.`);
+  }
+  if (btnEl) {
+    const orig = btnEl.textContent;
+    btnEl.classList.add("copied");
+    btnEl.textContent = "Loaded ✓";
+    setTimeout(() => {
+      btnEl.classList.remove("copied");
+      btnEl.textContent = orig;
+    }, 1200);
+  }
 }
 
 window.addEventListener("collection:updated", () => {
@@ -1177,6 +1231,7 @@ window.addEventListener("collection:updated", () => {
     renderTable();
     renderDeck();
   });
+  ensureReadLockButtons();
   renderTable();
   renderDeck();
 });

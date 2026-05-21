@@ -201,12 +201,15 @@
       return;
     }
     // Lock tabs: keyed by display name (e.g. "Travis 🔒"). Missing/empty
-    // tabs just contribute {}.
+    // tabs just contribute {}. Also keep the raw CSV text per tab so the
+    // builder can re-parse it as a sectioned decklist via importDecklistText.
     const locks = {};
+    const locksRaw = {};
     const lockWarnings = {}; // {tabName: [{kind, line}]}
     LOCK_TABS.forEach((name, i) => {
       const r = lockRes[i];
       if (r.status === "fulfilled") {
+        locksRaw[name] = r.value;
         try {
           const { locks: l, warnings } = parseLockTab(r.value);
           locks[name] = l;
@@ -214,8 +217,10 @@
         } catch (_) { locks[name] = {}; }
       } else {
         locks[name] = {};
+        locksRaw[name] = "";
       }
     });
+    window.__LOCKS_RAW__ = locksRaw;
     applyState({ owned: data.owned, enroute: data.enroute, locks }, "sheet");
     // Surface parse warnings in the status line + the console. Aggregate
     // count in the badge, full per-card detail in console.warn — you can

@@ -333,9 +333,15 @@ table#collection-table td.actions {
 .deck-footer {
   margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
-.deck-footer .copy-btn { flex: 1; }
+.deck-footer .copy-btn { flex: 1 1 auto; min-width: 0; }
+/* Read-from-lock buttons sit on the same flex row as Copy/New/Paste
+   but get their own line via flex-basis 100% when space gets tight. */
+.read-lock-buttons {
+  display: contents;
+}
 .footnote { font-size: 11px; margin: 6px 0 0; line-height: 1.4; }
 
 /* ---------- Paste-import panel ---------- */

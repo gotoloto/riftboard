@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Riftbound — deck builder</title>
-  <link rel="stylesheet" href="styles.css?v=6" />
-  <link rel="stylesheet" href="collection.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="collection.css?v=7" />
 </head>
 <body>
   <header>
@@ -156,6 +156,7 @@
         <button type="button" id="copy-deck" class="copy-btn">Copy decklist</button>
         <button type="button" id="new-deck" class="copy-btn" title="Wipe the current draft">New deck</button>
         <button type="button" id="import-deck" class="copy-btn" title="Paste a decklist to load it">Paste…</button>
+        <span id="read-lock-buttons" class="read-lock-buttons"></span>
       </footer>
       <div id="paste-panel" class="paste-panel" hidden>
         <p class="muted footnote">
@@ -187,6 +188,6 @@
   <script src="collection-owned.js"></script>
   <script src="collection-enroute.js"></script>
   <script src="collection-sheet.js"></script>
-  <script src="collection-app.js?v=6"></script>
+  <script src="collection-app.js?v=7"></script>
 </body>
 </html>
