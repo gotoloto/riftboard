@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riftbound — deck lineup</title>
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="collection.css?v=9" />
+  <link rel="stylesheet" href="lineup.css?v=9" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <h1>Lineup</h1>
+      <a class="back-link" href="./">← Main dashboard</a>
+    </div>
+    <p id="meta" class="muted"></p>
+    <p id="sheet-status" class="muted sheet-status"></p>
+    <p class="muted note">
+      Read-only view of every locked deck across both players. Cards
+      are flagged red when the household doesn't own enough copies
+      (counting just <strong>owned</strong> — not en-route). Hover any
+      card name for the printed art.
+    </p>
+  </header>
+
+  <section class="lineup-controls">
+    <label class="enroute-toggle">
+      <input type="checkbox" id="include-enroute" />
+      Include en-route as owned
+    </label>
+    <span class="muted small">(default off — strictest "can I play this deck right now" check)</span>
+  </section>
+
+  <main class="lineup-grid" id="lineup-grid"></main>
+
+  <img id="card-thumb" alt="" hidden />
+  <div id="toast" hidden></div>
+
+  <script src="utils.js?v=9"></script>
+  <script src="cards-catalog.js?v=9"></script>
+  <script src="champion-slugs.js?v=9"></script>
+  <script src="collection-owned.js?v=9"></script>
+  <script src="collection-enroute.js?v=9"></script>
+  <script src="collection-sheet.js?v=9"></script>
+  <script src="lineup-app.js?v=9"></script>
+</body>
+</html>

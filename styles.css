@@ -64,6 +64,34 @@ h1 { margin: 0; font-size: 22px; }
 .sheet-status.err::before { content: "⚠ "; }
 .sheet-status.warn { color: #fbbf24; }
 .sheet-status.warn::before { content: "⚠ "; }
+
+/* Expandable warning details rendered under #sheet-status when the lock
+   parser couldn't resolve some lines. Lets the user see + fix typos
+   without opening dev-tools. */
+.sheet-warnings {
+  margin: 4px 0 12px;
+  padding: 8px 12px;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 6px;
+  background: rgba(251, 191, 36, 0.08);
+  font-size: 12px;
+  color: var(--fg);
+}
+.sheet-warnings summary {
+  cursor: pointer;
+  color: #fbbf24;
+  font-weight: 600;
+}
+.sheet-warnings .warn-tab { margin-top: 6px; color: var(--muted); }
+.sheet-warnings ul { margin: 4px 0 4px 18px; padding: 0; }
+.sheet-warnings li { margin: 2px 0; }
+.sheet-warnings code {
+  background: var(--bg);
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  font-size: 11px;
+}
 #champion-select {
   font-size: 13px;
   padding: 4px 8px;

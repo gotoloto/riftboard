@@ -1,0 +1,134 @@
+/* Lineup page — read-only side-by-side view of every locked deck. */
+
+.lineup-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0 8px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.lineup-controls .small { font-size: 11px; }
+
+.lineup-grid {
+  display: grid;
+  /* Auto-fit so 1 / 2 / 4 columns based on viewport. Each deck wants
+     ~360px to breathe; below ~720px we collapse to one. */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.deck-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--row);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.deck-panel header.deck-panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+.deck-panel-header h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.deck-panel-header .legend-name {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+}
+.deck-panel-header .completion {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+.deck-panel-header .completion.short {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+}
+.deck-panel-header .completion.empty {
+  background: rgba(120, 120, 120, 0.15);
+  color: var(--muted);
+}
+
+.deck-panel .empty-deck {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 12px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Re-use builder's section styling but minus the +/− controls. */
+.deck-panel .deck-section { margin-bottom: 8px; }
+.deck-panel .deck-section > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  margin-bottom: 3px;
+}
+.deck-panel .deck-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.deck-panel .deck-list li {
+  display: grid;
+  grid-template-columns: 22px 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  padding: 1px 0;
+  font-size: 12px;
+}
+.deck-panel .deck-list .qty {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--muted);
+}
+.deck-panel .deck-list .own {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--muted);
+  font-size: 11px;
+}
+.deck-panel .deck-list .card-name {
+  min-width: 0;
+  color: var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.deck-panel .deck-list li.short .card-name { color: #f87171; }
+.deck-panel .deck-list li.short .own { color: #f87171; font-weight: 600; }
+.deck-panel .deck-list li.short { background: rgba(248, 113, 113, 0.06); }
+
+/* Reuse the builder's energy curve + power-by-domain styling — already
+   defined in collection.css. */
+.deck-panel .energy-curve {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
+.deck-panel .power-by-domain {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}

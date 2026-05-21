@@ -176,6 +176,42 @@
     if (kind) el.classList.add(kind);
   }
 
+  // Render a small details block under #sheet-status listing each warning
+  // so users don't need the dev-tools console. Idempotent — recreates the
+  // block on every sync, no-op if there are no warnings.
+  function renderWarningDetails(lockWarnings) {
+    const host = document.getElementById("sheet-status");
+    if (!host) return;
+    let block = document.getElementById("sheet-warnings");
+    if (block) block.remove();
+    const tabs = Object.keys(lockWarnings);
+    if (!tabs.length) return;
+    block = document.createElement("details");
+    block.id = "sheet-warnings";
+    block.className = "sheet-warnings";
+    block.open = true;
+    const lines = [];
+    lines.push(`<summary>Show unrecognised lines (so you can fix them in the sheet)</summary>`);
+    for (const tab of tabs) {
+      const ws = lockWarnings[tab];
+      lines.push(
+        `<div class="warn-tab"><strong>${escapeHTML(tab)}</strong></div>`
+      );
+      lines.push(
+        `<ul>${ws
+          .map((w) => `<li><code>${escapeHTML(w.line)}</code></li>`)
+          .join("")}</ul>`
+      );
+    }
+    block.innerHTML = lines.join("");
+    host.parentNode.insertBefore(block, host.nextSibling);
+  }
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
+    );
+  }
+
   // Fetch everything (collection + each lock tab) in parallel. Page-apps
   // render once with the static .js values, then re-render when this
   // resolves. Typical: ~250-500 ms.
@@ -250,11 +286,12 @@
       })
       .join(" · ");
     const warnSuffix = totalWarn > 0
-      ? ` · ⚠ ${totalWarn} unrecognised line${totalWarn === 1 ? "" : "s"} — see console`
+      ? ` · ⚠ ${totalWarn} unrecognised line${totalWarn === 1 ? "" : "s"} — see below`
       : "";
     updateStatus(
       `Sheet · ${ownedCount} owned · ${erCount} en-route · ${lockSummary} · synced in ${elapsed} ms${warnSuffix}`,
       totalWarn > 0 ? "warn" : "ok"
     );
+    renderWarningDetails(lockWarnings);
   });
 })();
