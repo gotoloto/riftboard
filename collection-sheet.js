@@ -91,10 +91,14 @@
   // the tab.
   const SECTION_RE = /^(LEGEND|CHAMPION|BATTLEFIELDS?|MAINDECK|MAIN\s*DECK|SIDEBOARD|SIDE\s*BOARD|RUNE\s*POOL|RUNES?)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
   function parseLockTab(text) {
+    // Returns { locks: {slug: qty}, warnings: [{kind, line}] }. Warnings
+    // include unknown card names and unparseable card-like lines so the
+    // status line can flag typos instead of silently dropping cards.
     const out = {};
+    const warnings = [];
     const rows = parseCSV(text);
     const catalog = window.__CATALOG__ || {};
-    if (!Object.keys(catalog).length) return out; // catalog not loaded yet
+    if (!Object.keys(catalog).length) return { locks: out, warnings };
     const nameToSlug = new Map();
     for (const [slug, c] of Object.entries(catalog)) {
       const n = (c.name || "").trim().toLowerCase();
@@ -131,7 +135,10 @@
           const qty = parseInt(ln[1], 10);
           const name = ln[2].trim();
           const slug = nameToSlug.get(name.toLowerCase());
-          if (!slug) continue;
+          if (!slug) {
+            warnings.push({ kind: "unknown", line });
+            continue;
+          }
           // Even if a rune slipped in without a Rune Pool header (legacy
           // paste), don't let it bloat the lock — catalog type wins.
           if (catalog[slug]?.type === "rune") continue;
@@ -139,7 +146,7 @@
         }
       }
     }
-    return out;
+    return { locks: out, warnings };
   }
 
   function applyState(state, source) {
@@ -159,7 +166,7 @@
     const el = document.getElementById("sheet-status");
     if (!el) return;
     el.textContent = text;
-    el.classList.remove("ok", "err", "loading");
+    el.classList.remove("ok", "err", "loading", "warn");
     if (kind) el.classList.add(kind);
   }
 
@@ -196,27 +203,47 @@
     // Lock tabs: keyed by display name (e.g. "Travis 🔒"). Missing/empty
     // tabs just contribute {}.
     const locks = {};
+    const lockWarnings = {}; // {tabName: [{kind, line}]}
     LOCK_TABS.forEach((name, i) => {
       const r = lockRes[i];
       if (r.status === "fulfilled") {
-        try { locks[name] = parseLockTab(r.value); }
-        catch (_) { locks[name] = {}; }
+        try {
+          const { locks: l, warnings } = parseLockTab(r.value);
+          locks[name] = l;
+          if (warnings.length) lockWarnings[name] = warnings;
+        } catch (_) { locks[name] = {}; }
       } else {
         locks[name] = {};
       }
     });
     applyState({ owned: data.owned, enroute: data.enroute, locks }, "sheet");
+    // Surface parse warnings in the status line + the console. Aggregate
+    // count in the badge, full per-card detail in console.warn — you can
+    // expand it in dev-tools to find the typo.
+    const totalWarn = Object.values(lockWarnings).reduce(
+      (s, ws) => s + ws.length, 0
+    );
+    if (totalWarn > 0) {
+      for (const [tab, ws] of Object.entries(lockWarnings)) {
+        console.warn(`[lock-tab "${tab}"] ${ws.length} unrecognised line${ws.length === 1 ? "" : "s"}:`);
+        for (const w of ws) console.warn(`  · ${w.line}`);
+      }
+    }
     const ownedCount = Object.keys(data.owned).length;
     const erCount = Object.keys(data.enroute).length;
     const lockSummary = LOCK_TABS
       .map((n) => {
         const copies = Object.values(locks[n]).reduce((a, b) => a + b, 0);
-        return `${n} ${copies}`;
+        const w = lockWarnings[n]?.length || 0;
+        return w > 0 ? `${n} ${copies} (⚠ ${w})` : `${n} ${copies}`;
       })
       .join(" · ");
+    const warnSuffix = totalWarn > 0
+      ? ` · ⚠ ${totalWarn} unrecognised line${totalWarn === 1 ? "" : "s"} — see console`
+      : "";
     updateStatus(
-      `Sheet · ${ownedCount} owned · ${erCount} en-route · ${lockSummary} · synced in ${elapsed} ms`,
-      "ok"
+      `Sheet · ${ownedCount} owned · ${erCount} en-route · ${lockSummary} · synced in ${elapsed} ms${warnSuffix}`,
+      totalWarn > 0 ? "warn" : "ok"
     );
   });
 })();
