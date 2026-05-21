@@ -106,26 +106,38 @@
     }
     const lineRe = /^(\d+)\s+(.+)$/;
     let inRunePool = false; // skip whole section: runes aren't tracked
+    // Tolerate two paste layouts:
+    //   A) One row per line (default Sheets behavior — newline = new row).
+    //      Then each row[0] holds a single line; we look at all cells in
+    //      the row just in case the deck got pasted into column B by hand.
+    //   B) One cell with embedded newlines (edit-mode paste, F2 first).
+    //      The cell contains the full deck; we split it back into lines.
+    // Walking row-major and splitting each cell on \n handles both.
     for (const row of rows) {
-      const line = (row[0] || "").trim();
-      if (!line) continue;
-      const sec = line.match(SECTION_RE);
-      if (sec) {
-        const head = sec[1].toUpperCase().replace(/\s+/g, "");
-        inRunePool = head === "RUNEPOOL" || head === "RUNE" || head === "RUNES";
-        continue;
+      for (const cell of row) {
+        if (cell == null) continue;
+        for (const rawLine of String(cell).split(/\r?\n/)) {
+          const line = rawLine.trim();
+          if (!line) continue;
+          const sec = line.match(SECTION_RE);
+          if (sec) {
+            const head = sec[1].toUpperCase().replace(/\s+/g, "");
+            inRunePool = head === "RUNEPOOL" || head === "RUNE" || head === "RUNES";
+            continue;
+          }
+          if (inRunePool) continue;
+          const ln = line.match(lineRe);
+          if (!ln) continue;
+          const qty = parseInt(ln[1], 10);
+          const name = ln[2].trim();
+          const slug = nameToSlug.get(name.toLowerCase());
+          if (!slug) continue;
+          // Even if a rune slipped in without a Rune Pool header (legacy
+          // paste), don't let it bloat the lock — catalog type wins.
+          if (catalog[slug]?.type === "rune") continue;
+          out[slug] = (out[slug] || 0) + qty;
+        }
       }
-      if (inRunePool) continue;
-      const ln = line.match(lineRe);
-      if (!ln) continue;
-      const qty = parseInt(ln[1], 10);
-      const name = ln[2].trim();
-      const slug = nameToSlug.get(name.toLowerCase());
-      if (!slug) continue;
-      // Even if a rune slipped in without a Rune Pool header (legacy
-      // paste), don't let it bloat the lock — catalog type wins.
-      if (catalog[slug]?.type === "rune") continue;
-      out[slug] = (out[slug] || 0) + qty;
     }
     return out;
   }
