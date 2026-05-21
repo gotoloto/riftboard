@@ -1,8 +1,8 @@
 {
   "archetype": "Ezreal, Prodigal Explorer",
   "url": "https://riftdecks.com/legends/constructed/ezreal-prodigal-explorer?metagame_id=3",
-  "scraped_at": "2026-05-19T03:56:58.202011Z",
-  "deck_count": 153,
+  "scraped_at": "2026-05-21T01:25:15.567045Z",
+  "deck_count": 158,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-tan-xian-mei-you-jia-150432",
@@ -40517,6 +40517,1456 @@
       "players": 28,
       "finish_pct": 100.0,
       "date": "2026-05-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ezreal-prodigal-explorer-153844",
+      "title": "Ezreal, Prodigal Explorer by OC moonL | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ezreal, Prodigal Explorer",
+          "slug": "details-ezreal-prodigal-explorer",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigal-explorer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bewitching Spirit",
+          "slug": "details-bewitching-spirit",
+          "url": "https://riftdecks.com/cards/details-bewitching-spirit",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mindsplitter",
+          "slug": "details-mindsplitter",
+          "url": "https://riftdecks.com/cards/details-mindsplitter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pack of Wonders",
+          "slug": "details-pack-of-wonders",
+          "url": "https://riftdecks.com/cards/details-pack-of-wonders",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Trove",
+          "slug": "details-treasure-trove",
+          "url": "https://riftdecks.com/cards/details-treasure-trove",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arcane Shift",
+          "slug": "details-arcane-shift",
+          "url": "https://riftdecks.com/cards/details-arcane-shift",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deadly Flourish",
+          "slug": "details-deadly-flourish",
+          "url": "https://riftdecks.com/cards/details-deadly-flourish",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Frozen Fortress",
+          "slug": "details-frozen-fortress",
+          "url": "https://riftdecks.com/cards/details-frozen-fortress",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sigil of the Storm",
+          "slug": "details-sigil-of-the-storm",
+          "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Acceptable Losses",
+          "slug": "details-acceptable-losses",
+          "url": "https://riftdecks.com/cards/details-acceptable-losses",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 34,
+      "finish_pct": 23.5,
+      "date": "2026-05-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-xiao-yu-zhou-155079",
+      "title": "小宇宙 by 新光一番.左右 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ezreal, Prodigal Explorer",
+          "slug": "details-ezreal-prodigal-explorer",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigal-explorer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Annie, Stubborn",
+          "slug": "details-annie-stubborn",
+          "url": "https://riftdecks.com/cards/details-annie-stubborn",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Hwei, Brooding Painter",
+          "slug": "details-hwei-brooding-painter",
+          "url": "https://riftdecks.com/cards/details-hwei-brooding-painter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rhasa the Sunderer",
+          "slug": "details-rhasa-the-sunderer",
+          "url": "https://riftdecks.com/cards/details-rhasa-the-sunderer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Discord",
+          "slug": "details-seal-of-discord",
+          "url": "https://riftdecks.com/cards/details-seal-of-discord",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Morbid Return",
+          "slug": "details-morbid-return",
+          "url": "https://riftdecks.com/cards/details-morbid-return",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arcane Shift",
+          "slug": "details-arcane-shift",
+          "url": "https://riftdecks.com/cards/details-arcane-shift",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Invert Timelines",
+          "slug": "details-invert-timelines",
+          "url": "https://riftdecks.com/cards/details-invert-timelines",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Harrowing",
+          "slug": "details-the-harrowing",
+          "url": "https://riftdecks.com/cards/details-the-harrowing",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Factory Recall",
+          "slug": "details-factory-recall",
+          "url": "https://riftdecks.com/cards/details-factory-recall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Invert Timelines",
+          "slug": "details-invert-timelines",
+          "url": "https://riftdecks.com/cards/details-invert-timelines",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Fading Memories",
+          "slug": "details-fading-memories",
+          "url": "https://riftdecks.com/cards/details-fading-memories",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 84,
+      "players": 105,
+      "finish_pct": 80.0,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-dai-an-na-shou-qi-le-155068",
+      "title": "黛安娜收齐了… by WAKUWAKU | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ezreal, Prodigal Explorer",
+          "slug": "details-ezreal-prodigal-explorer",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigal-explorer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Bewitching Spirit",
+          "slug": "details-bewitching-spirit",
+          "url": "https://riftdecks.com/cards/details-bewitching-spirit",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Annie, Stubborn",
+          "slug": "details-annie-stubborn",
+          "url": "https://riftdecks.com/cards/details-annie-stubborn",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Cheerless",
+          "slug": "details-vex-cheerless",
+          "url": "https://riftdecks.com/cards/details-vex-cheerless",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pack of Wonders",
+          "slug": "details-pack-of-wonders",
+          "url": "https://riftdecks.com/cards/details-pack-of-wonders",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Last Rites",
+          "slug": "details-last-rites",
+          "url": "https://riftdecks.com/cards/details-last-rites",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Downstage Dramatics",
+          "slug": "details-downstage-dramatics",
+          "url": "https://riftdecks.com/cards/details-downstage-dramatics",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Morbid Return",
+          "slug": "details-morbid-return",
+          "url": "https://riftdecks.com/cards/details-morbid-return",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arcane Shift",
+          "slug": "details-arcane-shift",
+          "url": "https://riftdecks.com/cards/details-arcane-shift",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Crescent Strike",
+          "slug": "details-crescent-strike",
+          "url": "https://riftdecks.com/cards/details-crescent-strike",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deadly Flourish",
+          "slug": "details-deadly-flourish",
+          "url": "https://riftdecks.com/cards/details-deadly-flourish",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frozen Fortress",
+          "slug": "details-frozen-fortress",
+          "url": "https://riftdecks.com/cards/details-frozen-fortress",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Void Gate",
+          "slug": "details-void-gate",
+          "url": "https://riftdecks.com/cards/details-void-gate",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Heedless Resurrection",
+          "slug": "details-heedless-resurrection",
+          "url": "https://riftdecks.com/cards/details-heedless-resurrection",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Downwell",
+          "slug": "details-downwell",
+          "url": "https://riftdecks.com/cards/details-downwell",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 73,
+      "players": 105,
+      "finish_pct": 69.5,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ezreal-prodigal-explorer-148280",
+      "title": "Ezreal, Prodigal Explorer by GrаvyGronk | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ezreal, Prodigal Explorer",
+          "slug": "details-ezreal-prodigal-explorer",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigal-explorer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Returned",
+          "slug": "details-pyke-returned",
+          "url": "https://riftdecks.com/cards/details-pyke-returned",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Acceptable Losses",
+          "slug": "details-acceptable-losses",
+          "url": "https://riftdecks.com/cards/details-acceptable-losses",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Smoke Screen",
+          "slug": "details-smoke-screen",
+          "url": "https://riftdecks.com/cards/details-smoke-screen",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arcane Shift",
+          "slug": "details-arcane-shift",
+          "url": "https://riftdecks.com/cards/details-arcane-shift",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Deadly Flourish",
+          "slug": "details-deadly-flourish",
+          "url": "https://riftdecks.com/cards/details-deadly-flourish",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frozen Fortress",
+          "slug": "details-frozen-fortress",
+          "url": "https://riftdecks.com/cards/details-frozen-fortress",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sigil of the Storm",
+          "slug": "details-sigil-of-the-storm",
+          "url": "https://riftdecks.com/cards/details-sigil-of-the-storm",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Void Gate",
+          "slug": "details-void-gate",
+          "url": "https://riftdecks.com/cards/details-void-gate",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Garbage Grabber",
+          "slug": "details-garbage-grabber",
+          "url": "https://riftdecks.com/cards/details-garbage-grabber",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Cheerless",
+          "slug": "details-vex-cheerless",
+          "url": "https://riftdecks.com/cards/details-vex-cheerless",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Mindsplitter",
+          "slug": "details-mindsplitter",
+          "url": "https://riftdecks.com/cards/details-mindsplitter",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-aggroreal-lock-variant-155571",
+      "title": "aggroreal lock variant by medrаnogunz | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ezreal, Prodigal Explorer",
+          "slug": "details-ezreal-prodigal-explorer",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigal-explorer",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bewitching Spirit",
+          "slug": "details-bewitching-spirit",
+          "url": "https://riftdecks.com/cards/details-bewitching-spirit",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ezreal, Prodigy",
+          "slug": "details-ezreal-prodigy",
+          "url": "https://riftdecks.com/cards/details-ezreal-prodigy",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rhasa the Sunderer",
+          "slug": "details-rhasa-the-sunderer",
+          "url": "https://riftdecks.com/cards/details-rhasa-the-sunderer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Discord",
+          "slug": "details-seal-of-discord",
+          "url": "https://riftdecks.com/cards/details-seal-of-discord",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Last Rites",
+          "slug": "details-last-rites",
+          "url": "https://riftdecks.com/cards/details-last-rites",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Heedless Resurrection",
+          "slug": "details-heedless-resurrection",
+          "url": "https://riftdecks.com/cards/details-heedless-resurrection",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Arcane Shift",
+          "slug": "details-arcane-shift",
+          "url": "https://riftdecks.com/cards/details-arcane-shift",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Downwell",
+          "slug": "details-downwell",
+          "url": "https://riftdecks.com/cards/details-downwell",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Targon's Peak",
+          "slug": "details-targons-peak",
+          "url": "https://riftdecks.com/cards/details-targons-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Heedless Resurrection",
+          "slug": "details-heedless-resurrection",
+          "url": "https://riftdecks.com/cards/details-heedless-resurrection",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hwei, Brooding Painter",
+          "slug": "details-hwei-brooding-painter",
+          "url": "https://riftdecks.com/cards/details-hwei-brooding-painter",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 4,
+      "players": 14,
+      "finish_pct": 28.6,
+      "date": "2026-05-15"
     }
   ],
   "cards_meta": {

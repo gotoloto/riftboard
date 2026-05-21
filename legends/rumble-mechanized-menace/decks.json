@@ -1,8 +1,8 @@
 {
   "archetype": "Rumble, Mechanized Menace",
   "url": "https://riftdecks.com/legends/constructed/rumble-mechanized-menace?metagame_id=3",
-  "scraped_at": "2026-05-19T04:22:42.046576Z",
-  "deck_count": 25,
+  "scraped_at": "2026-05-21T01:33:06.785238Z",
+  "deck_count": 26,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-xin-ban-ben-lan-bo-141992",
@@ -6213,6 +6213,280 @@
       "players": 128,
       "finish_pct": 34.4,
       "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-rumble-mechanized-menace-148796",
+      "title": "Rumble, Mechanized Menace by Jаzzаlаw | riftDecks.com",
+      "cards": [
+        {
+          "name": "Rumble, Mechanized Menace",
+          "slug": "details-rumble-mechanized-menace",
+          "url": "https://riftdecks.com/cards/details-rumble-mechanized-menace",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Forecaster",
+          "slug": "details-forecaster",
+          "url": "https://riftdecks.com/cards/details-forecaster",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gem Jammer",
+          "slug": "details-gem-jammer",
+          "url": "https://riftdecks.com/cards/details-gem-jammer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Inferna",
+          "slug": "details-inferna",
+          "url": "https://riftdecks.com/cards/details-inferna",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Bubble Bot",
+          "slug": "details-bubble-bot",
+          "url": "https://riftdecks.com/cards/details-bubble-bot",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Dangerous Duo",
+          "slug": "details-dangerous-duo",
+          "url": "https://riftdecks.com/cards/details-dangerous-duo",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Hotheaded",
+          "slug": "details-rumble-hotheaded",
+          "url": "https://riftdecks.com/cards/details-rumble-hotheaded",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rumble, Scrapper",
+          "slug": "details-rumble-scrapper",
+          "url": "https://riftdecks.com/cards/details-rumble-scrapper",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mega-Mech",
+          "slug": "details-mega-mech",
+          "url": "https://riftdecks.com/cards/details-mega-mech",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Breakneck Mech",
+          "slug": "details-breakneck-mech",
+          "url": "https://riftdecks.com/cards/details-breakneck-mech",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Experimental Hexplate",
+          "slug": "details-experimental-hexplate",
+          "url": "https://riftdecks.com/cards/details-experimental-hexplate",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Blighted Battleaxe",
+          "slug": "details-blighted-battleaxe",
+          "url": "https://riftdecks.com/cards/details-blighted-battleaxe",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Danger Zone",
+          "slug": "details-danger-zone",
+          "url": "https://riftdecks.com/cards/details-danger-zone",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Smoke Screen",
+          "slug": "details-smoke-screen",
+          "url": "https://riftdecks.com/cards/details-smoke-screen",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Production Surge",
+          "slug": "details-production-surge",
+          "url": "https://riftdecks.com/cards/details-production-surge",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rocket Barrage",
+          "slug": "details-rocket-barrage",
+          "url": "https://riftdecks.com/cards/details-rocket-barrage",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Thermo Beam",
+          "slug": "details-thermo-beam",
+          "url": "https://riftdecks.com/cards/details-thermo-beam",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Brynhir Thundersong",
+          "slug": "details-brynhir-thundersong",
+          "url": "https://riftdecks.com/cards/details-brynhir-thundersong",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 1405,
+      "finish_pct": null,
+      "date": "2026-05-16"
     }
   ],
   "cards_meta": {

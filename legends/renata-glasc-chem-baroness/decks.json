@@ -1,8 +1,8 @@
 {
   "archetype": "Renata Glasc, Chem-Baroness",
   "url": "https://riftdecks.com/legends/constructed/renata-glasc-chem-baroness?metagame_id=3",
-  "scraped_at": "2026-05-19T04:22:00.746526Z",
-  "deck_count": 17,
+  "scraped_at": "2026-05-21T01:32:49.108874Z",
+  "deck_count": 18,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-wo-de-du-mei-you-jie-yao-142026",
@@ -4109,6 +4109,264 @@
       "players": 640,
       "finish_pct": 37.8,
       "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-renata-glasc-chem-baroness-140180",
+      "title": "Renata Glasc, Chem-Baroness by Cookie | riftDecks.com",
+      "cards": [
+        {
+          "name": "Renata Glasc, Chem-Baroness",
+          "slug": "details-renata-glasc-chem-baroness",
+          "url": "https://riftdecks.com/cards/details-renata-glasc-chem-baroness",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Renata Glasc, Industrialist",
+          "slug": "details-renata-glasc-industrialist",
+          "url": "https://riftdecks.com/cards/details-renata-glasc-industrialist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Honest Broker",
+          "slug": "details-honest-broker",
+          "url": "https://riftdecks.com/cards/details-honest-broker",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Watchful Sentry",
+          "slug": "details-watchful-sentry",
+          "url": "https://riftdecks.com/cards/details-watchful-sentry",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jayce, Man of Progress",
+          "slug": "details-jayce-man-of-progress",
+          "url": "https://riftdecks.com/cards/details-jayce-man-of-progress",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ekko, Recurrent",
+          "slug": "details-ekko-recurrent",
+          "url": "https://riftdecks.com/cards/details-ekko-recurrent",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vanguard Armory",
+          "slug": "details-vanguard-armory",
+          "url": "https://riftdecks.com/cards/details-vanguard-armory",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hidden Blade",
+          "slug": "details-hidden-blade",
+          "url": "https://riftdecks.com/cards/details-hidden-blade",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Shadow's Call",
+          "slug": "details-shadows-call",
+          "url": "https://riftdecks.com/cards/details-shadows-call",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Tactical Retreat",
+          "slug": "details-tactical-retreat",
+          "url": "https://riftdecks.com/cards/details-tactical-retreat",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hostile Takeover",
+          "slug": "details-hostile-takeover",
+          "url": "https://riftdecks.com/cards/details-hostile-takeover",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Imperial Decree",
+          "slug": "details-imperial-decree",
+          "url": "https://riftdecks.com/cards/details-imperial-decree",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Burst",
+          "slug": "details-sprite-burst",
+          "url": "https://riftdecks.com/cards/details-sprite-burst",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hoard",
+          "slug": "details-treasure-hoard",
+          "url": "https://riftdecks.com/cards/details-treasure-hoard",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Trifarian War Camp",
+          "slug": "details-trifarian-war-camp",
+          "url": "https://riftdecks.com/cards/details-trifarian-war-camp",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Order Rune",
+          "slug": "details-order-rune",
+          "url": "https://riftdecks.com/cards/details-order-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Zaun Punk",
+          "slug": "details-zaun-punk",
+          "url": "https://riftdecks.com/cards/details-zaun-punk",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Hostile Takeover",
+          "slug": "details-hostile-takeover",
+          "url": "https://riftdecks.com/cards/details-hostile-takeover",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Imperial Decree",
+          "slug": "details-imperial-decree",
+          "url": "https://riftdecks.com/cards/details-imperial-decree",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Safety Inspector",
+          "slug": "details-safety-inspector",
+          "url": "https://riftdecks.com/cards/details-safety-inspector",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Grand Strategem",
+          "slug": "details-grand-strategem",
+          "url": "https://riftdecks.com/cards/details-grand-strategem",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 36,
+      "finish_pct": 88.9,
+      "date": "2026-05-10"
     }
   ],
   "cards_meta": {
@@ -5317,6 +5575,18 @@
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-287-298_full.png",
       "price": 0.2
+    },
+    "details-sprite-burst": {
+      "name": "Sprite Burst",
+      "url": "https://riftdecks.com/cards/details-sprite-burst",
+      "type": "spell",
+      "domains": [
+        "mind"
+      ],
+      "cost": "5",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-069-219_full.png",
+      "price": 0.1
     }
   }
 }

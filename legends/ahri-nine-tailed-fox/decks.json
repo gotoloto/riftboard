@@ -1,8 +1,8 @@
 {
   "archetype": "Ahri, Nine-Tailed Fox",
   "url": "https://riftdecks.com/legends/constructed/ahri-nine-tailed-fox?metagame_id=3",
-  "scraped_at": "2026-05-19T03:53:06.364105Z",
-  "deck_count": 69,
+  "scraped_at": "2026-05-21T01:22:57.173792Z",
+  "deck_count": 74,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-shuai-shuai-a-li-150364",
@@ -17653,6 +17653,1248 @@
       "players": 28,
       "finish_pct": 57.1,
       "date": "2026-05-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ahri-155178",
+      "title": "Ahri by Kemаr158 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ahri, Nine-Tailed Fox",
+          "slug": "details-ahri-nine-tailed-fox",
+          "url": "https://riftdecks.com/cards/details-ahri-nine-tailed-fox",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Alluring",
+          "slug": "details-ahri-alluring",
+          "url": "https://riftdecks.com/cards/details-ahri-alluring",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blue Sentinel",
+          "slug": "details-blue-sentinel",
+          "url": "https://riftdecks.com/cards/details-blue-sentinel",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Alpha Wildclaw",
+          "slug": "details-alpha-wildclaw",
+          "url": "https://riftdecks.com/cards/details-alpha-wildclaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Double Trouble",
+          "slug": "details-double-trouble",
+          "url": "https://riftdecks.com/cards/details-double-trouble",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Janna, Savior",
+          "slug": "details-janna-savior",
+          "url": "https://riftdecks.com/cards/details-janna-savior",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": null,
+      "players": 34,
+      "finish_pct": null,
+      "date": "2026-05-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-hu-li-151554",
+      "title": "狐狸 by 山田赫敏 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ahri, Nine-Tailed Fox",
+          "slug": "details-ahri-nine-tailed-fox",
+          "url": "https://riftdecks.com/cards/details-ahri-nine-tailed-fox",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Inquisitive",
+          "slug": "details-ahri-inquisitive",
+          "url": "https://riftdecks.com/cards/details-ahri-inquisitive",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Icevale Archer",
+          "slug": "details-icevale-archer",
+          "url": "https://riftdecks.com/cards/details-icevale-archer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lonely Poro",
+          "slug": "details-lonely-poro",
+          "url": "https://riftdecks.com/cards/details-lonely-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Eager Apprentice",
+          "slug": "details-eager-apprentice",
+          "url": "https://riftdecks.com/cards/details-eager-apprentice",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mask of Foresight",
+          "slug": "details-mask-of-foresight",
+          "url": "https://riftdecks.com/cards/details-mask-of-foresight",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Frigid Touch",
+          "slug": "details-frigid-touch",
+          "url": "https://riftdecks.com/cards/details-frigid-touch",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Amateur Recital",
+          "slug": "details-amateur-recital",
+          "url": "https://riftdecks.com/cards/details-amateur-recital",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Lecturing Yordle",
+          "slug": "details-lecturing-yordle",
+          "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Navori Scout",
+          "slug": "details-navori-scout",
+          "url": "https://riftdecks.com/cards/details-navori-scout",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 23,
+      "finish_pct": 34.8,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-wo-zao-yi-ma-bi-151552",
+      "title": "我早已麻痹 by 福州橙逯卡牌——漓泱大王 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ahri, Nine-Tailed Fox",
+          "slug": "details-ahri-nine-tailed-fox",
+          "url": "https://riftdecks.com/cards/details-ahri-nine-tailed-fox",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Inquisitive",
+          "slug": "details-ahri-inquisitive",
+          "url": "https://riftdecks.com/cards/details-ahri-inquisitive",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Stellacorn Herder",
+          "slug": "details-stellacorn-herder",
+          "url": "https://riftdecks.com/cards/details-stellacorn-herder",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Hwei, Brooding Painter",
+          "slug": "details-hwei-brooding-painter",
+          "url": "https://riftdecks.com/cards/details-hwei-brooding-painter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Irelia, Fervent",
+          "slug": "details-irelia-fervent",
+          "url": "https://riftdecks.com/cards/details-irelia-fervent",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Frigid Jewel",
+          "slug": "details-frigid-jewel",
+          "url": "https://riftdecks.com/cards/details-frigid-jewel",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Heart of Dark Ice",
+          "slug": "details-heart-of-dark-ice",
+          "url": "https://riftdecks.com/cards/details-heart-of-dark-ice",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "En Garde",
+          "slug": "details-en-garde",
+          "url": "https://riftdecks.com/cards/details-en-garde",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Sunken Temple",
+          "slug": "details-sunken-temple",
+          "url": "https://riftdecks.com/cards/details-sunken-temple",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Targon's Peak",
+          "slug": "details-targons-peak",
+          "url": "https://riftdecks.com/cards/details-targons-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Card Sharp",
+          "slug": "details-card-sharp",
+          "url": "https://riftdecks.com/cards/details-card-sharp",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 4,
+      "players": 23,
+      "finish_pct": 17.4,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-a-li-bei-jing-155072",
+      "title": "阿狸北京 by 旖旎 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ahri, Nine-Tailed Fox",
+          "slug": "details-ahri-nine-tailed-fox",
+          "url": "https://riftdecks.com/cards/details-ahri-nine-tailed-fox",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Inquisitive",
+          "slug": "details-ahri-inquisitive",
+          "url": "https://riftdecks.com/cards/details-ahri-inquisitive",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Mutated Mouser",
+          "slug": "details-mutated-mouser",
+          "url": "https://riftdecks.com/cards/details-mutated-mouser",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Scuttle Crab",
+          "slug": "details-scuttle-crab",
+          "url": "https://riftdecks.com/cards/details-scuttle-crab",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Chakram Dancer",
+          "slug": "details-chakram-dancer",
+          "url": "https://riftdecks.com/cards/details-chakram-dancer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blue Sentinel",
+          "slug": "details-blue-sentinel",
+          "url": "https://riftdecks.com/cards/details-blue-sentinel",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sona, Harmonious",
+          "slug": "details-sona-harmonious",
+          "url": "https://riftdecks.com/cards/details-sona-harmonious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Alluring",
+          "slug": "details-ahri-alluring",
+          "url": "https://riftdecks.com/cards/details-ahri-alluring",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Focus",
+          "slug": "details-seal-of-focus",
+          "url": "https://riftdecks.com/cards/details-seal-of-focus",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Honeyfruit",
+          "slug": "details-honeyfruit",
+          "url": "https://riftdecks.com/cards/details-honeyfruit",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Block",
+          "slug": "details-block",
+          "url": "https://riftdecks.com/cards/details-block",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Wind Wall",
+          "slug": "details-wind-wall",
+          "url": "https://riftdecks.com/cards/details-wind-wall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 77,
+      "players": 105,
+      "finish_pct": 73.3,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ni-li-yong-chuangbo1-129503",
+      "title": "你狸勇闯bo1 by 潮玩派·雪落 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Ahri, Nine-Tailed Fox",
+          "slug": "details-ahri-nine-tailed-fox",
+          "url": "https://riftdecks.com/cards/details-ahri-nine-tailed-fox",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Ahri, Alluring",
+          "slug": "details-ahri-alluring",
+          "url": "https://riftdecks.com/cards/details-ahri-alluring",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Eager Apprentice",
+          "slug": "details-eager-apprentice",
+          "url": "https://riftdecks.com/cards/details-eager-apprentice",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tasty Faefolk",
+          "slug": "details-tasty-faefolk",
+          "url": "https://riftdecks.com/cards/details-tasty-faefolk",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vilemaw",
+          "slug": "details-vilemaw",
+          "url": "https://riftdecks.com/cards/details-vilemaw",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Insight",
+          "slug": "details-seal-of-insight",
+          "url": "https://riftdecks.com/cards/details-seal-of-insight",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Zhonya's Hourglass",
+          "slug": "details-zhonyas-hourglass",
+          "url": "https://riftdecks.com/cards/details-zhonyas-hourglass",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Charm",
+          "slug": "details-charm",
+          "url": "https://riftdecks.com/cards/details-charm",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Desert's Call",
+          "slug": "details-deserts-call",
+          "url": "https://riftdecks.com/cards/details-deserts-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Discipline",
+          "slug": "details-discipline",
+          "url": "https://riftdecks.com/cards/details-discipline",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Emperor's Divide",
+          "slug": "details-emperors-divide",
+          "url": "https://riftdecks.com/cards/details-emperors-divide",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Feral Strength",
+          "slug": "details-feral-strength",
+          "url": "https://riftdecks.com/cards/details-feral-strength",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Back Off",
+          "slug": "details-back-off",
+          "url": "https://riftdecks.com/cards/details-back-off",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Find Your Center",
+          "slug": "details-find-your-center",
+          "url": "https://riftdecks.com/cards/details-find-your-center",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandoned Hall",
+          "slug": "details-abandoned-hall",
+          "url": "https://riftdecks.com/cards/details-abandoned-hall",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Power Nexus",
+          "slug": "details-power-nexus",
+          "url": "https://riftdecks.com/cards/details-power-nexus",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Conservatory",
+          "slug": "details-ravenbloom-conservatory",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-conservatory",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Calm Rune",
+          "slug": "details-calm-rune",
+          "url": "https://riftdecks.com/cards/details-calm-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Defy",
+          "slug": "details-defy",
+          "url": "https://riftdecks.com/cards/details-defy",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Block",
+          "slug": "details-block",
+          "url": "https://riftdecks.com/cards/details-block",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Not So Fast",
+          "slug": "details-not-so-fast",
+          "url": "https://riftdecks.com/cards/details-not-so-fast",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Disarming Rake",
+          "slug": "details-disarming-rake",
+          "url": "https://riftdecks.com/cards/details-disarming-rake",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Wind Wall",
+          "slug": "details-wind-wall",
+          "url": "https://riftdecks.com/cards/details-wind-wall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 16,
+      "finish_pct": 100.0,
+      "date": "2026-05-02"
     }
   ],
   "cards_meta": {
@@ -19312,6 +20554,66 @@
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-102-298_full.png",
       "price": 0.14
+    },
+    "details-double-trouble": {
+      "name": "Double Trouble",
+      "url": "https://riftdecks.com/cards/details-double-trouble",
+      "type": "spell",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-032-219_full.png",
+      "price": 0.19
+    },
+    "details-icevale-archer": {
+      "name": "Icevale Archer",
+      "url": "https://riftdecks.com/cards/details-icevale-archer",
+      "type": "unit",
+      "domains": [
+        "mind"
+      ],
+      "cost": "2",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-065-219_full.png",
+      "price": 0.21
+    },
+    "details-mask-of-foresight": {
+      "name": "Mask of Foresight",
+      "url": "https://riftdecks.com/cards/details-mask-of-foresight",
+      "type": "gear",
+      "domains": [
+        "calm"
+      ],
+      "cost": "2",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-060-298_full.png",
+      "price": 0.27
+    },
+    "details-navori-scout": {
+      "name": "Navori Scout",
+      "url": "https://riftdecks.com/cards/details-navori-scout",
+      "type": "unit",
+      "domains": [
+        "calm"
+      ],
+      "cost": "4",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-037-221_full.png",
+      "price": 0.05
+    },
+    "details-sunken-temple": {
+      "name": "Sunken Temple",
+      "url": "https://riftdecks.com/cards/details-sunken-temple",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-218-221_full.png",
+      "price": 0.19
     }
   }
 }

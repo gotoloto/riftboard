@@ -1,8 +1,8 @@
 {
   "archetype": "Jinx, Loose Cannon",
   "url": "https://riftdecks.com/legends/constructed/jinx-loose-cannon?metagame_id=3",
-  "scraped_at": "2026-05-19T04:11:55.093403Z",
-  "deck_count": 35,
+  "scraped_at": "2026-05-21T01:27:21.068315Z",
+  "deck_count": 38,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-jin-ke-si-142092",
@@ -8825,6 +8825,756 @@
       "players": 1405,
       "finish_pct": null,
       "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ben-ming-bao-bao-155098",
+      "title": "本命爆爆 by Nаgi | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jinx, Loose Cannon",
+          "slug": "details-jinx-loose-cannon",
+          "url": "https://riftdecks.com/cards/details-jinx-loose-cannon",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Rebel",
+          "slug": "details-jinx-rebel",
+          "url": "https://riftdecks.com/cards/details-jinx-rebel",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Chemtech Enforcer",
+          "slug": "details-chemtech-enforcer",
+          "url": "https://riftdecks.com/cards/details-chemtech-enforcer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Traveling Merchant",
+          "slug": "details-traveling-merchant",
+          "url": "https://riftdecks.com/cards/details-traveling-merchant",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Destructive",
+          "slug": "details-vi-destructive",
+          "url": "https://riftdecks.com/cards/details-vi-destructive",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Flame Chompers",
+          "slug": "details-flame-chompers",
+          "url": "https://riftdecks.com/cards/details-flame-chompers",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Demolitionist",
+          "slug": "details-jinx-demolitionist",
+          "url": "https://riftdecks.com/cards/details-jinx-demolitionist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Pouncing",
+          "slug": "details-rengar-pouncing",
+          "url": "https://riftdecks.com/cards/details-rengar-pouncing",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rhasa the Sunderer",
+          "slug": "details-rhasa-the-sunderer",
+          "url": "https://riftdecks.com/cards/details-rhasa-the-sunderer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Cleave",
+          "slug": "details-cleave",
+          "url": "https://riftdecks.com/cards/details-cleave",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Vault Breaker",
+          "slug": "details-vault-breaker",
+          "url": "https://riftdecks.com/cards/details-vault-breaker",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Falling Star",
+          "slug": "details-falling-star",
+          "url": "https://riftdecks.com/cards/details-falling-star",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Heedless Resurrection",
+          "slug": "details-heedless-resurrection",
+          "url": "https://riftdecks.com/cards/details-heedless-resurrection",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Super Mega Death Rocket!",
+          "slug": "details-super-mega-death-rocket",
+          "url": "https://riftdecks.com/cards/details-super-mega-death-rocket",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Minefield",
+          "slug": "details-minefield",
+          "url": "https://riftdecks.com/cards/details-minefield",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Rockfall Path",
+          "slug": "details-rockfall-path",
+          "url": "https://riftdecks.com/cards/details-rockfall-path",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Monster Harpoon",
+          "slug": "details-monster-harpoon",
+          "url": "https://riftdecks.com/cards/details-monster-harpoon",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 103,
+      "players": 105,
+      "finish_pct": 98.1,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-1-141033",
+      "title": "1 by 咕 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jinx, Loose Cannon",
+          "slug": "details-jinx-loose-cannon",
+          "url": "https://riftdecks.com/cards/details-jinx-loose-cannon",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Demolitionist",
+          "slug": "details-jinx-demolitionist",
+          "url": "https://riftdecks.com/cards/details-jinx-demolitionist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Chemtech Enforcer",
+          "slug": "details-chemtech-enforcer",
+          "url": "https://riftdecks.com/cards/details-chemtech-enforcer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Legion Rearguard",
+          "slug": "details-legion-rearguard",
+          "url": "https://riftdecks.com/cards/details-legion-rearguard",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Destructive",
+          "slug": "details-vi-destructive",
+          "url": "https://riftdecks.com/cards/details-vi-destructive",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Flame Chompers",
+          "slug": "details-flame-chompers",
+          "url": "https://riftdecks.com/cards/details-flame-chompers",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Demolitionist",
+          "slug": "details-jinx-demolitionist",
+          "url": "https://riftdecks.com/cards/details-jinx-demolitionist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Annie, Stubborn",
+          "slug": "details-annie-stubborn",
+          "url": "https://riftdecks.com/cards/details-annie-stubborn",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kai'Sa, Survivor",
+          "slug": "details-kaisa-survivor",
+          "url": "https://riftdecks.com/cards/details-kaisa-survivor",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Miss Fortune, Buccaneer",
+          "slug": "details-miss-fortune-buccaneer",
+          "url": "https://riftdecks.com/cards/details-miss-fortune-buccaneer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nocturne, Horrifying",
+          "slug": "details-nocturne-horrifying",
+          "url": "https://riftdecks.com/cards/details-nocturne-horrifying",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Twisted Fate, Gambler",
+          "slug": "details-twisted-fate-gambler",
+          "url": "https://riftdecks.com/cards/details-twisted-fate-gambler",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Annie, Fiery",
+          "slug": "details-annie-fiery",
+          "url": "https://riftdecks.com/cards/details-annie-fiery",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Blazing Scorcher",
+          "slug": "details-blazing-scorcher",
+          "url": "https://riftdecks.com/cards/details-blazing-scorcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Darius, Trifarian",
+          "slug": "details-darius-trifarian",
+          "url": "https://riftdecks.com/cards/details-darius-trifarian",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Draven, Showboat",
+          "slug": "details-draven-showboat",
+          "url": "https://riftdecks.com/cards/details-draven-showboat",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Rebel",
+          "slug": "details-jinx-rebel",
+          "url": "https://riftdecks.com/cards/details-jinx-rebel",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vi, Peacekeeper",
+          "slug": "details-vi-peacekeeper",
+          "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Yasuo, Windrider",
+          "slug": "details-yasuo-windrider",
+          "url": "https://riftdecks.com/cards/details-yasuo-windrider",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Brazen Buccaneer",
+          "slug": "details-brazen-buccaneer",
+          "url": "https://riftdecks.com/cards/details-brazen-buccaneer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Kayn, Unleashed",
+          "slug": "details-kayn-unleashed",
+          "url": "https://riftdecks.com/cards/details-kayn-unleashed",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tryndamere, Barbarian",
+          "slug": "details-tryndamere-barbarian",
+          "url": "https://riftdecks.com/cards/details-tryndamere-barbarian",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Volibear, Furious",
+          "slug": "details-volibear-furious",
+          "url": "https://riftdecks.com/cards/details-volibear-furious",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Altar to Unity",
+          "slug": "details-altar-to-unity",
+          "url": "https://riftdecks.com/cards/details-altar-to-unity",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Aspirant's Climb",
+          "slug": "details-aspirants-climb",
+          "url": "https://riftdecks.com/cards/details-aspirants-climb",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Back-Alley Bar",
+          "slug": "details-back-alley-bar",
+          "url": "https://riftdecks.com/cards/details-back-alley-bar",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 12,
+          "type": "rune",
+          "board": "main"
+        }
+      ],
+      "rank": 32,
+      "players": 26,
+      "finish_pct": 100.0,
+      "date": "2026-05-10"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-gao-128592",
+      "title": "搞 by 乱 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Jinx, Loose Cannon",
+          "slug": "details-jinx-loose-cannon",
+          "url": "https://riftdecks.com/cards/details-jinx-loose-cannon",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Jinx, Demolitionist",
+          "slug": "details-jinx-demolitionist",
+          "url": "https://riftdecks.com/cards/details-jinx-demolitionist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Chemtech Enforcer",
+          "slug": "details-chemtech-enforcer",
+          "url": "https://riftdecks.com/cards/details-chemtech-enforcer",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mischievous Marai",
+          "slug": "details-mischievous-marai",
+          "url": "https://riftdecks.com/cards/details-mischievous-marai",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Traveling Merchant",
+          "slug": "details-traveling-merchant",
+          "url": "https://riftdecks.com/cards/details-traveling-merchant",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Flame Chompers",
+          "slug": "details-flame-chompers",
+          "url": "https://riftdecks.com/cards/details-flame-chompers",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Dockside Butcher",
+          "slug": "details-pyke-dockside-butcher",
+          "url": "https://riftdecks.com/cards/details-pyke-dockside-butcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rengar, Pouncing",
+          "slug": "details-rengar-pouncing",
+          "url": "https://riftdecks.com/cards/details-rengar-pouncing",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Noxus Hopeful",
+          "slug": "details-noxus-hopeful",
+          "url": "https://riftdecks.com/cards/details-noxus-hopeful",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Seal of Rage",
+          "slug": "details-seal-of-rage",
+          "url": "https://riftdecks.com/cards/details-seal-of-rage",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Long Sword",
+          "slug": "details-long-sword",
+          "url": "https://riftdecks.com/cards/details-long-sword",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Sun Disc",
+          "slug": "details-sun-disc",
+          "url": "https://riftdecks.com/cards/details-sun-disc",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Monster Harpoon",
+          "slug": "details-monster-harpoon",
+          "url": "https://riftdecks.com/cards/details-monster-harpoon",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Super Mega Death Rocket!",
+          "slug": "details-super-mega-death-rocket",
+          "url": "https://riftdecks.com/cards/details-super-mega-death-rocket",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 4,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Fury Rune",
+          "slug": "details-fury-rune",
+          "url": "https://riftdecks.com/cards/details-fury-rune",
+          "qty": 8,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Factory Recall",
+          "slug": "details-factory-recall",
+          "url": "https://riftdecks.com/cards/details-factory-recall",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "The List",
+          "slug": "details-the-list",
+          "url": "https://riftdecks.com/cards/details-the-list",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Smite",
+          "slug": "details-smite",
+          "url": "https://riftdecks.com/cards/details-smite",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Square Up",
+          "slug": "details-square-up",
+          "url": "https://riftdecks.com/cards/details-square-up",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ferrous Forerunner",
+          "slug": "details-ferrous-forerunner",
+          "url": "https://riftdecks.com/cards/details-ferrous-forerunner",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 16,
+      "finish_pct": 100.0,
+      "date": "2026-05-01"
     }
   ],
   "cards_meta": {
@@ -10218,6 +10968,174 @@
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/SFD/sfd-217-221_full.png",
       "price": 0.1
+    },
+    "details-vault-breaker": {
+      "name": "Vault Breaker",
+      "url": "https://riftdecks.com/cards/details-vault-breaker",
+      "type": "spell",
+      "domains": [
+        "fury"
+      ],
+      "cost": "1C",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-010-219_full.png",
+      "price": 0.15
+    },
+    "details-annie-stubborn": {
+      "name": "Annie, Stubborn",
+      "url": "https://riftdecks.com/cards/details-annie-stubborn",
+      "type": "unit",
+      "domains": [
+        "chaos"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGS/ogs-010-024_full.png",
+      "price": 7.07
+    },
+    "details-miss-fortune-buccaneer": {
+      "name": "Miss Fortune, Buccaneer",
+      "url": "https://riftdecks.com/cards/details-miss-fortune-buccaneer",
+      "type": "unit",
+      "domains": [
+        "chaos"
+      ],
+      "cost": "4C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-193-298_full.png",
+      "price": 0.35
+    },
+    "details-twisted-fate-gambler": {
+      "name": "Twisted Fate, Gambler",
+      "url": "https://riftdecks.com/cards/details-twisted-fate-gambler",
+      "type": "unit",
+      "domains": [
+        "chaos"
+      ],
+      "cost": "4",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-200-298_full.png",
+      "price": 0.29
+    },
+    "details-annie-fiery": {
+      "name": "Annie, Fiery",
+      "url": "https://riftdecks.com/cards/details-annie-fiery",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "5C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGS/ogs-001-024_full.png",
+      "price": 3.06
+    },
+    "details-blazing-scorcher": {
+      "name": "Blazing Scorcher",
+      "url": "https://riftdecks.com/cards/details-blazing-scorcher",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "5",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-001-298_full.png",
+      "price": 0.1
+    },
+    "details-vi-peacekeeper": {
+      "name": "Vi, Peacekeeper",
+      "url": "https://riftdecks.com/cards/details-vi-peacekeeper",
+      "type": "unit",
+      "domains": [
+        "order"
+      ],
+      "cost": "5C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/UNL/unl-176-219_full.png",
+      "price": 0.36
+    },
+    "details-yasuo-windrider": {
+      "name": "Yasuo, Windrider",
+      "url": "https://riftdecks.com/cards/details-yasuo-windrider",
+      "type": "unit",
+      "domains": [
+        "chaos"
+      ],
+      "cost": "5C",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-205-298_full.png",
+      "price": 3.14
+    },
+    "details-brazen-buccaneer": {
+      "name": "Brazen Buccaneer",
+      "url": "https://riftdecks.com/cards/details-brazen-buccaneer",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "6",
+      "rarity": "common",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-002-298_full.png",
+      "price": 0.04
+    },
+    "details-kayn-unleashed": {
+      "name": "Kayn, Unleashed",
+      "url": "https://riftdecks.com/cards/details-kayn-unleashed",
+      "type": "unit",
+      "domains": [
+        "chaos"
+      ],
+      "cost": "6C",
+      "rarity": "rare",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-189-298_full.png",
+      "price": 0.38
+    },
+    "details-volibear-furious": {
+      "name": "Volibear, Furious",
+      "url": "https://riftdecks.com/cards/details-volibear-furious",
+      "type": "unit",
+      "domains": [
+        "fury"
+      ],
+      "cost": "10CC",
+      "rarity": "epic",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-041-298_full.png",
+      "price": 1.99
+    },
+    "details-altar-to-unity": {
+      "name": "Altar to Unity",
+      "url": "https://riftdecks.com/cards/details-altar-to-unity",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-275-298_full.png",
+      "price": 0.09
+    },
+    "details-aspirants-climb": {
+      "name": "Aspirant's Climb",
+      "url": "https://riftdecks.com/cards/details-aspirants-climb",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-276-298_full.png",
+      "price": 0.24
+    },
+    "details-back-alley-bar": {
+      "name": "Back-Alley Bar",
+      "url": "https://riftdecks.com/cards/details-back-alley-bar",
+      "type": "battlefield",
+      "domains": [
+        "colorless"
+      ],
+      "cost": "-",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-277-298_full.png",
+      "price": 0.15
     }
   }
 }

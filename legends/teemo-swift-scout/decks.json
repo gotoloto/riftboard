@@ -1,8 +1,8 @@
 {
   "archetype": "Teemo, Swift Scout",
   "url": "https://riftdecks.com/legends/constructed/teemo-swift-scout?metagame_id=3",
-  "scraped_at": "2026-05-19T04:24:05.393822Z",
-  "deck_count": 69,
+  "scraped_at": "2026-05-21T01:33:45.171883Z",
+  "deck_count": 76,
   "decks": [
     {
       "url": "https://riftdecks.com/riftbound-metagame/deck-momo-150416",
@@ -17861,6 +17861,1716 @@
       "players": 28,
       "finish_pct": 100.0,
       "date": "2026-05-05"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-teemo-155177",
+      "title": "Teemo by Morgаl | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Windsinger",
+          "slug": "details-windsinger",
+          "url": "https://riftdecks.com/cards/details-windsinger",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Insightful Investigator",
+          "slug": "details-insightful-investigator",
+          "url": "https://riftdecks.com/cards/details-insightful-investigator",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sneaky Deckhand",
+          "slug": "details-sneaky-deckhand",
+          "url": "https://riftdecks.com/cards/details-sneaky-deckhand",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nocturne, Horrifying",
+          "slug": "details-nocturne-horrifying",
+          "url": "https://riftdecks.com/cards/details-nocturne-horrifying",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bone Skewer",
+          "slug": "details-bone-skewer",
+          "url": "https://riftdecks.com/cards/details-bone-skewer",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guerilla Warfare",
+          "slug": "details-guerilla-warfare",
+          "url": "https://riftdecks.com/cards/details-guerilla-warfare",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Call",
+          "slug": "details-sprite-call",
+          "url": "https://riftdecks.com/cards/details-sprite-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Downwell",
+          "slug": "details-downwell",
+          "url": "https://riftdecks.com/cards/details-downwell",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 4,
+      "players": 34,
+      "finish_pct": 11.8,
+      "date": "2026-05-19"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-teemo-swift-scout-153848",
+      "title": "Teemo, Swift Scout by AA Neuro | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Windsinger",
+          "slug": "details-windsinger",
+          "url": "https://riftdecks.com/cards/details-windsinger",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sneaky Deckhand",
+          "slug": "details-sneaky-deckhand",
+          "url": "https://riftdecks.com/cards/details-sneaky-deckhand",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nocturne, Horrifying",
+          "slug": "details-nocturne-horrifying",
+          "url": "https://riftdecks.com/cards/details-nocturne-horrifying",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bone Skewer",
+          "slug": "details-bone-skewer",
+          "url": "https://riftdecks.com/cards/details-bone-skewer",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guerilla Warfare",
+          "slug": "details-guerilla-warfare",
+          "url": "https://riftdecks.com/cards/details-guerilla-warfare",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Call",
+          "slug": "details-sprite-call",
+          "url": "https://riftdecks.com/cards/details-sprite-call",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Grove of the God-Willow",
+          "slug": "details-grove-of-the-god-willow",
+          "url": "https://riftdecks.com/cards/details-grove-of-the-god-willow",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Arena's Greatest",
+          "slug": "details-the-arenas-greatest",
+          "url": "https://riftdecks.com/cards/details-the-arenas-greatest",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 5,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 7,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Garbage Grabber",
+          "slug": "details-garbage-grabber",
+          "url": "https://riftdecks.com/cards/details-garbage-grabber",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Eclipse",
+          "slug": "details-eclipse",
+          "url": "https://riftdecks.com/cards/details-eclipse",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Sneaky Deckhand",
+          "slug": "details-sneaky-deckhand",
+          "url": "https://riftdecks.com/cards/details-sneaky-deckhand",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 16,
+      "players": 34,
+      "finish_pct": 47.1,
+      "date": "2026-05-18"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ce-shi-151549",
+      "title": "测试 by 回皂 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Ravenbloom Student",
+          "slug": "details-ravenbloom-student",
+          "url": "https://riftdecks.com/cards/details-ravenbloom-student",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Returned",
+          "slug": "details-pyke-returned",
+          "url": "https://riftdecks.com/cards/details-pyke-returned",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Hwei, Brooding Painter",
+          "slug": "details-hwei-brooding-painter",
+          "url": "https://riftdecks.com/cards/details-hwei-brooding-painter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mindsplitter",
+          "slug": "details-mindsplitter",
+          "url": "https://riftdecks.com/cards/details-mindsplitter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Boots of Swiftness",
+          "slug": "details-boots-of-swiftness",
+          "url": "https://riftdecks.com/cards/details-boots-of-swiftness",
+          "qty": 1,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Energy Conduit",
+          "slug": "details-energy-conduit",
+          "url": "https://riftdecks.com/cards/details-energy-conduit",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Existential Dread",
+          "slug": "details-existential-dread",
+          "url": "https://riftdecks.com/cards/details-existential-dread",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Amateur Recital",
+          "slug": "details-amateur-recital",
+          "url": "https://riftdecks.com/cards/details-amateur-recital",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Bandle Tree",
+          "slug": "details-bandle-tree",
+          "url": "https://riftdecks.com/cards/details-bandle-tree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Vex, Cheerless",
+          "slug": "details-vex-cheerless",
+          "url": "https://riftdecks.com/cards/details-vex-cheerless",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 1,
+      "players": 23,
+      "finish_pct": 4.3,
+      "date": "2026-05-17"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-111-155028",
+      "title": "111 by 阿空 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Traveling Merchant",
+          "slug": "details-traveling-merchant",
+          "url": "https://riftdecks.com/cards/details-traveling-merchant",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Treasure Hunter",
+          "slug": "details-treasure-hunter",
+          "url": "https://riftdecks.com/cards/details-treasure-hunter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Windsinger",
+          "slug": "details-windsinger",
+          "url": "https://riftdecks.com/cards/details-windsinger",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Fizz, Trickster",
+          "slug": "details-fizz-trickster",
+          "url": "https://riftdecks.com/cards/details-fizz-trickster",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Returned",
+          "slug": "details-pyke-returned",
+          "url": "https://riftdecks.com/cards/details-pyke-returned",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nocturne, Horrifying",
+          "slug": "details-nocturne-horrifying",
+          "url": "https://riftdecks.com/cards/details-nocturne-horrifying",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guerilla Warfare",
+          "slug": "details-guerilla-warfare",
+          "url": "https://riftdecks.com/cards/details-guerilla-warfare",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Hard Bargain",
+          "slug": "details-hard-bargain",
+          "url": "https://riftdecks.com/cards/details-hard-bargain",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Invert Timelines",
+          "slug": "details-invert-timelines",
+          "url": "https://riftdecks.com/cards/details-invert-timelines",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Bandle Tree",
+          "slug": "details-bandle-tree",
+          "url": "https://riftdecks.com/cards/details-bandle-tree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "The Candlelit Sanctum",
+          "slug": "details-the-candlelit-sanctum",
+          "url": "https://riftdecks.com/cards/details-the-candlelit-sanctum",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 9,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 3,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Factory Recall",
+          "slug": "details-factory-recall",
+          "url": "https://riftdecks.com/cards/details-factory-recall",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 1,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 33,
+      "players": 105,
+      "finish_pct": 31.4,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-xian-shou-kang-huan-shi-jian-xian-150019",
+      "title": "先手 康换时间线 by 微信用户QEWgfrLr | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Blastcone Fae",
+          "slug": "details-blastcone-fae",
+          "url": "https://riftdecks.com/cards/details-blastcone-fae",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Evelynn, Entrancing",
+          "slug": "details-evelynn-entrancing",
+          "url": "https://riftdecks.com/cards/details-evelynn-entrancing",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Strategist",
+          "slug": "details-teemo-strategist",
+          "url": "https://riftdecks.com/cards/details-teemo-strategist",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Windsinger",
+          "slug": "details-windsinger",
+          "url": "https://riftdecks.com/cards/details-windsinger",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Gemcraft Seer",
+          "slug": "details-gemcraft-seer",
+          "url": "https://riftdecks.com/cards/details-gemcraft-seer",
+          "qty": 1,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Nocturne, Horrifying",
+          "slug": "details-nocturne-horrifying",
+          "url": "https://riftdecks.com/cards/details-nocturne-horrifying",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Viktor, Innovator",
+          "slug": "details-viktor-innovator",
+          "url": "https://riftdecks.com/cards/details-viktor-innovator",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Bellows Breath",
+          "slug": "details-bellows-breath",
+          "url": "https://riftdecks.com/cards/details-bellows-breath",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Invert Timelines",
+          "slug": "details-invert-timelines",
+          "url": "https://riftdecks.com/cards/details-invert-timelines",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Altar to Unity",
+          "slug": "details-altar-to-unity",
+          "url": "https://riftdecks.com/cards/details-altar-to-unity",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Bandle Tree",
+          "slug": "details-bandle-tree",
+          "url": "https://riftdecks.com/cards/details-bandle-tree",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Acceptable Losses",
+          "slug": "details-acceptable-losses",
+          "url": "https://riftdecks.com/cards/details-acceptable-losses",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Fading Memories",
+          "slug": "details-fading-memories",
+          "url": "https://riftdecks.com/cards/details-fading-memories",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Mindsplitter",
+          "slug": "details-mindsplitter",
+          "url": "https://riftdecks.com/cards/details-mindsplitter",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 8,
+      "players": 32,
+      "finish_pct": 25.0,
+      "date": "2026-05-16"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ti-mo-128583",
+      "title": "提莫 by 提提又莫莫 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lecturing Yordle",
+          "slug": "details-lecturing-yordle",
+          "url": "https://riftdecks.com/cards/details-lecturing-yordle",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Returned",
+          "slug": "details-pyke-returned",
+          "url": "https://riftdecks.com/cards/details-pyke-returned",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Vex, Apathetic",
+          "slug": "details-vex-apathetic",
+          "url": "https://riftdecks.com/cards/details-vex-apathetic",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Hwei, Brooding Painter",
+          "slug": "details-hwei-brooding-painter",
+          "url": "https://riftdecks.com/cards/details-hwei-brooding-painter",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Mindsplitter",
+          "slug": "details-mindsplitter",
+          "url": "https://riftdecks.com/cards/details-mindsplitter",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Baron Nashor",
+          "slug": "details-baron-nashor",
+          "url": "https://riftdecks.com/cards/details-baron-nashor",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Rhasa the Sunderer",
+          "slug": "details-rhasa-the-sunderer",
+          "url": "https://riftdecks.com/cards/details-rhasa-the-sunderer",
+          "qty": 2,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Gust",
+          "slug": "details-gust",
+          "url": "https://riftdecks.com/cards/details-gust",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stacked Deck",
+          "slug": "details-stacked-deck",
+          "url": "https://riftdecks.com/cards/details-stacked-deck",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Stupefy",
+          "slug": "details-stupefy",
+          "url": "https://riftdecks.com/cards/details-stupefy",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star-Crossed",
+          "slug": "details-star-crossed",
+          "url": "https://riftdecks.com/cards/details-star-crossed",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Startipped Peak",
+          "slug": "details-startipped-peak",
+          "url": "https://riftdecks.com/cards/details-startipped-peak",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Zaun Warrens",
+          "slug": "details-zaun-warrens",
+          "url": "https://riftdecks.com/cards/details-zaun-warrens",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Singularity",
+          "slug": "details-singularity",
+          "url": "https://riftdecks.com/cards/details-singularity",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Dr. Mundo, Expert",
+          "slug": "details-dr-mundo-expert",
+          "url": "https://riftdecks.com/cards/details-dr-mundo-expert",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Time Warp",
+          "slug": "details-time-warp",
+          "url": "https://riftdecks.com/cards/details-time-warp",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 2,
+      "players": 16,
+      "finish_pct": 12.5,
+      "date": "2026-05-01"
+    },
+    {
+      "url": "https://riftdecks.com/riftbound-metagame/deck-ti-mov3-1-128356",
+      "title": "提莫v3.1 by Mtt-救援猫 谨记微芒 | riftDecks.com",
+      "cards": [
+        {
+          "name": "Teemo, Swift Scout",
+          "slug": "details-teemo-swift-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-swift-scout",
+          "qty": 1,
+          "type": "legend",
+          "board": "main"
+        },
+        {
+          "name": "Teemo, Scout",
+          "slug": "details-teemo-scout",
+          "url": "https://riftdecks.com/cards/details-teemo-scout",
+          "qty": 1,
+          "type": "champion",
+          "board": "main"
+        },
+        {
+          "name": "Plundering Poro",
+          "slug": "details-plundering-poro",
+          "url": "https://riftdecks.com/cards/details-plundering-poro",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Tideturner",
+          "slug": "details-tideturner",
+          "url": "https://riftdecks.com/cards/details-tideturner",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Lillia, Fae Fawn",
+          "slug": "details-lillia-fae-fawn",
+          "url": "https://riftdecks.com/cards/details-lillia-fae-fawn",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Pyke, Returned",
+          "slug": "details-pyke-returned",
+          "url": "https://riftdecks.com/cards/details-pyke-returned",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Thousand-Tailed Watcher",
+          "slug": "details-thousand-tailed-watcher",
+          "url": "https://riftdecks.com/cards/details-thousand-tailed-watcher",
+          "qty": 3,
+          "type": "unit",
+          "board": "main"
+        },
+        {
+          "name": "Sprite Fountain",
+          "slug": "details-sprite-fountain",
+          "url": "https://riftdecks.com/cards/details-sprite-fountain",
+          "qty": 3,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Edge of Night",
+          "slug": "details-edge-of-night",
+          "url": "https://riftdecks.com/cards/details-edge-of-night",
+          "qty": 2,
+          "type": "gear",
+          "board": "main"
+        },
+        {
+          "name": "Retreat",
+          "slug": "details-retreat",
+          "url": "https://riftdecks.com/cards/details-retreat",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Guerilla Warfare",
+          "slug": "details-guerilla-warfare",
+          "url": "https://riftdecks.com/cards/details-guerilla-warfare",
+          "qty": 1,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Rebuke",
+          "slug": "details-rebuke",
+          "url": "https://riftdecks.com/cards/details-rebuke",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Ride the Wind",
+          "slug": "details-ride-the-wind",
+          "url": "https://riftdecks.com/cards/details-ride-the-wind",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Smoke and Mirrors",
+          "slug": "details-smoke-and-mirrors",
+          "url": "https://riftdecks.com/cards/details-smoke-and-mirrors",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Switcheroo",
+          "slug": "details-switcheroo",
+          "url": "https://riftdecks.com/cards/details-switcheroo",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Wages of Pain",
+          "slug": "details-wages-of-pain",
+          "url": "https://riftdecks.com/cards/details-wages-of-pain",
+          "qty": 2,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Consult the Past",
+          "slug": "details-consult-the-past",
+          "url": "https://riftdecks.com/cards/details-consult-the-past",
+          "qty": 3,
+          "type": "spell",
+          "board": "main"
+        },
+        {
+          "name": "Amateur Recital",
+          "slug": "details-amateur-recital",
+          "url": "https://riftdecks.com/cards/details-amateur-recital",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Dusk Rose Lab",
+          "slug": "details-dusk-rose-lab",
+          "url": "https://riftdecks.com/cards/details-dusk-rose-lab",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Star Spring",
+          "slug": "details-star-spring",
+          "url": "https://riftdecks.com/cards/details-star-spring",
+          "qty": 1,
+          "type": "battlefield",
+          "board": "main"
+        },
+        {
+          "name": "Chaos Rune",
+          "slug": "details-chaos-rune",
+          "url": "https://riftdecks.com/cards/details-chaos-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Mind Rune",
+          "slug": "details-mind-rune",
+          "url": "https://riftdecks.com/cards/details-mind-rune",
+          "qty": 6,
+          "type": "rune",
+          "board": "main"
+        },
+        {
+          "name": "Abandon",
+          "slug": "details-abandon",
+          "url": "https://riftdecks.com/cards/details-abandon",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Turn to Dust",
+          "slug": "details-turn-to-dust",
+          "url": "https://riftdecks.com/cards/details-turn-to-dust",
+          "qty": 3,
+          "type": null,
+          "board": "side"
+        },
+        {
+          "name": "Unchecked Power",
+          "slug": "details-unchecked-power",
+          "url": "https://riftdecks.com/cards/details-unchecked-power",
+          "qty": 2,
+          "type": null,
+          "board": "side"
+        }
+      ],
+      "rank": 32,
+      "players": 23,
+      "finish_pct": 100.0,
+      "date": "2026-05-01"
     }
   ],
   "cards_meta": {
@@ -19692,6 +21402,18 @@
       "rarity": "uncommon",
       "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-275-298_full.png",
       "price": 0.09
+    },
+    "details-energy-conduit": {
+      "name": "Energy Conduit",
+      "url": "https://riftdecks.com/cards/details-energy-conduit",
+      "type": "gear",
+      "domains": [
+        "mind"
+      ],
+      "cost": "3",
+      "rarity": "uncommon",
+      "image_url": "https://riftdecks.com/img/cards/riftbound/OGN/ogn-098-298_full.png",
+      "price": 0.21
     }
   }
 }
