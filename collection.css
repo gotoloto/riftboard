@@ -281,6 +281,12 @@ table#collection-table td.actions {
 .deck-list li.with-remove {
   grid-template-columns: 22px 24px minmax(0, 1fr);
 }
+/* Card name turns red when the deck uses more copies than the user
+   actually owns (e.g. after unchecking 'include en-route' or a lock
+   toggle, a pasted decklist may suddenly become unfieldable). */
+.deck-list li.short .card-name {
+  color: #f87171;
+}
 .deck-list .qty {
   font-variant-numeric: tabular-nums;
   text-align: right;
