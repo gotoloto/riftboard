@@ -560,6 +560,32 @@ def build_tournaments_index() -> dict:
     }
 
 
+def build_champion_slugs() -> list[str]:
+    """Scan every cached deck for cards with type=champion and emit the
+    union as champion-slugs.js. Used by the deck-builder + main dashboard
+    to split champions out of MainDeck in the riftdecks-style copy
+    output. Cheap — purely a local file scan, no fetches."""
+    slugs: set = set()
+    for path in glob.glob("legends/*/decks.json"):
+        try:
+            with open(path) as f:
+                d = json.load(f)
+        except Exception:
+            continue
+        for deck in d.get("decks", []):
+            for c in deck.get("cards", []):
+                if (c.get("type") or "").lower() == "champion":
+                    slugs.add(c["slug"])
+    out = sorted(slugs)
+    tmp = "champion-slugs.js.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write("window.__CHAMPION_SLUGS__ = ")
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+        f.write(";\n")
+    os.replace(tmp, "champion-slugs.js")
+    return out
+
+
 def save_tournaments(catalog: dict) -> None:
     save_json("tournaments.json", catalog)
     # JS twin — keep the same name/shape so the dashboard can read it
@@ -2047,6 +2073,11 @@ if __name__ == "__main__":
             print("tournaments.json + tournaments.js refreshed")
         except Exception as exc:
             print(f"  ! tournaments refresh failed: {exc}")
+        try:
+            cs = build_champion_slugs()
+            print(f"champion-slugs.js refreshed ({len(cs)} champions)")
+        except Exception as exc:
+            print(f"  ! champion-slugs refresh failed: {exc}")
         print(
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )

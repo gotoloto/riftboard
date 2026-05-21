@@ -281,7 +281,12 @@ function rebuildNameIndex() {
   }
 }
 
-const SECTION_RE = /^(LEGEND|BATTLEFIELDS?|MAINDECK|SIDEBOARD)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
+// Accepts both riftdecks' own format ("Legend:", "Champion:", "MainDeck:",
+// "Battlefields:", "Rune Pool:", "SideBoard:") and the legacy all-caps
+// builder format with optional trailing "(N)" counts. CHAMPION lines route
+// to the main bucket; RUNE POOL lines are parsed but skipped (builder
+// doesn't track runes).
+const SECTION_RE = /^(LEGEND|BATTLEFIELDS?|MAINDECK|MAIN\s*DECK|CHAMPION|SIDEBOARD|SIDE\s*BOARD|RUNE\s*POOL|RUNES?)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
 const LINE_RE = /^(\d+)\s+(.+)$/;
 
 function parseDecklistText(text) {
@@ -292,7 +297,7 @@ function parseDecklistText(text) {
   // ('"3 Defy"') also parses.
   const out = { legend: null, battlefields: {}, main: {}, side: {} };
   const warnings = [];
-  let section = null;  // null | "legend" | "battlefields" | "main" | "side"
+  let section = null;  // null | "legend" | "battlefields" | "main" | "side" | "rune"
 
   for (let raw of text.split(/\r?\n/)) {
     let line = raw.trim();
@@ -304,17 +309,21 @@ function parseDecklistText(text) {
     if (!line) continue;
     const m = line.match(SECTION_RE);
     if (m) {
-      const head = m[1].toUpperCase();
+      const head = m[1].toUpperCase().replace(/\s+/g, "");
       if (head === "LEGEND") section = "legend";
       else if (head.startsWith("BATTLEFIELD")) section = "battlefields";
-      else if (head === "MAINDECK") section = "main";
+      else if (head === "MAINDECK" || head === "CHAMPION") section = "main";
       else if (head === "SIDEBOARD") section = "side";
+      else if (head === "RUNEPOOL" || head === "RUNE" || head === "RUNES") section = "rune";
       continue;
     }
     const ln = line.match(LINE_RE);
     if (!ln) continue;
     const qty = parseInt(ln[1], 10);
     const name = ln[2].trim();
+    // Skip everything inside a Rune Pool section silently — builder
+    // doesn't track runes (you own 99 of each).
+    if (section === "rune") continue;
     const slug = nameToSlug.get(name.toLowerCase());
     if (!slug) {
       warnings.push(`Unknown card: ${name}`);
@@ -870,37 +879,83 @@ function renderDeck() {
 }
 
 // ---------- copy ----------
+// Set of slugs known to be champions (window.__CHAMPION_SLUGS__ is a list
+// of every slug observed as type=champion in any cached deck). Used to
+// split the Champion: line out of MainDeck: in the riftdecks-style copy.
+const CHAMPION_SLUGS = new Set(window.__CHAMPION_SLUGS__ || []);
+
 function buildDecklistText() {
+  // Matches riftdecks' own deck-export format:
+  //   Legend:
+  //   1 <legend name>
+  //
+  //   Champion:
+  //   1 <champion name>
+  //
+  //   MainDeck:
+  //   <copies> <name>
+  //   …
+  //
+  //   Battlefields:
+  //   …
+  //
+  //   SideBoard:
+  //   …
+  //
+  // (Rune Pool: omitted — the builder doesn't track runes.)
   const lines = [];
   const nameOf = (slug) => catalog[slug]?.name || slug;
   const sortEntries = (entries) =>
     entries.sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
+  const sec = (header, body) => {
+    if (!body.length) return;
+    if (lines.length) lines.push("");
+    lines.push(`${header}:`);
+    for (const line of body) lines.push(line);
+  };
 
-  if (deck.legend) {
-    lines.push("LEGEND");
-    lines.push(`1 ${nameOf(deck.legend)}`);
-    lines.push("");
+  // Legend
+  if (deck.legend) sec("Legend", [`1 ${nameOf(deck.legend)}`]);
+
+  // Champion — extracted from maindeck (champions are units that
+  // happen to be marked type=champion in the deck listings). At most
+  // one per deck in standard Riftbound, but tolerate multiple.
+  const mainEntries = sortEntries(Object.entries(deck.main));
+  const championEntries = mainEntries.filter(([s]) => CHAMPION_SLUGS.has(s));
+  const nonChampMain = mainEntries.filter(([s]) => !CHAMPION_SLUGS.has(s));
+  if (championEntries.length) {
+    sec(
+      "Champion",
+      championEntries.map(([s, q]) => `${q} ${nameOf(s)}`)
+    );
   }
+
+  // MainDeck (units + spells + gear minus the champion)
+  if (nonChampMain.length) {
+    sec(
+      "MainDeck",
+      nonChampMain.map(([s, q]) => `${q} ${nameOf(s)}`)
+    );
+  }
+
+  // Battlefields
   const bfEntries = sortEntries(Object.entries(deck.battlefields));
   if (bfEntries.length) {
-    lines.push(`BATTLEFIELDS (${bucketTotal("battlefields")})`);
-    for (const [slug, qty] of bfEntries) lines.push(`${qty} ${nameOf(slug)}`);
-    lines.push("");
+    sec(
+      "Battlefields",
+      bfEntries.map(([s, q]) => `${q} ${nameOf(s)}`)
+    );
   }
-  const mEntries = sortEntries(Object.entries(deck.main));
-  if (mEntries.length) {
-    lines.push(`MAINDECK (${mainTotal()})`);
-    for (const [slug, qty] of mEntries) lines.push(`${qty} ${nameOf(slug)}`);
-    lines.push("");
-  }
+
+  // SideBoard
   const sEntries = sortEntries(Object.entries(deck.side));
   if (sEntries.length) {
-    lines.push(`SIDEBOARD (${bucketTotal("side")})`);
-    for (const [slug, qty] of sEntries) lines.push(`${qty} ${nameOf(slug)}`);
-    lines.push("");
+    sec(
+      "SideBoard",
+      sEntries.map(([s, q]) => `${q} ${nameOf(s)}`)
+    );
   }
-  // Trim trailing blank line
-  while (lines.length && lines[lines.length - 1] === "") lines.pop();
+
   return lines.join("\n");
 }
 

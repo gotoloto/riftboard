@@ -1231,20 +1231,34 @@ function attachRegionFilterHandlers() {
 }
 
 function formatPlaintextDeck() {
-  // Output matches builder.html's buildDecklistText() — section headers
-  // (LEGEND / BATTLEFIELDS / MAINDECK / SIDEBOARD), card counts in parens,
-  // one `<qty> <name>` per line, blank line between sections. Round-trips
-  // through the builder's paste-import. Runes are skipped (builder doesn't
-  // track them; you own 99 of each).
+  // Matches riftdecks' deck-export format (which the builder's
+  // buildDecklistText() also emits):
+  //
+  //   Legend:           Champion:        MainDeck:
+  //   1 <name>          1 <name>         3 Defy
+  //                                      …
+  //   Battlefields:     Rune Pool:       SideBoard:
+  //   1 <name>          8 Mind Rune      …
+  //
+  // Round-trips through the builder's paste-import. Champions are
+  // detected via window.__CHAMPION_SLUGS__; everything else in the
+  // unit/spell/gear panels stays in MainDeck.
+  const championSlugs = new Set(window.__CHAMPION_SLUGS__ || []);
   const buckets = {
     legend: [],
+    champion: [],
+    maindeck: [],
     battlefield: [],
-    maindeck: [], // unit + spell + gear merged
+    rune: [],
     side: [],
   };
+  // Each .median-section's h3 first text node is the slot label
+  // ("Legend", "Battlefields", "Runes", "Units", "Spells", "Gear",
+  // "Sideboard"). Map to our output buckets.
   const labelToBucket = {
     legend: "legend",
     battlefields: "battlefield",
+    runes: "rune",
     units: "maindeck",
     spells: "maindeck",
     gear: "maindeck",
@@ -1252,47 +1266,43 @@ function formatPlaintextDeck() {
   };
   for (const sec of medianContentEl.querySelectorAll(".median-section")) {
     const rawLabel = sec.querySelector("h3")?.firstChild?.textContent?.trim().toLowerCase();
-    const bucket = labelToBucket[rawLabel];
-    if (!bucket) continue; // skip runes, warnings, unknown sections
+    const targetBucket = labelToBucket[rawLabel];
+    if (!targetBucket) continue;
     for (const li of sec.querySelectorAll("li")) {
       const qtyText = li.querySelector(".qty")?.textContent ?? "";
-      const nameText = li.querySelector(".name")?.textContent ?? "";
+      const nameEl = li.querySelector(".name");
+      const nameText = nameEl?.textContent ?? "";
       const qty = parseInt(qtyText, 10);
       if (!Number.isFinite(qty) || qty < 1) continue;
       const name = nameText.trim();
       if (!name) continue;
+      // The Units section may include the champion — split it out.
+      let bucket = targetBucket;
+      if (targetBucket === "maindeck") {
+        const slug = nameEl?.querySelector?.("a")?.dataset?.slug;
+        if (slug && championSlugs.has(slug)) bucket = "champion";
+      }
       buckets[bucket].push({ qty, name });
     }
   }
-  // Sort each bucket alphabetically by name — matches builder's
-  // sortEntries((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0]))).
+  // Alphabetize within each section.
   for (const k of Object.keys(buckets)) {
     buckets[k].sort((a, b) => a.name.localeCompare(b.name));
   }
-  const totalOf = (arr) => arr.reduce((s, c) => s + c.qty, 0);
-  const sections = [];
-  if (buckets.legend.length) {
-    sections.push("LEGEND\n" + buckets.legend.map((c) => `${c.qty} ${c.name}`).join("\n"));
-  }
-  if (buckets.battlefield.length) {
-    sections.push(
-      `BATTLEFIELDS (${totalOf(buckets.battlefield)})\n` +
-        buckets.battlefield.map((c) => `${c.qty} ${c.name}`).join("\n")
-    );
-  }
-  if (buckets.maindeck.length) {
-    sections.push(
-      `MAINDECK (${totalOf(buckets.maindeck)})\n` +
-        buckets.maindeck.map((c) => `${c.qty} ${c.name}`).join("\n")
-    );
-  }
-  if (buckets.side.length) {
-    sections.push(
-      `SIDEBOARD (${totalOf(buckets.side)})\n` +
-        buckets.side.map((c) => `${c.qty} ${c.name}`).join("\n")
-    );
-  }
-  return sections.join("\n\n");
+  const lines = [];
+  const sec = (header, body) => {
+    if (!body.length) return;
+    if (lines.length) lines.push("");
+    lines.push(`${header}:`);
+    for (const c of body) lines.push(`${c.qty} ${c.name}`);
+  };
+  sec("Legend", buckets.legend);
+  sec("Champion", buckets.champion);
+  sec("MainDeck", buckets.maindeck);
+  sec("Battlefields", buckets.battlefield);
+  sec("Rune Pool", buckets.rune);
+  sec("SideBoard", buckets.side);
+  return lines.join("\n");
 }
 
 function fallbackCopy(text) {
