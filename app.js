@@ -1231,17 +1231,68 @@ function attachRegionFilterHandlers() {
 }
 
 function formatPlaintextDeck() {
-  const lines = [];
-  for (const li of medianContentEl.querySelectorAll(".median-section li")) {
-    const qtyText = li.querySelector(".qty")?.textContent ?? "";
-    const nameText = li.querySelector(".name")?.textContent ?? "";
-    const qty = parseInt(qtyText, 10);
-    if (!Number.isFinite(qty) || qty < 1) continue;
-    const name = tcgplayerName(nameText.trim());
-    if (!name) continue;
-    lines.push(`${qty} ${name}`);
+  // Output matches builder.html's buildDecklistText() — section headers
+  // (LEGEND / BATTLEFIELDS / MAINDECK / SIDEBOARD), card counts in parens,
+  // one `<qty> <name>` per line, blank line between sections. Round-trips
+  // through the builder's paste-import. Runes are skipped (builder doesn't
+  // track them; you own 99 of each).
+  const buckets = {
+    legend: [],
+    battlefield: [],
+    maindeck: [], // unit + spell + gear merged
+    side: [],
+  };
+  const labelToBucket = {
+    legend: "legend",
+    battlefields: "battlefield",
+    units: "maindeck",
+    spells: "maindeck",
+    gear: "maindeck",
+    sideboard: "side",
+  };
+  for (const sec of medianContentEl.querySelectorAll(".median-section")) {
+    const rawLabel = sec.querySelector("h3")?.firstChild?.textContent?.trim().toLowerCase();
+    const bucket = labelToBucket[rawLabel];
+    if (!bucket) continue; // skip runes, warnings, unknown sections
+    for (const li of sec.querySelectorAll("li")) {
+      const qtyText = li.querySelector(".qty")?.textContent ?? "";
+      const nameText = li.querySelector(".name")?.textContent ?? "";
+      const qty = parseInt(qtyText, 10);
+      if (!Number.isFinite(qty) || qty < 1) continue;
+      const name = nameText.trim();
+      if (!name) continue;
+      buckets[bucket].push({ qty, name });
+    }
   }
-  return lines.join("\n");
+  // Sort each bucket alphabetically by name — matches builder's
+  // sortEntries((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0]))).
+  for (const k of Object.keys(buckets)) {
+    buckets[k].sort((a, b) => a.name.localeCompare(b.name));
+  }
+  const totalOf = (arr) => arr.reduce((s, c) => s + c.qty, 0);
+  const sections = [];
+  if (buckets.legend.length) {
+    sections.push("LEGEND\n" + buckets.legend.map((c) => `${c.qty} ${c.name}`).join("\n"));
+  }
+  if (buckets.battlefield.length) {
+    sections.push(
+      `BATTLEFIELDS (${totalOf(buckets.battlefield)})\n` +
+        buckets.battlefield.map((c) => `${c.qty} ${c.name}`).join("\n")
+    );
+  }
+  if (buckets.maindeck.length) {
+    sections.push(
+      `MAINDECK (${totalOf(buckets.maindeck)})\n` +
+        buckets.maindeck.map((c) => `${c.qty} ${c.name}`).join("\n")
+    );
+  }
+  if (buckets.side.length) {
+    sections.push(
+      `SIDEBOARD (${totalOf(buckets.side)})\n` +
+        buckets.side.map((c) => `${c.qty} ${c.name}`).join("\n")
+    );
+  }
+  return sections.join("\n\n");
 }
 
 function fallbackCopy(text) {
