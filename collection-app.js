@@ -251,27 +251,15 @@ function addToDeck(slug, side) {
       // Replace any existing legend; no confirm — easy to undo by adding back.
       deck.legend = slug;
     } else if (CHAMPION_SLUGS.has(slug)) {
-      // Champion routing:
-      //   1. No designated champion yet → put this one in the slot.
-      //   2. Already designated to THIS slug → no-op (it's already there;
-      //      you can't put another copy of the same card in main because
-      //      Riftbound caps at MAX_COPIES total including the slot).
-      //   3. A different champion is designated → add THIS one to main as
-      //      a regular unit (subject to the standard 3-copy cap).
-      // Use the ↑ button on a maindeck champion to elevate it later.
-      if (!deck.champion) {
-        if (deckTotalIn(slug) >= ownedFor(slug)) return;
-        deck.champion = slug;
-      } else if (deck.champion === slug) {
-        // Designated already; no-op rather than silently adding a 2nd copy
-        // to main (that would exceed our intent — user would expect +M on
-        // the slot to either duplicate or noop, and duplicate is wrong).
-        return;
-      } else {
-        if (deckTotalIn(slug) >= ownedFor(slug)) return;
-        if ((deck.main[slug] || 0) >= MAX_COPIES) return;
-        deck.main[slug] = (deck.main[slug] || 0) + 1;
-      }
+      // Champion-eligible cards always +M into the maindeck as regular
+      // units (3-copy cap). The privileged Champion slot stays empty
+      // until the user explicitly elevates a card via the ↑ button —
+      // keeps the "first click silently fills the slot, second click
+      // does nothing" footgun from happening. Slot can hold ≤1 unique
+      // card; main can hold up to 3 of each.
+      if (deckTotalIn(slug) >= ownedFor(slug)) return;
+      if ((deck.main[slug] || 0) >= MAX_COPIES) return;
+      deck.main[slug] = (deck.main[slug] || 0) + 1;
     } else {
       if (deckTotalIn(slug) >= ownedFor(slug)) return;
       // Per-card cap for main + battlefields (3 max of any single card).
