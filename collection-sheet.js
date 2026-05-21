@@ -80,12 +80,16 @@
   }
 
   // Parse a lock-tab CSV. Each row is a single quoted cell from the deck
-  // text the user pasted ('"3 Defy"'). Section headers like "LEGEND",
-  // "BATTLEFIELDS (3)", "MAINDECK (40)", "SIDEBOARD (8)" are skipped.
-  // Names are matched against the catalog by case-insensitive lookup,
-  // with a legend-epithet alias so older pastes ("Bashful Bloom") still
-  // resolve. Returns { slug: total_qty } across whatever decks the tab
-  // contains.
+  // text the user pasted. Handles both the legacy builder format
+  // (`LEGEND`, `MAINDECK (40)`, …) and the riftdecks-style format
+  // (`Legend:`, `Champion:`, `MainDeck:`, `Battlefields:`, `Rune Pool:`,
+  // `SideBoard:`). Names are matched against the catalog by case-
+  // insensitive lookup, with a legend-epithet alias so older pastes
+  // ("Bashful Bloom") still resolve. Rune Pool lines are skipped
+  // because runes aren't tracked in the collection (you own 99 of each).
+  // Returns { slug: total_qty } across every section + every deck in
+  // the tab.
+  const SECTION_RE = /^(LEGEND|CHAMPION|BATTLEFIELDS?|MAINDECK|MAIN\s*DECK|SIDEBOARD|SIDE\s*BOARD|RUNE\s*POOL|RUNES?)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
   function parseLockTab(text) {
     const out = {};
     const rows = parseCSV(text);
@@ -101,15 +105,26 @@
       }
     }
     const lineRe = /^(\d+)\s+(.+)$/;
+    let inRunePool = false; // skip whole section: runes aren't tracked
     for (const row of rows) {
       const line = (row[0] || "").trim();
       if (!line) continue;
+      const sec = line.match(SECTION_RE);
+      if (sec) {
+        const head = sec[1].toUpperCase().replace(/\s+/g, "");
+        inRunePool = head === "RUNEPOOL" || head === "RUNE" || head === "RUNES";
+        continue;
+      }
+      if (inRunePool) continue;
       const ln = line.match(lineRe);
       if (!ln) continue;
       const qty = parseInt(ln[1], 10);
       const name = ln[2].trim();
       const slug = nameToSlug.get(name.toLowerCase());
       if (!slug) continue;
+      // Even if a rune slipped in without a Rune Pool header (legacy
+      // paste), don't let it bloat the lock — catalog type wins.
+      if (catalog[slug]?.type === "rune") continue;
       out[slug] = (out[slug] || 0) + qty;
     }
     return out;
