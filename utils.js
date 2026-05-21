@@ -60,6 +60,27 @@ function lockTabNames() {
   return Object.keys(window.__LOCKS__ || {});
 }
 
+function lockPlayerNames() {
+  // Group lock tabs by their first whitespace-delimited token (the
+  // player's name). Order preserved: lockTabNames() returns the Sheet's
+  // declared order, e.g. Travis A, Travis B, Santiago A, Santiago B —
+  // so unique-by-first-word yields [Travis, Santiago].
+  const seen = new Set();
+  const ordered = [];
+  for (const tab of lockTabNames()) {
+    const m = tab.match(/^(\S+)/);
+    if (!m) continue;
+    if (seen.has(m[1])) continue;
+    seen.add(m[1]);
+    ordered.push(m[1]);
+  }
+  return ordered;
+}
+
+function tabsForPlayer(player) {
+  return lockTabNames().filter((tab) => tab.startsWith(player));
+}
+
 // Toggle semantics — the label is "Include <tab>?":
 //   checked   = include those cards in the available pool (lock ignored,
 //               cards count toward owned)
@@ -69,9 +90,12 @@ function lockTabNames() {
 // Note: LS key was renamed from <page>:lock:<tab> to <page>:includeLock:<tab>
 // when the semantics flipped (previously checked = apply lock). Any value
 // stored under the old key is silently ignored — users get the new default.
-function readLockToggle(pagePrefix, tab) {
+// Reads the include-lock toggle for a player. Key is keyed by player
+// name now (was per-tab in an earlier iteration; old keys silently
+// ignored, default false = lock applies).
+function readLockToggle(pagePrefix, player) {
   try {
-    const raw = localStorage.getItem(`${pagePrefix}:includeLock:${tab}`);
+    const raw = localStorage.getItem(`${pagePrefix}:includeLock:${player}`);
     return raw == null ? false : JSON.parse(raw);
   } catch (_) {
     return false;
@@ -79,13 +103,20 @@ function readLockToggle(pagePrefix, tab) {
 }
 
 function lockedTotal(slug, pagePrefix) {
-  // Sum locked qty across tabs the user has NOT marked 'include' — those
-  // cards are excluded from their available pool.
+  // For each player whose Include toggle is OFF, subtract the MAX of
+  // their A/B tabs (intra-player sharing — Travis swaps a single physical
+  // copy of Defy between his own decks between games, so his lock for
+  // Defy is max(A_qty, B_qty), not A+B). Different players still sum,
+  // because both play at the same table simultaneously.
   const locks = window.__LOCKS__ || {};
   let total = 0;
-  for (const tab of lockTabNames()) {
-    if (readLockToggle(pagePrefix, tab)) continue; // 'included' → don't subtract
-    total += locks[tab]?.[slug] || 0;
+  for (const player of lockPlayerNames()) {
+    if (readLockToggle(pagePrefix, player)) continue;
+    let max = 0;
+    for (const tab of tabsForPlayer(player)) {
+      max = Math.max(max, locks[tab]?.[slug] || 0);
+    }
+    total += max;
   }
   return total;
 }
@@ -95,17 +126,19 @@ function lockedTotal(slug, pagePrefix) {
 // existing DOM + listeners). onChange() fires when any toggle flips.
 function ensureLockToggles(containerEl, pagePrefix, onChange) {
   if (!containerEl) return;
-  const tabs = lockTabNames();
-  const key = tabs.join("");
+  // One checkbox per PLAYER (collapses A/B into a single toggle — that
+  // matches the intra-player sharing rule and keeps the UI tidy).
+  const players = lockPlayerNames();
+  const key = players.join("|");
   if (containerEl.dataset.tabs === key) return;
   containerEl.dataset.tabs = key;
   containerEl.innerHTML = "";
-  for (const tab of tabs) {
-    const lsKey = `${pagePrefix}:includeLock:${tab}`;
-    const on = readLockToggle(pagePrefix, tab);
+  for (const player of players) {
+    const lsKey = `${pagePrefix}:includeLock:${player}`;
+    const on = readLockToggle(pagePrefix, player);
     const label = document.createElement("label");
     label.className = "enroute-toggle lock-toggle";
-    label.innerHTML = `<input type="checkbox"${on ? " checked" : ""}/> Include ${escapeHtml(tab)}?`;
+    label.innerHTML = `<input type="checkbox"${on ? " checked" : ""}/> Include ${escapeHtml(player)} 🔒?`;
     const input = label.querySelector("input");
     input.addEventListener("change", () => {
       try {
