@@ -295,6 +295,15 @@ table#collection-table td.actions {
   color: var(--bg);
   border-color: #fbbf24;
 }
+.deck-list button.demote {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+.deck-list button.demote:hover {
+  background: #fbbf24;
+  color: var(--bg);
+  border-color: #fbbf24;
+}
 /* Card name turns red when the deck uses more copies than the user
    actually owns (e.g. after unchecking 'include en-route' or a lock
    toggle, a pasted decklist may suddenly become unfieldable). */

@@ -299,8 +299,25 @@ function designateChampion(slug) {
   renderTable();
 }
 
-// Remove the designated champion outright (× on the champion row).
+// Remove the designated champion outright (no longer wired to the UI —
+// the ↓ button now DEMOTES back to main instead. Kept for completeness
+// in case any future path wants a hard-remove.)
 function removeChampion() {
+  deck.champion = null;
+  saveDeck();
+  renderDeck();
+  renderTable();
+}
+
+// Demote the designated champion back into main as a 1-of (subject to
+// the 3-copy cap). Frees up the slot without losing the card from the
+// deck; the user can then − it from main if they want a true remove.
+function demoteChampion() {
+  const slug = deck.champion;
+  if (!slug) return;
+  const cur = deck.main[slug] || 0;
+  if (cur < MAX_COPIES) deck.main[slug] = cur + 1;
+  // else: at cap already (rare) — drop silently to avoid 4-of.
   deck.champion = null;
   saveDeck();
   renderDeck();
@@ -740,13 +757,22 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const qtyHtml = `<span class="qty">${qty} ×</span>`;
   const nameHtml = `<span class="card-name"${img}>${escapeHtml(name)}</span>`;
   if (!allowQtyControls) {
-    // Legend / Champion slot: just a remove button. Layout: × | qty | name
+    // Single-slot rows (Legend, Champion).
+    // - Legend: × removes outright.
+    // - Champion: ↓ demotes back to main as a 1-of (the user explicitly
+    //   asked for demote, not remove; if they want full removal they can
+    //   − from main afterwards).
+    if (bucket === "champion") {
+      return `<li class="${liCls}" data-slug="${escapeHtml(slug)}"${liTitle}><button class="demote" data-action="demote" data-slug="${escapeHtml(slug)}" title="Demote to maindeck">↓</button>${qtyHtml}${nameHtml}</li>`;
+    }
     return `<li class="${liCls}" data-slug="${escapeHtml(slug)}"${liTitle}><button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button>${qtyHtml}${nameHtml}</li>`;
   }
-  // Champion-eligible cards in the maindeck get an extra ↑ button to
-  // elevate the card into the designated Champion slot. Uses a 5-column
-  // grid via the .with-elevate class.
-  const isElevatable = bucket === "main" && CHAMPION_SLUGS.has(slug);
+  // Champion-eligible cards in main get a ↑ button to elevate, but ONLY
+  // when the Champion slot is empty. If the slot is already taken, the
+  // user must demote first — keeps the UI from offering two "elevate"
+  // affordances at once.
+  const isElevatable =
+    bucket === "main" && CHAMPION_SLUGS.has(slug) && !deck.champion;
   const elevateBtn = isElevatable
     ? `<button data-action="elevate" data-slug="${escapeHtml(slug)}" title="Elevate to Champion slot">↑</button>`
     : "";
@@ -1201,6 +1227,7 @@ function init() {
     else if (btn.dataset.action === "dec") decFromDeck(bucket, slug);
     else if (btn.dataset.action === "remove") removeFromDeck(bucket, slug);
     else if (btn.dataset.action === "elevate") designateChampion(slug);
+    else if (btn.dataset.action === "demote") demoteChampion();
   });
 
   document.getElementById("copy-deck").addEventListener("click", copyDeck);
