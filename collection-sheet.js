@@ -17,10 +17,16 @@
     `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/export?format=csv`;
   // Lock tabs — each one is a deck (or stack of decks) committed by one
   // person. The site treats those cards as 'unavailable' when the
-  // corresponding 'Include lock' toggle is on. Add new lock tabs here.
-  // Display label (the part before the emoji or whatever) appears in the
-  // toggle text.
-  const LOCK_TABS = ["Travis 🔒", "Santiago 🔒"];
+  // corresponding 'Include lock' toggle is on. A and B are independent
+  // deck slots per player; with both toggles in their default state the
+  // pools combine into 'every locked card across A and B'. Add new lock
+  // tabs here.
+  const LOCK_TABS = [
+    "Travis A🔒",
+    "Travis B🔒",
+    "Santiago A🔒",
+    "Santiago B🔒",
+  ];
   const lockTabUrl = (name) =>
     `https://docs.google.com/spreadsheets/d/${SHEETS_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(name)}`;
 
