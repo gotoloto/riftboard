@@ -262,15 +262,20 @@ function itemRow(slug, qty, usage, tab) {
 
   let cls = "";
   let severityMark = "";
+  const here = u?.perDeck?.[tab] || { qty, swap: false };
   if (u?.short) {
     cls = "short";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
   } else if (u?.crossPlayerShared) {
     cls = "shared";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
+  } else if (here.swap) {
+    // Pure intra-player swap (not short, not cross-player-shared) — give
+    // it a blue tint so the row pops in BOTH A and B for that player.
+    cls = "swap";
   }
-  // Intra-player swap marker — independent of the severity class.
-  const here = u?.perDeck?.[tab] || { qty, swap: false };
+  // 🔄 marker always shows when this row needs swapping, regardless of
+  // the severity class above.
   const swapMark = here.swap
     ? `<span class="swap-mark" title="Swap this card between your A and B decks between games">🔄</span>`
     : "";

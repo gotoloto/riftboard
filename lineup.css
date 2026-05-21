@@ -129,6 +129,11 @@
 /* Shared = both players need this card, household has enough (informational). */
 .deck-panel .deck-list li.shared .card-name { color: #fbbf24; }
 .deck-panel .deck-list li.shared { background: rgba(251, 191, 36, 0.05); }
+/* Swap = same player runs the card in both A and B (only highlighted
+   when the row isn't already short/shared — those higher-severity
+   states keep their own bg, but the 🔄 marker still appears). */
+.deck-panel .deck-list li.swap .card-name { color: #60a5fa; }
+.deck-panel .deck-list li.swap { background: rgba(96, 165, 250, 0.06); }
 .deck-panel .severity-mark {
   display: inline-block;
   margin-left: 4px;
