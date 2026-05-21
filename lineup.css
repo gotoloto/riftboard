@@ -60,6 +60,10 @@
   background: rgba(120, 120, 120, 0.15);
   color: var(--muted);
 }
+.deck-panel-header .completion.shared {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+}
 
 .deck-panel .empty-deck {
   color: var(--muted);
@@ -118,6 +122,70 @@
 .deck-panel .deck-list li.short .card-name { color: #f87171; }
 .deck-panel .deck-list li.short .own { color: #f87171; font-weight: 600; }
 .deck-panel .deck-list li.short { background: rgba(248, 113, 113, 0.06); }
+/* Shared = both players need this card, household has enough (informational). */
+.deck-panel .deck-list li.shared .card-name { color: #fbbf24; }
+.deck-panel .deck-list li.shared { background: rgba(251, 191, 36, 0.05); }
+.deck-panel .share-mark {
+  display: inline-block;
+  margin-left: 4px;
+  color: #fbbf24;
+  font-size: 10px;
+}
+
+/* Household-level summary banner above the deck grid. */
+.household-summary { margin: 4px 0 14px; }
+.household-summary .hh-block {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-size: 12px;
+}
+.household-summary .hh-block summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+.household-summary .hh-block ul {
+  margin: 6px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.household-summary .hh-block li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 2px 0;
+}
+.household-summary .hh-block li.more { color: var(--muted); justify-content: center; font-style: italic; }
+.household-summary .hh-block .need { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; }
+.household-summary .hh-block .card-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.household-summary .hh-short {
+  border-color: rgba(248, 113, 113, 0.4);
+  background: rgba(248, 113, 113, 0.08);
+  color: #f87171;
+}
+.household-summary .hh-short .need strong { color: #f87171; }
+.household-summary .hh-shared {
+  border-color: rgba(251, 191, 36, 0.4);
+  background: rgba(251, 191, 36, 0.06);
+  color: #fbbf24;
+}
+.household-summary .hh-ok {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  background: rgba(74, 222, 128, 0.08);
+  color: #4ade80;
+  font-size: 13px;
+}
 
 /* Reuse the builder's energy curve + power-by-domain styling — already
    defined in collection.css. */

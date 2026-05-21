@@ -20,6 +20,12 @@ let enRoute = window.__EN_ROUTE_DEFAULTS__ || {};
 let includeEnRoute = false;
 
 const LOCK_TABS = ["Travis A🔒", "Travis B🔒", "Santiago A🔒", "Santiago B🔒"];
+// Each player's two decks (A + B) can share cards — Travis only plays one
+// at a time, so his pool of Defies just gets shuffled into whichever deck
+// he's piloting. ACROSS players, though, no sharing: Travis and Santiago
+// sit down at the same table. So the household needs separate physical
+// copies for both players. Used to detect 'sharing conflicts' below.
+const PLAYERS = ["Travis", "Santiago"];
 
 const MAX_COPIES = 3;
 
@@ -245,20 +251,32 @@ function imgOf(slug) {
   return u ? ` data-img="${escapeHtml(u)}"` : "";
 }
 
-function itemRow(slug, qty, neededTotal) {
-  // neededTotal = number of copies of this slug used across the whole deck
-  // (legend + champion + main + battlefields + side). owned compares
-  // against that so we don't mis-flag a card that's split across sections.
-  const own = ownedFor(slug);
-  const isShort = neededTotal > own;
-  const shortCls = isShort ? " short" : "";
-  const title = isShort
-    ? ` title="Need ${neededTotal}, own ${own} — short ${neededTotal - own}"`
-    : ` title="Need ${neededTotal}, own ${own}"`;
-  return `<li class="${shortCls.trim()}" data-slug="${escapeHtml(slug)}"${title}>
+function itemRow(slug, qty, usage) {
+  // usage = entry from computeUsage() — has per-player need, household
+  // total, owned, shared flag, short flag. Drives both the styling and
+  // the tooltip text.
+  const u = usage[slug] || { householdNeed: qty, owned: ownedFor(slug), short: false, shared: false, perPlayer: {} };
+  let cls = "";
+  let marker = "";
+  if (u.short) {
+    cls = "short";
+  } else if (u.shared) {
+    cls = "shared";
+    marker = `<span class="share-mark" aria-hidden="true" title="Required by both players">⚠</span>`;
+  }
+  const playerBreakdown = Object.entries(u.perPlayer)
+    .filter(([, v]) => v > 0)
+    .map(([p, v]) => `${p} ${v}`)
+    .join(" + ");
+  const title = u.short
+    ? `Household needs ${u.householdNeed} (${playerBreakdown}); own ${u.owned} — short ${u.householdNeed - u.owned}`
+    : u.shared
+      ? `Both players want this — need ${u.householdNeed} (${playerBreakdown}); own ${u.owned}`
+      : `Need ${u.householdNeed}, own ${u.owned}`;
+  return `<li class="${cls}" data-slug="${escapeHtml(slug)}" title="${escapeHtml(title)}">
     <span class="qty">${qty}×</span>
-    <span class="own">/${own}</span>
-    <span class="card-name"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
+    <span class="own">/${u.owned}</span>
+    <span class="card-name"${imgOf(slug)}>${escapeHtml(nameOf(slug))}${marker}</span>
   </li>`;
 }
 
@@ -274,11 +292,59 @@ function tallyDeckTotals(deck) {
   return t;
 }
 
+function playerOfTab(tab) {
+  // First word of the tab name, e.g. 'Travis A🔒' → 'Travis'.
+  return (tab.match(/^(\S+)/) || [, ""])[1];
+}
+
+function computeUsage(parsedByTab) {
+  // For every slug used by any of the 4 decks, return:
+  //   { perPlayer: {player: max_copies_across_A_and_B},
+  //     householdNeed: sum across players (since both play at once),
+  //     owned: ownedFor(slug),
+  //     shared: ≥2 players need it,
+  //     short:  household needs more than is owned }
+  // Same player's two decks (A+B) can SHARE cards (the player swaps them
+  // between decks between games), so we take MAX across A/B per player.
+  // Different players CANNOT share — they sit at the same table — so we
+  // SUM across players to get the household requirement.
+  const allSlugs = new Set();
+  const tallies = {};
+  for (const [tab, deck] of Object.entries(parsedByTab)) {
+    const t = tallyDeckTotals(deck);
+    tallies[tab] = t;
+    for (const s of Object.keys(t)) allSlugs.add(s);
+  }
+  const usage = {};
+  for (const slug of allSlugs) {
+    const perPlayer = {};
+    for (const player of PLAYERS) {
+      let m = 0;
+      for (const [tab, t] of Object.entries(tallies)) {
+        if (playerOfTab(tab) !== player) continue;
+        m = Math.max(m, t[slug] || 0);
+      }
+      perPlayer[player] = m;
+    }
+    const householdNeed = Object.values(perPlayer).reduce((s, v) => s + v, 0);
+    const own = ownedFor(slug);
+    const playersNeeding = Object.values(perPlayer).filter((v) => v > 0).length;
+    usage[slug] = {
+      perPlayer,
+      householdNeed,
+      owned: own,
+      shared: playersNeeding >= 2,
+      short: householdNeed > own,
+    };
+  }
+  return usage;
+}
+
 function sortByName(entries) {
   return entries.sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
 }
 
-function renderDeckPanel(tabName, deck) {
+function renderDeckPanel(tabName, deck, usage) {
   // Headline counts
   const isEmpty = !deck.legend && !deck.champion &&
     !Object.keys(deck.main).length &&
@@ -294,21 +360,32 @@ function renderDeckPanel(tabName, deck) {
     </section>`;
   }
   const totals = tallyDeckTotals(deck);
-  // Are we short anywhere?
+  // Per-card status in this deck — short = household can't satisfy it
+  // (counting cross-player demand). Shared = both players want it.
   let shortCards = 0;
   let shortCopies = 0;
-  for (const [slug, need] of Object.entries(totals)) {
-    const own = ownedFor(slug);
-    if (need > own) {
+  let sharedCards = 0;
+  for (const slug of Object.keys(totals)) {
+    const u = usage[slug];
+    if (!u) continue;
+    if (u.short) {
       shortCards += 1;
-      shortCopies += (need - own);
+      shortCopies += (u.householdNeed - u.owned);
+    } else if (u.shared) {
+      sharedCards += 1;
     }
   }
-  const completionTxt =
-    shortCards === 0
-      ? "Have all cards ✓"
-      : `Short ${shortCopies} cop${shortCopies === 1 ? "y" : "ies"} (${shortCards} card${shortCards === 1 ? "" : "s"})`;
-  const completionCls = shortCards === 0 ? "completion" : "completion short";
+  let completionTxt, completionCls;
+  if (shortCards > 0) {
+    completionTxt = `Short ${shortCopies} cop${shortCopies === 1 ? "y" : "ies"} (${shortCards} card${shortCards === 1 ? "" : "s"})`;
+    completionCls = "completion short";
+  } else if (sharedCards > 0) {
+    completionTxt = `Have all · ${sharedCards} shared with other player`;
+    completionCls = "completion shared";
+  } else {
+    completionTxt = "Have all cards ✓";
+    completionCls = "completion";
+  }
 
   const mainBySort = sortByName(Object.entries(deck.main));
   const byType = { unit: [], gear: [], spell: [] };
@@ -322,14 +399,14 @@ function renderDeckPanel(tabName, deck) {
   if (deck.legend) {
     sections.push(`<section class="deck-section">
       <header><span>Legend</span><span>1/1</span></header>
-      <ul class="deck-list">${itemRow(deck.legend, 1, totals[deck.legend] || 1)}</ul>
+      <ul class="deck-list">${itemRow(deck.legend, 1, usage)}</ul>
     </section>`);
   }
   // Champion
   if (deck.champion) {
     sections.push(`<section class="deck-section">
       <header><span>Champion</span><span>1/1</span></header>
-      <ul class="deck-list">${itemRow(deck.champion, 1, totals[deck.champion] || 1)}</ul>
+      <ul class="deck-list">${itemRow(deck.champion, 1, usage)}</ul>
     </section>`);
   }
   // Battlefields
@@ -338,7 +415,7 @@ function renderDeckPanel(tabName, deck) {
     const bfTotal = bfEntries.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>Battlefields</span><span>${bfTotal}/3</span></header>
-      <ul class="deck-list">${bfEntries.map(([s, q]) => itemRow(s, q, totals[s] || q)).join("")}</ul>
+      <ul class="deck-list">${bfEntries.map(([s, q]) => itemRow(s, q, usage)).join("")}</ul>
     </section>`);
   }
   // Maindeck — units / gear / spells. Champion is already shown above; if
@@ -361,7 +438,7 @@ function renderDeckPanel(tabName, deck) {
     const subtotal = list.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>${sectionLabel}</span><span>${subtotal}</span></header>
-      <ul class="deck-list">${list.map(([s, q]) => itemRow(s, q, totals[s] || q)).join("")}</ul>
+      <ul class="deck-list">${list.map(([s, q]) => itemRow(s, q, usage)).join("")}</ul>
     </section>`);
   }
   // Sideboard
@@ -370,7 +447,7 @@ function renderDeckPanel(tabName, deck) {
     const sideTotal = sideEntries.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>Sideboard</span><span>${sideTotal}/8</span></header>
-      <ul class="deck-list">${sideEntries.map(([s, q]) => itemRow(s, q, totals[s] || q)).join("")}</ul>
+      <ul class="deck-list">${sideEntries.map(([s, q]) => itemRow(s, q, usage)).join("")}</ul>
     </section>`);
   }
 
@@ -402,13 +479,71 @@ function renderAll() {
   const grid = document.getElementById("lineup-grid");
   if (!grid) return;
   const locksRaw = window.__LOCKS_RAW__ || {};
-  const panels = LOCK_TABS.map((tab) => {
-    const raw = locksRaw[tab] || "";
-    const deck = parseLockText(raw);
-    return renderDeckPanel(tab, deck);
-  });
+  const parsedByTab = {};
+  for (const tab of LOCK_TABS) parsedByTab[tab] = parseLockText(locksRaw[tab] || "");
+  const usage = computeUsage(parsedByTab);
+  renderHouseholdSummary(usage);
+  const panels = LOCK_TABS.map((tab) => renderDeckPanel(tab, parsedByTab[tab], usage));
   grid.innerHTML = panels.join("");
   attachHoverThumb();
+}
+
+function renderHouseholdSummary(usage) {
+  // Banner above the grid summarising cross-player sharing/shortfalls.
+  let host = document.getElementById("household-summary");
+  if (!host) {
+    host = document.createElement("section");
+    host.id = "household-summary";
+    host.className = "household-summary";
+    const grid = document.getElementById("lineup-grid");
+    grid.parentNode.insertBefore(host, grid);
+  }
+  const entries = Object.values(usage);
+  if (!entries.length) { host.innerHTML = ""; return; }
+  const shortEntries = Object.entries(usage)
+    .filter(([, u]) => u.short)
+    .sort((a, b) => (b[1].householdNeed - b[1].owned) - (a[1].householdNeed - a[1].owned));
+  const sharedEntries = Object.entries(usage)
+    .filter(([, u]) => !u.short && u.shared)
+    .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
+  const shortListItems = shortEntries
+    .slice(0, 20)
+    .map(([slug, u]) => {
+      const breakdown = Object.entries(u.perPlayer)
+        .filter(([, v]) => v > 0)
+        .map(([p, v]) => `${p} ${v}`)
+        .join(" + ");
+      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
+        <span class="need">need <strong>${u.householdNeed}</strong> (${escapeHtml(breakdown)}) · own ${u.owned} · <strong>short ${u.householdNeed - u.owned}</strong></span></li>`;
+    })
+    .join("");
+  const sharedListItems = sharedEntries
+    .slice(0, 20)
+    .map(([slug, u]) => {
+      const breakdown = Object.entries(u.perPlayer)
+        .filter(([, v]) => v > 0)
+        .map(([p, v]) => `${p} ${v}`)
+        .join(" + ");
+      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
+        <span class="need">${escapeHtml(breakdown)} · own ${u.owned} (just enough)</span></li>`;
+    })
+    .join("");
+  const blocks = [];
+  if (shortEntries.length) {
+    blocks.push(`<details class="hh-block hh-short" open>
+      <summary>⚠ <strong>${shortEntries.length}</strong> card${shortEntries.length === 1 ? "" : "s"} short — both players can't field these at once</summary>
+      <ul>${shortListItems}${shortEntries.length > 20 ? `<li class="more">… +${shortEntries.length - 20} more</li>` : ""}</ul>
+    </details>`);
+  }
+  if (sharedEntries.length) {
+    blocks.push(`<details class="hh-block hh-shared">
+      <summary>👥 ${sharedEntries.length} card${sharedEntries.length === 1 ? "" : "s"} shared between players (household has enough copies)</summary>
+      <ul>${sharedListItems}${sharedEntries.length > 20 ? `<li class="more">… +${sharedEntries.length - 20} more</li>` : ""}</ul>
+    </details>`);
+  }
+  host.innerHTML = blocks.length
+    ? blocks.join("")
+    : `<p class="hh-ok">✓ No cross-player conflicts — both players can field their decks simultaneously.</p>`;
 }
 
 // First paint: empty placeholders. The collection:updated event fires after
