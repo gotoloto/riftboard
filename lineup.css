@@ -64,6 +64,10 @@
   background: rgba(251, 191, 36, 0.15);
   color: #fbbf24;
 }
+.deck-panel-header .completion.swap {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+}
 
 .deck-panel .empty-deck {
   color: var(--muted);
@@ -125,11 +129,22 @@
 /* Shared = both players need this card, household has enough (informational). */
 .deck-panel .deck-list li.shared .card-name { color: #fbbf24; }
 .deck-panel .deck-list li.shared { background: rgba(251, 191, 36, 0.05); }
-.deck-panel .share-mark {
+.deck-panel .severity-mark {
   display: inline-block;
   margin-left: 4px;
-  color: #fbbf24;
   font-size: 10px;
+  color: inherit;
+}
+/* Intra-player swap marker — appears regardless of severity. Same player
+   needs to physically shuttle the card between their A and B decks
+   between games (one Travis at a time, etc). Pure logistics, no
+   shortage implied. */
+.deck-panel .swap-mark {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px;
+  filter: grayscale(0.2);
+  opacity: 0.9;
 }
 
 /* Household-level summary banner above the deck grid. */
@@ -176,6 +191,11 @@
   border-color: rgba(251, 191, 36, 0.4);
   background: rgba(251, 191, 36, 0.06);
   color: #fbbf24;
+}
+.household-summary .hh-swap {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(96, 165, 250, 0.06);
+  color: #60a5fa;
 }
 .household-summary .hh-ok {
   margin: 0;
