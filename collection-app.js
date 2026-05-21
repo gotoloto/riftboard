@@ -110,12 +110,11 @@ function ownedFor(slug) {
   return Math.max(0, o + er - locked);
 }
 function playsetFor(slug) {
-  // Legends and champions are always 1-of in a deck per Riftbound rules,
-  // so their playset is 1 (not 3). Champions are catalog-type=unit but
-  // identified via window.__CHAMPION_SLUGS__.
-  if (catalog[slug]?.type === "legend") return 1;
-  if (CHAMPION_SLUGS.has(slug)) return 1;
-  return PLAYSET;
+  // Legends are 1-of in a deck. Champions are catalog-type=unit and can
+  // run up to MAX_COPIES (1 in the designated slot + up to 2 more in
+  // main, or any combination summing ≤3) — same playset as any other
+  // unit, just with one privileged copy.
+  return catalog[slug]?.type === "legend" ? 1 : PLAYSET;
 }
 function missingFor(slug) {
   return Math.max(0, playsetFor(slug) - ownedFor(slug));
@@ -143,25 +142,57 @@ let includeEnRoute = readJSON(LS_ENROUTE, false);
 function saveFilters() { writeJSON(LS_FILTERS, filters); }
 
 // ---------- deck state ----------
-const DEFAULT_DECK = { legend: null, battlefields: {}, main: {}, side: {} };
+// Schema: { legend, champion, battlefields, main, side }
+//   legend / champion → single slug (or null) occupying their special slot
+//   battlefields / main / side → {slug: qty}
+//
+// IMPORTANT distinction (mistake I made earlier and Santiago kept hitting):
+// the "Champion" slot is exactly one designated card. OTHER champion-eligible
+// cards can still appear in the maindeck as regular units, up to MAX_COPIES.
+// Adding a champion-eligible card via +M no longer overwrites the slot — it
+// designates only if the slot is empty; otherwise it goes to main as a unit.
+// Use the ↑ button on a maindeck champion to elevate it (swaps with whatever
+// is currently designated).
+const DEFAULT_DECK = { legend: null, champion: null, battlefields: {}, main: {}, side: {} };
 let deck = { ...DEFAULT_DECK, ...readJSON(LS_DECK, {}) };
 // Defensive: ensure shape after potential schema drift.
 for (const k of ["battlefields", "main", "side"]) {
   if (!deck[k] || typeof deck[k] !== "object") deck[k] = {};
 }
+if (deck.champion === undefined) deck.champion = null;
+// One-time migration: legacy drafts (before the dedicated `champion` field
+// existed) stored the designated champion as a 1-copy entry in `main` like
+// any other unit. If we still see exactly that pattern — at least one
+// champion-eligible slug in main and no `champion` set — promote the first
+// such slug into the slot so the UI doesn't show an empty Champion section
+// on first load after the rebuild.
+(function migrateLegacyChampion() {
+  if (deck.champion) return;
+  for (const [slug, qty] of Object.entries(deck.main)) {
+    if (CHAMPION_SLUGS.has(slug) && qty >= 1) {
+      deck.champion = slug;
+      if (qty <= 1) delete deck.main[slug];
+      else deck.main[slug] = qty - 1;
+      writeJSON(LS_DECK, deck);
+      break;
+    }
+  }
+})();
 let deckTab = readJSON(LS_DECK_TAB, "main");
 
 function saveDeck() { writeJSON(LS_DECK, deck); }
 
 function deckQty(bucket, slug) {
   if (bucket === "legend") return deck.legend === slug ? 1 : 0;
+  if (bucket === "champion") return deck.champion === slug ? 1 : 0;
   return deck[bucket][slug] || 0;
 }
 function deckTotalIn(slug) {
   // Total copies of a slug already used across all buckets — needed to
-  // disable +M/+S when owned is exhausted.
+  // disable +M/+S when owned is exhausted. Designated champion counts.
   return (
     (deck.legend === slug ? 1 : 0) +
+    (deck.champion === slug ? 1 : 0) +
     (deck.battlefields[slug] || 0) +
     (deck.main[slug] || 0) +
     (deck.side[slug] || 0)
@@ -172,7 +203,8 @@ function bucketTotal(bucket) {
   if (!m) return 0;
   return Object.values(m).reduce((s, v) => s + v, 0);
 }
-function mainTotal() { return bucketTotal("main"); }
+// Maindeck total includes the designated champion slot.
+function mainTotal() { return bucketTotal("main") + (deck.champion ? 1 : 0); }
 function bucketTotalByType(type) {
   // For the Maindeck section breakdown (units / gear / spells).
   let n = 0;
@@ -219,14 +251,27 @@ function addToDeck(slug, side) {
       // Replace any existing legend; no confirm — easy to undo by adding back.
       deck.legend = slug;
     } else if (CHAMPION_SLUGS.has(slug)) {
-      // Champions are 1-of per deck per Riftbound rules. Adding a champion
-      // (even a different one) replaces any existing champion in main —
-      // same UX pattern as the Legend slot.
-      for (const s of Object.keys(deck.main)) {
-        if (CHAMPION_SLUGS.has(s)) delete deck.main[s];
+      // Champion routing:
+      //   1. No designated champion yet → put this one in the slot.
+      //   2. Already designated to THIS slug → no-op (it's already there;
+      //      you can't put another copy of the same card in main because
+      //      Riftbound caps at MAX_COPIES total including the slot).
+      //   3. A different champion is designated → add THIS one to main as
+      //      a regular unit (subject to the standard 3-copy cap).
+      // Use the ↑ button on a maindeck champion to elevate it later.
+      if (!deck.champion) {
+        if (deckTotalIn(slug) >= ownedFor(slug)) return;
+        deck.champion = slug;
+      } else if (deck.champion === slug) {
+        // Designated already; no-op rather than silently adding a 2nd copy
+        // to main (that would exceed our intent — user would expect +M on
+        // the slot to either duplicate or noop, and duplicate is wrong).
+        return;
+      } else {
+        if (deckTotalIn(slug) >= ownedFor(slug)) return;
+        if ((deck.main[slug] || 0) >= MAX_COPIES) return;
+        deck.main[slug] = (deck.main[slug] || 0) + 1;
       }
-      if (deckTotalIn(slug) >= ownedFor(slug)) return;
-      deck.main[slug] = 1;
     } else {
       if (deckTotalIn(slug) >= ownedFor(slug)) return;
       // Per-card cap for main + battlefields (3 max of any single card).
@@ -238,6 +283,39 @@ function addToDeck(slug, side) {
   renderDeck();
   // Re-render only the affected row's +M/+S buttons to keep things snappy.
   // Cheapest: re-render the whole table. ~535 rows is fast.
+  renderTable();
+}
+
+// Elevate a champion-eligible card from main into the designated slot.
+// If there's already a champion designated, swap: existing slot → main,
+// elevated card → slot. Swap respects MAX_COPIES on the demoted card; if
+// the demoted card is already at 3 in main, it's dropped (rare edge case;
+// no good way to preserve without exceeding the cap).
+function designateChampion(slug) {
+  if (!CHAMPION_SLUGS.has(slug)) return;
+  const prior = deck.champion;
+  // Pull one copy of the new champion out of main.
+  if (deck.main[slug]) {
+    if (deck.main[slug] <= 1) delete deck.main[slug];
+    else deck.main[slug] -= 1;
+  }
+  // Demote the prior champion to main (if any and not the same slug).
+  if (prior && prior !== slug) {
+    const cur = deck.main[prior] || 0;
+    if (cur < MAX_COPIES) deck.main[prior] = cur + 1;
+    // else: dropped — cap reached.
+  }
+  deck.champion = slug;
+  saveDeck();
+  renderDeck();
+  renderTable();
+}
+
+// Remove the designated champion outright (× on the champion row).
+function removeChampion() {
+  deck.champion = null;
+  saveDeck();
+  renderDeck();
   renderTable();
 }
 
@@ -255,7 +333,7 @@ function decFromDeck(bucket, slug) {
 }
 function incFromDeck(bucket, slug) {
   if (bucket === "legend") return; // can't have 2 legends
-  if (CHAMPION_SLUGS.has(slug)) return; // can't have 2 champions either
+  if (bucket === "champion") return; // designated slot is one-of
   if (deckTotalIn(slug) >= ownedFor(slug)) return;
   if ((deck[bucket][slug] || 0) >= MAX_COPIES) return;
   deck[bucket][slug] = (deck[bucket][slug] || 0) + 1;
@@ -265,6 +343,7 @@ function incFromDeck(bucket, slug) {
 }
 function removeFromDeck(bucket, slug) {
   if (bucket === "legend") deck.legend = null;
+  else if (bucket === "champion") deck.champion = null;
   else delete deck[bucket][slug];
   saveDeck();
   renderDeck();
@@ -272,7 +351,7 @@ function removeFromDeck(bucket, slug) {
 }
 
 function newDeck() {
-  deck = { legend: null, battlefields: {}, main: {}, side: {} };
+  deck = { legend: null, champion: null, battlefields: {}, main: {}, side: {} };
   saveDeck();
   renderDeck();
   renderTable();
@@ -308,14 +387,15 @@ const SECTION_RE = /^(LEGEND|BATTLEFIELDS?|MAINDECK|MAIN\s*DECK|CHAMPION|SIDEBOA
 const LINE_RE = /^(\d+)\s+(.+)$/;
 
 function parseDecklistText(text) {
-  // Returns { deck: {legend, battlefields, main, side}, warnings: [...] }.
+  // Returns { deck: {legend, champion, battlefields, main, side}, warnings }.
   // Sections are heuristic — if no section header is seen, lines route
   // by catalog type. Lines with N Card Name match LINE_RE. We strip
   // wrapping CSV double-quotes so the Google Sheet CSV-export format
   // ('"3 Defy"') also parses.
-  const out = { legend: null, battlefields: {}, main: {}, side: {} };
+  const out = { legend: null, champion: null, battlefields: {}, main: {}, side: {} };
   const warnings = [];
-  let section = null;  // null | "legend" | "battlefields" | "main" | "side" | "rune"
+  // null | "legend" | "champion" | "battlefields" | "main" | "side" | "rune"
+  let section = null;
 
   for (let raw of text.split(/\r?\n/)) {
     let line = raw.trim();
@@ -329,8 +409,9 @@ function parseDecklistText(text) {
     if (m) {
       const head = m[1].toUpperCase().replace(/\s+/g, "");
       if (head === "LEGEND") section = "legend";
+      else if (head === "CHAMPION") section = "champion";
       else if (head.startsWith("BATTLEFIELD")) section = "battlefields";
-      else if (head === "MAINDECK" || head === "CHAMPION") section = "main";
+      else if (head === "MAINDECK") section = "main";
       else if (head === "SIDEBOARD") section = "side";
       else if (head === "RUNEPOOL" || head === "RUNE" || head === "RUNES") section = "rune";
       continue;
@@ -361,6 +442,11 @@ function parseDecklistText(text) {
     if (bucket === "legend") {
       if (out.legend) warnings.push(`Multiple legends; using last: ${name}`);
       out.legend = slug;
+    } else if (bucket === "champion") {
+      // Champion section designates the one privileged unit. If multiple
+      // champion lines are listed, last wins (matches legend behavior).
+      if (out.champion) warnings.push(`Multiple champions; using last: ${name}`);
+      out.champion = slug;
     } else if (c.type === "rune") {
       // Runes never enter the builder regardless of section.
       warnings.push(`Skipped rune: ${name}`);
@@ -666,11 +752,19 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const qtyHtml = `<span class="qty">${qty} ×</span>`;
   const nameHtml = `<span class="card-name"${img}>${escapeHtml(name)}</span>`;
   if (!allowQtyControls) {
-    // Legend slot: just a remove button. Layout: × | qty | name
+    // Legend / Champion slot: just a remove button. Layout: × | qty | name
     return `<li class="${liCls}" data-slug="${escapeHtml(slug)}"${liTitle}><button class="remove" data-action="remove" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove">×</button>${qtyHtml}${nameHtml}</li>`;
   }
-  // Layout: − | + | qty | name (controls grouped left, name truncates on the right)
-  return `<li${liCls.trim() ? ` class="${liCls.trim()}"` : ""} data-slug="${escapeHtml(slug)}"${liTitle}><button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button>${qtyHtml}${nameHtml}</li>`;
+  // Champion-eligible cards in the maindeck get an extra ↑ button to
+  // elevate the card into the designated Champion slot. Uses a 5-column
+  // grid via the .with-elevate class.
+  const isElevatable = bucket === "main" && CHAMPION_SLUGS.has(slug);
+  const elevateBtn = isElevatable
+    ? `<button data-action="elevate" data-slug="${escapeHtml(slug)}" title="Elevate to Champion slot">↑</button>`
+    : "";
+  const liClsFull = (isElevatable ? "with-elevate " : "") + liCls;
+  // Layout: − | + | [↑] | qty | name (controls grouped left, name truncates on the right)
+  return `<li${liClsFull.trim() ? ` class="${liClsFull.trim()}"` : ""} data-slug="${escapeHtml(slug)}"${liTitle}><button data-action="dec" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}" title="Remove one">−</button><button data-action="inc" data-bucket="${bucket}" data-slug="${escapeHtml(slug)}"${incDisabled ? " disabled" : ""} title="Add one">+</button>${elevateBtn}${qtyHtml}${nameHtml}</li>`;
 }
 
 function computeEnergyCurve(slugQtyMap) {
@@ -817,23 +911,29 @@ function renderDeck() {
   const bfTotal = bucketTotal("battlefields");
   document.getElementById("cnt-bf").textContent = bfTotal;
 
-  // Maindeck — split by type. Champions live in deck.main (catalog type =
-  // unit) but get their own sub-section per riftdecks' convention. Identified
-  // via window.__CHAMPION_SLUGS__.
+  // Champion (designated slot — exactly one card, sourced from deck.champion
+  // not deck.main). Other champion-eligible cards in deck.main render as
+  // regular units, with a ↑ button to elevate.
+  const champUl = document.querySelector('.deck-section[data-bucket="champion"] .deck-list');
+  if (deck.champion) {
+    champUl.innerHTML = listItemHtml("champion", deck.champion, 1, false);
+  } else {
+    champUl.innerHTML = `<li class="empty">— +M on a champion unit —</li>`;
+  }
+  document.getElementById("cnt-champion").textContent = deck.champion ? 1 : 0;
+
+  // Maindeck — split by catalog type. Champion-eligible cards stay in the
+  // Units section (they're catalog-type=unit); the ↑ button on each lets
+  // you elevate them into the Champion slot.
   const sortByName = (a, b) =>
     (catalog[a[0]]?.name || a[0]).localeCompare(catalog[b[0]]?.name || b[0]);
   const mainEntries = Object.entries(deck.main).sort(sortByName);
-  const byType = { champion: [], unit: [], gear: [], spell: [] };
+  const byType = { unit: [], gear: [], spell: [] };
   for (const [slug, qty] of mainEntries) {
-    if (CHAMPION_SLUGS.has(slug)) {
-      byType.champion.push([slug, qty]);
-      continue;
-    }
     const t = catalog[slug]?.type;
     if (t && byType[t]) byType[t].push([slug, qty]);
   }
   for (const [type, ul, countId, sectionLabel] of [
-    ["champion", "champion", "cnt-champion", "champion"],
     ["unit", "units", "cnt-units", "units"],
     ["gear", "gear", "cnt-gear", "gear"],
     ["spell", "spells", "cnt-spells", "spells"],
@@ -842,20 +942,12 @@ function renderDeck() {
       `.deck-section[data-bucket="${ul}"] .deck-list`
     );
     const list = byType[type];
-    const emptyText =
-      type === "champion"
-        ? "— +M on a champion —"
-        : `— no ${sectionLabel} added —`;
     sectionUl.innerHTML = list.length
       ? list.map(([slug, qty]) => listItemHtml("main", slug, qty, true)).join("")
-      : `<li class="empty">${emptyText}</li>`;
+      : `<li class="empty">— no ${sectionLabel} added —</li>`;
     const subtotal = list.reduce((s, [, q]) => s + q, 0);
     document.getElementById(countId).textContent = subtotal;
   }
-  // Visual flag if champion overrun (>1).
-  document
-    .querySelector('.deck-section[data-bucket="champion"]')
-    .classList.toggle("over", byType.champion.reduce((s, [, q]) => s + q, 0) > 1);
   const mTotal = mainTotal();
   document.getElementById("cnt-main").textContent = mTotal;
 
@@ -878,11 +970,15 @@ function renderDeck() {
   const totalEl = document.querySelector(".deck-total");
   totalEl.classList.toggle("over", mTotal > 40);
 
-  // Energy curves (one per pane).
+  // Energy curves (one per pane). The designated champion counts toward the
+  // maindeck total/curve/power-demand — merge it in as a 1-of with the rest.
+  const mainPlusChampion = deck.champion
+    ? { ...deck.main, [deck.champion]: (deck.main[deck.champion] || 0) + 1 }
+    : deck.main;
   renderEnergyCurve(
     document.getElementById("curve-main"),
     "Maindeck energy",
-    computeEnergyCurve(deck.main)
+    computeEnergyCurve(mainPlusChampion)
   );
   renderEnergyCurve(
     document.getElementById("curve-side"),
@@ -894,7 +990,7 @@ function renderDeck() {
   renderPowerByDomain(
     document.getElementById("power-main"),
     "Power demand",
-    computePowerByDomain(deck.main)
+    computePowerByDomain(mainPlusChampion)
   );
   renderPowerByDomain(
     document.getElementById("power-side"),
@@ -945,24 +1041,16 @@ function buildDecklistText() {
   // Legend
   if (deck.legend) sec("Legend", [`1 ${nameOf(deck.legend)}`]);
 
-  // Champion — extracted from maindeck (champions are units that
-  // happen to be marked type=champion in the deck listings). At most
-  // one per deck in standard Riftbound, but tolerate multiple.
-  const mainEntries = sortEntries(Object.entries(deck.main));
-  const championEntries = mainEntries.filter(([s]) => CHAMPION_SLUGS.has(s));
-  const nonChampMain = mainEntries.filter(([s]) => !CHAMPION_SLUGS.has(s));
-  if (championEntries.length) {
-    sec(
-      "Champion",
-      championEntries.map(([s, q]) => `${q} ${nameOf(s)}`)
-    );
-  }
+  // Champion (the designated slot — sourced from deck.champion). Other
+  // champion-eligible cards in main render under MainDeck below.
+  if (deck.champion) sec("Champion", [`1 ${nameOf(deck.champion)}`]);
 
-  // MainDeck (units + spells + gear minus the champion)
-  if (nonChampMain.length) {
+  // MainDeck — every unit/spell/gear in deck.main, alphabetical.
+  const mainEntries = sortEntries(Object.entries(deck.main));
+  if (mainEntries.length) {
     sec(
       "MainDeck",
-      nonChampMain.map(([s, q]) => `${q} ${nameOf(s)}`)
+      mainEntries.map(([s, q]) => `${q} ${nameOf(s)}`)
     );
   }
 
@@ -1124,6 +1212,7 @@ function init() {
     if (btn.dataset.action === "inc") incFromDeck(bucket, slug);
     else if (btn.dataset.action === "dec") decFromDeck(bucket, slug);
     else if (btn.dataset.action === "remove") removeFromDeck(bucket, slug);
+    else if (btn.dataset.action === "elevate") designateChampion(slug);
   });
 
   document.getElementById("copy-deck").addEventListener("click", copyDeck);

@@ -281,6 +281,20 @@ table#collection-table td.actions {
 .deck-list li.with-remove {
   grid-template-columns: 22px 24px minmax(0, 1fr);
 }
+/* Champion-eligible units in main get an extra ↑ button between + and qty
+   to elevate the card into the Champion slot. */
+.deck-list li.with-elevate {
+  grid-template-columns: 22px 22px 22px 24px minmax(0, 1fr);
+}
+.deck-list button[data-action="elevate"] {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+.deck-list button[data-action="elevate"]:hover {
+  background: #fbbf24;
+  color: var(--bg);
+  border-color: #fbbf24;
+}
 /* Card name turns red when the deck uses more copies than the user
    actually owns (e.g. after unchecking 'include en-route' or a lock
    toggle, a pasted decklist may suddenly become unfieldable). */
