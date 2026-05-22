@@ -266,6 +266,12 @@ function itemRow(slug, qty, usage, tab) {
   if (u?.short) {
     cls = "short";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
+  } else if (u?.enrouteDependent) {
+    // Household need exceeds raw owned but owned + en-route covers it.
+    // The deck literally can't be assembled until the en-route copies
+    // arrive — flag it distinctly.
+    cls = "enroute";
+    severityMark = `<span class="severity-mark" aria-hidden="true">✈</span>`;
   } else if (u?.crossPlayerShared) {
     cls = "shared";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
@@ -291,6 +297,10 @@ function itemRow(slug, qty, usage, tab) {
   let title;
   if (u?.short) {
     title = `Cross-player conflict: household needs ${u.householdNeed} (${playerBreakdown}), own ${own} — short ${u.householdNeed - own}.`;
+  } else if (u?.enrouteDependent) {
+    const ownRaw = u.ownedRaw;
+    const enr = u.enroute;
+    title = `Needs en-route copies: household need ${u.householdNeed} (${playerBreakdown}), owned ${ownRaw} + en-route ${enr} = ${ownRaw + enr}. Card can't be fielded until it arrives.`;
   } else if (u?.crossPlayerShared) {
     title = `Both players use this. ${playerBreakdown} · own ${own}.`;
   } else if (u?.intraPlayerSwap) {
@@ -362,6 +372,12 @@ function computeUsage(parsedByTab) {
     }
     const householdNeed = Object.values(perPlayer).reduce((s, v) => s + v, 0);
     const own = ownedFor(slug);
+    // Independent en-route classification: ignores the include-en-route
+    // toggle entirely and asks 'does this deck need en-route copies?'
+    const ownedRaw = window.__OWNED_DEFAULTS__?.[slug] || 0;
+    const enr = window.__EN_ROUTE_DEFAULTS__?.[slug] || 0;
+    const short = householdNeed > ownedRaw + enr;
+    const enrouteDependent = !short && householdNeed > ownedRaw;
     const playersUsing = Object.values(perPlayer).filter((v) => v > 0).length;
     const intraPlayerSwap = Object.values(usedByDecks).some((arr) => arr.length >= 2);
 
@@ -383,7 +399,10 @@ function computeUsage(parsedByTab) {
       perDeck,
       householdNeed,
       owned: own,
-      short: householdNeed > own,
+      ownedRaw,
+      enroute: enr,
+      short,
+      enrouteDependent,
       crossPlayerShared: playersUsing >= 2,
       intraPlayerSwap,
     };
@@ -414,6 +433,7 @@ function renderDeckPanel(tabName, deck, usage) {
   // Roll up the deck's own status from the per-card usage.
   let shortCards = 0;
   let shortCopies = 0;
+  let enrouteCards = 0;
   let crossSharedCards = 0;
   let swapCards = 0;
   for (const slug of Object.keys(totals)) {
@@ -421,7 +441,9 @@ function renderDeckPanel(tabName, deck, usage) {
     if (!u) continue;
     if (u.short) {
       shortCards += 1;
-      shortCopies += (u.householdNeed - u.owned);
+      shortCopies += (u.householdNeed - u.ownedRaw - u.enroute);
+    } else if (u.enrouteDependent) {
+      enrouteCards += 1;
     } else if (u.crossPlayerShared) {
       crossSharedCards += 1;
     }
@@ -432,6 +454,9 @@ function renderDeckPanel(tabName, deck, usage) {
   if (shortCards > 0) {
     completionTxt = `Short ${shortCopies} cop${shortCopies === 1 ? "y" : "ies"} (${shortCards} card${shortCards === 1 ? "" : "s"})`;
     completionCls = "completion short";
+  } else if (enrouteCards > 0) {
+    completionTxt = `Need en-route · ${enrouteCards} card${enrouteCards === 1 ? "" : "s"}`;
+    completionCls = "completion enroute";
   } else if (crossSharedCards > 0) {
     completionTxt = `Have all · ${crossSharedCards} shared w/ other player`;
     completionCls = "completion shared";
@@ -559,11 +584,14 @@ function renderHouseholdSummary(usage) {
   const shortEntries = Object.entries(usage)
     .filter(([, u]) => u.short)
     .sort((a, b) => (b[1].householdNeed - b[1].owned) - (a[1].householdNeed - a[1].owned));
+  const enrouteEntries = Object.entries(usage)
+    .filter(([, u]) => !u.short && u.enrouteDependent)
+    .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
   const sharedEntries = Object.entries(usage)
-    .filter(([, u]) => !u.short && u.crossPlayerShared)
+    .filter(([, u]) => !u.short && !u.enrouteDependent && u.crossPlayerShared)
     .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
   const swapEntries = Object.entries(usage)
-    .filter(([, u]) => !u.short && !u.crossPlayerShared && u.intraPlayerSwap)
+    .filter(([, u]) => !u.short && !u.enrouteDependent && !u.crossPlayerShared && u.intraPlayerSwap)
     .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
   const playerBreakdownOf = (u) =>
     Object.entries(u.perPlayer)
@@ -584,6 +612,13 @@ function renderHouseholdSummary(usage) {
         <span class="need">${escapeHtml(playerBreakdownOf(u))} · own ${u.owned}</span></li>`;
     })
     .join("");
+  const enrouteListItems = enrouteEntries
+    .slice(0, 20)
+    .map(([slug, u]) => {
+      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
+        <span class="need">need <strong>${u.householdNeed}</strong> (${escapeHtml(playerBreakdownOf(u))}) · owned ${u.ownedRaw} + en-route ${u.enroute} = ${u.ownedRaw + u.enroute}</span></li>`;
+    })
+    .join("");
   const swapListItems = swapEntries
     .slice(0, 20)
     .map(([slug, u]) => {
@@ -599,8 +634,14 @@ function renderHouseholdSummary(usage) {
   const blocks = [];
   if (shortEntries.length) {
     blocks.push(`<details class="hh-block hh-short" open>
-      <summary>⚠ <strong>${shortEntries.length}</strong> card${shortEntries.length === 1 ? "" : "s"} short — Travis and Santiago both want copies but the household pool can't cover both at the same table.</summary>
+      <summary>⚠ <strong>${shortEntries.length}</strong> card${shortEntries.length === 1 ? "" : "s"} short — Travis and Santiago both want copies but the household pool (owned + en-route) can't cover both at the same table.</summary>
       <ul>${shortListItems}${shortEntries.length > 20 ? `<li class="more">… +${shortEntries.length - 20} more</li>` : ""}</ul>
+    </details>`);
+  }
+  if (enrouteEntries.length) {
+    blocks.push(`<details class="hh-block hh-enroute" open>
+      <summary>✈ ${enrouteEntries.length} card${enrouteEntries.length === 1 ? "" : "s"} depend on en-route copies — these decks can't be assembled until shipments arrive.</summary>
+      <ul>${enrouteListItems}${enrouteEntries.length > 20 ? `<li class="more">… +${enrouteEntries.length - 20} more</li>` : ""}</ul>
     </details>`);
   }
   if (sharedEntries.length) {

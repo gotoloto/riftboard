@@ -68,6 +68,10 @@
   background: rgba(96, 165, 250, 0.15);
   color: #60a5fa;
 }
+.deck-panel-header .completion.enroute {
+  background: rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+}
 
 .deck-panel .empty-deck {
   color: var(--muted);
@@ -126,6 +130,12 @@
 .deck-panel .deck-list li.short .card-name { color: #f87171; }
 .deck-panel .deck-list li.short .own { color: #f87171; font-weight: 600; }
 .deck-panel .deck-list li.short { background: rgba(248, 113, 113, 0.06); }
+/* En-route-dependent: deck need exceeds owned outright, but the en-route
+   pile fills the gap. Distinct cyan so it stands out from short (red)
+   and shared (amber). */
+.deck-panel .deck-list li.enroute .card-name { color: #22d3ee; }
+.deck-panel .deck-list li.enroute .own { color: #22d3ee; }
+.deck-panel .deck-list li.enroute { background: rgba(34, 211, 238, 0.06); }
 /* Shared = both players need this card, household has enough (informational). */
 .deck-panel .deck-list li.shared .card-name { color: #fbbf24; }
 .deck-panel .deck-list li.shared { background: rgba(251, 191, 36, 0.05); }
@@ -202,6 +212,12 @@
   background: rgba(96, 165, 250, 0.06);
   color: #60a5fa;
 }
+.household-summary .hh-enroute {
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(34, 211, 238, 0.06);
+  color: #22d3ee;
+}
+.household-summary .hh-enroute .need strong { color: #22d3ee; }
 .household-summary .hh-ok {
   margin: 0;
   padding: 10px 12px;

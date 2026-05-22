@@ -310,6 +310,12 @@ table#collection-table td.actions {
 .deck-list li.short .card-name {
   color: #f87171;
 }
+/* En-route-dependent: deck needs more copies than are owned outright,
+   but owned + en-route covers it. Tinted cyan/teal so it's visually
+   distinct from the red short rows and the default white text. */
+.deck-list li.enroute .card-name {
+  color: #22d3ee;
+}
 .deck-list .qty {
   font-variant-numeric: tabular-nums;
   text-align: right;

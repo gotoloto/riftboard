@@ -738,18 +738,31 @@ function listItemHtml(bucket, slug, qty, allowQtyControls) {
   const c = catalog[slug];
   const name = c ? c.name : slug;
   const img = c && c.image_url ? ` data-img="${escapeHtml(c.image_url)}"` : "";
-  const owned = ownedFor(slug);
+  const owned = ownedFor(slug); // toggle-aware; drives the +/- disabled state
   const usedInDeck = deckTotalIn(slug);
   const remaining = owned - usedInDeck;
-  // "short" means the deck uses more copies of this card than the user
-  // owns — e.g. after toggling off en-route or lock-included copies, a
-  // pasted decklist may have rows we can't actually field. Names turn red.
-  const isShort = usedInDeck > owned;
-  const deficit = isShort ? usedInDeck - owned : 0;
-  const liCls = (allowQtyControls ? "" : "with-remove") + (isShort ? " short" : "");
-  const liTitle = isShort
-    ? ` title="Short ${deficit} cop${deficit === 1 ? "y" : "ies"} (deck uses ${usedInDeck}, you have ${owned})"`
-    : "";
+  // Card-line color is independent of the includeEnRoute toggle:
+  //   - ok      → deck need ≤ raw owned (after locks). Normal styling.
+  //   - enroute → deck need > raw owned, but raw owned + en-route is
+  //               enough. The deck is en-route-DEPENDENT (cyan/orange).
+  //   - short   → even owned + en-route can't cover. Red.
+  const ownedRaw = Math.max(0, (window.__OWNED_DEFAULTS__?.[slug] || 0) - lockedTotal(slug, "builder"));
+  const enr = window.__EN_ROUTE_DEFAULTS__?.[slug] || 0;
+  let status = "ok";
+  if (usedInDeck > ownedRaw + enr) status = "short";
+  else if (usedInDeck > ownedRaw) status = "enroute";
+  const deficit = status === "short" ? usedInDeck - ownedRaw - enr : 0;
+  const enrouteNeed = status === "enroute" ? usedInDeck - ownedRaw : 0;
+  const liCls =
+    (allowQtyControls ? "" : "with-remove") +
+    (status === "short" ? " short" : "") +
+    (status === "enroute" ? " enroute" : "");
+  const liTitle =
+    status === "short"
+      ? ` title="Short ${deficit} cop${deficit === 1 ? "y" : "ies"} (deck uses ${usedInDeck}, owned ${ownedRaw}, en-route ${enr})"`
+      : status === "enroute"
+      ? ` title="Relies on ${enrouteNeed} en-route cop${enrouteNeed === 1 ? "y" : "ies"} (deck uses ${usedInDeck}, owned ${ownedRaw}, en-route ${enr})"`
+      : "";
   // Per-bucket cap of 3 copies applies to main/battlefields/side. Legend
   // is implicitly capped at 1 by being a single slot.
   const bucketAtCap = bucket !== "legend" && qty >= MAX_COPIES;
