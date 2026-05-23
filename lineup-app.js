@@ -252,7 +252,7 @@ function imgOf(slug) {
 
 function itemRow(slug, qty, usage, tab) {
   // Per-deck render. Severity (red > amber > default) drives the row
-  // background; an extra 🔄 marker shows when this card needs to be
+  // background; an extra ⇄ marker shows when this card needs to be
   // physically swapped between the current player's A and B decks
   // (informational — same player so it's fine, just a logistics note).
   const u = usage[slug];
@@ -280,10 +280,12 @@ function itemRow(slug, qty, usage, tab) {
     // it a blue tint so the row pops in BOTH A and B for that player.
     cls = "swap";
   }
-  // 🔄 marker always shows when this row needs swapping, regardless of
-  // the severity class above.
+  // Swap marker always shows when this row needs shuttling between the
+  // player's A and B decks, regardless of the severity class above.
+  // Glyph is ⇄ (U+21C4) — a text-class arrow that picks up the current
+  // CSS color, unlike the 🔄 emoji which always renders multicolor.
   const swapMark = here.swap
-    ? `<span class="swap-mark" title="Swap this card between your A and B decks between games">🔄</span>`
+    ? `<span class="swap-mark" title="Swap this card between your A and B decks between games">⇄</span>`
     : "";
 
   // Per-player breakdown ('Travis 3 + Santi 3').
@@ -652,7 +654,7 @@ function renderHouseholdSummary(usage) {
   }
   if (swapEntries.length) {
     blocks.push(`<details class="hh-block hh-swap">
-      <summary>🔄 ${swapEntries.length} card${swapEntries.length === 1 ? "" : "s"} need swapping between one player's A and B decks (logistics only — no shortfall)</summary>
+      <summary>⇄ ${swapEntries.length} card${swapEntries.length === 1 ? "" : "s"} need swapping between one player's A and B decks (logistics only — no shortfall)</summary>
       <ul>${swapListItems}${swapEntries.length > 20 ? `<li class="more">… +${swapEntries.length - 20} more</li>` : ""}</ul>
     </details>`);
   }

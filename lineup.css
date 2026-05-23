@@ -141,7 +141,7 @@
 .deck-panel .deck-list li.shared { background: rgba(251, 191, 36, 0.05); }
 /* Swap = same player runs the card in both A and B (only highlighted
    when the row isn't already short/shared — those higher-severity
-   states keep their own bg, but the 🔄 marker still appears). */
+   states keep their own bg, but the ⇄ marker still appears). */
 .deck-panel .deck-list li.swap .card-name { color: #60a5fa; }
 .deck-panel .deck-list li.swap { background: rgba(96, 165, 250, 0.06); }
 .deck-panel .severity-mark {
@@ -153,14 +153,22 @@
 /* Intra-player swap marker — appears regardless of severity. Same player
    needs to physically shuttle the card between their A and B decks
    between games (one Travis at a time, etc). Pure logistics, no
-   shortage implied. */
+   shortage implied. Uses ⇄ (text-class arrow) so it inherits the row's
+   color via CSS — replacement for the 🔄 emoji which always rendered
+   multicolor and clashed with the colored row tints. */
 .deck-panel .swap-mark {
   display: inline-block;
   margin-left: 4px;
-  font-size: 10px;
-  filter: grayscale(0.2);
-  opacity: 0.9;
+  font-size: 12px;
+  color: #60a5fa;
+  font-weight: 600;
 }
+/* When the row already has a severity class (short / enroute / shared)
+   the marker should adopt that row's color instead of its default blue,
+   so the visual is coherent. */
+.deck-panel .deck-list li.short .swap-mark { color: #f87171; }
+.deck-panel .deck-list li.enroute .swap-mark { color: #22d3ee; }
+.deck-panel .deck-list li.shared .swap-mark { color: #fbbf24; }
 
 /* Household-level summary banner above the deck grid. */
 .household-summary { margin: 4px 0 14px; }
