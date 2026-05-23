@@ -673,102 +673,16 @@ function renderAll() {
   const parsedByTab = {};
   for (const tab of LOCK_TABS) parsedByTab[tab] = parseLockText(locksRaw[tab] || "");
   const usage = computeUsage(parsedByTab);
-  renderHouseholdSummary(usage);
+  // Household summary banner removed — the per-deck panels already
+  // surface every shortage/en-route/swap signal inline next to the
+  // affected card, so the banner was duplicative noise.
   const panels = LOCK_TABS.map((tab) => renderDeckPanel(tab, parsedByTab[tab], usage));
   grid.innerHTML = panels.join("");
+  // If a previously-rendered banner still exists in the DOM (from a
+  // cached render pass), drop it so we don't leave stale chrome behind.
+  const stale = document.getElementById("household-summary");
+  if (stale) stale.remove();
   attachHoverThumb();
-}
-
-function renderHouseholdSummary(usage) {
-  // Banner above the grid summarising cross-player sharing/shortfalls.
-  let host = document.getElementById("household-summary");
-  if (!host) {
-    host = document.createElement("section");
-    host.id = "household-summary";
-    host.className = "household-summary";
-    const grid = document.getElementById("lineup-grid");
-    grid.parentNode.insertBefore(host, grid);
-  }
-  const entries = Object.values(usage);
-  if (!entries.length) { host.innerHTML = ""; return; }
-  const shortEntries = Object.entries(usage)
-    .filter(([, u]) => u.short)
-    .sort((a, b) => (b[1].householdNeed - b[1].owned) - (a[1].householdNeed - a[1].owned));
-  const enrouteEntries = Object.entries(usage)
-    .filter(([, u]) => !u.short && u.enrouteDependent)
-    .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
-  const sharedEntries = Object.entries(usage)
-    .filter(([, u]) => !u.short && !u.enrouteDependent && u.crossPlayerShared)
-    .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
-  const swapEntries = Object.entries(usage)
-    .filter(([, u]) => !u.short && !u.enrouteDependent && !u.crossPlayerShared && u.intraPlayerSwap)
-    .sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
-  const playerBreakdownOf = (u) =>
-    Object.entries(u.perPlayer)
-      .filter(([, v]) => v > 0)
-      .map(([p, v]) => `${p} ${v}`)
-      .join(" + ");
-  const shortListItems = shortEntries
-    .slice(0, 20)
-    .map(([slug, u]) => {
-      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
-        <span class="need">need <strong>${u.householdNeed}</strong> (${escapeHtml(playerBreakdownOf(u))}) · own ${u.owned} · <strong>short ${u.householdNeed - u.owned}</strong></span></li>`;
-    })
-    .join("");
-  const sharedListItems = sharedEntries
-    .slice(0, 20)
-    .map(([slug, u]) => {
-      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
-        <span class="need">${escapeHtml(playerBreakdownOf(u))} · own ${u.owned}</span></li>`;
-    })
-    .join("");
-  const enrouteListItems = enrouteEntries
-    .slice(0, 20)
-    .map(([slug, u]) => {
-      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
-        <span class="need">need <strong>${u.householdNeed}</strong> (${escapeHtml(playerBreakdownOf(u))}) · owned ${u.ownedRaw} + en-route ${u.enroute} = ${u.ownedRaw + u.enroute}</span></li>`;
-    })
-    .join("");
-  const swapListItems = swapEntries
-    .slice(0, 20)
-    .map(([slug, u]) => {
-      // Show which player(s) need to swap. The card might be in Travis A
-      // & B (Travis swaps), Santi A & B (Santi swaps), or both.
-      const swappers = PLAYERS.filter((p) =>
-        LOCK_TABS.filter((t) => playerOfTab(t) === p && u.perDeck[t].qty > 0).length >= 2
-      ).join(" + ");
-      return `<li><span class="card-name" data-slug="${escapeHtml(slug)}"${imgOf(slug)}>${escapeHtml(nameOf(slug))}</span>
-        <span class="need">${escapeHtml(swappers)} swap${swappers.includes("+") ? "" : "s"} between decks · own ${u.owned}</span></li>`;
-    })
-    .join("");
-  const blocks = [];
-  if (shortEntries.length) {
-    blocks.push(`<details class="hh-block hh-short" open>
-      <summary>⚠ <strong>${shortEntries.length}</strong> card${shortEntries.length === 1 ? "" : "s"} short — Travis and Santiago both want copies but the household pool (owned + en-route) can't cover both at the same table.</summary>
-      <ul>${shortListItems}${shortEntries.length > 20 ? `<li class="more">… +${shortEntries.length - 20} more</li>` : ""}</ul>
-    </details>`);
-  }
-  if (enrouteEntries.length) {
-    blocks.push(`<details class="hh-block hh-enroute" open>
-      <summary>✈ ${enrouteEntries.length} card${enrouteEntries.length === 1 ? "" : "s"} depend on en-route copies — these decks can't be assembled until shipments arrive.</summary>
-      <ul>${enrouteListItems}${enrouteEntries.length > 20 ? `<li class="more">… +${enrouteEntries.length - 20} more</li>` : ""}</ul>
-    </details>`);
-  }
-  if (sharedEntries.length) {
-    blocks.push(`<details class="hh-block hh-shared">
-      <summary>👥 ${sharedEntries.length} card${sharedEntries.length === 1 ? "" : "s"} required by both players (household has enough copies for each)</summary>
-      <ul>${sharedListItems}${sharedEntries.length > 20 ? `<li class="more">… +${sharedEntries.length - 20} more</li>` : ""}</ul>
-    </details>`);
-  }
-  if (swapEntries.length) {
-    blocks.push(`<details class="hh-block hh-swap">
-      <summary>⇄ ${swapEntries.length} card${swapEntries.length === 1 ? "" : "s"} need swapping between one player's A and B decks (logistics only — no shortfall)</summary>
-      <ul>${swapListItems}${swapEntries.length > 20 ? `<li class="more">… +${swapEntries.length - 20} more</li>` : ""}</ul>
-    </details>`);
-  }
-  host.innerHTML = blocks.length
-    ? blocks.join("")
-    : `<p class="hh-ok">✓ No conflicts — both players can field their decks simultaneously.</p>`;
 }
 
 // First paint: empty placeholders. The collection:updated event fires after

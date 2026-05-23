@@ -170,71 +170,8 @@
 .deck-panel .deck-list li.enroute .swap-mark { color: #22d3ee; }
 .deck-panel .deck-list li.shared .swap-mark { color: #fbbf24; }
 
-/* Household-level summary banner above the deck grid. */
-.household-summary { margin: 4px 0 14px; }
-.household-summary .hh-block {
-  margin: 6px 0;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid;
-  font-size: 12px;
-}
-.household-summary .hh-block summary {
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 13px;
-}
-.household-summary .hh-block ul {
-  margin: 6px 0 0 0;
-  padding: 0;
-  list-style: none;
-}
-.household-summary .hh-block li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
-  padding: 2px 0;
-}
-.household-summary .hh-block li.more { color: var(--muted); justify-content: center; font-style: italic; }
-.household-summary .hh-block .need { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; }
-.household-summary .hh-block .card-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-}
-.household-summary .hh-short {
-  border-color: rgba(248, 113, 113, 0.4);
-  background: rgba(248, 113, 113, 0.08);
-  color: #f87171;
-}
-.household-summary .hh-short .need strong { color: #f87171; }
-.household-summary .hh-shared {
-  border-color: rgba(251, 191, 36, 0.4);
-  background: rgba(251, 191, 36, 0.06);
-  color: #fbbf24;
-}
-.household-summary .hh-swap {
-  border-color: rgba(96, 165, 250, 0.4);
-  background: rgba(96, 165, 250, 0.06);
-  color: #60a5fa;
-}
-.household-summary .hh-enroute {
-  border-color: rgba(34, 211, 238, 0.4);
-  background: rgba(34, 211, 238, 0.06);
-  color: #22d3ee;
-}
-.household-summary .hh-enroute .need strong { color: #22d3ee; }
-.household-summary .hh-ok {
-  margin: 0;
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(74, 222, 128, 0.4);
-  background: rgba(74, 222, 128, 0.08);
-  color: #4ade80;
-  font-size: 13px;
-}
+/* (Household-level summary banner removed — per-deck panels already
+   surface every shortage / en-route / swap signal inline.) */
 
 /* Reuse the builder's energy curve + power-by-domain styling — already
    defined in collection.css. */
