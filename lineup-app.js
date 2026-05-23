@@ -250,45 +250,49 @@ function imgOf(slug) {
   return u ? ` data-img="${escapeHtml(u)}"` : "";
 }
 
-function itemRow(slug, qty, usage, tab) {
-  // Per-deck render. Severity (red > amber > default) drives the row
-  // background; an extra ⇄ marker shows when this card needs to be
-  // physically swapped between the current player's A and B decks
-  // (informational — same player so it's fine, just a logistics note).
+function itemRow(slug, qty, usage, tab, section) {
+  // section ∈ {"main", "side"}. The row's short/enroute status is now
+  // computed per-section: a card split across maindeck + sideboard only
+  // marks the sideboard row short if the household pool can't cover
+  // both. The card-level signals (cross-player shared, intra-player
+  // swap) remain card-wide.
   const u = usage[slug];
   const own = u?.owned ?? ownedFor(slug);
   const player = playerOfTab(tab);
-  const myPlayerNeed = u?.perPlayer?.[player] ?? qty;
+
+  const here = u?.perDeck?.[tab] || {};
+  const sectionShort = section === "side" ? here.sideShort || 0 : here.mainShort || 0;
+  const sectionEnr   = section === "side" ? here.sideEnr   || false : here.mainEnr   || false;
 
   let cls = "";
   let severityMark = "";
-  const here = u?.perDeck?.[tab] || { qty, swap: false };
-  if (u?.short) {
+  if (sectionShort > 0) {
     cls = "short";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
-  } else if (u?.enrouteDependent) {
-    // Household need exceeds raw owned but owned + en-route covers it.
-    // The deck literally can't be assembled until the en-route copies
-    // arrive — flag it distinctly.
+  } else if (sectionEnr) {
     cls = "enroute";
     severityMark = `<span class="severity-mark" aria-hidden="true">✈</span>`;
   } else if (u?.crossPlayerShared) {
     cls = "shared";
     severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
   } else if (here.swap) {
-    // Pure intra-player swap (not short, not cross-player-shared) — give
-    // it a blue tint so the row pops in BOTH A and B for that player.
     cls = "swap";
   }
-  // Swap marker always shows when this row needs shuttling between the
-  // player's A and B decks, regardless of the severity class above.
-  // Glyph is ⇄ (U+21C4) — a text-class arrow that picks up the current
-  // CSS color, unlike the 🔄 emoji which always renders multicolor.
+
+  // Swap marker always shows when this row needs shuttling between
+  // the player's A and B decks, regardless of severity class. Glyph is
+  // ⇄ (U+21C4) — a text-class arrow that inherits the CSS color.
   const swapMark = here.swap
     ? `<span class="swap-mark" title="Swap this card between your A and B decks between games">⇄</span>`
     : "";
 
-  // Per-player breakdown ('Travis 3 + Santi 3').
+  // Build qty display. When section is short, render allocated/needed
+  // so the user sees how many made it in (e.g. '0/2×').
+  const allocated = Math.max(0, qty - sectionShort);
+  const qtyHtml = sectionShort > 0
+    ? `<span class="qty">${allocated}/${qty}×</span>`
+    : `<span class="qty">${qty}×</span>`;
+
   const playerBreakdown = u
     ? Object.entries(u.perPlayer)
         .filter(([, v]) => v > 0)
@@ -297,29 +301,30 @@ function itemRow(slug, qty, usage, tab) {
     : "";
 
   let title;
-  if (u?.short) {
-    title = `Cross-player conflict: household needs ${u.householdNeed} (${playerBreakdown}), own ${own} — short ${u.householdNeed - own}.`;
-  } else if (u?.enrouteDependent) {
-    const ownRaw = u.ownedRaw;
-    const enr = u.enroute;
-    title = `Needs en-route copies: household need ${u.householdNeed} (${playerBreakdown}), owned ${ownRaw} + en-route ${enr} = ${ownRaw + enr}. Card can't be fielded until it arrives.`;
+  if (sectionShort > 0) {
+    const where = section === "side" ? "sideboard" : "main";
+    title = `${where[0].toUpperCase()}${where.slice(1)} short ${sectionShort}: deck needs ${qty} here, allocated ${allocated} from the household pool. Household total ${u.householdNeed} (${playerBreakdown}), own ${own}. Maindeck takes priority over sideboard.`;
+  } else if (sectionEnr) {
+    const ownRaw = u.ownedRaw, enr = u.enroute;
+    title = `Awaiting en-route copies: owned ${ownRaw} + en-route ${enr} covers the deck. Household need ${u.householdNeed} (${playerBreakdown}).`;
   } else if (u?.crossPlayerShared) {
     title = `Both players use this. ${playerBreakdown} · own ${own}.`;
-  } else if (u?.intraPlayerSwap) {
-    title = `${player} runs this in both A and B (${qty}× here) — swap between decks between games. Own ${own}.`;
+  } else if (here.swap) {
+    title = `${player} runs this in both A and B — swap between decks between games. Own ${own}.`;
   } else {
     title = `Need ${qty}, own ${own}.`;
   }
 
   return `<li class="${cls}" data-slug="${escapeHtml(slug)}" title="${escapeHtml(title)}">
-    <span class="qty">${qty}×</span>
+    ${qtyHtml}
     <span class="own">/${own}</span>
     <span class="card-name"${imgOf(slug)}>${escapeHtml(nameOf(slug))}${severityMark}${swapMark}</span>
   </li>`;
 }
 
 function tallyDeckTotals(deck) {
-  // Returns { slug: total_copies_used_across_all_sections }.
+  // Flat tally: { slug: copies_across_all_sections }. Used by callers
+  // that don't care about main-vs-side (energy curve, power-by-domain).
   const t = {};
   const add = (slug, n) => { if (slug) t[slug] = (t[slug] || 0) + n; };
   if (deck.legend) add(deck.legend, 1);
@@ -330,83 +335,180 @@ function tallyDeckTotals(deck) {
   return t;
 }
 
+function tallyDeckSections(deck) {
+  // Section-aware tally: { mainBlock: {slug: qty}, side: {slug: qty} }.
+  // 'mainBlock' lumps Legend + Champion + Battlefields + Maindeck —
+  // anything that must be available when you sit down to play. The
+  // sideboard is treated as a lower-priority bucket so a card split
+  // across both only marks the sideboard portion short if the household
+  // pool can't cover both.
+  const mainBlock = {};
+  const side = {};
+  const addTo = (target, slug, n) => {
+    if (slug) target[slug] = (target[slug] || 0) + n;
+  };
+  if (deck.legend) addTo(mainBlock, deck.legend, 1);
+  if (deck.champion) addTo(mainBlock, deck.champion, 1);
+  for (const [s, q] of Object.entries(deck.main)) addTo(mainBlock, s, q);
+  for (const [s, q] of Object.entries(deck.battlefields)) addTo(mainBlock, s, q);
+  for (const [s, q] of Object.entries(deck.side)) addTo(side, s, q);
+  return { mainBlock, side };
+}
+
 function playerOfTab(tab) {
   // First word of the tab name, e.g. 'Travis A🔒' → 'Travis'.
   return (tab.match(/^(\S+)/) || [, ""])[1];
 }
 
 function computeUsage(parsedByTab) {
-  // For every slug used by any deck, compute:
-  //   perPlayer[player]    — max(qty across that player's A + B)
-  //   perDeck[tab].qty     — copies that deck explicitly lists
-  //   perDeck[tab].swap    — true if the same player's OTHER deck also
-  //                           uses this card (needs to be physically
-  //                           shuttled between decks between games)
-  //   householdNeed         — sum across players (cross-player no-share)
-  //   owned                 — ownedFor(slug) at current toggle state
-  //   short                 — householdNeed > owned (cross-player conflict)
-  //   crossPlayerShared     — both Travis AND Santi want this card
-  //   intraPlayerSwap       — any one player uses it in both A and B
-  const tallies = {};
+  // For every slug used by any deck, compute per-deck per-SECTION status.
+  // Maindeck (legend+champion+bf+main) takes priority over sideboard
+  // when allocating the household pool, so a card split across both in
+  // a single deck only marks the sideboard portion short if the pool
+  // truly can't cover both. Intra-player A/B sharing still uses max
+  // (one player at a time); cross-player still sums.
+  //
+  // Per-slug output:
+  //   perPlayer[player]      — max(full qty across that player's A + B)
+  //   perDeck[tab].mainQty   — copies in this deck's mainBlock
+  //   perDeck[tab].sideQty   — copies in this deck's sideboard
+  //   perDeck[tab].mainShort — main copies missing even with en-route
+  //   perDeck[tab].sideShort — side copies missing even with en-route
+  //   perDeck[tab].mainEnr   — main short under raw, OK with en-route
+  //   perDeck[tab].sideEnr   — side short under raw, OK with en-route
+  //   perDeck[tab].swap      — same player's OTHER deck also uses it
+  //   householdNeed           — sum across players (cross-player no-share)
+  //   owned                   — ownedFor(slug) (respects toggle)
+  //   ownedRaw, enroute       — for independent en-route classification
+  //   short                   — at least one deck/section short under en-route
+  //   enrouteDependent        — short under raw only, OK with en-route
+  //   crossPlayerShared       — both Travis AND Santi want this card
+  //   intraPlayerSwap         — any one player uses it in both A and B
+  const sectionTallies = {};
   const allSlugs = new Set();
   for (const tab of LOCK_TABS) {
-    const t = tallyDeckTotals(parsedByTab[tab] || {});
-    tallies[tab] = t;
-    for (const s of Object.keys(t)) allSlugs.add(s);
+    const t = tallyDeckSections(parsedByTab[tab] || {});
+    sectionTallies[tab] = t;
+    for (const s of Object.keys(t.mainBlock)) allSlugs.add(s);
+    for (const s of Object.keys(t.side)) allSlugs.add(s);
   }
+
+  // Two-pass allocator: pool is the household supply for this slug.
+  // Pass 1 fills each player's maindeck need (max across their A/B).
+  // Pass 2 fills each player's "sideboard extras" — the additional
+  // copies beyond their main-max that they'd need to play their fuller
+  // deck. Returns { Travis: {mainAlloc, sideAlloc}, Santiago: {…} }.
+  function allocate(pool, perPlayerStats) {
+    const out = {};
+    for (const player of PLAYERS) out[player] = { mainAlloc: 0, sideAlloc: 0 };
+    // Maindecks first.
+    for (const player of PLAYERS) {
+      const need = perPlayerStats[player].mainMax;
+      const give = Math.max(0, Math.min(pool, need));
+      out[player].mainAlloc = give;
+      pool -= give;
+    }
+    // Sideboard extras (only the appetite beyond what main already covered).
+    for (const player of PLAYERS) {
+      const need = Math.max(
+        0,
+        perPlayerStats[player].fullMax - perPlayerStats[player].mainMax
+      );
+      const give = Math.max(0, Math.min(pool, need));
+      out[player].sideAlloc = give;
+      pool -= give;
+    }
+    return out;
+  }
+
   const usage = {};
   for (const slug of allSlugs) {
-    const perPlayer = {};
-    const usedByDecks = {}; // {player: [tab1, tab2]} that need ≥1 copy
+    // Per-player max(mainBlock) and max(full) across that player's decks.
+    const perPlayerStats = {};
+    const usedByDecks = {};
     for (const player of PLAYERS) {
-      let maxNeed = 0;
+      let mainMax = 0;
+      let fullMax = 0;
       const decks = [];
       for (const tab of LOCK_TABS) {
         if (playerOfTab(tab) !== player) continue;
-        const q = tallies[tab][slug] || 0;
-        if (q > 0) {
-          maxNeed = Math.max(maxNeed, q);
-          decks.push(tab);
-        }
+        const m = sectionTallies[tab].mainBlock[slug] || 0;
+        const s = sectionTallies[tab].side[slug] || 0;
+        if (m + s > 0) decks.push(tab);
+        mainMax = Math.max(mainMax, m);
+        fullMax = Math.max(fullMax, m + s);
       }
-      perPlayer[player] = maxNeed;
+      perPlayerStats[player] = { mainMax, fullMax };
       usedByDecks[player] = decks;
     }
-    const householdNeed = Object.values(perPlayer).reduce((s, v) => s + v, 0);
-    const own = ownedFor(slug);
-    // Independent en-route classification: ignores the include-en-route
-    // toggle entirely and asks 'does this deck need en-route copies?'
+    const householdNeed = PLAYERS.reduce(
+      (s, p) => s + perPlayerStats[p].fullMax,
+      0
+    );
     const ownedRaw = window.__OWNED_DEFAULTS__?.[slug] || 0;
     const enr = window.__EN_ROUTE_DEFAULTS__?.[slug] || 0;
-    const short = householdNeed > ownedRaw + enr;
-    const enrouteDependent = !short && householdNeed > ownedRaw;
-    const playersUsing = Object.values(perPlayer).filter((v) => v > 0).length;
-    const intraPlayerSwap = Object.values(usedByDecks).some((arr) => arr.length >= 2);
+    // Two passes: strict (raw owned) and lax (owned + en-route).
+    const allocRaw = allocate(ownedRaw, perPlayerStats);
+    const allocLax = allocate(ownedRaw + enr, perPlayerStats);
 
-    // Per-deck info: what this specific deck explicitly lists + whether
-    // the same player's other deck also wants it (=> swap required).
+    // Per-deck per-section short. For each deck X (player P), the
+    // shortage is (X_full_qty - P_total_alloc), clamped ≥0. The
+    // shortage falls on the sideboard first (lowest priority), then
+    // spills into mainBlock if there's still more to lose.
     const perDeck = {};
+    let anyShort = false;
+    let anyEnr = false;
     for (const tab of LOCK_TABS) {
-      const qty = tallies[tab][slug] || 0;
-      const playersOtherDecks = usedByDecks[playerOfTab(tab)].filter(
-        (t) => t !== tab
-      );
+      const player = playerOfTab(tab);
+      const mainQty = sectionTallies[tab].mainBlock[slug] || 0;
+      const sideQty = sectionTallies[tab].side[slug] || 0;
+      const fullQty = mainQty + sideQty;
+      const otherDecks = usedByDecks[player].filter((t) => t !== tab);
+
+      function sectionShort(allocForPlayer) {
+        const alloc = allocForPlayer.mainAlloc + allocForPlayer.sideAlloc;
+        const shortage = Math.max(0, fullQty - alloc);
+        const sShort = Math.min(shortage, sideQty);
+        const mShort = Math.max(0, shortage - sideQty);
+        return { mShort, sShort };
+      }
+      const rawShort = sectionShort(allocRaw[player]);
+      const laxShort = sectionShort(allocLax[player]);
+
+      const mainShort = laxShort.mShort;
+      const sideShort = laxShort.sShort;
+      const mainEnr = mainShort === 0 && rawShort.mShort > 0;
+      const sideEnr = sideShort === 0 && rawShort.sShort > 0;
+
       perDeck[tab] = {
-        qty,
-        swap: qty > 0 && playersOtherDecks.length > 0,
+        mainQty,
+        sideQty,
+        mainShort, sideShort,
+        mainEnr, sideEnr,
+        swap: fullQty > 0 && otherDecks.length > 0,
+        // Legacy field — flat qty, kept for callers that don't yet
+        // distinguish sections.
+        qty: fullQty,
       };
+      if (mainShort > 0 || sideShort > 0) anyShort = true;
+      else if (mainEnr || sideEnr) anyEnr = true;
     }
+
+    const playersUsing = PLAYERS.filter((p) => perPlayerStats[p].fullMax > 0).length;
     usage[slug] = {
-      perPlayer,
+      // Card-level (compatibility with existing fields)
+      perPlayer: Object.fromEntries(
+        PLAYERS.map((p) => [p, perPlayerStats[p].fullMax])
+      ),
       perDeck,
       householdNeed,
-      owned: own,
+      owned: ownedFor(slug),
       ownedRaw,
       enroute: enr,
-      short,
-      enrouteDependent,
+      short: anyShort,
+      enrouteDependent: anyEnr && !anyShort,
       crossPlayerShared: playersUsing >= 2,
-      intraPlayerSwap,
+      intraPlayerSwap: Object.values(usedByDecks).some((arr) => arr.length >= 2),
     };
   }
   return usage;
@@ -432,7 +534,10 @@ function renderDeckPanel(tabName, deck, usage) {
     </section>`;
   }
   const totals = tallyDeckTotals(deck);
-  // Roll up the deck's own status from the per-card usage.
+  // Roll up THIS deck's own status from the per-card usage. A card
+  // counts as short here iff at least one section (main or side) in
+  // THIS deck can't get its allocation; the row's copy count is the
+  // missing copies for THIS deck only.
   let shortCards = 0;
   let shortCopies = 0;
   let enrouteCards = 0;
@@ -441,16 +546,19 @@ function renderDeckPanel(tabName, deck, usage) {
   for (const slug of Object.keys(totals)) {
     const u = usage[slug];
     if (!u) continue;
-    if (u.short) {
+    const here = u.perDeck[tabName];
+    if (!here) continue;
+    const localShort = (here.mainShort || 0) + (here.sideShort || 0);
+    const localEnr = !localShort && (here.mainEnr || here.sideEnr);
+    if (localShort > 0) {
       shortCards += 1;
-      shortCopies += (u.householdNeed - u.ownedRaw - u.enroute);
-    } else if (u.enrouteDependent) {
+      shortCopies += localShort;
+    } else if (localEnr) {
       enrouteCards += 1;
     } else if (u.crossPlayerShared) {
       crossSharedCards += 1;
     }
-    const here = u.perDeck[tabName];
-    if (here && here.swap) swapCards += 1;
+    if (here.swap) swapCards += 1;
   }
   let completionTxt, completionCls;
   if (shortCards > 0) {
@@ -482,14 +590,14 @@ function renderDeckPanel(tabName, deck, usage) {
   if (deck.legend) {
     sections.push(`<section class="deck-section">
       <header><span>Legend</span><span>1/1</span></header>
-      <ul class="deck-list">${itemRow(deck.legend, 1, usage, tabName)}</ul>
+      <ul class="deck-list">${itemRow(deck.legend, 1, usage, tabName, "main")}</ul>
     </section>`);
   }
   // Champion
   if (deck.champion) {
     sections.push(`<section class="deck-section">
       <header><span>Champion</span><span>1/1</span></header>
-      <ul class="deck-list">${itemRow(deck.champion, 1, usage, tabName)}</ul>
+      <ul class="deck-list">${itemRow(deck.champion, 1, usage, tabName, "main")}</ul>
     </section>`);
   }
   // Battlefields
@@ -498,7 +606,7 @@ function renderDeckPanel(tabName, deck, usage) {
     const bfTotal = bfEntries.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>Battlefields</span><span>${bfTotal}/3</span></header>
-      <ul class="deck-list">${bfEntries.map(([s, q]) => itemRow(s, q, usage, tabName)).join("")}</ul>
+      <ul class="deck-list">${bfEntries.map(([s, q]) => itemRow(s, q, usage, tabName, "main")).join("")}</ul>
     </section>`);
   }
   // Maindeck — units / gear / spells. Champion is already shown above; if
@@ -521,7 +629,7 @@ function renderDeckPanel(tabName, deck, usage) {
     const subtotal = list.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>${sectionLabel}</span><span>${subtotal}</span></header>
-      <ul class="deck-list">${list.map(([s, q]) => itemRow(s, q, usage, tabName)).join("")}</ul>
+      <ul class="deck-list">${list.map(([s, q]) => itemRow(s, q, usage, tabName, "main")).join("")}</ul>
     </section>`);
   }
   // Sideboard
@@ -530,7 +638,7 @@ function renderDeckPanel(tabName, deck, usage) {
     const sideTotal = sideEntries.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
       <header><span>Sideboard</span><span>${sideTotal}/8</span></header>
-      <ul class="deck-list">${sideEntries.map(([s, q]) => itemRow(s, q, usage, tabName)).join("")}</ul>
+      <ul class="deck-list">${sideEntries.map(([s, q]) => itemRow(s, q, usage, tabName, "side")).join("")}</ul>
     </section>`);
   }
 
