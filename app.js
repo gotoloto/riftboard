@@ -1093,15 +1093,24 @@ function positionThumb(ev) {
   const ratio = cardThumbEl.naturalWidth
     ? cardThumbEl.naturalHeight / cardThumbEl.naturalWidth
     : 1.4; // tall card aspect as a default before the image loads
-  const h = THUMB_W * ratio;
-  let x = ev.clientX + pad;
-  let y = ev.clientY + pad;
-  if (x + THUMB_W > window.innerWidth) x = ev.clientX - THUMB_W - pad;
-  // Clamp to viewport so we never render off-screen on narrow windows.
-  x = Math.max(pad, Math.min(x, window.innerWidth - THUMB_W - pad));
-  y = Math.max(pad, Math.min(y, window.innerHeight - h - pad));
-  cardThumbEl.style.left = x + "px";
-  cardThumbEl.style.top = y + "px";
+  const w = THUMB_W;
+  const h = w * ratio;
+  // Battlefields are landscape — toggled via the .battlefield class on the
+  // thumb element below. Visible bbox swaps when rotated, so clamp using
+  // visible dims and shift the element so the rotated content lands near
+  // the cursor (same trick as utils.js's __positionThumb).
+  const rotated = cardThumbEl.classList.contains("battlefield");
+  const visW = rotated ? h : w;
+  const visH = rotated ? w : h;
+  const offX = (w - visW) / 2;
+  const offY = (h - visH) / 2;
+  let visX = ev.clientX + pad;
+  let visY = ev.clientY + pad;
+  if (visX + visW > window.innerWidth) visX = ev.clientX - visW - pad;
+  visX = Math.max(pad, Math.min(visX, window.innerWidth - visW - pad));
+  visY = Math.max(pad, Math.min(visY, window.innerHeight - visH - pad));
+  cardThumbEl.style.left = (visX - offX) + "px";
+  cardThumbEl.style.top = (visY - offY) + "px";
 }
 
 function findCardLinkSlug(target) {
@@ -1116,10 +1125,17 @@ function attachHoverThumb() {
   if (!cardThumbEl) return;
   document.body.addEventListener("mouseover", (ev) => {
     const slug = findCardLinkSlug(ev.target);
-    const img = slug && state.cardsMeta[slug]?.img;
+    const meta = slug && state.cardsMeta[slug];
+    const img = meta?.img;
     if (!img) return;
     clearTimeout(thumbTimer);
     thumbTimer = window.setTimeout(() => {
+      // Toggle .battlefield → rotates the thumb 90° via styles.css. We
+      // use the legend's own cards_meta for type (no catalog dep here).
+      cardThumbEl.classList.toggle(
+        "battlefield",
+        meta.type === "battlefield"
+      );
       if (cardThumbEl.src !== img) cardThumbEl.src = img;
       cardThumbEl.hidden = false;
       positionThumb(ev);
