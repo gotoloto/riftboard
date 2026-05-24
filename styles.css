@@ -383,6 +383,15 @@ td.dim { color: var(--muted); }
   pointer-events: none;
   background: var(--row);
 }
+/* Battlefields are landscape cards in real gameplay; riftdecks stores
+   the art portrait. Rotate the hover thumb 90° clockwise so the
+   artwork reads correctly. The element's layout box stays portrait;
+   __positionThumb adjusts the rendered position to keep the rotated
+   visible bbox on screen. */
+#card-thumb.battlefield {
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
 @media (hover: none), (pointer: coarse) {
   #card-thumb { display: none !important; }
 }

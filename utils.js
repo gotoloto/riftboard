@@ -178,13 +178,23 @@ function __positionThumb(ev, thumbEl) {
     ? thumbEl.naturalHeight / thumbEl.naturalWidth
     : 1.4;
   const h = w * ratio;
-  let x = ev.clientX + pad;
-  let y = ev.clientY + pad;
-  if (x + w > window.innerWidth) x = ev.clientX - w - pad;
-  x = Math.max(pad, Math.min(x, window.innerWidth - w - pad));
-  y = Math.max(pad, Math.min(y, window.innerHeight - h - pad));
-  thumbEl.style.left = x + "px";
-  thumbEl.style.top = y + "px";
+  // Battlefields are landscape in real gameplay but riftdecks stores
+  // their art portrait — we rotate the thumb 90° clockwise via CSS, so
+  // its visible bounding box is (h × w) not (w × h). Clamp using the
+  // visible dims; offset the element so its layout box (still w × h) is
+  // shifted such that the rotated visible box lands where we want.
+  const rotated = thumbEl.classList.contains("battlefield");
+  const visW = rotated ? h : w;
+  const visH = rotated ? w : h;
+  const offX = (w - visW) / 2; // negative when rotated
+  const offY = (h - visH) / 2; // positive when rotated
+  let visX = ev.clientX + pad;
+  let visY = ev.clientY + pad;
+  if (visX + visW > window.innerWidth) visX = ev.clientX - visW - pad;
+  visX = Math.max(pad, Math.min(visX, window.innerWidth - visW - pad));
+  visY = Math.max(pad, Math.min(visY, window.innerHeight - visH - pad));
+  thumbEl.style.left = (visX - offX) + "px";
+  thumbEl.style.top = (visY - offY) + "px";
 }
 
 function attachHoverThumb() {
@@ -198,6 +208,13 @@ function attachHoverThumb() {
     if (!img) return;
     clearTimeout(timer);
     timer = window.setTimeout(() => {
+      // Battlefield detection. Walks up looking for a data-slug then
+      // checks the catalog. If the catalog isn't loaded on this page,
+      // no rotation — graceful degradation.
+      const slug = ev.target.closest("[data-slug]")?.dataset?.slug || null;
+      const isBattlefield =
+        !!slug && window.__CATALOG__?.[slug]?.type === "battlefield";
+      thumbEl.classList.toggle("battlefield", isBattlefield);
       if (thumbEl.src !== img) thumbEl.src = img;
       thumbEl.hidden = false;
       __positionThumb(ev, thumbEl);
