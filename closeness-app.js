@@ -137,10 +137,12 @@ function renderMissingList(missing) {
         m.priceSource === "fallback"
           ? "Estimated from rarity (no TCGplayer price cached)"
           : "TCGplayer market price (cached from riftdecks)";
-      return `<li>
+      const imgUrl = catalog[m.slug]?.image_url;
+      const imgAttr = imgUrl ? ` data-img="${escapeHtml(imgUrl)}"` : "";
+      return `<li data-slug="${escapeHtml(m.slug)}">
         <span class="qty">${m.short} of ${m.need}</span>
         <span class="rarity-tag rarity-${escapeHtml(m.rarity)}">${escapeHtml(m.rarity)}</span>
-        <span class="name">${escapeHtml(m.name)}</span>
+        <span class="name"${imgAttr}>${escapeHtml(m.name)}</span>
         <span class="${priceCls}" title="${escapeHtml(priceTitle)}">${priceLabel}</span>
       </li>`;
     })
@@ -246,3 +248,7 @@ ensureLockToggles(document.getElementById("lock-toggles"), "closeness", () => {
   render();
 });
 render();
+// Delegated hover preview — attaches to document.body once, so dynamically
+// inserted expanded-rows pick it up automatically. Battlefields rotate
+// (catalog is loaded on this page so type detection works).
+attachHoverThumb();
