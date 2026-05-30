@@ -3,57 +3,57 @@ window.__CHAMPIONS__ = [
     "slug": "ahri-nine-tailed-fox",
     "name": "Ahri, Nine-Tailed Fox",
     "url": "https://riftdecks.com/legends/constructed/ahri-nine-tailed-fox?metagame_id=3",
-    "scraped_at": "2026-05-28T00:53:03.047131Z",
-    "deck_count": 108
+    "scraped_at": "2026-05-30T15:48:51.174795Z",
+    "deck_count": 114
   },
   {
     "slug": "annie-dark-child",
     "name": "Annie, Dark Child",
     "url": "https://riftdecks.com/legends/constructed/annie-dark-child?metagame_id=3",
-    "scraped_at": "2026-05-27T13:41:36.537302Z",
-    "deck_count": 163
+    "scraped_at": "2026-05-30T15:49:31.101352Z",
+    "deck_count": 168
   },
   {
     "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
     "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-    "scraped_at": "2026-05-28T00:53:38.472725Z",
-    "deck_count": 420
+    "scraped_at": "2026-05-30T15:50:16.643391Z",
+    "deck_count": 427
   },
   {
     "slug": "darius-hand-of-noxus",
     "name": "Darius, Hand of Noxus",
     "url": "https://riftdecks.com/legends/constructed/darius-hand-of-noxus?metagame_id=3",
-    "scraped_at": "2026-05-27T13:43:07.965251Z",
-    "deck_count": 61
+    "scraped_at": "2026-05-30T15:51:02.710747Z",
+    "deck_count": 62
   },
   {
     "slug": "diana-scorn-of-the-moon",
     "name": "Diana, Scorn of the Moon",
     "url": "https://riftdecks.com/legends/constructed/diana-scorn-of-the-moon?metagame_id=3",
-    "scraped_at": "2026-05-28T00:54:18.888676Z",
-    "deck_count": 721
+    "scraped_at": "2026-05-30T15:51:20.104138Z",
+    "deck_count": 743
   },
   {
     "slug": "draven-glorious-executioner",
     "name": "Draven, Glorious Executioner",
     "url": "https://riftdecks.com/legends/constructed/draven-glorious-executioner?metagame_id=3",
-    "scraped_at": "2026-05-27T02:49:09.722260Z",
-    "deck_count": 264
+    "scraped_at": "2026-05-30T15:51:26.154870Z",
+    "deck_count": 268
   },
   {
     "slug": "ezreal-prodigal-explorer",
     "name": "Ezreal, Prodigal Explorer",
     "url": "https://riftdecks.com/legends/constructed/ezreal-prodigal-explorer?metagame_id=3",
-    "scraped_at": "2026-05-28T00:54:52.679485Z",
-    "deck_count": 220
+    "scraped_at": "2026-05-30T15:51:34.823714Z",
+    "deck_count": 228
   },
   {
     "slug": "fiora-grand-duelist",
     "name": "Fiora, Grand Duelist",
     "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
-    "scraped_at": "2026-05-28T00:55:31.849820Z",
-    "deck_count": 600
+    "scraped_at": "2026-05-30T15:51:43.670494Z",
+    "deck_count": 609
   },
   {
     "slug": "garen-might-of-demacia",
@@ -66,85 +66,85 @@ window.__CHAMPIONS__ = [
     "slug": "irelia-blade-dancer",
     "name": "Irelia, Blade Dancer",
     "url": "https://riftdecks.com/legends/constructed/irelia-blade-dancer?metagame_id=3",
-    "scraped_at": "2026-05-28T00:56:16.181155Z",
-    "deck_count": 893
+    "scraped_at": "2026-05-30T15:52:44.644502Z",
+    "deck_count": 909
   },
   {
     "slug": "ivern-green-father",
     "name": "Ivern, Green Father",
     "url": "https://riftdecks.com/legends/constructed/ivern-green-father?metagame_id=3",
-    "scraped_at": "2026-05-27T14:16:19.901819Z",
+    "scraped_at": "2026-05-30T15:53:25.835556Z",
     "deck_count": 120
   },
   {
     "slug": "jax-grandmaster-at-arms",
     "name": "Jax, Grandmaster at Arms",
     "url": "https://riftdecks.com/legends/constructed/jax-grandmaster-at-arms?metagame_id=3",
-    "scraped_at": "2026-05-27T03:11:31.486119Z",
+    "scraped_at": "2026-05-30T15:53:38.456051Z",
     "deck_count": 63
   },
   {
     "slug": "jhin-virtuoso",
     "name": "Jhin, Virtuoso",
     "url": "https://riftdecks.com/legends/constructed/jhin-virtuoso?metagame_id=3",
-    "scraped_at": "2026-05-27T14:16:41.843564Z",
+    "scraped_at": "2026-05-30T15:54:28.788744Z",
     "deck_count": 136
   },
   {
     "slug": "jinx-loose-cannon",
     "name": "Jinx, Loose Cannon",
     "url": "https://riftdecks.com/legends/constructed/jinx-loose-cannon?metagame_id=3",
-    "scraped_at": "2026-05-27T03:12:57.846924Z",
+    "scraped_at": "2026-05-30T15:54:41.667480Z",
     "deck_count": 55
   },
   {
     "slug": "kaisa-daughter-of-the-void",
     "name": "Kai'sa, Daughter of the Void",
     "url": "https://riftdecks.com/legends/constructed/kaisa-daughter-of-the-void?metagame_id=3",
-    "scraped_at": "2026-05-28T00:56:53.149641Z",
+    "scraped_at": "2026-05-30T15:55:22.541766Z",
     "deck_count": 414
   },
   {
     "slug": "khazix-voidreaver",
     "name": "Khazix, Voidreaver",
     "url": "https://riftdecks.com/legends/constructed/khazix-voidreaver?metagame_id=3",
-    "scraped_at": "2026-05-28T00:57:27.917067Z",
+    "scraped_at": "2026-05-30T15:56:50.668998Z",
     "deck_count": 299
   },
   {
     "slug": "leblanc-deceiver",
     "name": "Leblanc, Deceiver",
     "url": "https://riftdecks.com/legends/constructed/leblanc-deceiver?metagame_id=3",
-    "scraped_at": "2026-05-28T01:07:47.388558Z",
+    "scraped_at": "2026-05-30T16:00:12.307762Z",
     "deck_count": 800
   },
   {
     "slug": "lee-sin-blind-monk",
     "name": "Lee Sin, Blind Monk",
     "url": "https://riftdecks.com/legends/constructed/lee-sin-blind-monk?metagame_id=3",
-    "scraped_at": "2026-05-28T01:10:29.295241Z",
+    "scraped_at": "2026-05-30T16:02:37.125343Z",
     "deck_count": 25
   },
   {
     "slug": "leona-radiant-dawn",
     "name": "Leona, Radiant Dawn",
     "url": "https://riftdecks.com/legends/constructed/leona-radiant-dawn?metagame_id=3",
-    "scraped_at": "2026-05-28T01:15:21.266770Z",
+    "scraped_at": "2026-05-30T16:08:14.224707Z",
     "deck_count": 81
   },
   {
     "slug": "lillia-bashful-bloom",
     "name": "Lillia, Bashful Bloom",
     "url": "https://riftdecks.com/legends/constructed/lillia-bashful-bloom?metagame_id=3",
-    "scraped_at": "2026-05-28T01:19:08.932836Z",
-    "deck_count": 486
+    "scraped_at": "2026-05-30T16:12:31.175688Z",
+    "deck_count": 524
   },
   {
     "slug": "lucian-purifier",
     "name": "Lucian, Purifier",
     "url": "https://riftdecks.com/legends/constructed/lucian-purifier?metagame_id=3",
-    "scraped_at": "2026-05-28T01:19:33.344705Z",
-    "deck_count": 72
+    "scraped_at": "2026-05-30T16:12:58.624743Z",
+    "deck_count": 75
   },
   {
     "slug": "lux-lady-of-luminosity",
