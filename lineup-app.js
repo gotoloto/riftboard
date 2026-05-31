@@ -318,12 +318,16 @@ function itemRow(slug, qty, usage, tab, section) {
     title = `Need ${qty}, own ${own}.`;
   }
 
-  // Set abbreviation pinned to the right edge so the binder is obvious
-  // at a glance (UNL = Unleashed, OGN = Origin, SFD = Spiritforged,
-  // OGS = a small bonus set). Black text regardless of severity class.
-  const setCode = catalog[slug]?.set || "";
-  const setHtml = setCode
-    ? `<span class="set-tag">${escapeHtml(setCode)}</span>`
+  // Set abbreviation + card number, e.g. "UNL82" — pinned to the right
+  // for binder lookup. set / set_num both live on catalog entries.
+  // (Sets: UNL Unleashed, OGN Origin, SFD Spiritforged, OGS bonus.)
+  const cardMeta = catalog[slug];
+  const setCode = cardMeta?.set || "";
+  const setNum = cardMeta?.set_num;
+  const setLabel =
+    setCode && setNum != null ? `${setCode}${setNum}` : setCode;
+  const setHtml = setLabel
+    ? `<span class="set-tag">${escapeHtml(setLabel)}</span>`
     : "";
   // Owned count is omitted from the row to reduce clutter — it still
   // appears in the tooltip ('Need 3, own 2.') for when you need it.
