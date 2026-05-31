@@ -433,16 +433,23 @@ function computeUsage(parsedByTab) {
     for (const player of PLAYERS) {
       let mainMax = 0;
       let fullMax = 0;
+      let fullSum = 0;
       const decks = [];
       for (const tab of LOCK_TABS) {
         if (playerOfTab(tab) !== player) continue;
         const m = sectionTallies[tab].mainBlock[slug] || 0;
         const s = sectionTallies[tab].side[slug] || 0;
-        if (m + s > 0) decks.push(tab);
+        const f = m + s;
+        if (f > 0) decks.push(tab);
         mainMax = Math.max(mainMax, m);
-        fullMax = Math.max(fullMax, m + s);
+        fullMax = Math.max(fullMax, f);
+        fullSum += f;
       }
-      perPlayerStats[player] = { mainMax, fullMax };
+      // fullSum = copies needed if this player NEVER swapped between
+      // their A and B decks (separate physical copies in each). Compared
+      // below to what's left after the other player's claim, to decide
+      // whether the swap signal is warranted.
+      perPlayerStats[player] = { mainMax, fullMax, fullSum };
       usedByDecks[player] = decks;
     }
     const householdNeed = PLAYERS.reduce(
@@ -454,6 +461,28 @@ function computeUsage(parsedByTab) {
     // Two passes: strict (raw owned) and lax (owned + en-route).
     const allocRaw = allocate(ownedRaw, perPlayerStats);
     const allocLax = allocate(ownedRaw + enr, perPlayerStats);
+
+    // Per-player swap decision: a player needs to physically swap their
+    // single Defy between A and B between games iff (a) both decks need
+    // the card AND (b) after the OTHER player takes their max share of
+    // the household pool, the leftover isn't enough to give this player
+    // separate copies for A and B. So:
+    //   playerPool = owned − sum_of_other_players_max
+    //   canSplit   = playerPool ≥ this_player_fullSum
+    // If they can split, no swap is needed even though both decks list
+    // the card. (Owned includes en-route only when the toggle is on —
+    // we follow ownedFor here; swap is a present-tense logistics fact,
+    // so checking the same effective pool is consistent.)
+    const effOwned = ownedFor(slug);
+    const playerCanSplit = {};
+    for (const player of PLAYERS) {
+      const othersMax = PLAYERS
+        .filter((p) => p !== player)
+        .reduce((s, p) => s + perPlayerStats[p].fullMax, 0);
+      const playerPool = Math.max(0, effOwned - othersMax);
+      playerCanSplit[player] =
+        playerPool >= perPlayerStats[player].fullSum;
+    }
 
     // Per-deck per-section short. For each deck X (player P), the
     // shortage is (X_full_qty - P_total_alloc), clamped ≥0. The
@@ -489,7 +518,9 @@ function computeUsage(parsedByTab) {
         sideQty,
         mainShort, sideShort,
         mainEnr, sideEnr,
-        swap: fullQty > 0 && otherDecks.length > 0,
+        // Swap is only meaningful when the player can't afford separate
+        // physical copies for A and B — see playerCanSplit above.
+        swap: fullQty > 0 && otherDecks.length > 0 && !playerCanSplit[player],
         // Legacy field — flat qty, kept for callers that don't yet
         // distinguish sections.
         qty: fullQty,
@@ -512,7 +543,12 @@ function computeUsage(parsedByTab) {
       short: anyShort,
       enrouteDependent: anyEnr && !anyShort,
       crossPlayerShared: playersUsing >= 2,
-      intraPlayerSwap: Object.values(usedByDecks).some((arr) => arr.length >= 2),
+      // True when at least one player actually has to physically shuttle
+      // the card between their A and B decks — i.e. they can't afford
+      // separate copies after the other player takes their share.
+      intraPlayerSwap: PLAYERS.some(
+        (p) => usedByDecks[p].length >= 2 && !playerCanSplit[p]
+      ),
     };
   }
   return usage;
