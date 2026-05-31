@@ -272,12 +272,13 @@ function itemRow(slug, qty, usage, tab, section) {
   } else if (sectionEnr) {
     cls = "enroute";
     severityMark = `<span class="severity-mark" aria-hidden="true">✈</span>`;
-  } else if (u?.crossPlayerShared) {
-    cls = "shared";
-    severityMark = `<span class="severity-mark" aria-hidden="true">⚠</span>`;
   } else if (here.swap) {
     cls = "swap";
   }
+  // crossPlayerShared (both players want this card, household has enough)
+  // intentionally NOT shown — when supply is covered, there's no signal
+  // worth highlighting. The 'short' branch above still fires if the
+  // shared demand actually outruns the pool.
 
   // Swap marker always shows when this row needs shuttling between
   // the player's A and B decks, regardless of severity class. Glyph is
@@ -307,8 +308,6 @@ function itemRow(slug, qty, usage, tab, section) {
   } else if (sectionEnr) {
     const ownRaw = u.ownedRaw, enr = u.enroute;
     title = `Awaiting en-route copies: owned ${ownRaw} + en-route ${enr} covers the deck. Household need ${u.householdNeed} (${playerBreakdown}).`;
-  } else if (u?.crossPlayerShared) {
-    title = `Both players use this. ${playerBreakdown} · own ${own}.`;
   } else if (here.swap) {
     title = `${player} runs this in both A and B — swap between decks between games. Own ${own}.`;
   } else {
@@ -542,7 +541,6 @@ function renderDeckPanel(tabName, deck, usage) {
   let shortCards = 0;
   let shortCopies = 0;
   let enrouteCards = 0;
-  let crossSharedCards = 0;
   let swapCards = 0;
   for (const slug of Object.keys(totals)) {
     const u = usage[slug];
@@ -556,8 +554,6 @@ function renderDeckPanel(tabName, deck, usage) {
       shortCopies += localShort;
     } else if (localEnr) {
       enrouteCards += 1;
-    } else if (u.crossPlayerShared) {
-      crossSharedCards += 1;
     }
     if (here.swap) swapCards += 1;
   }
@@ -568,9 +564,6 @@ function renderDeckPanel(tabName, deck, usage) {
   } else if (enrouteCards > 0) {
     completionTxt = `Need en-route · ${enrouteCards} card${enrouteCards === 1 ? "" : "s"}`;
     completionCls = "completion enroute";
-  } else if (crossSharedCards > 0) {
-    completionTxt = `Have all · ${crossSharedCards} shared w/ other player`;
-    completionCls = "completion shared";
   } else if (swapCards > 0) {
     completionTxt = `Have all · ${swapCards} swap${swapCards === 1 ? "" : "s"} w/ ${playerOfTab(tabName)}'s other deck`;
     completionCls = "completion swap";
