@@ -104,9 +104,9 @@
 .deck-panel .deck-list li {
   display: grid;
   /* qty cell widened to fit the 'allocated/needed×' form on short rows
-     ('0/3×'). Owned-count cell removed for cleaner reading; the tooltip
-     still shows it. */
-  grid-template-columns: 36px minmax(0, 1fr);
+     ('0/3×'). Trailing 'auto' column hosts the binder-locator set tag
+     (UNL / OGN / SFD / OGS), right-justified. */
+  grid-template-columns: 36px minmax(0, 1fr) auto;
   align-items: center;
   gap: 6px;
   padding: 1px 0;
@@ -129,6 +129,19 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+/* Binder-locator: which set holds the printed card. Always black,
+   small, tabular, justified right. Sits in the third grid cell. */
+.deck-panel .deck-list .set-tag {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: #000;
+  text-align: right;
+  white-space: nowrap;
+  background: #e5e7eb;
+  padding: 0 4px;
+  border-radius: 3px;
 }
 .deck-panel .deck-list li.short .card-name { color: #f87171; }
 .deck-panel .deck-list li.short .own { color: #f87171; font-weight: 600; }

@@ -318,11 +318,19 @@ function itemRow(slug, qty, usage, tab, section) {
     title = `Need ${qty}, own ${own}.`;
   }
 
+  // Set abbreviation pinned to the right edge so the binder is obvious
+  // at a glance (UNL = Unleashed, OGN = Origin, SFD = Spiritforged,
+  // OGS = a small bonus set). Black text regardless of severity class.
+  const setCode = catalog[slug]?.set || "";
+  const setHtml = setCode
+    ? `<span class="set-tag">${escapeHtml(setCode)}</span>`
+    : "";
   // Owned count is omitted from the row to reduce clutter — it still
   // appears in the tooltip ('Need 3, own 2.') for when you need it.
   return `<li class="${cls}" data-slug="${escapeHtml(slug)}" title="${escapeHtml(title)}">
     ${qtyHtml}
     <span class="card-name"${imgOf(slug)}>${escapeHtml(nameOf(slug))}${severityMark}${swapMark}</span>
+    ${setHtml}
   </li>`;
 }
 
