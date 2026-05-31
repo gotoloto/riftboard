@@ -103,7 +103,10 @@
 }
 .deck-panel .deck-list li {
   display: grid;
-  grid-template-columns: 22px 22px minmax(0, 1fr);
+  /* qty cell widened to fit the 'allocated/needed×' form on short rows
+     ('0/3×'). Owned-count cell removed for cleaner reading; the tooltip
+     still shows it. */
+  grid-template-columns: 36px minmax(0, 1fr);
   align-items: center;
   gap: 6px;
   padding: 1px 0;

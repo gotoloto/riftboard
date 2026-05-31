@@ -315,9 +315,10 @@ function itemRow(slug, qty, usage, tab, section) {
     title = `Need ${qty}, own ${own}.`;
   }
 
+  // Owned count is omitted from the row to reduce clutter — it still
+  // appears in the tooltip ('Need 3, own 2.') for when you need it.
   return `<li class="${cls}" data-slug="${escapeHtml(slug)}" title="${escapeHtml(title)}">
     ${qtyHtml}
-    <span class="own">/${own}</span>
     <span class="card-name"${imgOf(slug)}>${escapeHtml(nameOf(slug))}${severityMark}${swapMark}</span>
   </li>`;
 }
