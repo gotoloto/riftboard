@@ -308,6 +308,10 @@ function itemRow(slug, qty, usage, tab, section) {
   } else if (sectionEnr) {
     const ownRaw = u.ownedRaw, enr = u.enroute;
     title = `Awaiting en-route copies: owned ${ownRaw} + en-route ${enr} covers the deck. Household need ${u.householdNeed} (${playerBreakdown}).`;
+  } else if (u?.crossPlayerShared) {
+    // No visual flag (supply is OK), but mention the cross-player
+    // sharing in the tooltip — useful context on hover.
+    title = `Both players use this. ${playerBreakdown} · own ${own}.`;
   } else if (here.swap) {
     title = `${player} runs this in both A and B — swap between decks between games. Own ${own}.`;
   } else {
