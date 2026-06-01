@@ -30,18 +30,134 @@ DECK_HREF_RE = re.compile(r"/riftbound-metagame/deck-")
 CARD_HREF_RE = re.compile(r"/cards/details-")
 
 
-def fetch(url: str, retries: int = 3) -> str:
+# Bot-detection counters — incremented on every non-200 response or
+# transport error so we can summarise at the end of a run.
+BOT_DETECTION_COUNTS = {
+    "rate_limit_429": 0,
+    "cloudflare_403": 0,
+    "other_non200": 0,
+    "transport_error": 0,
+    "retry_sleep_seconds": 0.0,
+    "permanent_failures": 0,
+}
+
+# Persistent session so Cloudflare's __cf_clearance + other cookies stick
+# across requests. Stateless `requests.get()` looks like a different
+# 'visitor' on every hit, which gets flagged faster. Also lets us send a
+# realistic Referer chain.
+import random as _random  # late import — file already uses random elsewhere
+_SESSION = requests.Session()
+_SESSION_WARMED = False
+
+# TLS-fingerprint rotation. As of 2026-05-30, riftdecks (Cloudflare)
+# specifically blocks impersonate="chrome" (latest, currently chrome138-ish)
+# and chrome120/safari18_0 on /riftbound-metagame/* deck pages. Several
+# older or non-Chrome fingerprints pass cleanly — we pin one of them.
+# Probe results that day:
+#   200  chrome100 chrome110 chrome131 safari17_0 firefox133
+#   403  chrome    chrome120 safari18_0
+# If chrome131 ever gets added to the block list, swap to one of the
+# others (and update CLAUDE.md so future-Travis knows why we're off the
+# bleeding edge). curl_cffi exposes the full menu via
+# `from curl_cffi.requests.impersonate import BrowserType`.
+IMPERSONATE = "chrome131"
+
+
+def _warm_session() -> None:
+    """Hit the riftdecks homepage once so Cloudflare hands us a cookie
+    jar before we start fetching deck pages. Real browsers always have
+    cookies on subsequent requests; cold-loaded GETs to /riftbound-
+    metagame/* are a screaming bot signal."""
+    global _SESSION_WARMED
+    if _SESSION_WARMED:
+        return
+    try:
+        _SESSION.get(
+            "https://riftdecks.com/",
+            impersonate=IMPERSONATE,
+            timeout=15,
+            headers={
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
+        )
+        _SESSION_WARMED = True
+    except Exception:
+        # Warm-up failure isn't fatal — fetch() will surface real
+        # errors. We just won't have a cookie jar going in.
+        pass
+
+
+def fetch(url: str, retries: int = 3, referer: str | None = None) -> str:
+    """Cookie-persistent GET with retry. Adds a Referer header so each
+    deck fetch looks like it came from the natural browsing path (the
+    archetype listing page) instead of a bot reaching cold into the URL
+    namespace. Caller can override referer; defaults to BASE."""
+    _warm_session()
+    headers = {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": referer or BASE + "/",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin" if referer else "none",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+    }
     last = None
     for attempt in range(retries):
         try:
-            r = requests.get(url, impersonate="chrome", timeout=30)
+            r = _SESSION.get(url, impersonate=IMPERSONATE, timeout=30, headers=headers)
             if r.status_code == 200:
                 return r.text
             last = f"status {r.status_code}"
+            if r.status_code == 429:
+                BOT_DETECTION_COUNTS["rate_limit_429"] += 1
+            elif r.status_code == 403:
+                BOT_DETECTION_COUNTS["cloudflare_403"] += 1
+            else:
+                BOT_DETECTION_COUNTS["other_non200"] += 1
         except Exception as exc:
             last = str(exc)
-        time.sleep(1.5 * (attempt + 1))
+            BOT_DETECTION_COUNTS["transport_error"] += 1
+        # Exponential-ish backoff with jitter — never the exact same
+        # pause twice in a row, which is a behavioural tell.
+        sleep_dur = 1.5 * (attempt + 1) + _random.uniform(0, 1.0)
+        BOT_DETECTION_COUNTS["retry_sleep_seconds"] += sleep_dur
+        time.sleep(sleep_dur)
+    BOT_DETECTION_COUNTS["permanent_failures"] += 1
     raise RuntimeError(f"fetch failed for {url}: {last}")
+
+
+def print_bot_detection_summary() -> None:
+    c = BOT_DETECTION_COUNTS
+    total = (
+        c["rate_limit_429"]
+        + c["cloudflare_403"]
+        + c["other_non200"]
+        + c["transport_error"]
+    )
+    if total == 0:
+        print("bot-detection: clean run (no retries triggered)")
+        return
+    parts = []
+    if c["rate_limit_429"]:
+        parts.append(f"{c['rate_limit_429']}× 429 rate-limit")
+    if c["cloudflare_403"]:
+        parts.append(f"{c['cloudflare_403']}× 403 Cloudflare block")
+    if c["other_non200"]:
+        parts.append(f"{c['other_non200']}× other non-200")
+    if c["transport_error"]:
+        parts.append(f"{c['transport_error']}× transport error")
+    print(
+        "bot-detection: " + ", ".join(parts) +
+        f"; total retry sleep ≈ {c['retry_sleep_seconds']:.0f}s"
+        + (
+            f"; permanent failures: {c['permanent_failures']}"
+            if c["permanent_failures"]
+            else ""
+        )
+    )
 
 
 # --- IP-affinity poisoning canary --------------------------------------
@@ -2081,6 +2197,7 @@ if __name__ == "__main__":
         print(
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )
+        print_bot_detection_summary()
     elif args and args[0] == "--refresh":
         # Re-fetch every cached deck URL for the given legends (default: all).
         # Used to repair the cache after scraping through a poisoned IP

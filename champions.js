@@ -3,29 +3,29 @@ window.__CHAMPIONS__ = [
     "slug": "ahri-nine-tailed-fox",
     "name": "Ahri, Nine-Tailed Fox",
     "url": "https://riftdecks.com/legends/constructed/ahri-nine-tailed-fox?metagame_id=3",
-    "scraped_at": "2026-05-30T15:48:51.174795Z",
-    "deck_count": 114
+    "scraped_at": "2026-06-01T14:19:34.073705Z",
+    "deck_count": 120
   },
   {
     "slug": "annie-dark-child",
     "name": "Annie, Dark Child",
     "url": "https://riftdecks.com/legends/constructed/annie-dark-child?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:30.967628Z",
-    "deck_count": 168
+    "scraped_at": "2026-06-01T14:19:55.606240Z",
+    "deck_count": 188
   },
   {
     "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
     "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:35.283696Z",
-    "deck_count": 427
+    "scraped_at": "2026-06-01T14:20:24.331779Z",
+    "deck_count": 456
   },
   {
     "slug": "darius-hand-of-noxus",
     "name": "Darius, Hand of Noxus",
     "url": "https://riftdecks.com/legends/constructed/darius-hand-of-noxus?metagame_id=3",
-    "scraped_at": "2026-05-30T15:51:02.710747Z",
-    "deck_count": 62
+    "scraped_at": "2026-06-01T14:20:37.966361Z",
+    "deck_count": 68
   },
   {
     "slug": "diana-scorn-of-the-moon",
