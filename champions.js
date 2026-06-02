@@ -3,57 +3,57 @@ window.__CHAMPIONS__ = [
     "slug": "ahri-nine-tailed-fox",
     "name": "Ahri, Nine-Tailed Fox",
     "url": "https://riftdecks.com/legends/constructed/ahri-nine-tailed-fox?metagame_id=3",
-    "scraped_at": "2026-06-01T14:19:34.073705Z",
-    "deck_count": 120
+    "scraped_at": "2026-06-02T01:12:57.164421Z",
+    "deck_count": 121
   },
   {
     "slug": "annie-dark-child",
     "name": "Annie, Dark Child",
     "url": "https://riftdecks.com/legends/constructed/annie-dark-child?metagame_id=3",
-    "scraped_at": "2026-06-01T14:19:55.606240Z",
-    "deck_count": 188
+    "scraped_at": "2026-06-02T01:13:31.430484Z",
+    "deck_count": 190
   },
   {
     "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
     "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-    "scraped_at": "2026-06-01T14:20:24.331779Z",
-    "deck_count": 456
+    "scraped_at": "2026-06-02T01:14:15.240310Z",
+    "deck_count": 468
   },
   {
     "slug": "darius-hand-of-noxus",
     "name": "Darius, Hand of Noxus",
     "url": "https://riftdecks.com/legends/constructed/darius-hand-of-noxus?metagame_id=3",
-    "scraped_at": "2026-06-01T14:20:37.966361Z",
-    "deck_count": 68
+    "scraped_at": "2026-06-02T01:14:48.397356Z",
+    "deck_count": 70
   },
   {
     "slug": "diana-scorn-of-the-moon",
     "name": "Diana, Scorn of the Moon",
     "url": "https://riftdecks.com/legends/constructed/diana-scorn-of-the-moon?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:38.886877Z",
-    "deck_count": 743
+    "scraped_at": "2026-06-02T01:21:13.697967Z",
+    "deck_count": 807
   },
   {
     "slug": "draven-glorious-executioner",
     "name": "Draven, Glorious Executioner",
     "url": "https://riftdecks.com/legends/constructed/draven-glorious-executioner?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:42.756330Z",
+    "scraped_at": "2026-06-02T01:25:29.963033Z",
     "deck_count": 268
   },
   {
     "slug": "ezreal-prodigal-explorer",
     "name": "Ezreal, Prodigal Explorer",
     "url": "https://riftdecks.com/legends/constructed/ezreal-prodigal-explorer?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:47.267544Z",
+    "scraped_at": "2026-06-02T01:29:32.596487Z",
     "deck_count": 228
   },
   {
     "slug": "fiora-grand-duelist",
     "name": "Fiora, Grand Duelist",
     "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
-    "scraped_at": "2026-05-30T16:35:50.565852Z",
-    "deck_count": 609
+    "scraped_at": "2026-06-02T01:36:08.317422Z",
+    "deck_count": 613
   },
   {
     "slug": "garen-might-of-demacia",
