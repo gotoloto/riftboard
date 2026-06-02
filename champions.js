@@ -17,7 +17,7 @@ window.__CHAMPIONS__ = [
     "slug": "azir-emperor-of-the-sands",
     "name": "Azir, Emperor of the Sands",
     "url": "https://riftdecks.com/legends/constructed/azir-emperor-of-the-sands?metagame_id=3",
-    "scraped_at": "2026-06-02T01:14:15.240310Z",
+    "scraped_at": "2026-06-02T01:58:51.462029Z",
     "deck_count": 468
   },
   {
@@ -31,28 +31,28 @@ window.__CHAMPIONS__ = [
     "slug": "diana-scorn-of-the-moon",
     "name": "Diana, Scorn of the Moon",
     "url": "https://riftdecks.com/legends/constructed/diana-scorn-of-the-moon?metagame_id=3",
-    "scraped_at": "2026-06-02T01:21:13.697967Z",
-    "deck_count": 807
+    "scraped_at": "2026-06-02T01:59:16.434436Z",
+    "deck_count": 828
   },
   {
     "slug": "draven-glorious-executioner",
     "name": "Draven, Glorious Executioner",
     "url": "https://riftdecks.com/legends/constructed/draven-glorious-executioner?metagame_id=3",
-    "scraped_at": "2026-06-02T01:25:29.963033Z",
-    "deck_count": 268
+    "scraped_at": "2026-06-02T01:59:41.254301Z",
+    "deck_count": 289
   },
   {
     "slug": "ezreal-prodigal-explorer",
     "name": "Ezreal, Prodigal Explorer",
     "url": "https://riftdecks.com/legends/constructed/ezreal-prodigal-explorer?metagame_id=3",
-    "scraped_at": "2026-06-02T01:29:32.596487Z",
-    "deck_count": 228
+    "scraped_at": "2026-06-02T02:01:12.587920Z",
+    "deck_count": 252
   },
   {
     "slug": "fiora-grand-duelist",
     "name": "Fiora, Grand Duelist",
     "url": "https://riftdecks.com/legends/constructed/fiora-grand-duelist?metagame_id=3",
-    "scraped_at": "2026-06-02T01:36:08.317422Z",
+    "scraped_at": "2026-06-02T02:08:29.063476Z",
     "deck_count": 613
   },
   {
