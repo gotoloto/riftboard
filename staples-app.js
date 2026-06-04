@@ -29,8 +29,15 @@ function ownedFor(slug) {
   return Math.max(0, o + er - locked);
 }
 
-function missingFor(slug) {
-  return Math.max(0, PLAYSET - ownedFor(slug));
+function playsetFor(card) {
+  // Legends are always 1-of in a Riftbound deck, so their "complete
+  // collection" target is 1, not the regular 3. The staples 'rare'
+  // tier intermixes legend cards with regular rares (legends share
+  // the rare rarity slot), so we have to discriminate by type.
+  return card && card.type === "legend" ? 1 : PLAYSET;
+}
+function missingFor(card) {
+  return Math.max(0, playsetFor(card) - ownedFor(card.slug));
 }
 
 function renderRow(card, index) {
@@ -62,7 +69,7 @@ function renderRow(card, index) {
         .join("")
     : `<span class="muted">no legend &gt; 50%</span>`;
   const owned = ownedFor(card.slug);
-  const missing = missingFor(card.slug);
+  const missing = missingFor(card);
   const missingCls = missing > 0 ? "missing missing-pos" : "missing";
   return `
     <tr>
@@ -81,7 +88,7 @@ function renderRow(card, index) {
 function renderSection(rarity, cards) {
   const labels = { common: "commons", uncommon: "uncommons", rare: "rares" };
   const visible = hideComplete
-    ? cards.filter((c) => missingFor(c.slug) > 0)
+    ? cards.filter((c) => missingFor(c) > 0)
     : cards;
   const hiddenNote =
     hideComplete && visible.length < cards.length
