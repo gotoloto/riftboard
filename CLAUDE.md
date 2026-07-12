@@ -81,13 +81,27 @@ Canonical URL form: `https://riftdecks.com/legends/constructed/<slug>?metagame_i
   cache.
 
   **Canary**: scrape.py runs `check_canary()` before every fetching
-  command. It pings deck 147957 and aborts the run if the response
-  contains the phantom 'Protector of Dreams' champion instead of the
-  expected 'Fae Fawn'. Prevents accidental cache poisoning if WARP/VPN
-  drops or if running from an unfamiliar network. Skip with env var
-  `RIFTBOUND_SKIP_CANARY=1` (only needed if deck 147957 itself has
-  been edited upstream — then re-tune CANARY_CLEAN_MARKER /
-  CANARY_POISON_MARKER in scrape.py).
+  command. It pings deck 147957 (SantiSM's Lillia) and aborts the run
+  if the response doesn't match our clean-route reference. Prevents
+  accidental cache poisoning if WARP/VPN drops or if running from an
+  unfamiliar network. Skip with env var `RIFTBOUND_SKIP_CANARY=1`
+  (only needed if the deck legitimately changed upstream — then
+  re-tune CANARY_CLEAN_MARKER / CANARY_POISON_MARKER against a fresh
+  clean-route dump).
+
+  **The phantom evolved (2026-06).** Originally the poisoned backend
+  served a wrong *champion* (Lillia, Protector of Dreams), so the
+  canary keyed on champion name. Weeks later the two backends now
+  AGREE on the champion (both 'Fae Fawn') but diverge on the maindeck
+  cards *and* on the deck's finishing rank (real 128th vs phantom
+  109th — an author can't edit a tournament placement, so this is
+  backend divergence, not an edit). A champion-level check passed on
+  the poisoned backend, so the canary now keys on card content:
+  clean marker `Thousand-Tailed Watcher` (in the real list), poison
+  marker `Trevor Snoozebottom` (in the phantom). Both flip together.
+  Verified on 2026-06 that the Claude-env IP hits the *poisoned*
+  backend — the new canary correctly aborts there where the old one
+  would have proceeded.
 - **Set sizes** (for completeness checks): UNL 219, OGN 298, SFD 221, OGS 24.
   Catalog now covers all 763 canonical printings (overnumbered-only dropped).
 - **40 legends** currently cached. All on `?metagame_id=3`.

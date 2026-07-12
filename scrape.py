@@ -107,7 +107,9 @@ def fetch(url: str, retries: int = 3, referer: str | None = None) -> str:
     last = None
     for attempt in range(retries):
         try:
-            r = _SESSION.get(url, impersonate=IMPERSONATE, timeout=30, headers=headers)
+            r = _SESSION.get(
+                url, impersonate=IMPERSONATE, timeout=20, headers=headers
+            )
             if r.status_code == 200:
                 return r.text
             last = f"status {r.status_code}"
@@ -163,18 +165,29 @@ def print_bot_detection_summary() -> None:
 # --- IP-affinity poisoning canary --------------------------------------
 # Riftdecks' origin LB hash-pins clients to backends by source IP. Some
 # backends serve diverged data ("phantom" decks; see CLAUDE.md). The
-# canary fetches one known-good deck whose clean content we've verified
-# (Lillia 147957 → has Lillia, Fae Fawn as champion, NOT Lillia, Protector
-# of Dreams). If we see the phantom version, we're on the bad backend and
-# should abort before writing anything to the cache.
+# canary fetches one known-good deck (Lillia 147957, by SantiSM) and
+# checks its CARD CONTENT against our clean-route reference. If we see the
+# phantom version we're on the bad backend and abort before writing.
 #
-# If 147957 ever changes content (e.g. SantiSM edits the deck), bump
-# both strings below. Keep CANARY_POISONED accurate too — checking only
-# for the clean string isn't enough (a deck-not-found response would
-# also lack it).
+# 2026-06-XX — the phantom EVOLVED. Originally the bad backend served a
+# different *champion* (Lillia, Protector of Dreams), so the canary keyed
+# on champion name. Weeks later the two backends AGREE on the champion
+# (both "Fae Fawn") but disagree on the maindeck cards AND on the deck's
+# finishing rank (real = 128th, phantom = 109th — proof it's backend
+# divergence, not an author edit, since you can't edit a tournament
+# placement). A champion-level check now passes on the poisoned backend,
+# so we moved to card-level markers:
+#   - CLEAN marker: a card in the real (clean-route) list, absent from
+#     the phantom.  Real deck runs Thousand-Tailed Watcher ×3.
+#   - POISON marker: a card in the phantom, absent from the real list.
+#     Phantom runs Trevor Snoozebottom ×3.
+# Both flip together, giving a two-sided check. If a THIRD variant ever
+# appears with neither marker, has_clean is False → we abort (safe
+# default). Re-tune both strings against a fresh clean-route dump if the
+# deck legitimately changes; RIFTBOUND_SKIP_CANARY=1 is the escape hatch.
 CANARY_URL = "https://riftdecks.com/riftbound-metagame/deck-lillia-bashful-bloom-147957"
-CANARY_CLEAN_MARKER = "Fae Fawn"
-CANARY_POISON_MARKER = "Protector of Dreams"
+CANARY_CLEAN_MARKER = "Thousand-Tailed Watcher"
+CANARY_POISON_MARKER = "Trevor Snoozebottom"
 
 
 def check_canary() -> None:
@@ -203,12 +216,13 @@ def check_canary() -> None:
     print(" ⚠  CANARY FAILED — source IP appears to be hitting riftdecks'")
     print("    poisoned backend (Lillia 147957 returned wrong content).")
     if has_poison:
-        print("    Saw the phantom 'Protector of Dreams' champion instead of the")
-        print("    expected 'Fae Fawn'.")
+        print(f"    Saw the phantom card '{CANARY_POISON_MARKER}' — this backend's")
+        print(f"    copy of 147957 is diverged from the real list.")
     else:
-        print("    The canary deck no longer contains the expected 'Fae Fawn' marker.")
-        print("    Either the bad backend is serving something else now, or the deck")
-        print("    has been edited upstream and the canary needs updating.")
+        print(f"    The canary deck no longer contains the expected")
+        print(f"    '{CANARY_CLEAN_MARKER}' marker. Either the bad backend is serving")
+        print("    a new variant, or the deck changed upstream and the canary needs")
+        print("    re-tuning against a fresh clean-route dump.")
     print()
     print("    To restore a clean route:")
     print("      • Enable Cloudflare WARP (1.1.1.1 app) on this device, OR")
