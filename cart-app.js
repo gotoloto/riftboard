@@ -333,7 +333,7 @@ function renderRow(row) {
           : `${l.qty} main`;
       const sbBadge =
         l.sideQty > 0 ? `<span class="sb-badge">SB ${l.sideQty}</span>` : "";
-      return `<a class="used-chip" href="./?champion=${encodeURIComponent(
+      return `<a class="used-chip" href="meta.html?champion=${encodeURIComponent(
         l.slug
       )}" title="${escapeHtml(l.name)} — ${split}">${escapeHtml(
         l.name

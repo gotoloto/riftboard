@@ -1,68 +1,52 @@
-# Riftbound archetype dashboard
+# Riftboard
 
-Local dashboard summarising every tournament deck for a given Riftbound
-champion archetype on [riftdecks.com](https://riftdecks.com): how often each
-card appears across the archetype, and how many copies decks tend to run when
-they include it.
+Local-first Riftbound (League of Legends TCG) collection site for two
+players, hosted on GitHub Pages at
+<https://gotoloto.github.io/riftboard/>.
+
+Since June 2026 the site is centred on two pages that run purely off the
+card catalog and a shared Google Sheet:
+
+- **Lineup** (`index.html`, the homepage) — read-only view of both
+  players' locked A/B decks with shortfall / en-route / swap flags,
+  energy curves, and binder locators.
+- **Builder** (`builder.html`) — collection explorer + deck builder with
+  riftdecks-format copy/paste.
+
+The original tournament-meta side (per-legend card frequencies scraped
+from [riftdecks.com](https://riftdecks.com)) is **retired**: riftdecks
+serves diverged deck data per source IP, so refreshes stopped being
+trustworthy. Those pages remain browsable with frozen June-2026 data —
+`meta.html`, `staples.html`, `cart.html`, `closeness.html`, `diff.html`
+— linked from the homepage footer.
 
 ## Files
 
-- `scrape.py` — fetches the archetype's deck list, every deck, and per-card
-  metadata. Writes per-champion files into `legends/<slug>/`.
-- `index.html`, `app.js`, `styles.css` — the dashboard.
-- `champions.js` — index of every cached champion. The dashboard loads this
-  first to populate the champion dropdown.
-- `legends/<slug>/data.js` — full per-champion payload the dashboard reads
-  when a champion is selected (`window.__DATA__ = …;`).
-- `legends/<slug>/decks.json` — raw scrape (every deck, every card row).
-  Per-card aggregated stats (`decks_including`, `inclusion_pct`,
-  `copies_pct`, etc.) are computed at runtime by the dashboard and by the
-  scraper's `build_staples` / `build_closeness_data` helpers, so no
-  separate `cards.json` is written.
+- `index.html` + `lineup-app.js` — Lineup (homepage).
+- `builder.html` + `collection-app.js` — Builder.
+- `meta.html` + `app.js` — retired meta dashboard (accepts
+  `?champion=<slug>` deep links).
+- `cards-catalog.js` — every canonical card printing (slug, cost,
+  domains, rarity, set + number, image, TCGplayer price snapshot).
+- `collection-sheet.js` — live Google Sheet sync (collection counts +
+  the four 🔒 lock tabs). Static fallbacks: `collection-owned.js`,
+  `collection-enroute.js`.
+- `legends/<slug>/` — frozen per-legend tournament deck data feeding the
+  retired pages.
+- `scrape.py` — data pipeline. Deck scraping is retired (it prints a
+  notice); `--import-collection <xlsx>` and the `--catalog*` commands
+  remain useful. See `CLAUDE.md` for the full command table and the
+  IP-affinity-poisoning saga.
 
-## Setup
+## View locally
 
-The site is fronted by Cloudflare and rejects vanilla `requests`. We use
-[`curl_cffi`](https://github.com/lexiforest/curl_cffi) to impersonate a real
-Chrome TLS fingerprint, which sails through.
+Everything is JS-wrapped JSON loaded via `<script>` tags, so `file://`
+works — just open `index.html` in a browser. Pushes to `main` deploy to
+GitHub Pages in about a minute.
+
+## Setup (only needed for scrape.py)
 
 ```sh
 python3 -m venv .venv
-.venv/bin/pip install curl_cffi beautifulsoup4
+.venv/bin/pip install curl_cffi beautifulsoup4 openpyxl
 ```
-
-## Cache a champion (or refresh an existing one)
-
-Grab the archetype URL from riftdecks.com and pass it as the only argument:
-
-```sh
-.venv/bin/python3 scrape.py "https://riftdecks.com/legends/constructed/<slug>?metagame_id=3"
-```
-
-The scrape writes `data-<slug>.js`, `decks-<slug>.json`, and `cards-<slug>.json`,
-then rebuilds `champions.js` with the updated index. The dashboard's champion
-dropdown picks up new entries on the next page reload — no re-scrape needed
-when you switch back to a previously cached champion.
-
-## View the dashboard
-
-Just double-click `index.html`, or:
-
-```sh
-open index.html
-```
-
-(The dashboard reads `cards.js` via a `<script>` tag, which works under
-`file://`. A local server is no longer required.)
-
-## Notes
-
-- Sideboard copies are **excluded** from the inclusion / average-copies stats.
-  Tournament decks with sideboards count the mainboard only — that's the metric
-  that tells you "how essential a card is to the archetype".
-- "Avg copies" is the mean number of copies *among decks that include the card*
-  — not averaged across all 337 decks. Multiply by inclusion % to get the
-  archetype-wide average.
-- Re-running `scrape.py` is idempotent: it overwrites both JSON files in
-  place, with `decks.json` saved incrementally so a mid-run failure preserves
-  what's already been parsed.

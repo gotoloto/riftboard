@@ -60,7 +60,7 @@ function renderRow(card, index) {
     ? legends
         .map(
           (l) =>
-            `<a class="${chipClass}" href="./?champion=${encodeURIComponent(
+            `<a class="${chipClass}" href="meta.html?champion=${encodeURIComponent(
               l.slug
             )}" title="${escapeHtml(l.name)} — ${l.decks_including} decks">${escapeHtml(
               l.name

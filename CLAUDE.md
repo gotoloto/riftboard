@@ -1,44 +1,64 @@
-# Riftbound dashboard — project notes for Claude
+# Riftboard — project notes for Claude
 
-A local-first dashboard summarising Riftbound (League of Legends TCG)
-tournament decks scraped from [riftdecks.com](https://riftdecks.com).
-Hosted statically at **https://gotoloto.github.io/riftboard/** (renamed from
-the old `riftbound-meta-dashboard`; GitHub redirects the old URL).
+A local-first Riftbound (League of Legends TCG) collection site for
+Travis + Santiago. **Recentred 2026-06 on the Builder and Lineup pages**,
+which run purely off the card catalog + a shared Google Sheet. The old
+tournament-meta side (scraped from
+[riftdecks.com](https://riftdecks.com)) is retired-but-kept: riftdecks'
+per-IP backend divergence made deck refreshes unreliable, so that data
+is frozen as of June 2026.
+Hosted statically at **https://gotoloto.github.io/riftboard/** (renamed
+from the old `riftbound-meta-dashboard`; GitHub redirects the old URL).
 Repo: `gotoloto/riftboard` (working dir
 `/Users/travisschmauss/Desktop/vibe coding/riftbound`).
 
 ## Pages
 
+Active (the site's center):
+
 | URL | What it does |
 |---|---|
-| `/` (`index.html`) | Per-legend card table with sortable columns, type/percentile/date filters, "median deck" panel (Composite vs Representative). Picker swaps champions via `champions.js` and lazy-loaded `legends/<slug>/data.js`. |
-| `/staples.html` | Top 40 commons / uncommons / rares across all cached legends, with the legends that run each at >50% inclusion. |
-| `/cart.html` | TCGplayer shopping-list builder. Pick legends, optional team assignment (A/B/solo), rarity cap, sideboard toggle, marginal-copy ranking. Reads `collection-owned.js` for default Owned column. |
-| `/closeness.html` | Ranks legends by how close the imported collection is to their top-25 % composite. Rarity-weighted (common 1, uncommon 2.333, rare 3.5, epic/showcase 28). "Include en route" toggle uses `collection-enroute.js`. |
-| `/diff.html` | Paste a riftdecks deck URL → diff against collection → TCGplayer-formatted copy of missing cards. Reads `deck-lookup.js`. |
+| `/` (`index.html`) | **Lineup** (the homepage). Read-only side-by-side view of the four locked decks (Travis A/B, Santiago A/B) from the Sheet's 🔒 tabs: per-section shortfall math (maindeck priority over sideboard), en-route ✈ flags, intra-player swap ⇄ flags, energy curves, power-by-domain, set+number binder tags. Hosts the site motto banner. `lineup.html` is a redirect stub for old bookmarks. |
+| `/builder.html` | Collection explorer + deck builder. Filter owned cards by rarity/set/type/domain/energy; +M/+S build a deck with Legend/Champion slots, 3-copy caps, energy curve; riftdecks-format copy/paste; "Read <player> 🔒" buttons import a lock-tab deck. |
 
-Nothing is linked between pages except `← Main dashboard` back-buttons.
+Retired (linked from the homepage footer; each carries an amber
+"Retired — data frozen June 2026" banner; tournament data is a static
+snapshot):
+
+| URL | What it did |
+|---|---|
+| `/meta.html` (was `index.html`) | Per-legend card table, median/composite deck panel, percentile/date/region filters, performance stat strip, trend sparkline, composition variance. Accepts `?champion=<slug>` deep links from the legend chips on builder/staples/cart. |
+| `/staples.html` | Top 40 commons/uncommons/rares across all cached legends. |
+| `/cart.html` | TCGplayer shopping-list builder from per-legend composites. |
+| `/closeness.html` | Ranks legends by dollar cost to complete their top-25% composite. |
+| `/diff.html` | Paste a riftdecks deck URL → diff against collection (local cache lookup). |
+
+All pages share `styles.css`, `utils.js`, `theme.js` (☾/☀ toggle), the
+live Google Sheet sync, and the hover card-thumb (battlefields rotate
+90°). Retired pages still sync Owned counts live from the Sheet — only
+the tournament data is frozen.
 
 ## Data pipeline (`scrape.py`)
 
-All commands run from the repo with `.venv/bin/python3 scrape.py …`.
+**Deck scraping is RETIRED (2026-06).** The deck-fetching commands print
+a retirement notice but still run if ever needed; the card-content
+canary (see below) guards against cache poisoning. Don't invest in
+maintaining them.
 
-| Command | Output |
-|---|---|
-| `scrape.py <archetype-url>` | Full scrape for one legend. Writes `legends/<slug>/{decks.json, data.js}`. Per-card aggregated stats are computed in-memory from `decks.json` whenever needed. Auto-regenerates downstream artifacts (champions.js, staples.js, collection-template.xlsx, closeness-data.js, deck-lookup.js). |
-| `scrape.py --update [<slug>…]` | Incremental: pings `/legends` once, only walks the per-archetype listings whose deck counts changed. Fetches only new decks and new card metadata. |
-| `scrape.py --refresh [<slug>…]` | Re-fetches every cached deck URL for the given legends (default: all). Wholesale replaces deck contents — used to flush cache contamination from running `--update` through a poisoned IP. **Only run from a clean source IP** (hotspot / VPN / VPS). See "IP-affinity poisoning" note. |
-| `scrape.py --check` | Read-only freshness report. |
-| `scrape.py --catalog` | Re-scrape every card detail page (~770) for the canonical printing, rarity, image URL. Slow (~3 min). Writes `cards-catalog.json` + `cards-catalog.js`. |
-| `scrape.py --catalog-new` | Incremental: fetch detail pages only for slugs referenced by a legend's `decks.json` (via its `cards_meta` slug index) but missing from `cards-catalog.json`. Fast (seconds when 0–5 missing). Backfills after `--update` if new cards entered the meta. |
-| `scrape.py --staples` | Regenerate `staples.js`. |
-| `scrape.py --closeness` | Regenerate `closeness-data.js`. |
-| `scrape.py --collection` | Regenerate `collection-template.xlsx`. |
-| `scrape.py --deck-lookup` | Regenerate `deck-lookup.js`. |
-| `scrape.py --import-collection <xlsx>` | Read a filled-in collection workbook (`Qty Owned` + optional `Qty En Route` columns); emit `collection-owned.js` and `collection-enroute.js`. |
+| Command | Status | Output |
+|---|---|---|
+| `scrape.py <archetype-url>` | retired | Full scrape for one legend → `legends/<slug>/{decks.json, data.js}` + downstream artifacts. |
+| `scrape.py --update [<slug>…]` | retired | Incremental deck fetch + tournaments.js + champion-slugs.js + downstream artifacts. |
+| `scrape.py --refresh [<slug>…]` | retired | Re-fetch every cached deck URL (poison-flush). Clean source IP only. |
+| `scrape.py --check` | retired | Read-only freshness report. |
+| `scrape.py --tournaments` | retired | Tournament catalog + deck→tournament map (`tournaments.json/.js`). |
+| `scrape.py --catalog` | live-ish | Re-scrape all card detail pages (`/cards/*` — not affected by the deck-page bot wall). Use for new sets. |
+| `scrape.py --catalog-new` | live-ish | Incremental catalog backfill for missing slugs. |
+| `scrape.py --staples` / `--closeness` / `--deck-lookup` / `--collection` | local-only | Regenerate the respective artifact from the frozen `legends/*/decks.json`. No network. |
+| `scrape.py --import-collection <xlsx>` | **live** | Read a filled-in collection workbook → `collection-owned.js` + `collection-enroute.js` (static fallbacks behind the live Sheet). No network. |
 
-Always include `?metagame_id=3` on archetype URLs (current release period).
-Canonical URL form: `https://riftdecks.com/legends/constructed/<slug>?metagame_id=3`.
+Historical: archetype URLs used `?metagame_id=3` (the Unleashed period);
+canonical form `https://riftdecks.com/legends/constructed/<slug>?metagame_id=3`.
 
 ## Key invariants
 

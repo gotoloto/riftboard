@@ -4,8 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light"){document.documentElement.dataset.theme=t}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){document.documentElement.dataset.theme="dark"}}catch(e){}})();</script>
-  <title>Riftbound archetype card frequency</title>
-  <link rel="stylesheet" href="styles.css?v=30" />
+  <title>Riftboard — lineup</title>
+  <link rel="stylesheet" href="styles.css?v=31" />
+  <link rel="stylesheet" href="collection.css?v=15" />
+  <link rel="stylesheet" href="lineup.css?v=25" />
 </head>
 <body>
   <aside id="motto" class="motto" aria-label="Site motto">
@@ -39,143 +41,51 @@
 
   <header>
     <div class="header-row">
-      <h1 id="archetype-title">Loading…</h1>
-      <select id="champion-select" aria-label="Switch champion"></select>
-      <nav class="page-nav" aria-label="Other tools">
+      <h1>Lineup</h1>
+      <nav class="page-nav" aria-label="Site tools">
         <a href="builder.html">Builder</a>
-        <a href="lineup.html">Lineup</a>
-        <a href="cart.html">Build cart</a>
-        <a href="closeness.html">Collection closeness</a>
-        <a href="diff.html">Deck diff</a>
-        <a href="staples.html">Staples</a>
         <a href="https://docs.google.com/spreadsheets/d/1Q7RCiWYiC52FIkkDIReUkfotIyGVRSUr/edit" target="_blank" rel="noopener">Collection sheet ↗</a>
       </nav>
     </div>
     <p id="meta" class="muted"></p>
+    <p id="sheet-status" class="muted sheet-status"></p>
+    <p class="muted note">
+      Read-only view of every locked deck across both players. Cards
+      are flagged red when the household doesn't own enough copies
+      (counting just <strong>owned</strong> — not en-route). Hover any
+      card name for the printed art.
+    </p>
   </header>
 
-  <section class="controls">
-    <div class="board-toggle" role="tablist" aria-label="Mainboard or sideboard">
-      <button type="button" class="board-btn active" data-board="main" role="tab" aria-selected="true">Mainboard</button>
-      <button type="button" class="board-btn" data-board="side" role="tab">Sideboard</button>
-    </div>
-    <input id="search" type="search" placeholder="Filter cards by name…" autocomplete="off" />
-    <label class="toggle">
-      <input id="hide-zero" type="checkbox" />
-      Hide cards in fewer than
-      <input id="min-decks" type="number" min="1" value="1" />
-      decks
+  <section class="lineup-controls">
+    <label class="enroute-toggle">
+      <input type="checkbox" id="include-enroute" />
+      Include en-route as owned
     </label>
-    <span id="row-count" class="muted"></span>
+    <span class="muted small">(default off — strictest "can I play this deck right now" check)</span>
   </section>
 
-  <section class="perf-filter" aria-label="Filter by tournament finish">
-    <span class="label">Tournament finish:</span>
-    <div class="presets">
-      <button type="button" class="preset" data-pct="100">All</button>
-      <button type="button" class="preset" data-pct="50">Top 50%</button>
-      <button type="button" class="preset" data-pct="25">Top 25%</button>
-      <button type="button" class="preset" data-pct="10">Top 10%</button>
-    </div>
-    <span class="custom">
-      Custom: top
-      <input type="number" id="pct-input" min="1" max="100" value="100" />%
-    </span>
-    <label class="toggle">
-      <input id="include-unranked" type="checkbox" checked />
-      include unranked
-    </label>
-    <span class="separator">·</span>
-    <label class="toggle">
-      Decks since:
-      <input type="date" id="min-date" />
-      <button type="button" class="clear-btn" id="clear-date" title="Clear date filter">×</button>
-    </label>
-    <span id="date-range-hint" class="muted"></span>
-    <span id="deck-count-info" class="muted"></span>
-  </section>
+  <main class="lineup-grid" id="lineup-grid"></main>
 
-  <section class="stat-strip" aria-label="Tournament performance">
-    <div class="stat-card" id="stat-median"><div class="stat-label">Median finish</div><div class="stat-value">—</div></div>
-    <div class="stat-card" id="stat-top8"><div class="stat-label">Top-8 rate</div><div class="stat-value">—</div></div>
-    <div class="stat-card" id="stat-best"><div class="stat-label">Best ever</div><div class="stat-value">—</div></div>
-    <div class="stat-card" id="stat-events"><div class="stat-label">Distinct events</div><div class="stat-value">—</div></div>
-    <div class="stat-card" id="stat-sparkline">
-      <div class="stat-label">Last 12 weeks <span id="stat-sparkline-delta"></span></div>
-      <svg id="trend-sparkline" width="200" height="30" aria-label="Weekly deck count, last 12 weeks"></svg>
-    </div>
-  </section>
-
-  <section class="region-filter" aria-label="Filter by region">
-    <span class="label">Region:</span>
-    <div class="region-pills">
-      <button type="button" class="region-pill active" data-region="">All</button>
-      <button type="button" class="region-pill" data-region="WEST">Western (Bo3)</button>
-      <button type="button" class="region-pill" data-region="CN">Chinese (Bo1)</button>
-      <button type="button" class="region-pill" data-region="ONLINE">Online</button>
-      <button type="button" class="region-pill" data-region="unknown">Unclassified</button>
-    </div>
-    <span id="region-info" class="muted"></span>
-  </section>
-
-  <section class="type-filters" id="type-filters" aria-label="Filter by type"></section>
-
-  <section class="median-deck">
-    <details id="median-details" open>
-      <summary>
-        <span class="median-title">Median deck list</span>
-        <div class="median-mode-toggle" role="tablist" aria-label="Median deck mode">
-          <button type="button" class="mode-btn active" data-mode="composite" role="tab" aria-selected="true">Composite</button>
-          <button type="button" class="mode-btn" data-mode="representative" role="tab">Representative deck</button>
-        </div>
-        <button type="button" id="copy-decklist" class="copy-btn" title="Copy as a sectioned decklist (pastes back into Builder)">Copy plaintext</button>
-        <span id="median-context" class="muted"></span>
-      </summary>
-      <div id="median-meta" class="muted"></div>
-      <div id="median-content"></div>
-    </details>
-  </section>
-
-  <main>
-    <div class="table-scroll">
-      <table id="cards-table">
-        <thead>
-          <tr>
-            <th data-sort="name">Card</th>
-            <th data-sort="type">Type</th>
-            <th data-sort="domains">Domains</th>
-            <th data-sort="cost" class="num">Cost</th>
-            <th data-sort="decks_including" class="num">Decks</th>
-            <th data-sort="inclusion_pct" class="num">Inclusion</th>
-            <th data-sort="avg_copies_when_included" class="num">Avg copies</th>
-            <th data-sort="copies_pct.1" class="num" title="Of decks running this card, % running 1 copy">1×</th>
-            <th data-sort="copies_pct.2" class="num" title="Of decks running this card, % running 2 copies">2×</th>
-            <th data-sort="copies_pct.3+" class="num" title="Of decks running this card, % running 3+ copies">3+×</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p id="empty-state" hidden>No cards match.</p>
-  </main>
-
-  <section class="composition-variance">
-    <details>
-      <summary>
-        <span class="cv-title">Composition variance</span>
-        <span id="cv-summary" class="muted"></span>
-      </summary>
-      <div id="composition-variance"></div>
-    </details>
-  </section>
+  <footer class="retired-tools muted">
+    Retired tools <span class="frozen-note">(tournament data frozen June 2026)</span>:
+    <a href="meta.html">Meta dashboard</a> ·
+    <a href="staples.html">Staples</a> ·
+    <a href="cart.html">Build cart</a> ·
+    <a href="closeness.html">Collection closeness</a> ·
+    <a href="diff.html">Deck diff</a>
+  </footer>
 
   <img id="card-thumb" alt="" hidden />
+  <div id="toast" hidden></div>
+
   <script src="utils.js?v=20"></script>
-  <script src="champions.js"></script>
-  <script src="champion-slugs.js"></script>
-  <script src="tcgplayer-fixes.js"></script>
-  <script src="tournaments.js"></script>
-  <script src="app.js?v=21"></script>
+  <script src="cards-catalog.js?v=14"></script>
+  <script src="champion-slugs.js?v=14"></script>
+  <script src="collection-owned.js?v=14"></script>
+  <script src="collection-enroute.js?v=14"></script>
+  <script src="collection-sheet.js?v=14"></script>
+  <script src="lineup-app.js?v=25"></script>
   <script src="theme.js?v=1"></script>
 </body>
 </html>

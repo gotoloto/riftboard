@@ -634,7 +634,7 @@ function legendChipsHtml(legends, max = 4) {
   const cls = legends.length === 1 ? "legend-chip solo" : "legend-chip";
   const parts = shown.map(
     (L) =>
-      `<a class="${cls}" href="./?champion=${encodeURIComponent(L.slug)}" title="${escapeHtml(L.name)} — ${L.qty}×">${escapeHtml(L.name)}<span class="qty">×${L.qty}</span></a>`
+      `<a class="${cls}" href="meta.html?champion=${encodeURIComponent(L.slug)}" title="${escapeHtml(L.name)} — ${L.qty}×">${escapeHtml(L.name)}<span class="qty">×${L.qty}</span></a>`
   );
   if (rest > 0) parts.push(`<span class="muted">+${rest} more</span>`);
   return parts.join("");

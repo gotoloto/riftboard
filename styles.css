@@ -766,3 +766,24 @@ td.missing-pos {
 }
 .median-section .name a { color: var(--accent); text-decoration: none; }
 .median-section .name a:hover { text-decoration: underline; }
+
+/* ---------- Retirement chrome (2026-06 recentering) ---------- */
+/* Amber one-liner under retired-page headers. Same voice as
+   .sheet-status.warn but standalone (no JS state). */
+.retired-banner {
+  margin: 4px 0 6px;
+  font-size: 12px;
+  color: #fbbf24;
+}
+.retired-banner::before { content: "⚠ "; }
+
+/* Muted archive footer on the Lineup homepage. */
+.retired-tools {
+  margin-top: 28px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+.retired-tools a { color: var(--muted); text-decoration: underline; }
+.retired-tools a:hover { color: var(--accent); }
+.retired-tools .frozen-note { font-style: italic; }

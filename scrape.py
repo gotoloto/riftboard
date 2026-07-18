@@ -2065,6 +2065,13 @@ def save_staples_js(payload: dict, path: str = "staples.js") -> None:
     os.replace(tmp, path)
 
 
+
+def _print_retirement_notice() -> None:
+    print(
+        "NOTE: deck scraping retired 2026-06 — riftdecks backend divergence; "
+        "site data is frozen. See CLAUDE.md."
+    )
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if args and args[0] == "--staples":
@@ -2157,6 +2164,7 @@ if __name__ == "__main__":
         for s, c in new:
             print(f"  + {s}: {c} (not cached — run `scrape.py {LEGENDS_INDEX_URL[:-len('/legends')]}/legends/constructed/{s}?metagame_id=3` to add)")
     elif args and args[0] == "--update":
+        _print_retirement_notice()
         check_canary()
         explicit_slugs = args[1:]
         if explicit_slugs:
@@ -2217,6 +2225,7 @@ if __name__ == "__main__":
         # Used to repair the cache after scraping through a poisoned IP
         # (riftdecks' IP-affinity backend serves different content per IP).
         # See CLAUDE.md for context.
+        _print_retirement_notice()
         check_canary()
         explicit_slugs = args[1:]
         slugs = explicit_slugs if explicit_slugs else list_cached_slugs()
@@ -2251,6 +2260,7 @@ if __name__ == "__main__":
             "staples.js + collection-template.xlsx + closeness-data.js + deck-lookup.js refreshed"
         )
     else:
+        _print_retirement_notice()
         check_canary()
         url = args[0] if args else DEFAULT_URL
         main(url)

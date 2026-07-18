@@ -1569,10 +1569,17 @@ async function init() {
     championSelectEl.hidden = true;
     return;
   }
+  // ?champion=<slug> deep link (from builder/staples/cart legend chips)
+  // wins over the last-viewed champion in localStorage.
   let preferred = null;
   try {
-    preferred = localStorage.getItem(LAST_CHAMPION_KEY);
+    preferred = new URLSearchParams(location.search).get("champion");
   } catch (_) {}
+  if (!preferred || !champions.some((c) => c.slug === preferred)) {
+    try {
+      preferred = localStorage.getItem(LAST_CHAMPION_KEY);
+    } catch (_) {}
+  }
   const initial =
     champions.find((c) => c.slug === preferred) || champions[0];
   populateChampionSelect(champions, initial.slug);
