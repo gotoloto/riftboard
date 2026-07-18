@@ -683,7 +683,7 @@ function renderDeckPanel(tabName, deck, usage) {
   if (sideEntries.length) {
     const sideTotal = sideEntries.reduce((s, [, q]) => s + q, 0);
     sections.push(`<section class="deck-section">
-      <header><span>Sideboard</span><span>${sideTotal}/8</span></header>
+      <header><span>Sideboard</span><span>${sideTotal}/10</span></header>
       <ul class="deck-list">${sideEntries.map(([s, q]) => itemRow(s, q, usage, tabName, "side")).join("")}</ul>
     </section>`);
   }

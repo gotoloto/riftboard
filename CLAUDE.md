@@ -122,8 +122,8 @@ canonical form `https://riftdecks.com/legends/constructed/<slug>?metagame_id=3`.
   Verified on 2026-06 that the Claude-env IP hits the *poisoned*
   backend — the new canary correctly aborts there where the old one
   would have proceeded.
-- **Set sizes** (for completeness checks): UNL 219, OGN 298, SFD 221, OGS 24.
-  Catalog now covers all 763 canonical printings (overnumbered-only dropped).
+- **Set sizes** (for completeness checks): UNL 219, OGN 298, SFD 221, OGS 25, VEN 166 (the 2026-06 wave; its 9 legends get full names synthesized from slugs since no archetype pages were ever scraped).
+  Catalog now covers 929 canonical printings (overnumbered-only dropped).
 - **40 legends** currently cached. All on `?metagame_id=3`.
 
 ## Personal data

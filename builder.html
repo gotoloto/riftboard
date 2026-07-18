@@ -146,7 +146,7 @@
 
       <div class="deck-pane" id="deck-side" hidden>
         <section class="deck-section" data-bucket="side">
-          <header><span>Sideboard</span><span class="count"><span id="cnt-side">0</span>/8</span></header>
+          <header><span>Sideboard</span><span class="count"><span id="cnt-side">0</span>/10</span></header>
           <ul class="deck-list"></ul>
         </section>
         <div class="energy-curve" id="curve-side" aria-label="Sideboard energy curve"></div>
@@ -155,6 +155,7 @@
 
       <footer class="deck-footer">
         <button type="button" id="copy-deck" class="copy-btn">Copy decklist</button>
+        <button type="button" id="copy-rift-atlas" class="copy-btn" title="Copy in Rift Atlas import format — includes a Runes section derived from your legend's domains (even 12-rune split)">Copy for Rift Atlas</button>
         <button type="button" id="new-deck" class="copy-btn" title="Wipe the current draft">New deck</button>
         <button type="button" id="import-deck" class="copy-btn" title="Paste a decklist to load it">Paste…</button>
         <span id="read-lock-buttons" class="read-lock-buttons"></span>
@@ -182,14 +183,14 @@
   <div id="toast" hidden></div>
 
   <script src="utils.js?v=20"></script>
-  <script src="cards-catalog.js"></script>
+  <script src="cards-catalog.js?v=15"></script>
   <script src="champion-slugs.js"></script>
   <script src="closeness-data.js"></script>
   <script src="champions.js"></script>
   <script src="collection-owned.js"></script>
   <script src="collection-enroute.js"></script>
   <script src="collection-sheet.js"></script>
-  <script src="collection-app.js?v=16"></script>
+  <script src="collection-app.js?v=17"></script>
   <script src="theme.js?v=1"></script>
 </body>
 </html>

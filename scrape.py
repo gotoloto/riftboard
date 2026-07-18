@@ -1397,6 +1397,27 @@ def extract_card_price(html: str):
         return None
 
 
+def synthesize_legend_full_name(slug: str, epithet: str) -> str | None:
+    """Reconstruct 'Renekton, Butcher of the Sands' from
+    slug='details-renekton-butcher-of-the-sands' + epithet='Butcher of
+    the Sands'. Slugify the epithet, strip it off the slug's tail, and
+    title-case the remaining champion tokens. Returns None if the slug
+    doesn't end with the epithet (unexpected shape — leave name as-is)."""
+    body = slug.removeprefix("details-")
+    # Riftdecks drops apostrophes when slugifying ("Soul's" → "souls",
+    # "Kai'Sa" → "kaisa") rather than treating them as separators.
+    ep_slug = re.sub(
+        r"[^a-z0-9]+", "-", epithet.lower().replace("'", "").replace("’", "")
+    ).strip("-")
+    if not ep_slug or not body.endswith("-" + ep_slug):
+        return None
+    champ_tokens = body[: -(len(ep_slug) + 1)].split("-")
+    if not champ_tokens or not champ_tokens[0]:
+        return None
+    champ = " ".join(t.capitalize() for t in champ_tokens)
+    return f"{champ}, {epithet}"
+
+
 def fetch_card_catalog(slugs=None) -> dict:
     """Walk /cards for every card slug, fetch each detail page, and record
     the *canonical* printing (lowest numeric collector # that's in-range and
@@ -1520,6 +1541,15 @@ def fetch_card_catalog(slugs=None) -> dict:
         # epithet-only string the detail page returns.
         if card_type == "legend" and slug in legend_full_names:
             card_name = legend_full_names[slug]
+        elif card_type == "legend" and "," not in card_name:
+            # No cached archetype to source the full name from (deck
+            # scraping retired; new-set legends never get archetype
+            # pages scraped). Synthesize "<Champion>, <Epithet>" from the
+            # slug: strip the slugified epithet off the end, what's left
+            # is the champion-name tokens.
+            synth = synthesize_legend_full_name(slug, card_name)
+            if synth:
+                card_name = synth
         out[slug] = {
             "slug": slug,
             "name": card_name,

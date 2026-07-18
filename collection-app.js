@@ -23,7 +23,7 @@ const CHAMPION_SLUGS = new Set(window.__CHAMPION_SLUGS__ || []);
 // Static enums used by the pill filters. Kept here (not derived from catalog)
 // so empty categories always render — gives the UI predictable layout.
 const RARITY_OPTS = ["common", "uncommon", "rare", "epic"];
-const SET_OPTS = ["UNL", "OGN", "SFD", "OGS"];
+const SET_OPTS = ["UNL", "OGN", "SFD", "OGS", "VEN"];
 const TYPE_OPTS = ["unit", "spell", "gear", "rune", "legend", "battlefield"];
 const DOMAIN_OPTS = ["calm", "chaos", "fury", "mind", "order", "body", "colorless"];
 
@@ -993,7 +993,7 @@ function renderDeck() {
     .classList.toggle("over", bfTotal > 3);
   document
     .querySelector('.deck-section[data-bucket="side"]')
-    .classList.toggle("over", sideTotalN > 8);
+    .classList.toggle("over", sideTotalN > 10);
   const totalEl = document.querySelector(".deck-total");
   totalEl.classList.toggle("over", mTotal > 40);
 
@@ -1102,9 +1102,60 @@ function buildDecklistText() {
   return lines.join("\n");
 }
 
-async function copyDeck() {
-  const text = buildDecklistText();
-  const btn = document.getElementById("copy-deck");
+function buildRiftAtlasText() {
+  // Rift Atlas import format. Same skeleton as buildDecklistText but:
+  //   - includes a `Runes:` section (Rift Atlas wants a complete 56-card
+  //     list; the builder doesn't track runes, so we derive an even
+  //     12-rune split from the legend's domains — 6/6 for dual-domain
+  //     legends, 12 for mono. Adjust in Rift Atlas if your build skews.)
+  //   - `Sideboard:` capitalization (riftdecks-style uses `SideBoard`).
+  const lines = [];
+  const nameOf = (slug) => catalog[slug]?.name || slug;
+  const sortEntries = (entries) =>
+    entries.sort((a, b) => nameOf(a[0]).localeCompare(nameOf(b[0])));
+  const sec = (header, body) => {
+    if (!body.length) return;
+    if (lines.length) lines.push("");
+    lines.push(`${header}:`);
+    for (const line of body) lines.push(line);
+  };
+
+  if (deck.legend) sec("Legend", [`1 ${nameOf(deck.legend)}`]);
+  if (deck.champion) sec("Champion", [`1 ${nameOf(deck.champion)}`]);
+  const mainEntries = sortEntries(Object.entries(deck.main));
+  if (mainEntries.length) {
+    sec("MainDeck", mainEntries.map(([s, q]) => `${q} ${nameOf(s)}`));
+  }
+  const bfEntries = sortEntries(Object.entries(deck.battlefields));
+  if (bfEntries.length) {
+    sec("Battlefields", bfEntries.map(([s, q]) => `${q} ${nameOf(s)}`));
+  }
+  if (deck.legend) {
+    const domains = (catalog[deck.legend]?.domains || [])
+      .filter((d) => d !== "colorless")
+      .sort();
+    const cap = (d) => d.charAt(0).toUpperCase() + d.slice(1);
+    if (domains.length === 1) {
+      sec("Runes", [`12 ${cap(domains[0])} Rune`]);
+    } else if (domains.length >= 2) {
+      const per = Math.floor(12 / domains.length);
+      const first = 12 - per * (domains.length - 1);
+      sec(
+        "Runes",
+        domains.map((d, i) => `${i === 0 ? first : per} ${cap(d)} Rune`)
+      );
+    }
+  }
+  const sideEntries = sortEntries(Object.entries(deck.side));
+  if (sideEntries.length) {
+    sec("Sideboard", sideEntries.map(([s, q]) => `${q} ${nameOf(s)}`));
+  }
+  return lines.join("\n");
+}
+
+// Shared clipboard-write + button feedback for the two copy buttons.
+async function copyTextWithFeedback(text, btnId, idleLabel) {
+  const btn = document.getElementById(btnId);
   if (!text) {
     toast("Deck is empty");
     return;
@@ -1124,8 +1175,20 @@ async function copyDeck() {
   btn.textContent = "Copied ✓";
   setTimeout(() => {
     btn.classList.remove("copied");
-    btn.textContent = "Copy decklist";
+    btn.textContent = idleLabel;
   }, 1600);
+}
+
+async function copyDeck() {
+  await copyTextWithFeedback(buildDecklistText(), "copy-deck", "Copy decklist");
+}
+
+async function copyRiftAtlas() {
+  await copyTextWithFeedback(
+    buildRiftAtlasText(),
+    "copy-rift-atlas",
+    "Copy for Rift Atlas"
+  );
 }
 
 // attachHoverThumb lives in utils.js (reads the rendered #card-thumb width
@@ -1244,6 +1307,7 @@ function init() {
   });
 
   document.getElementById("copy-deck").addEventListener("click", copyDeck);
+  document.getElementById("copy-rift-atlas").addEventListener("click", copyRiftAtlas);
   document.getElementById("new-deck").addEventListener("click", newDeck);
 
   // Paste-import UI
