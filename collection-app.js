@@ -1191,6 +1191,48 @@ async function copyRiftAtlas() {
   );
 }
 
+function buildUnownedTcgText() {
+  // One "N Name" line per card the deck uses more copies of than the
+  // collection provides — the same math that turns rows red in the
+  // sidebar (deckTotalIn vs ownedFor, so the en-route and lock toggles
+  // are respected). Names go through tcgplayerName() so the output
+  // pastes straight into TCGplayer's mass entry.
+  const slugs = new Set([
+    ...(deck.legend ? [deck.legend] : []),
+    ...(deck.champion ? [deck.champion] : []),
+    ...Object.keys(deck.battlefields),
+    ...Object.keys(deck.main),
+    ...Object.keys(deck.side),
+  ]);
+  const lines = [];
+  for (const slug of slugs) {
+    const deficit = deckTotalIn(slug) - ownedFor(slug);
+    if (deficit <= 0) continue;
+    const name = catalog[slug]?.name || slug;
+    lines.push({ name, deficit });
+  }
+  lines.sort((a, b) => a.name.localeCompare(b.name));
+  return lines.map((l) => `${l.deficit} ${tcgplayerName(l.name)}`).join("\n");
+}
+
+async function copyUnowned() {
+  const hasCards =
+    deck.legend || deck.champion ||
+    Object.keys(deck.battlefields).length ||
+    Object.keys(deck.main).length ||
+    Object.keys(deck.side).length;
+  if (!hasCards) {
+    toast("Deck is empty");
+    return;
+  }
+  const text = buildUnownedTcgText();
+  if (!text) {
+    toast("No unowned cards — deck fully covered ✓");
+    return;
+  }
+  await copyTextWithFeedback(text, "copy-unowned", "Copy unowned");
+}
+
 // attachHoverThumb lives in utils.js (reads the rendered #card-thumb width
 // via getComputedStyle so the 240px override in collection.css still wins).
 
@@ -1308,6 +1350,7 @@ function init() {
 
   document.getElementById("copy-deck").addEventListener("click", copyDeck);
   document.getElementById("copy-rift-atlas").addEventListener("click", copyRiftAtlas);
+  document.getElementById("copy-unowned").addEventListener("click", copyUnowned);
   document.getElementById("new-deck").addEventListener("click", newDeck);
 
   // Paste-import UI

@@ -156,6 +156,7 @@
       <footer class="deck-footer">
         <button type="button" id="copy-deck" class="copy-btn">Copy decklist</button>
         <button type="button" id="copy-rift-atlas" class="copy-btn" title="Copy in Rift Atlas import format — includes a Runes section derived from your legend's domains (even 12-rune split)">Copy for Rift Atlas</button>
+        <button type="button" id="copy-unowned" class="copy-btn" title="Copy the cards this deck needs but the collection can't supply (the red rows), in TCGplayer mass-entry format">Copy unowned</button>
         <button type="button" id="new-deck" class="copy-btn" title="Wipe the current draft">New deck</button>
         <button type="button" id="import-deck" class="copy-btn" title="Paste a decklist to load it">Paste…</button>
         <span id="read-lock-buttons" class="read-lock-buttons"></span>
@@ -190,7 +191,8 @@
   <script src="collection-owned.js"></script>
   <script src="collection-enroute.js"></script>
   <script src="collection-sheet.js"></script>
-  <script src="collection-app.js?v=17"></script>
+  <script src="tcgplayer-fixes.js"></script>
+  <script src="collection-app.js?v=18"></script>
   <script src="theme.js?v=1"></script>
 </body>
 </html>
