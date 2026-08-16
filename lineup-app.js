@@ -791,7 +791,47 @@ if (enrouteEl) {
   });
 }
 
+// ---------- tap-to-view card preview ----------
+// The hover thumb is dead on touch devices (hidden via the
+// hover:none media query), so tapping a card row opens a full-screen
+// lightbox instead. Works on desktop too — lineup card names aren't
+// links, so a click has no competing behavior there.
+function attachTapCardPreview() {
+  let box = null;
+  function ensureBox() {
+    if (box) return box;
+    box = document.createElement("div");
+    box.id = "card-lightbox";
+    box.hidden = true;
+    box.innerHTML = `<img alt="" />`;
+    box.addEventListener("click", close);
+    document.body.appendChild(box);
+    return box;
+  }
+  function close() {
+    if (box) box.hidden = true;
+  }
+  document.body.addEventListener("click", (ev) => {
+    const li = ev.target.closest(".deck-panel .deck-list li[data-slug]");
+    if (!li) return;
+    const slug = li.dataset.slug;
+    const img =
+      li.querySelector(".card-name[data-img]")?.dataset.img ||
+      catalog[slug]?.image_url;
+    if (!img) return;
+    const b = ensureBox();
+    b.classList.toggle("battlefield", catalog[slug]?.type === "battlefield");
+    const imgEl = b.querySelector("img");
+    if (imgEl.src !== img) imgEl.src = img;
+    b.hidden = false;
+  });
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") close();
+  });
+}
+
 renderSkeleton();
+attachTapCardPreview();
 // If the static defaults already have data and the sheet has loaded its
 // raw locks (rare race — usually we wait for the event), render now too.
 if (window.__LOCKS_RAW__) renderAll();

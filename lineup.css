@@ -199,3 +199,33 @@
   border-top: 1px solid var(--border);
   font-size: 11px;
 }
+
+/* ---------- Tap-to-view card lightbox ---------- */
+/* Touch path for card art (hover thumb is hidden on touch devices).
+   Tap a card row → full-screen preview; tap anywhere / Esc closes. */
+#card-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+/* Author display:flex would otherwise defeat the `hidden` attribute
+   (UA display:none loses to author rules) — reassert it. */
+#card-lightbox[hidden] { display: none; }
+#card-lightbox img {
+  max-width: 92vw;
+  max-height: 85vh;
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+}
+/* Battlefields are landscape — rotate and swap the fit constraints so
+   the rotated art still fits the viewport. */
+#card-lightbox.battlefield img {
+  transform: rotate(90deg);
+  max-width: 85vh;
+  max-height: 92vw;
+}
