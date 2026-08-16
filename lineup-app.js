@@ -46,10 +46,42 @@ const nameToSlug = new Map();
 const SECTION_RE = /^(LEGEND|BATTLEFIELDS?|MAINDECK|MAIN\s*DECK|CHAMPION|SIDEBOARD|SIDE\s*BOARD|RUNE\s*POOL|RUNES?)(?:\s*\(\s*\d+\s*\))?\s*:?\s*$/i;
 const LINE_RE = /^(\d+)\s+(.+)$/;
 
+// Real CSV parser (same algorithm as collection-sheet.js). The old
+// approach — strip a leading/trailing quote off each text line — broke
+// the moment a lock tab picked up a second column: gviz then emits
+// `"1 Card Name",""` and naive stripping leaves `1 Card Name","`,
+// which fails the name lookup and silently blanks the whole deck.
+function parseCSVRows(text) {
+  const rows = [];
+  let cur = [];
+  let cell = "";
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++; }
+        else inQuotes = false;
+      } else {
+        cell += ch;
+      }
+    } else {
+      if (ch === '"') inQuotes = true;
+      else if (ch === ",") { cur.push(cell); cell = ""; }
+      else if (ch === "\r") { /* skip */ }
+      else if (ch === "\n") { cur.push(cell); rows.push(cur); cur = []; cell = ""; }
+      else cell += ch;
+    }
+  }
+  if (cell.length || cur.length) { cur.push(cell); rows.push(cur); }
+  return rows;
+}
+
 function parseLockText(text) {
   // Returns { legend, champion, battlefields, main, side, warnings }.
-  // Mirrors parseDecklistText but walks both row-major CSV layouts (one
-  // cell per line) AND the single-cell-with-newlines layout.
+  // Walks CSV rows cell-by-cell (splitting multi-line cells), so both
+  // paste layouts work: one row per line, or one cell with embedded
+  // newlines — with any number of stray extra columns.
   const out = {
     legend: null,
     champion: null,
@@ -60,16 +92,17 @@ function parseLockText(text) {
   };
   if (!text) return out;
   let section = null;
-  // Strip outer CSV quoting (Sheets wraps multi-line cells in quotes,
-  // doubling embedded quotes — gviz/tq export only un-escapes them
-  // partially. Handle defensively.)
-  for (let rawLine of text.split(/\r?\n/)) {
-    let line = rawLine.trim();
-    if (!line) continue;
-    if (line.startsWith('"') && line.endsWith('"')) {
-      line = line.slice(1, -1).trim();
+  const lines = [];
+  for (const row of parseCSVRows(text)) {
+    for (const cell of row) {
+      if (cell == null) continue;
+      for (const rawLine of String(cell).split(/\r?\n/)) {
+        const line = rawLine.trim();
+        if (line) lines.push(line);
+      }
     }
-    if (!line) continue;
+  }
+  for (const line of lines) {
     const m = line.match(SECTION_RE);
     if (m) {
       const head = m[1].toUpperCase().replace(/\s+/g, "");
