@@ -1424,7 +1424,10 @@ function loadFromLock(tabName, btnEl) {
     toast(`${tabName} is empty.`);
     return;
   }
-  const warnings = importDecklistText(raw);
+  // The lock text arrives as gviz CSV — parse it properly (stray extra
+  // columns emit rows like `"1 Defy",""` that naive quote-stripping
+  // mangles into unknown-card soup) and feed clean lines to the parser.
+  const warnings = importDecklistText(csvCellLines(raw).join("\n"));
   if (warnings.length) {
     toast(
       `Loaded from ${tabName} — ${warnings.length} warning${

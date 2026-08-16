@@ -150,6 +150,48 @@ function ensureLockToggles(containerEl, pagePrefix, onChange) {
   }
 }
 
+// ---------- CSV → text lines ----------
+// Google Sheets gviz CSV export wraps cells in quotes and — the moment a
+// tab picks up a stray second column — emits rows like `"1 Defy",""`.
+// Naive quote-stripping mangles those. This parses real CSV (quote
+// escaping included), walks cells row-major, splits multi-line cells,
+// and returns clean trimmed lines ready for a decklist parser.
+function csvCellLines(text) {
+  const rows = [];
+  let cur = [];
+  let cell = "";
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++; }
+        else inQuotes = false;
+      } else {
+        cell += ch;
+      }
+    } else {
+      if (ch === '"') inQuotes = true;
+      else if (ch === ",") { cur.push(cell); cell = ""; }
+      else if (ch === "\r") { /* skip */ }
+      else if (ch === "\n") { cur.push(cell); rows.push(cur); cur = []; cell = ""; }
+      else cell += ch;
+    }
+  }
+  if (cell.length || cur.length) { cur.push(cell); rows.push(cur); }
+  const lines = [];
+  for (const row of rows) {
+    for (const c of row) {
+      if (c == null) continue;
+      for (const rawLine of String(c).split(/\r?\n/)) {
+        const line = rawLine.trim();
+        if (line) lines.push(line);
+      }
+    }
+  }
+  return lines;
+}
+
 // ---------- catalog cost parser ----------
 // Cost strings are "-" (no cost; battlefields, legends, runes) or a leading
 // energy followed by zero or more "C" power chars: "0C", "2", "5CC",
